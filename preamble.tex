@@ -1,0 +1,61 @@
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amstext} % for \text macro
+\usepackage{array}   % for new column macro
+\usepackage{commath}
+\usepackage{enumitem}
+\usepackage{fancyhdr} %for the top header
+\usepackage{forest}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
+\usepackage{lastpage} %literally just for last page
+\usepackage{mathtools}
+\usepackage[super]{nth}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+% code env packages
+\usepackage{listings, lstautogobble}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+
+\graphicspath{{images/}}
+
+%math mode cells
+\newcolumntype{C}{>{$}c<{$}} %
+
+%custom math shortcuts
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\sign}{sign}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\paren}{(}{)}
+\newcommand{\pa}[1]{\paren*{#1}}
+
+
+%custom symbols
+\def\checkmark{{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}\hspace{0.1in}} 
+
+\fancyhf{}
+\lhead{15-251 HW11 Corrections}
+\rhead{Michael You}
+
+%to automate the Task numbers
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}[subsection]
+\newtheorem{task}{Task}[section]
+\newtheorem{tip}{Tip}[section]
+
+%shortcuts for ^, ~, and programming font
+\newcommand{\tat}{{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}} %tilde
+\newcommand{\tac}{\textasciicircum} %XOR
+\newcommand{\te}[1]{\texttt{#1}} %for programming font
+\newcommand{\lra}{\Longrightarrow} % ==>

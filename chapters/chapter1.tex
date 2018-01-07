@@ -1,0 +1,154 @@
+\section*{Chapter 1}
+
+\setcounter{section}{1}
+
+%%% 1.2 %%%
+\setcounter{subsection}{2}
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item 
+	\begin{proof}
+		AFSOC $\sqrt{3}$ is rational, so $\exists m, n \in \mathbb{Z}$ such that 
+		\begin{equation}
+			\sqrt{3} = \frac{m}{n},
+		\end{equation}
+		where $\frac{m}{n}$ is in lowest reduced terms.
+		Then we can square both sides, yielding $3 = \pa{\frac{m}{n}}^2 \lra 3n^2 = m^2$. Now, we know $m^2$ is a multiple of 3 and thus $m$ must also. Then, we can write $m = 3k$, and derive
+		\begin{align*}
+		(\sqrt{3})^2 &= \pa{\frac{3k}{n}}^2 \\
+		3n^2 &= 9k^2 \\
+		n^2 &= 3k^2
+		\end{align*}
+		Similar to before, we come to the conclusion that $n$ is a multiple of 3. However, this is a contradiction since $m, n$ are both multiples of 3 and we assumed $\frac{m}{n}$ was in lowest terms. Thus, we conclude $\sqrt{3}$ is irrational.
+	\end{proof}
+	\item We cannot conclude that $\sqrt{4} = \frac{m}{n}$ implies that $m$ is a multiple of $4$, so we cannot reach our contradiction.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	\begin{enumerate}[label=(\alph*)]
+		\item False. Consider 
+		\begin{equation}
+			A_n = [0, \frac{1}{n}).
+		\end{equation}
+		Then 
+		\begin{equation}
+			\bigcap_{n=1}^\infty A_n = \{0\}.
+		\end{equation}
+		\item True
+		\item False. Consider $A = \{1, 2\}, B = \{1\}, C = \{2, 3\}$.
+		\item True
+		\item True
+	\end{enumerate}
+\end{exercise}
+
+%%% 1.3 %%%
+\setcounter{subsection}{3}
+\setcounter{exercise}{0}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item We compute the additive inverse for each element in $\mathbb{Z}_5$. 
+	\begin{align*}
+		0 + 0 &\equiv 0 \\
+		1 + 4 &\equiv 0 \\
+		2 + 3 &\equiv 0 \\
+		3 + 2 &\equiv 0 \\
+		4 + 1 &\equiv 0
+	\end{align*}
+	\item We compute the multiplicative inverse for each element in $\mathbb{Z}_5$. 
+	\begin{align*}
+		1 \times 1 &\equiv 1 \\
+		2 \times 3 &\equiv 1 \\
+		3 \times 2 &\equiv 1 \\
+		4 \times 4 &\equiv 1
+	\end{align*}
+	\item $\mathbb{Z}_4$ is not a field because multiplicative inverses do not exist for every single element. We conjecture that $\mathbb{Z}_n$ always has additive inverses and only has multiplicative inverses if $n$ is prime.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item  $s = \inf A$ means 
+	\begin{enumerate}[label=\roman*)]
+		\item $s$ is a lower bound for $A$
+		\item if $b$ is any lower bound for $A$, then $b \leq s$
+	\end{enumerate}
+	\item If $s\in \mathbb{R}$ is a lower bound for $A \subseteq \mathbb{R}$, then $s=\inf A$ iff $\forall \epsilon > 0, \exists a \in A$ such that $s + \epsilon > a$.
+	\begin{proof}
+		($\Rightarrow$)If $s=\inf A$, then $s$ is the greatest lower bound for $A$, meaning any $s+ \epsilon$ for $\epsilon > 0$ will be greater than some element of $A$, otherwise $s+ \epsilon$ is a greater lower bound and leads to a contradiction that $s \neq \inf A$.
+		($\Leftarrow$) If $\forall \epsilon > 0, \exists a \in A$ such that $s+\epsilon > a$, then since $s$ is a lower bound, $\forall b > s$, $b$ will not be a lower bound for $A$ since $b > s \lra \exists a \in A \mid b > a$. Thus, all lower bounds b must be such that $b \leq s$, and we conclude $s = \inf A$.
+	\end{proof}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item $\ast\ast\ast$
+	\item There might be a typo in this question. I think the question was meant to read ``explain why there is no need to assert that the greatest \textit{lower bound} in the Axiom of Completeness.'' In this case, the answer would be that the Axiom of Completeness already implies the greatest lower bound property, so there is no need to explicitly state it.
+	\item We can take the negative of all elements in $A$, find $\sup A$, and then negate again to get $\inf A$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	If $B \subseteq A$, then 
+	\begin{align*}
+		\sup A = s &\geq a \in A \\
+			s &\geq b \in B \tag{since $B\subseteq A$} \\
+			\lra s &\geq \sup B \tag{since $s$ is an upper bound for $B$}.
+	\end{align*}
+\end{exercise}
+
+\begin{exercise}
+	\begin{enumerate}[label=(\alph*)]
+		\item \begin{align*}
+		&s = \sup(c + A) \\
+		\lra &s \text{ is the least upper bound for } c + A \\
+		\lra &s - c \text{ is the least upper bound for } A \\
+		\lra &s - c = \sup A \\
+		&s = c + \sup A
+	\end{align*}
+		\item \begin{align*}
+			&s = \sup(cA) \\
+			&\lra s \text{ is the least upper bound for } cA \\
+			&\lra \frac{s}{c} \text{ is the least upper bound for } A \\
+			&\lra \frac{s}{c} = \sup A \\
+			&s = c \sup A
+		\end{align*}
+		\item If $c < 0$, $\sup(cA) = -c\sup(A)$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item $\sup, \sqrt{10}; \inf, 1$
+	\item $\sup, 1; \inf, 0$
+	\item $\sup, \frac{1}{2}; \inf, \frac{1}{3}$
+	\item $\sup, \infty; \inf, -\infty$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	If $a \geq a', \forall a' \in A$, and $a \in A$, then
+	\begin{equation}
+		\forall \epsilon > 0, a - \epsilon < a,
+	\end{equation}
+	so $a$ is the least upper bound for $A$, and $a = \sup A$.
+\end{exercise}
+
+\begin{exercise}
+	Let \begin{equation}
+	\epsilon = \sup B - \sup A > 0.
+	\end{equation}
+	since $s_b = \sup B$, $\exists b \in B \mid b > s_b - \epsilon / 2$. Since $s_b - \frac{\epsilon}{2} > \sup A$, then $b \geq \sup A$, so this $b \in B$ is an upper bound for $A$.
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item True (take the largest element)
+	\item False $\sup (0, 2) = 2$, but $2 > a \in (0, 2)$, but $\sup A = 2 \not < 2 = L$.
+	\item False $A = (0, 2), B = [2, 3)$. We have that $\sup A = \inf B$
+	\item True
+	\item False (take $A = B = (0, 2)$)
+\end{enumerate}
+\end{exercise}
