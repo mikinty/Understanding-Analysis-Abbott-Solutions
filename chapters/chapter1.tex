@@ -152,3 +152,131 @@
 	\item False (take $A = B = (0, 2)$)
 \end{enumerate}
 \end{exercise}
+
+%%% 1.4 %%%
+\setcounter{subsection}{4}
+\setcounter{exercise}{0}
+
+\begin{exercise}
+	If $a<0$, then we have two cases,
+	\begin{enumerate}
+		\item If $b > 0$, then $a < 0 < b$.
+		\item If $b = 0$, then we can take $-b, -a$, which satisfies $0 \leq -b < -a$, and apply Theorem 1.4.3.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item If $a, b \in \mathbb{Q}$, then 
+	\begin{align*}
+		a &= \frac{a_1}{a_2} \\
+		b &= \frac{b_1}{b_2} \\
+		\lra a + b &= \frac{a_1b_2 + a_2b_1}{a_2b_2} \in \mathbb{Q}
+	\end{align*}
+	\item AFSOC $at \in \mathbb{Q}$. But if $a = \frac{a_1}{a_2}$, this implies
+	\begin{equation*}
+		t = \frac{a_2}{a_1}\frac{m}{n} \in \mathbb{Q},
+	\end{equation*}
+	which is a contradiction, so we must have that $at \in\mathbb{I}$
+	\item $\mathbb{I}$ is not closed under addition or multiplication.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	We can apply Theorem 1.4.3, to find $a < q < b, q \in \mathbb{Q}$, and then subtract an irrational number such as $\sqrt{2}$ to end up at 
+	\begin{equation}
+		a - \sqrt{2} < q - \sqrt{2} < b - \sqrt{2},
+	\end{equation}
+	where $q- \sqrt{2} \in \mathbb{I}$.
+\end{exercise}
+
+\begin{exercise}
+	Suppose $\exists b$ lower bound such that $b > 0$. Then by Archimedean Property of $\mathbb{R}$, $\exists n \in \mathbb{N}$ such that $\frac{1}{n} < b$, which means $b$ is not a valid lower bound. Thus $b \leq 0$, and 0 is a valid lower bound so the $\inf$ is 0.
+\end{exercise}
+
+\begin{exercise}
+AFSOC $\exists \alpha \in \bigcap_{n=1}^\infty (0, \frac{1}{n})$. Then $\alpha >0$, but by Archimedean property of reals, we have that $\exists n \in \mathbb{N} \mid \frac{1}{n} < \alpha$. Since $\alpha \not\in (0, \frac{1}{n}$, $\alpha \not\in \bigcap_{n=1}^\infty (0, \frac{1}{n})$, a contradiction. Thus we conclude the set is empty.
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item If $\alpha^2 > 2$, then 
+	\begin{align*}
+		\pa{a - \frac{1}{n}}^2 &= \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} \\
+		&> \alpha^2 - \frac{2\alpha}{n}
+	\end{align*}
+	choose $\frac{1}{n_0} < \frac{\alpha^2 - 2}{2\alpha}$. Then
+	\begin{align*}
+		\pa{a - \frac{1}{n_0}}^2 &> \alpha^2 - \frac{2\alpha}{2\alpha}(\alpha^2 - 2)\\
+		&> 2
+	\end{align*}
+	but $\alpha - \frac{1}{n_0} < \alpha$, so $\alpha$ is not the least upper bound for the set.
+	\item Just replace $\sqrt{2}$ with $\sqrt{b}$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Take the minimum from the set. Assign as $i$, then remove the minimum from the set. Repeat for $i+1$ and so on.
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item If both are finite, then their union is finite and trivially countable. If one is finite, then first enumerate elements of the finite set. Then map the rest of $\mathbb{N}$ to the countably infinite set. If both are countably infinite, map one set to odds and the other to evens.
+	\item Induction only holds for finite integers, not infinity.
+	\item We can arrange each $A_n$ into row $n$ of a $\mathbb{N}\times \mathbb{N}$ matrix. Then, we enumerate by diagonalization.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item If $A \tat B$, then there is a 1-to-1 mapping. We can just take the inverse of the mapping to derive $B \tat A$.
+	\item If we have $f: A \rightarrow B$, $g: B \rightarrow C$, then we can compose the functions so $g(f(x)): A \rightarrow C$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+The set of all finite subsets of $\mathbb{N}$ can be ordered in increasing order by the sum of each subset.
+\end{exercise}
+
+\begin{exercise}
+\begin{enumerate}[label=(\alph*)]
+	\item $f(x) = x$
+	\item Interweave the decimal expansion of $x, y$, e.g. 
+	\begin{equation}
+	f(x, y) = 0.x_1y_1x_2y_2x_3y_3\dots
+	\end{equation}
+\end{enumerate}
+\end{exercise}
+
+\bx{
+\ea{
+	\item \begin{align*}
+		\sqrt{2}\,:\, x^2 -2 2 = 0 \\
+		\sqrt[3]{2}\,:\,x^3 - 2 = 0
+	\end{align*}
+	$\sqrt{3} + \sqrt{2}$ is not as trivial, so we will do it out in more steps.
+	
+	There are two approaches to finding the integer coefficient polynomial. One is to take advantage of symmetry, and derive that 
+	\begin{equation}
+	\prod (x - (\pm \sqrt{3} \pm {\sqrt{2})
+	\label{sym}
+	\end{equation}
+	will work (using loose notation of course). A more general technique is to notice that 
+	\begin{align*}
+		x &= \sqrt{3} + \sqrt{2} \\
+		x^2 &= 5 + 2\sqrt{6} \\
+		(x^2 - 5)^2 &= 24 \\
+		x^4 - 10x^2 + 1 = 0.
+	\end{align*}
+	Notice that this is actually the exact same answer we get in (\ref{sym}) if you work it out.
+	\item Each $\abs{A_n} = \abs{\mathbb{N}^n}$, which is countable
+	\item We proved earlier in Theorem 1.4.13 that a countably infinite union of countable sets is countable. Since there are a countable number of algebraic numbers, and reals are uncountable, we conclude that transcendentals are also uncountable.
+}
+}
+
+\bx{
+\ea{
+	\item INCOMPLETE
+}
+}
+
