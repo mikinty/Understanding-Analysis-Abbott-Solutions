@@ -6,3 +6,7 @@ If you want to contribute, feel free to fork and submit a PR!
 2. Problem 3.3
 3. Problem 4.13
 4. Problem 1.5.9c
+
+# Work to be done
+1. Consistent formatting
+2. Check work!
