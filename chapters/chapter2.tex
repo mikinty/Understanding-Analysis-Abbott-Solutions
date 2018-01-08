@@ -346,3 +346,72 @@ Taking the limits of both sides,
 }
 }
 
+%% 2.5 %%
+\setcounter{subsection}{5}
+\setcounter{exercise}{0}
+
+\bx{
+Suppose we have a convergent sequence. Then given any $\epsilon$, we can always find for $n \geq N \in \mathbb{N}$ that $\abs{a_n - l} < \epsilon$. For any subsequence of $(a_n)$, $a'_m = a_n$ will be such that $m\geq n$, so we can choose $m \geq N$ from earlier and conclude that $\abs{a'_m - l} < \epsilon$.
+}
+
+\bx{
+\ea{
+	\item Define 
+\begin{align}
+	s_i &= \sum_{j=1}^{i} a_j  \\
+	b_i &= \sum_{k=1}^{i} a_{n_k},
+\end{align}
+where the series regrouping $a_i$ is divided into groups of $n_1, n_2, \dots$. Then $b_i$ is a subsequence of $s_n$, which means they converge to the same limit, namely $L$ in this case.
+	\item Our proof does not apply to that example because that series did not converge in the first place.
+}
+}
+
+\bx{
+\ea{
+	\item Consider
+	\begin{equation}
+		a_n = \begin{cases}
+			\sum_{i=1}^n \frac{1}{2^i}, &n \text{ odd } \\
+			\frac{1}{2^i}	, &n \text{ even}
+		\end{cases}
+	\end{equation}
+	Then we have that $b_n = a_{2n-1}$ converges to 1 and $c_n = a_{2n}$ converges to 0.
+	\item A monotone sequence that diverges means that sequence is not bounded. Thus, every subsequence will also be unbounded and thus impossible to be convergent.
+	\item Consider the sequence
+	\begin{equation}
+		\{1, 1, \frac{1}{2}, 1, \frac{1}{2}, \frac{1}{3}, 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \dots\}
+	\end{equation}
+	\item Consider
+	\begin{equation}
+		a_n = \begin{cases}
+			2^i, &n \text{ odd } \\
+			\frac{1}{2^i}	, &n \text{ even}
+		\end{cases}
+	\end{equation}
+	\item By Bolzano-Weierstrass, since we have a subsequence that is bounded, we know we can find a convergent subsequence within this subsequence that converges.
+}
+}
+
+\bx{
+	AFSOC $(a_n)$ converges to $b \neq a$. Then we have that $\abs{a_n - b}$ can be arbitrarily small. But this implies that every subsequence will also converge to $b$, which is a contradiction.
+	
+	AFSOC $(a_n)$ does not converge. Then since $(a_n)$ is bounded, and every convergent subsequence converges to ??? i give up :(
+}
+
+\bx{
+Consider $\abs{b^n}$. Since $\abs{b}<1$, we have that $\abs{b^n}$ is a decreasing sequence that is bounded below by 0, so we have
+\begin{equation*}
+	\abs{b} > l \geq 0.
+\end{equation*}
+We notice that $\abs{b^{2n}}$ is a subsequence that also converges to $L$, and since $\abs{b^{2n}} = \abs{b}^2$, by the Algebraic Limit Theorem, we have that $\abs{b^{2n}} \rightarrow l^2 = l \lra l = 0$. Since $\abs{b^n} \rightarrow 0$, we conclude $b^n \rightarrow 0$.
+}
+
+\bx{
+We have $s = \sup S$, which means for any $\epsilon > 0$,
+\begin{align*}
+	&s - \epsilon < x \in S < a'_n \\
+	\lra &\epsilon > \abs{s - a'_n} = \abs{a'_n - s}
+\end{align*}
+where $a'_n$ is a subsequence containing part of the infinite $a_n > x \in S$.
+}
+
