@@ -258,17 +258,17 @@ The set of all finite subsets of $\mathbb{N}$ can be ordered in increasing order
 	
 	There are two approaches to finding the integer coefficient polynomial. One is to take advantage of symmetry, and derive that 
 	\begin{equation}
-	\prod (x - (\pm \sqrt{3} \pm {\sqrt{2})
-	\label{sym}
+	\prod (x - (\pm \sqrt{3} \pm \sqrt{2})
+	\label{eq:sym}
 	\end{equation}
 	will work (using loose notation of course). A more general technique is to notice that 
 	\begin{align*}
 		x &= \sqrt{3} + \sqrt{2} \\
 		x^2 &= 5 + 2\sqrt{6} \\
 		(x^2 - 5)^2 &= 24 \\
-		x^4 - 10x^2 + 1 = 0.
+		x^4 - 10x^2 + 1 &= 0.
 	\end{align*}
-	Notice that this is actually the exact same answer we get in (\ref{sym}) if you work it out.
+	Notice that this is actually the exact same answer we get in (\ref{eq:sym}) if you work it out.
 	\item Each $\abs{A_n} = \abs{\mathbb{N}^n}$, which is countable
 	\item We proved earlier in Theorem 1.4.13 that a countably infinite union of countable sets is countable. Since there are a countable number of algebraic numbers, and reals are uncountable, we conclude that transcendentals are also uncountable.
 }
@@ -280,3 +280,77 @@ The set of all finite subsets of $\mathbb{N}$ can be ordered in increasing order
 }
 }
 
+%%% 1.5 %%%
+\setcounter{subsection}{5}
+\setcounter{exercise}{1}
+
+\bx{
+\ea{
+	\item Because $b_1$ differs from $f(1)$ in position 1
+	\item $b_i$ differs from $f(i)$ in position $i$.
+	\item We reach a contradiction that we can enumerate the elements of $(0, 1)$, and thus $(0, 1)$ is uncountable.
+}
+}
+
+\bx{
+\ea{
+	\item $\frac{\sqrt{2}}{2} \in (0, 1)$ but is irrational
+	\item We can just define our decimal representations to never have an infinite string of 9s
+}
+}
+
+\bx{
+Suppose $S$ is countable. Then we can enumerate the elements of $S$ using the natural numbers. Now, consider some $s = (s_1, s_2, \dots)$, where
+\begin{equation}
+	s_i = \begin{cases}
+		0, \text{if } f(i), \text{position } i = 1
+		1, \text{otherwise}
+	\end{cases}
+\end{equation}
+Then since $s \neq f(i) \forall i$, $s \not \in S$. But this is a contradiction since $s$ only contains elements 0 or 1, and thus should be in $S$. Thus, we conclude that $S$ is uncountable.
+}
+
+\bx{
+\ea{
+	\item \begin{equation}
+	\mathcal{P}(A) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
+	\end{equation}
+	\item Each element has two choices when constructing a subset of $A$. To be, or not to be\footnote{sorry, had to do it}, in the set.
+}
+}
+
+\bx{
+\ea{
+	\item Many different answers.
+	\begin{align*}
+		&\{(a, \{a\}), (b, \{b\}), (c, \{c\})\} \\
+		&\{(a, \emptyset), (b, \{b\}), (c, \{c\})\} \\
+	\end{align*}
+	\item \begin{equation*}
+	\{(1, \{1\}), (2, \{2\}), (3, \{3\}), (4, \{4\})\}.
+	\end{equation*}
+	\item Because $\abs{\mathcal{P}(A)} > \abs{A}$ and same for $B$.
+}
+}
+
+\bx{
+	\begin{enumerate}
+		\item $B = \emptyset$
+		\item $B = \{a, d\}$
+	\end{enumerate}
+}
+
+\bx{
+\ea{
+	\item AFSOC $a' \in B$. Then that means $a \not \in f(a')$. But this is a contradiction since $a' \in B = f(a')$.
+	\item AFSOC $a' \not\in B = f(a')$. Then since $a' \not\in f(a')$, $a' \in B$, but that is a contradiction.
+}
+}
+
+\bx{
+\ea{
+	\item This is the same as $\mathbb{N} \times \mathbb{N}$, which  is countable.
+	\item Uncountable, since $\mathcal{P}(\mathbb{N})$ is uncountable.
+	\item Is this question asking for the number of antichains or if there is an antichain with uncountable cardinality? The latter is obvious, and \textit{no} is the answer since any subset of $\mathbb{N}$ is countable. The first case probably uncountable???
+}
+}
