@@ -86,4 +86,155 @@ Usually, the sequence converges to some value by getting closer and closer event
 
 %% 2.3 %%
 \setcounter{subsection}{3}
-\setcounter{exercises}{0}
+\setcounter{exercise}{0}
+
+\bx{
+Let $\epsilon > 0$. Consider $n \geq 1$, then 
+\begin{equation*}
+	\abs{a - a} = 0 < \epsilon.
+\end{equation*}
+}
+
+\bx{
+\ea{
+	\item  We are given \((x_n) \rightarrow 0\), so we can make \(|x_n - 0|\) as small as we want. In particular, we choose N such that \(|x_n| < \epsilon|\sqrt{x_n}|\), whenever \(n \geq N\). To see that this N indeed works, observe that for all \(n \geq N\), 
+\begin{equation*}
+    |\sqrt{x_n}| = \frac{|x_n|}{|\sqrt{x_n}|} < \frac{1}{|\sqrt{x_n}|}\epsilon|\sqrt{x_n}| = \epsilon
+\end{equation*}
+so \((\sqrt{x_n}) \rightarrow 0\).
+
+	\item We are given \((x_n) \rightarrow x\), so we can make \(|x_n - x|\) as small as we want. We choose N such that \begin{equation*}
+    |x_n - x| < \epsilon|\sqrt{x_n} + \sqrt{x}| 
+\end{equation*}
+whenever \(n \geq N\). To see that this N works, notice that for all \(n \geq N\), \begin{equation*}
+    |\sqrt{x_n} - \sqrt{x}| = \frac{|x_n - x|}{|\sqrt{x_n} + \sqrt{x}|} < \frac{1}{|\sqrt{x_n} + \sqrt{x}|}\epsilon|\sqrt{x_n} + \sqrt{x}| = \epsilon
+\end{equation*} 
+Therefore, \((\sqrt{x_n}) \rightarrow \sqrt{x}\).
+}
+}
+
+\bx{
+By the Order Limit Theorem, since 
+\begin{align*}
+	\forall n, x_n \leq y_n \Rightarrow \lim_{n\to\infty} y_n \geq \lim_{n\to\infty} x_n = l \\
+	\forall n, z_n \leq y_n \Rightarrow \lim_{n\to\infty} y_n \leq \lim_{n\to\infty} z_n = l
+\end{align*}
+so $l \leq \lim_{n\to\infty} y_n \leq l \Rightarrow \lim_{n\to\infty} y_n = 1$.
+}
+
+\bx{
+AFSOC $\lim a_n = l_1$ and $l_2$, for $l_1 \neq l_2$. Then we have that $\forall \epsilon > 0$, for sufficiently large $n$, that
+\begin{align*}
+	\abs{a_n - l_1} < \epsilon \\
+	\abs{a_n - l_2} < \epsilon
+\end{align*}
+But this is a contradiction, since if we let $d = \abs{l_1 - l_2}$, and $\epsilon = \frac{d}{2}$, then 
+\begin{align*}
+	\abs{l_2 - l_1} \leq \abs{a_n - l_1} + \abs{-(a_n - l_2)} < 2 \epsilon \\
+	d \leq \abs{a_n - l_1} + \abs{-(a_n - l_2)} < d,
+\end{align*}
+which leads to $d < d$. Thus, we must conclude that $l_1 = l_2$, and limits are unique.
+}
+
+\bx{
+($Rightarrow$) If $(z_n)$ is convergent to some $l$, then $\forall \epsilon >0$, we have that $\exists N \in \mathbb{N}$ such that for $n \geq N$, that 
+\begin{equation}
+	\abs{z_n - l} < \epsilon \lra \abs{x_n - l} < \epsilon,  \abs{y_n - l} < \epsilon,
+\end{equation}
+because $z_n$ appears before or at the same time as $x_n$ and $y_n$ in the sequence.
+
+($\Leftarrow$) If $(x_n), (y_n)$ are both convergent to some limit $l$, then we have for some $n\geq N \in \mathbb{N}$, that 
+\begin{align*}
+	\abs{x_n - l} &< \epsilon \\
+	\abs{y_n - l} &< \epsilon.
+\end{align*}
+Then choose $n' \geq 2N$, then we have two cases, 
+\begin{itemize}
+	\item If $n'$ odd, then $z_{n'} = x_{(n'+1)/2}$. Since $\frac{n'+1}{2} \geq N$, $\abs{x_{(n'+1)/2} - l} < \epsilon$.
+	\item If $n'$ even, then $z_{n'} = y_{n'/2}$. Since $\frac{n'}{2} \geq N$, $\abs{y_{n'/2} - l} < \epsilon$.
+\end{itemize}
+In both cases we have that for every $\epsilon > 0$, we can find $n' \geq N' = 2N \in \mathbb{N}$ such that 
+\begin{equation}
+	\abs{z_{n'} - l} < \epsilon,
+\end{equation}
+so $(z_n)$ is also convergent to $l$.
+}
+
+\bx{
+\ea{
+	\item By triangle inequality, we have $\abs{\abs{b_n} - \abs{b}} \leq \abs{b_n - b} < \epsilon$
+	\item The converse is not true. Consider the sequence $a_n = (-1)^n$.
+}
+}
+
+\bx{
+\ea{
+	\item Since $(a_n)$ is bounded, call $M$ the upper bound of $(a_n)$. Then since $\abs{b_n}$ can get arbitrarily small, we choose $n \geq N$ such that $\abs{b_n} < \frac{\epsilon}{M}$. Then we have
+\begin{align*}
+	\abs{a_nb_n} &\leq \abs{a_n}\abs{b_n} \\
+	&< M \frac{\epsilon}{M} \\
+	&< \epsilon.
+\end{align*}
+
+	We cannot use the Algebraic Limit Theorem because we are not given that $(a_n)$ necessarily converges.
+ 	\item No. For example, take $a_n = (-1)^n$, $b_n = 3$.
+	\item When $a=0$, we have 
+	\begin{equation*}
+		\abs{a_nb_n - ab} \leq \abs{b_n}\abs{a_n - a}.
+	\end{equation*}
+	We can bound $\abs{b_n} \leq M$, and then choose $n$ such that $\abs{a_n - a} < \frac{\epsilon}{M}$. Then, 
+	\begin{align*}
+	\abs{a_nb_n - ab} &< M\frac{\epsilon}{M} \\
+	&< \epsilon.
+	\end{align*}
+}
+}
+
+\bx{
+\ea{
+	\item $x_n = (-1)^n, y_n = (-1)^{n-1}$
+	\item Impossible by theorem ???
+	\item $b_n = \frac{1}{n}$
+	\item Impossible by theorem ???
+	\item $a_n = 0, b_n = n$
+}
+}
+
+\bx{ 
+No. Consider $a_n = \frac{1}{n}, a_n > 0$. $\lim a_n = 0$, but $0 \not> 0$.
+}
+
+\bx{
+Since $\abs{a_n}$ gets arbitrarily small, we know for $n \geq N$, 
+\begin{equation}
+\abs{b_n - b} \leq \abs{a_n} < \epsilon.
+\end{equation}
+}
+
+\bx{
+Let $\lim x_n = x$. Then, for some $n_\epsilon \geq N$, we have $\abs{x_n - x} < \epsilon/2$. Now,
+\begin{align*}
+	\abs{y_n - x} &= \frac{1}{n}\pbra{\abs{\sum_{i=1}^{n_\epsilon}(x_i - x)} + \abs{\sum_{i=n_\epsilon}^n (x_i - x)}} \\
+	&= \frac{n_\epsilon}{n}\underset{i\in[1,n_\epsilon]}{\max}(x_i - x) + \frac{n-n_\epsilon}{n}\underset{i\in[n_\epsilon, n]}{\max}(x_i - x) \\
+	&= \frac{n_\epsilon}{n}\underset{i\in[1,n_\epsilon]}{\max}(x_i - x) + \frac{\epsilon}{2}
+\end{align*}
+now if we choose $n > \frac{n_\epsilon \underset{i\in[1,n_\epsilon]}{\max}(x_i - x)}{\epsilon/2}$, then we can bound the RHS by $\epsilon$.
+
+Consider when $x_n = (-1)^n$. $(x_n)$ does not converge but $(y_n)$ does.
+}
+
+\bx{
+\ea{
+	\item Intuitively, the limit should go to 1, since we have $\frac{\infty}{\infty}$. 
+	\begin{align*}
+		&\lim_{n\to\infty} \lim_{m\to\infty} a_{m,n} = 1 \\
+		&\lim_{m\to\infty} \lim_{n\to\infty} a_{m,n} = 0 \\
+	\end{align*}
+	\item A sequence $(a_{m,n})$ converges to $l$ if for every $\epsilon > 0$, $\exists N \in \mathbb{N}$ such that whenever $n\geq N$, we have that 
+	\begin{align*}
+		\abs{\lim_{n\to\infty} \lim_{m\to\infty} a_{m,n} - l} &< \epsilon \\
+		\abs{\lim_{m\to\infty} \lim_{n\to\infty} a_{m,n} - l} &< \epsilon.
+	\end{align*}
+	i.e. we approach the same limit no matter what permutation of the index variables we iterate through.
+}
+}
