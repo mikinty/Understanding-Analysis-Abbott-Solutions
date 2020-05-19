@@ -1,5 +1,5 @@
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsmath, amssymb}
 \usepackage{amstext} % for \text macro
 \usepackage{array}   % for new column macro
 \usepackage{commath}
@@ -12,18 +12,13 @@
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
 \usepackage{lastpage} %literally just for last page
 \usepackage{mathtools}
+\usepackage[standard]{ntheorem}
 \usepackage[super]{nth}
 \usepackage{physics}
 \usepackage{siunitx}
 \usepackage{tikz}
 \usepackage{titling}
 \usepackage{verbatim}
-
-\renewcommand\maketitlehooka{\null\mbox{}\vfill}
-\renewcommand\maketitlehookd{\vfill\null}
-
-%math mode cells
-\newcolumntype{C}{>{$}c<{$}} %
 
 %custom math shortcuts
 \DeclareMathOperator{\Var}{Var}
@@ -35,30 +30,23 @@
 \newcommand{\pa}[1]{\paren*{#1}}
 \newcommand{\pbra}[1]{\bracken*{#1}}
 
-
 %custom symbols
 \def\checkmark{{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}\hspace{0.1in}} 
 
-\fancyhf{}
-\lhead{15-251 HW11 Corrections}
-\rhead{Michael You}
+\title{Understanding Analysis Solutions}
+\author{Michael You, Varun Gudibanda, Trajan Hammonds}
+\date{}
 
-%to automate the Task numbers
-\newtheorem{theorem}{Theorem}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
-\newtheorem{exercise}{Exercise}[subsection]
-\newtheorem{task}{Task}[section]
-\newtheorem{tip}{Tip}[section]
+% Exercise theorem env
+\theoremstyle{break}
+\newtheorem{exercise}{Exercise}[section]
 
-%shortcuts for ^, ~, and programming font
+% Shortcuts for ^, ~, and programming font
 \newcommand{\tat}{{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}} %tilde
 \newcommand{\tac}{\textasciicircum} %XOR
 \newcommand{\te}[1]{\texttt{#1}} %for programming font
 \newcommand{\lra}{\Longrightarrow} % ==>
 
-% env shortcuts
+% Environment Shortcuts
 \newcommand{\bx}[1]{\begin{exercise} #1 \end{exercise}}
 \newcommand{\ea}[1]{\begin{enumerate}[label=(\alph*)] #1 \end{enumerate}}
