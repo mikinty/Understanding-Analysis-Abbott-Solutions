@@ -1,0 +1,11 @@
+# Contributing 
+
+Try to make your solutions as explanatory as possible. Since Abbott wrote this
+textbook to be very easy to read, it would also be nice for the solutions to be
+an easy read as well.
+
+Some guidelines:
+ 
+ - Try to use good LaTeX coding practices
+ - Use `definitions`, `lemmas`, `theorems` where appropriate
+ - If you need to label equations, try to use names that will not likely be used again
