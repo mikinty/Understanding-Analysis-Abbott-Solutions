@@ -9,6 +9,8 @@ If you want to contribute, feel free to fork and submit a PR!
 
 ## Unfinished Problems
 
+I use `\TODO` to mark the problems that need work or don't have solutions.
+
 ### Chapter 1
 
 - Problem 3.3
