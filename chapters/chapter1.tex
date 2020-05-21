@@ -8,231 +8,232 @@
 
 %%% 1.2 %%%
 \section{Some Preliminaries}
-\bx{
-	\ea{
-		\item 
-		\begin{proof}
-			AFSOC $\sqrt{3}$ is rational, so $\exists m, n \in \mathbb{Z}$ such that 
-			\begin{equation*}
-				\sqrt{3} = \frac{m}{n},
-			\end{equation*}
-			where $\frac{m}{n}$ is in lowest reduced terms.
-			Then we can square both sides, yielding $3 = \pa{\frac{m}{n}}^2 \lra 3n^2 = m^2$. Now, we know $m^2$ is a multiple of 3 and thus $m$ must also. Then, we can write $m = 3k$, and derive
-			\begin{align*}
-			(\sqrt{3})^2 &= \pa{\frac{3k}{n}}^2 \\
-			3n^2 &= 9k^2 \\
-			n^2 &= 3k^2
-			\end{align*}
-			Similar to before, we come to the conclusion that $n$ is a multiple of 3. However, this is a contradiction since $m, n$ are both multiples of 3 and we assumed $\frac{m}{n}$ was in lowest terms. Thus, we conclude $\sqrt{3}$ is irrational.
-		\end{proof}
-		The same proof for $\sqrt{3}$ works for $\sqrt{6}$ as well.
-
-		\item We cannot conclude that $\sqrt{4} = \frac{m}{n}$ implies that 
-		$m$ is a multiple of $4$, since we have 
-		\begin{equation*}
-			4n^2 = m^2 \quad \Rightarrow \quad 2n = m,
-		\end{equation*}
-		so we cannot reach our contradiction that $m/n$ is not in lowest terms.
-	}
-}
-
 
 \bx{
-	\ea{
-		\item False. Consider 
+\ea{
+	\item 
+	\begin{proof}
+		AFSOC $\sqrt{3}$ is rational, so $\exists m, n \in \mathbb{Z}$ such that 
 		\begin{equation*}
-			A_n = \left[0, \frac{1}{n}\right).
+			\sqrt{3} = \frac{m}{n},
 		\end{equation*}
-		Then 
-		\begin{equation*}
-			\bigcap_{n=1}^\infty A_n = \{0\}.
-		\end{equation*}
-		\item True. Since $\forall i, A_i \subseteq A_1$, $\exists x$ such that $\forall i, x \in A_i$.
-		Therefore, the intersection cannot be empty. Then, every set is finite, and the intersection of 
-		any number of finite sets will be finite.
-		\item False. Consider $A = \{1, 2\}, B = \{1\}, C = \{2, 3\}$.
-		\begin{equation*}
-			\{1, 2\} \cap \pa{
-				\{1\} \cup  \{2, 3\}
-			} = \{1, 2\}
-			\neq \pa{
-				\{1, 2\} \cap \{1\}
-			} \cup \{2, 3\}
-			= \{1, 2, 3\}
-		\end{equation*}
-		\item True. Intersection is associative.
-		\item True. Intersection is distributive over union.
-		\begin{proof}
-			We will prove 
-			\begin{equation}
-				A \cap \pa{B \cup C} = \pa{A \cap B} \cup \pa{A \cap C}
-				\label{eq:set_distributive}
-			\end{equation}
-			by set inclusion. 
-
-			\begin{itemize}
-				\item Suppose $x \in A \cap \pa{B \cup C}$. By the definition of intersection,
-				we know $x \in A$ and $x \in B \cup C$, the latter which means $x \in B$ or $x \in C$.
-				
-				We can consider 2 cases for $x$,
-
-				\begin{enumerate}[label=\arabic*.]
-					\item $x \in B$. Then we know  $x \in A$ and $x \in B$, so $x \in A \cap B$ and therefore $x \in \pa{A \cap B} \cup \pa{A \cap C}$ 
-					\item $x \in C$. Symmetric to the case above.
-				\end{enumerate}
-
-				in all cases, we see $x \in A \cap \pa{B \cup C}$ implies $x \in \pa{A \cap B} \cup \pa{A \cap C}$, so 
-				\begin{equation*}
-					A \cap \pa{B \cup C} \subseteq \pa{A \cap B} \cup \pa{A \cap C}
-				\end{equation*}
-
-				\item Suppose $x \in \pa{A \cap B} \cup \pa{A \cap C}$.
-				Then we have two cases
-				\begin{enumerate}[label=\arabic*.]
-					\item $x \in A \cap B$. This means $x \in A$ and $x \in B$. If $x \in B$, then $x \in B \cup C$, since $B \subseteq B \cup C$.
-					Putting these facts together, we see $x \in A \cap \pa{B \cup C}$.
-					\item $x \in A \cap C$. Symmetric to the case above.
-				\end{enumerate}
-				in all cases, we see $x \in \pa{A \cap B} \cup \pa{A \cap C}$ implies $x \in A \cap \pa{B \cup C}$, so 
-				\begin{equation*}
-					\pa{A \cap B} \cup \pa{A \cap C} \subseteq A \cap \pa{B \cup C} 
-				\end{equation*}
-			\end{itemize}
-		\end{proof}
-	}
-}
-
-\bx{
-		\ea{
-			\item If $x \in \pa{A \cap B}^c$, then we have cases
-			\begin{itemize}
-				\item $x \in B$ and $x \not\in A$. Then $x \not\in A$ implies $x \in A^c \Rightarrow x \in A^c \cup B^c$.
-				\item $x \in A$. Symmetric to above.
-				\item $x \not\in A$ and $x \not\in B$. Then $x \in A^c$ so $x \in A^c \cup B^c$.
-			\end{itemize}
-			
-			\item If $x \in A^c \cup B^c$, then we have cases
-			\begin{itemize}
-				\item $x \in A^c$. Then $x \not\in A$ so $x$ cannot be in the intersection of $A$ and $B$, so 
-				$x \in \pa{A \cap B}^c$.
-				\item $x \in B^c$. Symmetric to above.
-			\end{itemize}
-			\item Proof for $\pa{A \cup B}^c = A^c \cap B^c$ pretty similar to above.
-		}
-}
-
-\bx{
-	We are verifying the triangle inequality with $a, b$.
-	\ea{
-		\item If $a, b$ have the same sign, then 
+		where $\frac{m}{n}$ is in lowest reduced terms.
+		Then we can square both sides, yielding $3 = \pa{\frac{m}{n}}^2 \lra 3n^2 = m^2$. Now, we know $m^2$ is a multiple of 3 and thus $m$ must also. Then, we can write $m = 3k$, and derive
 		\begin{align*}
-			\abs{a + b} &= a+b\\
-			\abs{a} + \abs{b} &= a + b\\
-			\Rightarrow\, \abs{a+b} &= \abs{a} + \abs{b}\\
-			\Rightarrow\, \abs{a+b} &\leq \abs{a} + \abs{b}
+		(\sqrt{3})^2 &= \pa{\frac{3k}{n}}^2 \\
+		3n^2 &= 9k^2 \\
+		n^2 &= 3k^2
+		\end{align*}
+		Similar to before, we come to the conclusion that $n$ is a multiple of 3. However, this is a contradiction since $m, n$ are both multiples of 3 and we assumed $\frac{m}{n}$ was in lowest terms. Thus, we conclude $\sqrt{3}$ is irrational.
+	\end{proof}
+	The same proof for $\sqrt{3}$ works for $\sqrt{6}$ as well.
+
+	\item We cannot conclude that $\sqrt{4} = \frac{m}{n}$ implies that 
+	$m$ is a multiple of $4$, since we have 
+	\begin{equation*}
+		4n^2 = m^2 \quad \Rightarrow \quad 2n = m,
+	\end{equation*}
+	so we cannot reach our contradiction that $m/n$ is not in lowest terms.
+}
+}
+
+
+\bx{
+\ea{
+	\item False. Consider 
+	\begin{equation*}
+		A_n = \left[0, \frac{1}{n}\right).
+	\end{equation*}
+	Then 
+	\begin{equation*}
+		\bigcap_{n=1}^\infty A_n = \{0\}.
+	\end{equation*}
+	\item True. Since $\forall i, A_i \subseteq A_1$, $\exists x$ such that $\forall i, x \in A_i$.
+	Therefore, the intersection cannot be empty. Then, every set is finite, and the intersection of 
+	any number of finite sets will be finite.
+	\item False. Consider $A = \{1, 2\}, B = \{1\}, C = \{2, 3\}$.
+	\begin{equation*}
+		\{1, 2\} \cap \pa{
+			\{1\} \cup  \{2, 3\}
+		} = \{1, 2\}
+		\neq \pa{
+			\{1, 2\} \cap \{1\}
+		} \cup \{2, 3\}
+		= \{1, 2, 3\}
+	\end{equation*}
+	\item True. Intersection is associative.
+	\item True. Intersection is distributive over union.
+	\begin{proof}
+		We will prove 
+		\begin{equation}
+			A \cap \pa{B \cup C} = \pa{A \cap B} \cup \pa{A \cap C}
+			\label{eq:set_distributive}
+		\end{equation}
+		by set inclusion. 
+
+		\begin{itemize}
+			\item Suppose $x \in A \cap \pa{B \cup C}$. By the definition of intersection,
+			we know $x \in A$ and $x \in B \cup C$, the latter which means $x \in B$ or $x \in C$.
+			
+			We can consider 2 cases for $x$,
+
+			\begin{enumerate}[label=\arabic*.]
+				\item $x \in B$. Then we know  $x \in A$ and $x \in B$, so $x \in A \cap B$ and therefore $x \in \pa{A \cap B} \cup \pa{A \cap C}$ 
+				\item $x \in C$. Symmetric to the case above.
+			\end{enumerate}
+
+			in all cases, we see $x \in A \cap \pa{B \cup C}$ implies $x \in \pa{A \cap B} \cup \pa{A \cap C}$, so 
+			\begin{equation*}
+				A \cap \pa{B \cup C} \subseteq \pa{A \cap B} \cup \pa{A \cap C}
+			\end{equation*}
+
+			\item Suppose $x \in \pa{A \cap B} \cup \pa{A \cap C}$.
+			Then we have two cases
+			\begin{enumerate}[label=\arabic*.]
+				\item $x \in A \cap B$. This means $x \in A$ and $x \in B$. If $x \in B$, then $x \in B \cup C$, since $B \subseteq B \cup C$.
+				Putting these facts together, we see $x \in A \cap \pa{B \cup C}$.
+				\item $x \in A \cap C$. Symmetric to the case above.
+			\end{enumerate}
+			in all cases, we see $x \in \pa{A \cap B} \cup \pa{A \cap C}$ implies $x \in A \cap \pa{B \cup C}$, so 
+			\begin{equation*}
+				\pa{A \cap B} \cup \pa{A \cap C} \subseteq A \cap \pa{B \cup C} 
+			\end{equation*}
+		\end{itemize}
+	\end{proof}
+}
+}
+
+\bx{
+\ea{
+	\item If $x \in \pa{A \cap B}^c$, then we have cases
+	\begin{itemize}
+		\item $x \in B$ and $x \not\in A$. Then $x \not\in A$ implies $x \in A^c \Rightarrow x \in A^c \cup B^c$.
+		\item $x \in A$. Symmetric to above.
+		\item $x \not\in A$ and $x \not\in B$. Then $x \in A^c$ so $x \in A^c \cup B^c$.
+	\end{itemize}
+	
+	\item If $x \in A^c \cup B^c$, then we have cases
+	\begin{itemize}
+		\item $x \in A^c$. Then $x \not\in A$ so $x$ cannot be in the intersection of $A$ and $B$, so 
+		$x \in \pa{A \cap B}^c$.
+		\item $x \in B^c$. Symmetric to above.
+	\end{itemize}
+	\item Proof for $\pa{A \cup B}^c = A^c \cap B^c$ pretty similar to above.
+}
+}
+
+\bx{
+We are verifying the triangle inequality with $a, b$.
+\ea{
+	\item If $a, b$ have the same sign, then 
+	\begin{align*}
+		\abs{a + b} &= a+b\\
+		\abs{a} + \abs{b} &= a + b\\
+		\Rightarrow\, \abs{a+b} &= \abs{a} + \abs{b}\\
+		\Rightarrow\, \abs{a+b} &\leq \abs{a} + \abs{b}
+	\end{align*}
+
+	\label{ex_triangle_ineq_same_sign}
+
+	\item 
+	\begin{itemize}
+		\item $a \geq 0, b < 0$.
+		\begin{align*}
+			\abs{a + b} 
+			&\leq \abs{a}\\
+			&\leq \abs{a} + \abs{b}
 		\end{align*}
 
-		\label{ex_triangle_ineq_same_sign}
-
-		\item 
-		\begin{itemize}
-			\item $a \geq 0, b < 0$.
-			\begin{align*}
-				\abs{a + b} 
-				&\leq \abs{a}\\
-				&\leq \abs{a} + \abs{b}
-			\end{align*}
-
-			\item $a + b \geq 0$.
-			At most one of $a, b$ is negative. If they are both positive, then 
-			we have already shown this in part \ref{ex_triangle_ineq_same_sign}.
-			Otherwise, WLOG $a$ is negative. Then 
-			\begin{align*}
-				\abs{a + b} 
-				&\leq \abs{b}\\
-				&\leq \abs{a} + \abs{b}
-			\end{align*}
-		\end{itemize}
-	}
-}
-
-\bx{
-	\ea{
-		\item Substitute in $b' = -b$ into the triangle inequality.
-		\item Easy to prove directly without using triangle inequality. \TODO.
-		
-		A direct proof will look something like:
-		\begin{itemize}
-			\item If $a, b$ are the same sign, then equality holds 
-			\item If $a, b$ are different signs, then if $b$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, 
-			and if $a$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, both of which bound $\abs{\abs{a} - \abs{b}}$.
-		\end{itemize}
-	}
-}
-
-\bx{
-	\ea{
-		\item Yes, since $f\pa{A \cap B} = [1, 4] = [0, 4] \cap [1, 16] = f(A) \cap f(B)$. This is by coincidence though, as we will later see.
-		Yes, since $f\pa{A \cup B} = [0, 16] = [0, 4] \cup [1, 16] = f(A) \cup f(B)$.
-		\item Choose $A = [-2, 0], B = [0, 2]$
-		\item Suppose $x \in g(A\cap B)$, then $\exists x' \in A \cap B$ such that $g(x') = x$.
-		Since $x' \in A$ and $x' \in B$, we know $x = g(x') \in g(A), g(B)$, so we conclude $x \in g(A) \cap g(B)$.
-		\item Equality. \TODO too lazy to write out the proof. Similar to above.
-	}
-}
-
-\bx{
-	\ea{
-		\item \TODO I don't think we want to include $x \in \mathbb{I}$...
-		\begin{align}
-			f^{-1}(A) &= [0, 2]\\
-			f^{-1}(B) &= [0, 1]
-		\end{align}
-		We see $f^{-1}(A\cap B) = f^{-1}(A) \cap f^{-1}(B)$ in this case.
-		$f^{-1}(A\cup B) = f^{-1}(A) \cup f^{-1}(B)$ is also true.
-		\item \TODO
-	}
-}
-
-\bx{
-	Negating statements. Took some liberties. Also notice that these statements are not necessarily true.
-	\ea{
-		\item There exists a real number satisfying $a < b$, such that $\forall n \in \mathbb{N}$, $a+1/n \geq b$.
-		\item There exists two distinct real numbers such that there is not a rational number between them.
-		\item There exists a natural number $n \in \mathbb{N}$ such that $\sqrt{n}$ is not a natural number nor an irrational number.
-		\item  There exists a real number $x \in \mathbb{R}$ such that $\forall n \in \mathbb{N}$, $n \leq x$.
-	}
-}
-
-\bx{
-	We are given the sequence 
-	\begin{equation}
-		x_1 = 1, x_{n+1} = \frac{1}{2}x_{n} + 1
-	\end{equation}
-	and want to show $\forall i \geq 1, x_i < 2$.
-
-	We can show this with a direct proof of summation.
-
-	An alternative that the book probably wants to see is using \textbf{induction}.
-
-	\begin{itemize}
-		\item Base Case: $x_1 = 1 < 2$
-		\item Inductive case. Assume $\forall i < n+1, x_i < 2$. Then $x_i/2 + 1 < 2$ since $x_i/2 < 1$.
-		\item By induction our original claim is proved.
+		\item $a + b \geq 0$.
+		At most one of $a, b$ is negative. If they are both positive, then 
+		we have already shown this in part \ref{ex_triangle_ineq_same_sign}.
+		Otherwise, WLOG $a$ is negative. Then 
+		\begin{align*}
+			\abs{a + b} 
+			&\leq \abs{b}\\
+			&\leq \abs{a} + \abs{b}
+		\end{align*}
 	\end{itemize}
-	\label{ex:induction_1_2_9}
+}
 }
 
 \bx{
-	\ea{
-		\item Similar to Exercise \ref{ex:induction_1_2_9}. $y_n < 4$ means $(3/4)y_n < 3$ so $(3/4)y_n + 1 < 4$
-		\item In brief,
-		\begin{align}
-			y_n &\leq \frac{3}{4}y_n + \frac{1}{4}y_n\\
-			&< \frac{3}{4}y_n + 1 \tag{Using $y_n < 4$}\\
-			&< y_n+1 \tag{Sequence definition}
-		\end{align}
-	}
+\ea{
+	\item Substitute in $b' = -b$ into the triangle inequality.
+	\item Easy to prove directly without using triangle inequality. \TODO.
+	
+	A direct proof will look something like:
+	\begin{itemize}
+		\item If $a, b$ are the same sign, then equality holds 
+		\item If $a, b$ are different signs, then if $b$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, 
+		and if $a$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, both of which bound $\abs{\abs{a} - \abs{b}}$.
+	\end{itemize}
+}
+}
+
+\bx{
+\ea{
+	\item Yes, since $f\pa{A \cap B} = [1, 4] = [0, 4] \cap [1, 16] = f(A) \cap f(B)$. This is by coincidence though, as we will later see.
+	Yes, since $f\pa{A \cup B} = [0, 16] = [0, 4] \cup [1, 16] = f(A) \cup f(B)$.
+	\item Choose $A = [-2, 0], B = [0, 2]$
+	\item Suppose $x \in g(A\cap B)$, then $\exists x' \in A \cap B$ such that $g(x') = x$.
+	Since $x' \in A$ and $x' \in B$, we know $x = g(x') \in g(A), g(B)$, so we conclude $x \in g(A) \cap g(B)$.
+	\item Equality. \TODO too lazy to write out the proof. Similar to above.
+}
+}
+
+\bx{
+\ea{
+	\item \TODO I don't think we want to include $x \in \mathbb{I}$...
+	\begin{align}
+		f^{-1}(A) &= [0, 2]\\
+		f^{-1}(B) &= [0, 1]
+	\end{align}
+	We see $f^{-1}(A\cap B) = f^{-1}(A) \cap f^{-1}(B)$ in this case.
+	$f^{-1}(A\cup B) = f^{-1}(A) \cup f^{-1}(B)$ is also true.
+	\item \TODO
+}
+}
+
+\bx{
+Negating statements. Took some liberties. Also notice that these statements are not necessarily true.
+\ea{
+	\item There exists a real number satisfying $a < b$, such that $\forall n \in \mathbb{N}$, $a+1/n \geq b$.
+	\item There exists two distinct real numbers such that there is not a rational number between them.
+	\item There exists a natural number $n \in \mathbb{N}$ such that $\sqrt{n}$ is not a natural number nor an irrational number.
+	\item  There exists a real number $x \in \mathbb{R}$ such that $\forall n \in \mathbb{N}$, $n \leq x$.
+}
+}
+
+\bx{
+We are given the sequence 
+\begin{equation}
+	x_1 = 1, x_{n+1} = \frac{1}{2}x_{n} + 1
+\end{equation}
+and want to show $\forall i \geq 1, x_i < 2$.
+
+We can show this with a direct proof of summation.
+
+An alternative that the book probably wants to see is using \textbf{induction}.
+
+\begin{itemize}
+	\item Base Case: $x_1 = 1 < 2$
+	\item Inductive case. Assume $\forall i < n+1, x_i < 2$. Then $x_i/2 + 1 < 2$ since $x_i/2 < 1$.
+	\item By induction our original claim is proved.
+\end{itemize}
+\label{ex:induction_1_2_9}
+}
+
+\bx{
+\ea{
+	\item Similar to Exercise \ref{ex:induction_1_2_9}. $y_n < 4$ means $(3/4)y_n < 3$ so $(3/4)y_n + 1 < 4$
+	\item In brief,
+	\begin{align}
+		y_n &\leq \frac{3}{4}y_n + \frac{1}{4}y_n\\
+		&< \frac{3}{4}y_n + 1 \tag{Using $y_n < 4$}\\
+		&< y_n+1 \tag{Sequence definition}
+	\end{align}
+}
 }
 
 \bx{
@@ -244,21 +245,21 @@
 }
 
 \bx{
-	\ea{
-		\item We know that $\pa{A_1 \cup A_2}^c = A_1^c \cap A_2^c$. So if we are trying to show 
-		$\pa{A_1 \cup A_2 \cup A_3}^c = \pa{A_1 \cup A_2}^c \cap A_3^c = A_1^c \cap A_2^c \cap A_3^c$.
-		Induction lets us apply the property on smaller parts of our expression.
-		\item Induction only proves the property for some $n \in \mathbb{N}$, i.e. some finite $n$. It is not shown for an infinite $n$.
-		\item \TODO. Sketch: If $x$ is not in the union of all the $A_n$, then $x$ cannot be part of any particular $A_n$ either, or else it would be in the union.
-	}
+\ea{
+	\item We know that $\pa{A_1 \cup A_2}^c = A_1^c \cap A_2^c$. So if we are trying to show 
+	$\pa{A_1 \cup A_2 \cup A_3}^c = \pa{A_1 \cup A_2}^c \cap A_3^c = A_1^c \cap A_2^c \cap A_3^c$.
+	Induction lets us apply the property on smaller parts of our expression.
+	\item Induction only proves the property for some $n \in \mathbb{N}$, i.e. some finite $n$. It is not shown for an infinite $n$.
+	\item \TODO. Sketch: If $x$ is not in the union of all the $A_n$, then $x$ cannot be part of any particular $A_n$ either, or else it would be in the union.
+}
 }
 
 %%% 1.3 %%%
+\section{The Axiom of Completeness}
 \setcounter{exercise}{0}
 
-\section{The Axiom of Completeness}
-\begin{exercise}
-\begin{enumerate}[label=(\alph*)]
+\bx{
+\ea{
 	\item We compute the additive inverse for each element in $\mathbb{Z}_5$. 
 	\begin{align*}
 		0 + 0 &\equiv 0 \\
@@ -274,12 +275,16 @@
 		3 \times 2 &\equiv 1 \\
 		4 \times 4 &\equiv 1
 	\end{align*}
-	\item $\mathbb{Z}_4$ is not a field because multiplicative inverses do not exist for every single element. We conjecture that $\mathbb{Z}_n$ always has additive inverses and only has multiplicative inverses if $n$ is prime.
-\end{enumerate}
-\end{exercise}
+	\item $\mathbb{Z}_4$ is not a field because multiplicative inverses do not exist for every single element.
+	For example, $2$ multiplied with any number is even, which cannot $\equiv 1 \pmod{4}$.
 
-\begin{exercise}
-\begin{enumerate}[label=(\alph*)]
+	We conjecture that $\mathbb{Z}_n$ always has additive inverses and only has multiplicative inverses if $n$ is prime.
+}
+}
+
+\bx{
+We are writing a formal definition for the \textit{infimum} of a set.
+\ea{
 	\item  $s = \inf A$ means 
 	\begin{enumerate}[label=\roman*)]
 		\item $s$ is a lower bound for $A$
@@ -287,85 +292,103 @@
 	\end{enumerate}
 	\item If $s\in \mathbb{R}$ is a lower bound for $A \subseteq \mathbb{R}$, then $s=\inf A$ iff $\forall \epsilon > 0, \exists a \in A$ such that $s + \epsilon > a$.
 	\begin{proof}
-		($\Rightarrow$)If $s=\inf A$, then $s$ is the greatest lower bound for $A$, meaning any $s+ \epsilon$ for $\epsilon > 0$ will be greater than some element of $A$, otherwise $s+ \epsilon$ is a greater lower bound and leads to a contradiction that $s \neq \inf A$.
-		($\Leftarrow$) If $\forall \epsilon > 0, \exists a \in A$ such that $s+\epsilon > a$, then since $s$ is a lower bound, $\forall b > s$, $b$ will not be a lower bound for $A$ since $b > s \lra \exists a \in A \mid b > a$. Thus, all lower bounds b must be such that $b \leq s$, and we conclude $s = \inf A$.
+		($\Rightarrow$)
+		If $s=\inf A$, then $s$ is the greatest lower bound for $A$,
+		meaning any $s+ \epsilon$ for $\epsilon > 0$ will be greater than some element of $A$,
+		otherwise $s+ \epsilon$ is a greater lower bound and leads to a contradiction that$s \neq \inf A$.
+		
+		($\Leftarrow$) 
+		If $\forall \epsilon > 0, \exists a \in A$ such that $s+\epsilon > a$,
+		then since $s$ is a lower bound, $\forall b > s$, $b$ will not be a lower bound for $A$
+		since if, $b > s$, then we can choose $\epsilon = b-s > 0$, and we know that 
+		$\exists a \in A$ where $a < s + \epsilon < b$, which means $b$ is not a lower bound. 
+		Thus, all lower bounds $b$ must be such that $b \leq s$,
+		and we conclude $s = \inf A$.
 	\end{proof}
-\end{enumerate}
-\end{exercise}
+}
+}
 
-\begin{exercise}
-\begin{enumerate}[label=(\alph*)]
-	\item \TODO
-	\item There might be a typo in this question. I think the question was meant to read ``explain why there is no need to assert that the greatest \textit{lower bound} in the Axiom of Completeness.'' In this case, the answer would be that the Axiom of Completeness already implies the greatest lower bound property, so there is no need to explicitly state it.
-	\item We can take the negative of all elements in $A$, find $\sup A$, and then negate again to get $\inf A$.
-\end{enumerate}
-\end{exercise}
+\bx{
+\ea{
+	\item Since $\inf A$ is a lower bound for $A$, we know $\inf A \in B$.
+	Now, we need to show $\inf A$ is the supremum of $B$. 
+	$\inf A$ is the least upper bound for $B$, since if $\exists b \in B, b > \inf A$,
+	then we know that this $b$ is not a lower bound for $A$, so no such $b$ exists.
+	\item There might be a typo in this question. I think the question was meant to read 
+	``explain why there is no need to assert that the greatest \textit{lower bound} in the Axiom of Completeness.'' 
+	In this case, the answer would be that the Axiom of Completeness already implies the greatest lower bound property,
+	so there is no need to explicitly state it.
+	\item We can take the negative of all elements in $A$, find $\sup A$, and then negate again to get $\inf A$.	
+}
+}
 
-\begin{exercise}
-	If $B \subseteq A$, then 
-	\begin{align*}
-		\sup A = s &\geq a \in A \\
-			s &\geq b \in B \tag{since $B\subseteq A$} \\
-			\lra s &\geq \sup B \tag{since $s$ is an upper bound for $B$}.
+\bx{
+If $B \subseteq A$, then 
+\begin{align*}
+	\sup A = 
+	s &\geq a, \forall a \in A \\
+	s &\geq b, \forall b \in B \tag{since $B\subseteq A$} \\
+	\Rightarrow\, s &\geq \sup B \tag{since $s$ is an upper bound for $B$}.
+\end{align*}
+}
+
+\bx{
+\ea{
+	\item \begin{align*}
+	&s = \sup(c + A) \\
+	\Rightarrow\, &s \text{ is the least upper bound for } c + A \\
+	\Rightarrow\, &s - c \text{ is the least upper bound for } A \\
+	\Rightarrow\, &s - c = \sup A \\
+	&s = c + \sup A
 	\end{align*}
-\end{exercise}
 
-\begin{exercise}
-	\begin{enumerate}[label=(\alph*)]
-		\item \begin{align*}
-		&s = \sup(c + A) \\
-		\lra &s \text{ is the least upper bound for } c + A \\
-		\lra &s - c \text{ is the least upper bound for } A \\
-		\lra &s - c = \sup A \\
-		&s = c + \sup A
+	\item \begin{align*}
+		&s = \sup(cA) \\
+		&\Rightarrow\, s \text{ is the least upper bound for } cA \\
+		&\Rightarrow\, \frac{s}{c} \text{ is the least upper bound for } A \\
+		&\Rightarrow\, \frac{s}{c} = \sup A \\
+		&s = c \sup A
 	\end{align*}
-		\item \begin{align*}
-			&s = \sup(cA) \\
-			&\lra s \text{ is the least upper bound for } cA \\
-			&\lra \frac{s}{c} \text{ is the least upper bound for } A \\
-			&\lra \frac{s}{c} = \sup A \\
-			&s = c \sup A
-		\end{align*}
-		\item If $c < 0$, $\sup(cA) = -c\sup(A)$.
-	\end{enumerate}
-\end{exercise}
+	\item If $c < 0$, $\sup(cA) = -c\inf(A)$.
+}
+}
 
-\begin{exercise}
-\begin{enumerate}[label=(\alph*)]
-	\item $\sup, \sqrt{10}; \inf, 1$
-	\item $\sup, 1; \inf, 0$
-	\item $\sup, \frac{1}{2}; \inf, \frac{1}{3}$
-	\item $\sup, \infty; \inf, -\infty$
-\end{enumerate}
-\end{exercise}
+\bx{
+\ea{
+	\item $\sup: 3; \inf: 1$
+	\item $\sup: 1; \inf: 0$
+	\item $\sup: \frac{1}{2}; \inf: \frac{1}{3}$
+	\item $\sup: 9; \inf: \frac{1}{9}$
+}
+}
 
-\begin{exercise}
-	If $a \geq a', \forall a' \in A$, and $a \in A$, then
-	\begin{equation}
-		\forall \epsilon > 0, a - \epsilon < a,
-	\end{equation}
-	so $a$ is the least upper bound for $A$, and $a = \sup A$.
-\end{exercise}
+\bx{
+If $a \geq a', \forall a' \in A$, and $a \in A$, then
+\begin{equation}
+	\forall \epsilon > 0, a - \epsilon < a,
+\end{equation}
+so $a$ is the least upper bound for $A$, and $a = \sup A$.
+}
 
-\begin{exercise}
-	Let \begin{equation}
+\bx{
+Let \begin{equation}
 	\epsilon = \sup B - \sup A > 0.
-	\end{equation}
-	since $s_b = \sup B$, $\exists b \in B \mid b > s_b - \epsilon / 2$. Since $s_b - \frac{\epsilon}{2} > \sup A$, then $b \geq \sup A$, so this $b \in B$ is an upper bound for $A$.
-\end{exercise}
+\end{equation}
+since $s_b = \sup B$, $\exists b \in B \mid b > s_b - \epsilon / 2$. Since $s_b - \frac{\epsilon}{2} > \sup A$, then $b \geq \sup A$, so this $b \in B$ is an upper bound for $A$.	
+}
 
-\begin{exercise}
-\begin{enumerate}[label=(\alph*)]
-	\item True (take the largest element)
-	\item False $\sup (0, 2) = 2$, but $2 > a \in (0, 2)$, but $\sup A = 2 \not < 2 = L$.
+\bx{
+\ea{
+	\item True, take the largest element in the set as the supremum.
+	\item False, $\sup (0, 2) = 2$, but $2 > a \in (0, 2)$, but $\sup A = 2 \not < 2 = L$.
 	\item False $A = (0, 2), B = [2, 3)$. We have that $\sup A = \inf B$
-	\item True
-	\item False (take $A = B = (0, 2)$)
-\end{enumerate}
-\end{exercise}
+	\item True.
+	\item False, take $A = B = (0, 2)$.
+}
+}
 
 %%% 1.4 %%%
-\setcounter{subsection}{4}
+\section{Consequences of Completeness}
 \setcounter{exercise}{0}
 
 \begin{exercise}
@@ -460,39 +483,39 @@ The set of all finite subsets of $\mathbb{N}$ can be ordered in increasing order
 \end{exercise}
 
 \bx{
-\ea{
-	\item \begin{align*}
-		\sqrt{2}\,:\, x^2 -2 2 = 0 \\
-		\sqrt[3]{2}\,:\,x^3 - 2 = 0
-	\end{align*}
-	$\sqrt{3} + \sqrt{2}$ is not as trivial, so we will do it out in more steps.
-	
-	There are two approaches to finding the integer coefficient polynomial. One is to take advantage of symmetry, and derive that 
-	\begin{equation}
-	\prod (x - (\pm \sqrt{3} \pm \sqrt{2})
-	\label{eq:sym}
-	\end{equation}
-	will work (using loose notation of course). A more general technique is to notice that 
-	\begin{align*}
-		x &= \sqrt{3} + \sqrt{2} \\
-		x^2 &= 5 + 2\sqrt{6} \\
-		(x^2 - 5)^2 &= 24 \\
-		x^4 - 10x^2 + 1 &= 0.
-	\end{align*}
-	Notice that this is actually the exact same answer we get in (\ref{eq:sym}) if you work it out.
-	\item Each $\abs{A_n} = \abs{\mathbb{N}^n}$, which is countable
-	\item We proved earlier in Theorem 1.4.13 that a countably infinite union of countable sets is countable. Since there are a countable number of algebraic numbers, and reals are uncountable, we conclude that transcendentals are also uncountable.
-}
+	\ea{
+		\item \begin{align*}
+			\sqrt{2}\,:\, x^2 -2 2 = 0 \\
+			\sqrt[3]{2}\,:\,x^3 - 2 = 0
+		\end{align*}
+		$\sqrt{3} + \sqrt{2}$ is not as trivial, so we will do it out in more steps.
+		
+		There are two approaches to finding the integer coefficient polynomial. One is to take advantage of symmetry, and derive that 
+		\begin{equation}
+		\prod (x - (\pm \sqrt{3} \pm \sqrt{2})
+		\label{eq:sym}
+		\end{equation}
+		will work (using loose notation of course). A more general technique is to notice that 
+		\begin{align*}
+			x &= \sqrt{3} + \sqrt{2} \\
+			x^2 &= 5 + 2\sqrt{6} \\
+			(x^2 - 5)^2 &= 24 \\
+			x^4 - 10x^2 + 1 &= 0.
+		\end{align*}
+		Notice that this is actually the exact same answer we get in (\ref{eq:sym}) if you work it out.
+		\item Each $\abs{A_n} = \abs{\mathbb{N}^n}$, which is countable
+		\item We proved earlier in Theorem 1.4.13 that a countably infinite union of countable sets is countable. Since there are a countable number of algebraic numbers, and reals are uncountable, we conclude that transcendentals are also uncountable.
+	}
 }
 
 \bx{
-\ea{
-	\item INCOMPLETE
-}
+	\ea{
+		\item INCOMPLETE
+	}
 }
 
 %%% 1.5 %%%
-\setcounter{subsection}{5}
+\section{Cantor's Theorem}
 \setcounter{exercise}{1}
 
 \bx{
