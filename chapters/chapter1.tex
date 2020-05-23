@@ -483,7 +483,7 @@ the least upper bound for the se, so $\alpha \neq \sup T$.
 
 \bx{
 Once we have assigned $g(i) = f(n_i)$, remove $f(n_i)$ from $A$.
-Now, there is a new $n_{i+1} = \min\{n \in \mathbb{N}\,:\,f(n) \in A\setminus \{f(1), f(2), \dots, f(n_i)\}\}$.
+Now, there is a new $n_{i+1} = \min\{n \in \mathbb{N}:f(n) \in A\setminus \{f(1), f(2), \dots, f(n_i)\}\}$.
 Assign $g(i+1) = f(n_{i+1})$, and repeat.
 }
 
@@ -519,15 +519,15 @@ The set of all finite subsets of $\mathbb{N}$ can be ordered in increasing order
 \bx{
 \ea{
 \item \begin{align*}
-	\sqrt{2}\,:\, x^2 -2 2 = 0 \\
-	\sqrt[3]{2}\,:\,x^3 - 2 = 0
+	\sqrt{2}&:x^2 -2 = 0 \\
+	\sqrt[3]{2}&:x^3 - 2 = 0
 \end{align*}
 $\sqrt{3} + \sqrt{2}$ is not as trivial, so we will do it out in more steps.
 
 There are two approaches to finding the integer coefficient polynomial. One is to take advantage of symmetry, and derive that 
 \begin{equation}
 \prod (x - (\pm \sqrt{3} \pm \sqrt{2})
-\label{eq:sym}
+\label{eq:chap1_sym}
 \end{equation}
 will work (using loose notation of course). A more general technique is to notice that 
 \begin{align*}
@@ -536,7 +536,7 @@ will work (using loose notation of course). A more general technique is to notic
 	(x^2 - 5)^2 &= 24 \\
 	x^4 - 10x^2 + 1 &= 0.
 \end{align*}
-Notice that this is actually the exact same answer we get in (\ref{eq:sym}) if you work it out.
+Notice that this is actually the exact same answer we get in (\ref{eq:chap1_sym}) if you work it out.
 \item Each element of $A_n$ is a root of a $n$ degree polynomial, which we can represent 
 as an $(n+1)$-tuple of coefficients $\in \mathbb{Z}$. Therefore, $\abs{A_n} = k\abs{\mathbb{N}^{n+1}} = \abs{\mathbb{N}^{n+1}}$,
 which we know is countable.
@@ -545,6 +545,9 @@ which we know is countable.
 }
 
 \bx{
+We are proving the \textbf{Schro\"{o}der-Bernstein Theorem}, which states if 
+there exist 1-to-1 functions $f:X\rightarrow Y$ and $g: Y \rightarrow X$, then 
+there exists a 1-to-1, onto function $h: X \rightarrow Y$, which implies $X \sim Y$.
 \ea{
 \item By the definition of 1-to-1, there must be a unique $x \in X$ such that $f(x) = y$.
 A 1-to-1 function maps distinct elements from the domain to distinct elements of the range, so if we 
@@ -631,26 +634,30 @@ Therefore, we conclude $X \sim Y$.
 \ea{
 	\item Because $b_1$ differs from $f(1)$ in position 1
 	\item $b_i$ differs from $f(i)$ in position $i$.
-	\item We reach a contradiction that we can enumerate the elements of $(0, 1)$, and thus $(0, 1)$ is uncountable.
+	\item We reach a contradiction that we can enumerate all the elements of $(0, 1)$,
+	since we found a real number that isn't enumerated, and thus $(0, 1)$ is uncountable.
 }
 }
 
 \bx{
 \ea{
 	\item $\frac{\sqrt{2}}{2} \in (0, 1)$ but is irrational
-	\item We can just define our decimal representations to never have an infinite string of 9s
+	\item We can just define our decimal representations to never have an infinite string of 9s.
 }
 }
 
 \bx{
-Suppose $S$ is countable. Then we can enumerate the elements of $S$ using the natural numbers. Now, consider some $s = (s_1, s_2, \dots)$, where
+\AFSOC $S$ is countable. We will use a diagonalization proof.
+Then we can enumerate the elements of $S$ using the natural numbers. Now, consider some $s = (s_1, s_2, \dots)$, where
 \begin{equation}
 	s_i = \begin{cases}
-		0, \text{if } f(i), \text{position } i = 1
+		0, \text{if } f(i), \text{position } i = 1\\
 		1, \text{otherwise}
 	\end{cases}
 \end{equation}
-Then since $s \neq f(i) \forall i$, $s \not \in S$. But this is a contradiction since $s$ only contains elements 0 or 1, and thus should be in $S$. Thus, we conclude that $S$ is uncountable.
+Then since $s \neq f(i) \forall i$, we see $s \not \in S$. 
+But this is a contradiction since $s$ only contains elements 0 or 1, and thus should be in $S$. 
+Thus, we conclude that $S$ is uncountable.
 }
 
 \bx{
@@ -658,7 +665,10 @@ Then since $s \neq f(i) \forall i$, $s \not \in S$. But this is a contradiction 
 	\item \begin{equation}
 	\mathcal{P}(A) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
 	\end{equation}
-	\item Each element has two choices when constructing a subset of $A$. To be, or not to be\footnote{sorry, had to do it}, in the set.
+	\item Each element has two choices when constructing a subset of $A$.
+	To be, or not to be
+	\footnote{sorry, had to do it. \textit{Addendum} For context, I took a Shakespeare class in college two semesters prior to when I first wrote this.},
+	in the set.
 }
 }
 
@@ -672,28 +682,40 @@ Then since $s \neq f(i) \forall i$, $s \not \in S$. But this is a contradiction 
 	\item \begin{equation*}
 	\{(1, \{1\}), (2, \{2\}), (3, \{3\}), (4, \{4\})\}.
 	\end{equation*}
-	\item Because $\abs{\mathcal{P}(A)} > \abs{A}$ and same for $B$.
+	\item Because in general, $\abs{\mathcal{P}(A)} > \abs{A}$ for any set $A \neq \emptyset$.
+	The intuition is that the power set has strictly more elements than $A$, so $A$ cannot map $\mathcal{P}(A)$ onto.
 }
 }
 
 \bx{
 	\begin{enumerate}
 		\item $B = \emptyset$
-		\item $B = \{a, d\}$
+		\item $B = \{a\}$
 	\end{enumerate}
 }
 
 \bx{
 \ea{
-	\item AFSOC $a' \in B$. Then that means $a \not \in f(a')$. But this is a contradiction since $a' \in B = f(a')$.
-	\item AFSOC $a' \not\in B = f(a')$. Then since $a' \not\in f(a')$, $a' \in B$, but that is a contradiction.
+	\item \AFSOC $a' \in B$. Then that means $a \not \in f(a')$ by the definition of $B$. 
+	But this is a contradiction since $a' \in B = f(a')$.
+	\item \AFSOC $a' \not\in B = f(a')$. Then since $a' \not\in f(a')$, by the construction of $B$, 
+	this implies $a' \in B$, but that is a contradiction from our original assumption.
 }
 }
 
 \bx{
 \ea{
-	\item This is the same as $\mathbb{N} \times \mathbb{N}$, which  is countable.
-	\item Uncountable, since $\mathcal{P}(\mathbb{N})$ is uncountable.
-	\item Is this question asking for the number of antichains or if there is an antichain with uncountable cardinality? The latter is obvious, and \textit{no} is the answer since any subset of $\mathbb{N}$ is countable. The first case probably uncountable???
+	\item This is the same as $\mathbb{N} \times \mathbb{N}$, which is countable.
+	\item Uncountable, since this is essentially constructing the power set of $\mathbb{N}$,
+	and we know $\mathcal{P}(\mathbb{N})$ is uncountable.
+	\item Is this question asking for the number of antichains or if there is an antichain with uncountable cardinality? 
+	
+	The latter is obvious, and \textit{no} is the answer since any subset of $\mathbb{N}$ is countable. 
+	
+	If we want to count the number of antichains, we notice that an antichain is essentially a partition of some subset of $B$.
+	We also notice that every element of $\mathcal{P}(B)$ is also technically a partition, just a partition of one. This means that
+	the cardinality of the set of antichains is at least the cardinality of $\mathcal{P}(B)$.
+	If $B = \mathbb{N}$, then we know $\mathcal{P}(\mathbb{N})$ is already uncountable, so the set of antichains 
+	will also be uncountable.
 }
 }
