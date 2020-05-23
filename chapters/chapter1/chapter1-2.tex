@@ -1,0 +1,247 @@
+%%% 1.2 %%%
+\section{Some Preliminaries}
+
+\bx{
+\ea{
+	\item 
+	\begin{proof}
+		AFSOC $\sqrt{3}$ is rational, so $\exists m, n \in \mathbb{Z}$ such that 
+		\begin{equation*}
+			\sqrt{3} = \frac{m}{n},
+		\end{equation*}
+		where $\frac{m}{n}$ is in lowest reduced terms.
+		Then we can square both sides, yielding $3 = \pa{\frac{m}{n}}^2 \lra 3n^2 = m^2$. Now, we know $m^2$ is a multiple of 3 and thus $m$ must also. Then, we can write $m = 3k$, and derive
+		\begin{align*}
+		(\sqrt{3})^2 &= \pa{\frac{3k}{n}}^2 \\
+		3n^2 &= 9k^2 \\
+		n^2 &= 3k^2
+		\end{align*}
+		Similar to before, we come to the conclusion that $n$ is a multiple of 3. However, this is a contradiction since $m, n$ are both multiples of 3 and we assumed $\frac{m}{n}$ was in lowest terms. Thus, we conclude $\sqrt{3}$ is irrational.
+	\end{proof}
+	The same proof for $\sqrt{3}$ works for $\sqrt{6}$ as well.
+
+	\item We cannot conclude that $\sqrt{4} = \frac{m}{n}$ implies that 
+	$m$ is a multiple of $4$, since we have 
+	\begin{equation*}
+		4n^2 = m^2 \quad \Rightarrow \quad 2n = m,
+	\end{equation*}
+	so we cannot reach our contradiction that $m/n$ is not in lowest terms.
+}
+}
+
+
+\bx{
+\ea{
+	\item False. Consider 
+	\begin{equation*}
+		A_n = \left[0, \frac{1}{n}\right).
+	\end{equation*}
+	Then 
+	\begin{equation*}
+		\bigcap_{n=1}^\infty A_n = \{0\}.
+	\end{equation*}
+	\item True. Since $\forall i, A_i \subseteq A_1$, $\exists x$ such that $\forall i, x \in A_i$.
+	Therefore, the intersection cannot be empty. Then, every set is finite, and the intersection of 
+	any number of finite sets will be finite.
+	\item False. Consider $A = \{1, 2\}, B = \{1\}, C = \{2, 3\}$.
+	\begin{equation*}
+		\{1, 2\} \cap \pa{
+			\{1\} \cup  \{2, 3\}
+		} = \{1, 2\}
+		\neq \pa{
+			\{1, 2\} \cap \{1\}
+		} \cup \{2, 3\}
+		= \{1, 2, 3\}
+	\end{equation*}
+	\item True. Intersection is associative.
+	\item True. Intersection is distributive over union.
+	\begin{proof}
+		We will prove 
+		\begin{equation}
+			A \cap \pa{B \cup C} = \pa{A \cap B} \cup \pa{A \cap C}
+			\label{eq:set_distributive}
+		\end{equation}
+		by set inclusion. 
+
+		\begin{itemize}
+			\item Suppose $x \in A \cap \pa{B \cup C}$. By the definition of intersection,
+			we know $x \in A$ and $x \in B \cup C$, the latter which means $x \in B$ or $x \in C$.
+			
+			We can consider 2 cases for $x$,
+
+			\begin{enumerate}[label=\arabic*.]
+				\item $x \in B$. Then we know  $x \in A$ and $x \in B$, so $x \in A \cap B$ and therefore $x \in \pa{A \cap B} \cup \pa{A \cap C}$ 
+				\item $x \in C$. Symmetric to the case above.
+			\end{enumerate}
+
+			in all cases, we see $x \in A \cap \pa{B \cup C}$ implies $x \in \pa{A \cap B} \cup \pa{A \cap C}$, so 
+			\begin{equation*}
+				A \cap \pa{B \cup C} \subseteq \pa{A \cap B} \cup \pa{A \cap C}
+			\end{equation*}
+
+			\item Suppose $x \in \pa{A \cap B} \cup \pa{A \cap C}$.
+			Then we have two cases
+			\begin{enumerate}[label=\arabic*.]
+				\item $x \in A \cap B$. This means $x \in A$ and $x \in B$. If $x \in B$, then $x \in B \cup C$, since $B \subseteq B \cup C$.
+				Putting these facts together, we see $x \in A \cap \pa{B \cup C}$.
+				\item $x \in A \cap C$. Symmetric to the case above.
+			\end{enumerate}
+			in all cases, we see $x \in \pa{A \cap B} \cup \pa{A \cap C}$ implies $x \in A \cap \pa{B \cup C}$, so 
+			\begin{equation*}
+				\pa{A \cap B} \cup \pa{A \cap C} \subseteq A \cap \pa{B \cup C} 
+			\end{equation*}
+		\end{itemize}
+	\end{proof}
+}
+}
+
+\bx{
+\ea{
+	\item If $x \in \pa{A \cap B}^c$, then we have cases
+	\begin{itemize}
+		\item $x \in B$ and $x \not\in A$. Then $x \not\in A$ implies $x \in A^c \Rightarrow x \in A^c \cup B^c$.
+		\item $x \in A$. Symmetric to above.
+		\item $x \not\in A$ and $x \not\in B$. Then $x \in A^c$ so $x \in A^c \cup B^c$.
+	\end{itemize}
+	
+	\item If $x \in A^c \cup B^c$, then we have cases
+	\begin{itemize}
+		\item $x \in A^c$. Then $x \not\in A$ so $x$ cannot be in the intersection of $A$ and $B$, so 
+		$x \in \pa{A \cap B}^c$.
+		\item $x \in B^c$. Symmetric to above.
+	\end{itemize}
+	\item Proof for $\pa{A \cup B}^c = A^c \cap B^c$ pretty similar to above.
+}
+}
+
+\bx{
+We are verifying the triangle inequality with $a, b$.
+\ea{
+	\item If $a, b$ have the same sign, then 
+	\begin{align*}
+		\abs{a + b} &= a+b\\
+		\abs{a} + \abs{b} &= a + b\\
+		\Rightarrow\, \abs{a+b} &= \abs{a} + \abs{b}\\
+		\Rightarrow\, \abs{a+b} &\leq \abs{a} + \abs{b}
+	\end{align*}
+
+	\label{ex_triangle_ineq_same_sign}
+
+	\item 
+	\begin{itemize}
+		\item $a \geq 0, b < 0$.
+		\begin{align*}
+			\abs{a + b} 
+			&\leq \abs{a}\\
+			&\leq \abs{a} + \abs{b}
+		\end{align*}
+
+		\item $a + b \geq 0$.
+		At most one of $a, b$ is negative. If they are both positive, then 
+		we have already shown this in part \ref{ex_triangle_ineq_same_sign}.
+		Otherwise, WLOG $a$ is negative. Then 
+		\begin{align*}
+			\abs{a + b} 
+			&\leq \abs{b}\\
+			&\leq \abs{a} + \abs{b}
+		\end{align*}
+	\end{itemize}
+}
+}
+
+\bx{
+\ea{
+	\item Substitute in $b' = -b$ into the triangle inequality.
+	\item Easy to prove directly without using triangle inequality. \TODO.
+	
+	A direct proof will look something like:
+	\begin{itemize}
+		\item If $a, b$ are the same sign, then equality holds 
+		\item If $a, b$ are different signs, then if $b$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, 
+		and if $a$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, both of which bound $\abs{\abs{a} - \abs{b}}$.
+	\end{itemize}
+}
+}
+
+\bx{
+\ea{
+	\item Yes, since $f\pa{A \cap B} = [1, 4] = [0, 4] \cap [1, 16] = f(A) \cap f(B)$. This is by coincidence though, as we will later see.
+	Yes, since $f\pa{A \cup B} = [0, 16] = [0, 4] \cup [1, 16] = f(A) \cup f(B)$.
+	\item Choose $A = [-2, 0], B = [0, 2]$
+	\item Suppose $x \in g(A\cap B)$, then $\exists x' \in A \cap B$ such that $g(x') = x$.
+	Since $x' \in A$ and $x' \in B$, we know $x = g(x') \in g(A), g(B)$, so we conclude $x \in g(A) \cap g(B)$.
+	\item Equality. \TODO too lazy to write out the proof. Similar to above.
+}
+}
+
+\bx{
+\ea{
+	\item \TODO I don't think we want to include $x \in \mathbb{I}$...
+	\begin{align}
+		f^{-1}(A) &= [0, 2]\\
+		f^{-1}(B) &= [0, 1]
+	\end{align}
+	We see $f^{-1}(A\cap B) = f^{-1}(A) \cap f^{-1}(B)$ in this case.
+	$f^{-1}(A\cup B) = f^{-1}(A) \cup f^{-1}(B)$ is also true.
+	\item \TODO
+}
+}
+
+\bx{
+Negating statements. Took some liberties. Also notice that these statements are not necessarily true.
+\ea{
+	\item There exists a real number satisfying $a < b$, such that $\forall n \in \mathbb{N}$, $a+1/n \geq b$.
+	\item There exists two distinct real numbers such that there is not a rational number between them.
+	\item There exists a natural number $n \in \mathbb{N}$ such that $\sqrt{n}$ is not a natural number nor an irrational number.
+	\item  There exists a real number $x \in \mathbb{R}$ such that $\forall n \in \mathbb{N}$, $n \leq x$.
+}
+}
+
+\bx{
+We are given the sequence 
+\begin{equation}
+	x_1 = 1, x_{n+1} = \frac{1}{2}x_{n} + 1
+\end{equation}
+and want to show $\forall i \geq 1, x_i < 2$.
+
+We can show this with a direct proof of summation.
+
+An alternative that the book probably wants to see is using \textbf{induction}.
+
+\begin{itemize}
+	\item Base Case: $x_1 = 1 < 2$
+	\item Inductive case. Assume $\forall i < n+1, x_i < 2$. Then $x_i/2 + 1 < 2$ since $x_i/2 < 1$.
+	\item By induction our original claim is proved.
+\end{itemize}
+\label{ex:induction_1_2_9}
+}
+
+\bx{
+\ea{
+	\item Similar to Exercise \ref{ex:induction_1_2_9}. $y_n < 4$ means $(3/4)y_n < 3$ so $(3/4)y_n + 1 < 4$
+	\item In brief,
+	\begin{align}
+		y_n &\leq \frac{3}{4}y_n + \frac{1}{4}y_n\\
+		&< \frac{3}{4}y_n + 1 \tag{Using $y_n < 4$}\\
+		&< y_n+1 \tag{Sequence definition}
+	\end{align}
+}
+}
+
+\bx{
+	A combinatorial argument is that in order to construct a set, we have 2 choices for every element, 
+	to include it or not to. Therefore, we have 
+	\begin{equation*}
+		\prod_{i=1}^n 2 = 2^n
+	\end{equation*}
+}
+
+\bx{
+\ea{
+	\item We know that $\pa{A_1 \cup A_2}^c = A_1^c \cap A_2^c$. So if we are trying to show 
+	$\pa{A_1 \cup A_2 \cup A_3}^c = \pa{A_1 \cup A_2}^c \cap A_3^c = A_1^c \cap A_2^c \cap A_3^c$.
+	Induction lets us apply the property on smaller parts of our expression.
+	\item Induction only proves the property for some $n \in \mathbb{N}$, i.e. some finite $n$. It is not shown for an infinite $n$.
+	\item \TODO. Sketch: If $x$ is not in the union of all the $A_n$, then $x$ cannot be part of any particular $A_n$ either, or else it would be in the union.
+}
+}

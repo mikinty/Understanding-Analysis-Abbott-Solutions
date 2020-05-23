@@ -1,0 +1,93 @@
+%%% 1.5 %%%
+\section{Cantor's Theorem}
+\setcounter{exercise}{1}
+
+\bx{
+\ea{
+	\item Because $b_1$ differs from $f(1)$ in position 1
+	\item $b_i$ differs from $f(i)$ in position $i$.
+	\item We reach a contradiction that we can enumerate all the elements of $(0, 1)$,
+	since we found a real number that isn't enumerated, and thus $(0, 1)$ is uncountable.
+}
+}
+
+\bx{
+\ea{
+	\item $\frac{\sqrt{2}}{2} \in (0, 1)$ but is irrational
+	\item We can just define our decimal representations to never have an infinite string of 9s.
+}
+}
+
+\bx{
+\AFSOC $S$ is countable. We will use a diagonalization proof.
+Then we can enumerate the elements of $S$ using the natural numbers. Now, consider some $s = (s_1, s_2, \dots)$, where
+\begin{equation}
+	s_i = \begin{cases}
+		0, \text{if } f(i), \text{position } i = 1\\
+		1, \text{otherwise}
+	\end{cases}
+\end{equation}
+Then since $s \neq f(i) \forall i$, we see $s \not \in S$. 
+But this is a contradiction since $s$ only contains elements 0 or 1, and thus should be in $S$. 
+Thus, we conclude that $S$ is uncountable.
+}
+
+\bx{
+\ea{
+	\item \begin{equation}
+	\mathcal{P}(A) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}
+	\end{equation}
+	\item Each element has two choices when constructing a subset of $A$.
+	To be, or not to be
+	\footnote{sorry, had to do it. \textit{Addendum} For context, I took a Shakespeare class in college two semesters prior to when I first wrote this.},
+	in the set.
+}
+}
+
+\bx{
+\ea{
+	\item Many different answers.
+	\begin{align*}
+		&\{(a, \{a\}), (b, \{b\}), (c, \{c\})\} \\
+		&\{(a, \emptyset), (b, \{b\}), (c, \{c\})\} \\
+	\end{align*}
+	\item \begin{equation*}
+	\{(1, \{1\}), (2, \{2\}), (3, \{3\}), (4, \{4\})\}.
+	\end{equation*}
+	\item Because in general, $\abs{\mathcal{P}(A)} > \abs{A}$ for any set $A \neq \emptyset$.
+	The intuition is that the power set has strictly more elements than $A$, so $A$ cannot map $\mathcal{P}(A)$ onto.
+}
+}
+
+\bx{
+	\begin{enumerate}
+		\item $B = \emptyset$
+		\item $B = \{a\}$
+	\end{enumerate}
+}
+
+\bx{
+\ea{
+	\item \AFSOC $a' \in B$. Then that means $a \not \in f(a')$ by the definition of $B$. 
+	But this is a contradiction since $a' \in B = f(a')$.
+	\item \AFSOC $a' \not\in B = f(a')$. Then since $a' \not\in f(a')$, by the construction of $B$, 
+	this implies $a' \in B$, but that is a contradiction from our original assumption.
+}
+}
+
+\bx{
+\ea{
+	\item This is the same as $\mathbb{N} \times \mathbb{N}$, which is countable.
+	\item Uncountable, since this is essentially constructing the power set of $\mathbb{N}$,
+	and we know $\mathcal{P}(\mathbb{N})$ is uncountable.
+	\item Is this question asking for the number of antichains or if there is an antichain with uncountable cardinality? 
+	
+	The latter is obvious, and \textit{no} is the answer since any subset of $\mathbb{N}$ is countable. 
+	
+	If we want to count the number of antichains, we notice that an antichain is essentially a partition of some subset of $B$.
+	We also notice that every element of $\mathcal{P}(B)$ is also technically a partition, just a partition of one. This means that
+	the cardinality of the set of antichains is at least the cardinality of $\mathcal{P}(B)$.
+	If $B = \mathbb{N}$, then we know $\mathcal{P}(\mathbb{N})$ is already uncountable, so the set of antichains 
+	will also be uncountable.
+}
+}
