@@ -13,7 +13,6 @@ I use `\TODO` to mark the problems that need work or don't have solutions.
 
 ### Chapter 1
 
-- Problem 4.13
 - Problem 1.5.9c
 
 ## Work to be done
