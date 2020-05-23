@@ -1,9 +1,11 @@
 %% 2.2 %%
 
-\setcounter{subsection}{2}
+\setcounter{section}{1}
+\section{The Limit of a Sequence}
 
 \bx{
-% possibly only prove first one since the proofs are basically the same.
+The proofs are essentially the same, so after the first proof, I'll just give the $n$
+that can be used to prove the convergence.
 \ea{
 	\item Let $\epsilon > 0$ be arbitrary. Then choose $n\in \mathbb{N}$ such that $n > \frac{1}{\sqrt{6\epsilon}}$. Then 
 	\begin{align*}
@@ -32,13 +34,15 @@ The \textit{vercongent} definition describes a sequence that can be finitely bou
 \bx{
 \ea{
 	\item We have to find one school with a student shorter than 7 feet.
-	\item We would have to find a college with a grade lower than B.
-	\item We just have to check every college for a student who is shorter than 6 feet.
+	\item We would have to find a college with a grade that is not A or B.
+	\item We just have find a college where a student is shorter than 6 feet.
 }
 }
 
 \bx{
-For $\epsilon > \frac{1}{2}$, we can find a suitable $N$, since we can claim the sequence ``converges'' to $\frac{1}{2}$. For $\epsilon \leq \frac{1}{2}$, there is no suitable response.
+For $\epsilon > \frac{1}{2}$, we can find a suitable $N$, 
+since we can claim the sequence ``converges'' to $\frac{1}{2}$. 
+For $\epsilon \leq \frac{1}{2}$, there is no suitable response.
 }
 
 \bx{
@@ -56,13 +60,16 @@ For $\epsilon > \frac{1}{2}$, we can find a suitable $N$, since we can claim the
 	\end{align*}
 }
 
-Usually, the sequence converges to some value by getting closer and closer eventually. Sometimes, the sequence converges to the exact value very fast, which means for some $n$, we don't need to choose a larger $n$. E.g. if we had the sequence of all 0s, we can choose any $n$ and claim the sequence converges to 0.
+Usually, the sequence converges to some value by getting closer and closer eventually.
+This means for a smaller $\epsilon$-neighborhood, we have to enumerate more elements, so we need a larger $N$.
+
+Sometimes, the sequence converges to the exact value very fast, which means for some $n$, we don't need to choose a larger $n$. E.g. if we had the sequence of all 0s, we can choose any $n$ and claim the sequence converges to 0.
 }
 
 \bx{
 \ea{
-	\item Larger
-	\item Larger
+	\item Any \textit{larger} $N$ will work, since succeeding elements should stay in the neighborhood.
+	\item Any \textit{larger} $\epsilon$ will work, since we already guaranteed succeeding elements will stay in the $\epsilon$-neighborhood, so any $\epsilon' > \epsilon$ will also bound the rest of the sequence.
 }
 }
 
@@ -75,9 +82,10 @@ Usually, the sequence converges to some value by getting closer and closer event
 
 \bx{
 \ea{
-	\item Frequently.
+	\item Frequently, since $-1$ will leave the set $\{1\}$.
 	\item Eventually is stronger, and implies frequently.
 	\item We say that a sequence $x_n$ converges to $x$ if it eventually is in a neighborhood of radius $\epsilon$ of $x$ for all $\epsilon > 0$.
-	\item $x_n$ is only necessarily frequently in $(1.9, 2.1)$.
+	\item $x_n$ is only necessarily frequently in $(1.9, 2.1)$, even if there are an infinite number of elements equal to 2,
+  you could have something like $(-2)^n$, where it keeps on leaving the $\epsilon$-neighborhood of 2.
 }
 }
