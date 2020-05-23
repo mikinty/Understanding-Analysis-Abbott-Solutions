@@ -1,0 +1,73 @@
+%% 2.8 %%
+\setcounter{subsection}{8}
+\setcounter{exercise}{0}
+
+\bx{
+\begin{align*}
+	\lim s_{nn} &= \sum_{i=0}^{\infty} -\pa{\frac{1}{2}}^i \\
+	&= -2.
+\end{align*}
+The value is equal to summing the columns first.
+}
+
+\bx{
+By the Absolute Convergence test, since we know for fixed $i$ that $\sum_{j=1}^\infty \abs{a_{ij}}$ converges, then we know for fixed $i$ that each $\sum_{j=1}^\infty a_{ij}$ converges to some $c_i$ as well. 
+
+Then, since 
+\begin{align*}
+	\sum_{j=1}^\infty \abs{a_{ij}} &\geq \sum_{j=1}^\infty a_{ij} \\
+	\lra b_i \geq c_i,
+\end{align*}
+and we know that $\sum_{i=1}^\infty b_i$ converges, we conclude that $\sum_{i=1}^\infty c_i$ must converge as well, implying that 
+\begin{equation}
+	\sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}
+\end{equation}
+converges as well.
+}
+
+\bx{
+\ea{
+	\item Since $\sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}$ converges, we know that we can find $m,n \geq N$ such that 
+	\begin{equation*}
+		\abs{t_{mn} - L} < 0.9,
+	\end{equation*}
+	and then choose our upper bound as 
+	\begin{equation}
+	M = \max \{l\} \cup \{a_{mn} \mid m,n < N\}
+	\end{equation}
+	Since $t_{nn}$ is an increasing sequence, and is bounded above, by the Monotone Convergence Theorem, $t_{nn}$ converges.
+	\item Consider 
+	\begin{align*}
+		\abs{s_{n+1, n+1} - s_{nn}} &= \abs{a_{n+1, n+1}} \\
+		&= \abs{t_{n+1, n+1} - t_{nn}} \\
+		&< \epsilon.
+	\end{align*}
+	So $(s_{nn})$ is a Cauchy Sequence and converges.
+}
+}
+
+\bx{
+\ea{
+	\item Since $(t_{nn})$ is an increasing sequence and is bounded above, we know there exists a $t_{n_0n_0}$ such that 
+	\begin{equation}
+	B - \frac{\epsilon}{2} < t_{n_0n_0} \leq B.
+	\end{equation}
+	For $N_1 = n_0$, since for $m,n \geq N_1$, $t_{mn} > t_{n_0n_0}$, and $t_{mn} \leq B$ (upper bound $B$), we will have that 
+	\begin{equation}
+	B - \frac{\epsilon}{2} < t_{m,n} \leq B.
+	\end{equation}
+	\item Since $(t_{nn}0$ converges, we can find $n \geq N$ such that
+	\begin{align*}
+	\abs{s_{nn} - S} &= \abs{s_{nn} - \sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}} \\
+	&= \abs{\sum_{i=n+1}^\infty \sum_{j=n+1}^\infty a_{ij}} \\
+	&<\abs{\sum_{i=n+1}^\infty \sum_{j=n+1}^\infty \abs{a_{ij}}} \\
+	&= \abs{t_{nn} - \sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}} \\
+	&< \epsilon.
+	\end{align*}
+	So for $m,n \geq N$, 
+	\begin{equation}
+		\abs{s_{mn} - S} \leq 
+	\end{equation}
+	hm?????????/
+}
+}

@@ -1,0 +1,55 @@
+%% 2.6 %%
+\setcounter{subsection}{6}
+\setcounter{exercise}{0}
+
+\bx{
+\ea{
+	\item $a_n = 1 + \pa{-\frac{1}{2}}^n$
+	\item $a_n = n$
+	\item Impossible, since a Cauchy sequence implies convergence, which means every subsequence will also converge.
+	\item You can use Equation  (\ref{eq:convdiv}). Literally anything that diverges but has a convergent subsequence.
+}
+}
+
+\bx{
+If we have that $(x_n) \rightarrow x$, then we can make $\abs{x_n - x}$ arbitrarily small. Consider
+\begin{align*}
+	\abs{x_n - x_m} = \abs{x_n - x + x - x_m} \\
+	&\leq \abs{x_n - x} + \abs{x_m - x} \tag{Triangle Inequality} \\
+	&< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{align*}
+}
+
+\bx{
+\ea{
+	\item The \textit{pseudo-Cauchy} definition is different because it only looks at consecutive terms
+	\item Consider the harmonic series, where $s_{n+1} - s_{n} = \frac{1}{n}$.
+}
+}
+
+\bx{
+\begin{align*}
+	\abs{c_{n+1} - c_n} &= \abs{\abs{a_{n+1} - b_{n+1}} - \abs{a_n - b_n}} \\
+	&\leq \abs{a_{n+1} - a_n + b_{n+1} - b_n} \\
+	&\leq \abs{a_{n+1} - a_n} + \abs{b_{n+1} - b_n} \\
+	&< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+\end{align*}
+}
+
+\bx{
+\ea{
+	\item Let $a_n = x_n + y_n$, then
+	\begin{align*}
+		\abs{a_{n+1} - a_n} &= \abs{x_{n+1} - x_n + y_{n+1} - y_n} \\
+		&\leq \abs{x_{n+1} - x_n} + \abs{y_{n+1} - y_n} \\
+		&< \epsilon
+	\end{align*}
+	\item 
+}
+}
+
+\bx{
+\ea{
+	\item 
+}
+}

@@ -1,0 +1,83 @@
+%% 2.2 %%
+
+\setcounter{subsection}{2}
+
+\bx{
+% possibly only prove first one since the proofs are basically the same.
+\ea{
+	\item Let $\epsilon > 0$ be arbitrary. Then choose $n\in \mathbb{N}$ such that $n > \frac{1}{\sqrt{6\epsilon}}$. Then 
+	\begin{align*}
+	\abs{\frac{1}{6n^2 + 1}} &< \abs{\frac{1}{6\frac{1}{6\epsilon} + 1}} \\
+	&< \abs{\frac{1}{\frac{1}{\epsilon} + 1}} \\
+	&< \frac{\epsilon}{\epsilon + 1} \\
+	&< \epsilon
+	\end{align*}
+	as desired.
+	
+	\item Choose $n > \frac{13}{2\epsilon} - \frac{5}{2}$
+	\item Choose $n > \frac{4}{\epsilon^2} - 3$
+}
+}
+
+\bx{
+Consider the sequence
+\begin{equation}
+x_n = (-1)^n, n \geq 1.
+\end{equation}
+Then for $\epsilon > 2$, it is true that $\abs{x_n - 0} < 2, \forall n \geq 1$.
+
+The \textit{vercongent} definition describes a sequence that can be finitely bounded past some $n$.
+}
+
+\bx{
+\ea{
+	\item We have to find one school with a student shorter than 7 feet.
+	\item We would have to find a college with a grade lower than B.
+	\item We just have to check every college for a student who is shorter than 6 feet.
+}
+}
+
+\bx{
+For $\epsilon > \frac{1}{2}$, we can find a suitable $N$, since we can claim the sequence ``converges'' to $\frac{1}{2}$. For $\epsilon \leq \frac{1}{2}$, there is no suitable response.
+}
+
+\bx{
+\ea{
+	\item $\lim a_n = 0$. Take $n > 1$. Then 
+	\begin{align*}
+		\abs{\pbra{\pbra{\frac{1}{n}}}} &\leq 0 \\
+		&< \epsilon.
+	\end{align*}
+	\item $\lim a_n = 0$. Take $n > 10$. Then 
+	\begin{align*}
+		\abs{\pbra{\pbra{\frac{10+n}{2n}}}} &= \abs{\pbra{\pbra{\frac{5}{n} + \frac{1}{2}}}} \\
+		&\leq 0 \\
+		&< \epsilon.
+	\end{align*}
+}
+
+Usually, the sequence converges to some value by getting closer and closer eventually. Sometimes, the sequence converges to the exact value very fast, which means for some $n$, we don't need to choose a larger $n$. E.g. if we had the sequence of all 0s, we can choose any $n$ and claim the sequence converges to 0.
+}
+
+\bx{
+\ea{
+	\item Larger
+	\item Larger
+}
+}
+
+\bx{
+\ea{
+	\item We say a sequence $x_n$ \textit{converges} to $\infty$ if for every $\epsilon > 0$, $\exists N \in \mathbb{N}$ such that whenever $n \geq N$ we have that $\abs{x_n} > \epsilon$
+	\item With our definition, we say this sequence diverges, but does not converge to $\infty$.
+}
+}
+
+\bx{
+\ea{
+	\item Frequently.
+	\item Eventually is stronger, and implies frequently.
+	\item We say that a sequence $x_n$ converges to $x$ if it eventually is in a neighborhood of radius $\epsilon$ of $x$ for all $\epsilon > 0$.
+	\item $x_n$ is only necessarily frequently in $(1.9, 2.1)$.
+}
+}

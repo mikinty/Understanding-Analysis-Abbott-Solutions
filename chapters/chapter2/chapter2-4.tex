@@ -1,0 +1,106 @@
+%% 2.4 %%
+\setcounter{subsection}{4}
+\setcounter{exercise}{0}
+
+\bx{
+Suppose $\sum_{n=0}^\infty 2^nb_{2^n}$ diverges. Then consider
+\begin{align*}
+	s_{2^{k+1} - 1} &= b_1 + (b_2+b_3) + \dots \\
+	&\geq b_2 + (b_4+b_4) + \dots \\
+	&= (t_{k} - b_1)/2
+\end{align*}
+}
+
+\bx{ 
+\ea{
+	\item We can show by induction that the sequence is decreasing. Thus, because the sequence starts at 3, we know it is bounded above by 1 and below by 0. Thus, the sequence converges.
+	\item If $\lim x_n$ exists, then  $\lim x_{n+1}$ must be the same limit, because if the limit is a different value or doesn't exist, then $(x_n)$ does not converge.
+	\item Suppose $\lim x_n = \lim x_{n+1} = x$. Then 
+	\begin{align*}
+		x &= \frac{1}{4-x} \\
+		x^2 -4x + 1 &= 0 \\
+		\lra x &= 2 - \sqrt{3}
+	\end{align*}
+}
+}
+
+\bx{
+	We can use induction to show that $(y_n)$ is increasing. Since the sequence is increasing and starts at 1, we know that $(y_n)$ is bounded above by 4 and below by 0. Thus, by the Monotone Convergence Theorem, we conclude that $(y_n)$ converges. Now, we find the limit of the recurrence by taking the limits of both sides of the equation,
+	\begin{align*}
+		y &= 4 - \frac{1}{y} \\
+		y^2 - 4y + 1 &= 0 \\
+		y &= 2 + \sqrt{3}
+	\end{align*}
+}
+
+\bx{
+We can define the recurrence of this sequence as 
+\begin{equation}
+	a_{n+1} = \sqrt{2 a_{n}}.
+\end{equation}
+We can prove by induction that this sequence is increasing. We can also bound the sequence since ???.
+
+Taking the limits of both sides,
+\begin{align*}
+	a &= \sqrt{2a} \\
+	a^2 - 2a &= 0\\
+	a &= 2 \tag{from i.c. $a_0 = 1$}.
+\end{align*}
+}
+
+\bx{
+\ea{
+	\item By induction, we have
+	
+	\textbf{Base Case}: $x_1 = 2 \lra x_1^2 = 4 \geq 2$.
+	
+	\textbf{Inductive Hypothesis}: Given that for some $x_n, x_n^2 \geq 2$.
+	
+	\textbf{Inductive Step}: Consider
+	\begin{align*}
+		x_{n+1}^2 &= \frac{1}{4}\pa{x_n^2 + 4 + \frac{4}{x_n^2}} \\
+		&\geq 1 + 1 = 2.
+	\end{align*}
+	
+	Now consider
+	\begin{align*}
+		x_n - x_{n+1} &= x_n - \frac{1}{2}\pa{x_n + \frac{2}{x_n}} \\
+		&= \frac{\frac{1}{2}x_n^2-1}{x_n} \\
+		&\geq 0.
+	\end{align*}
+	Thus by the Monotone Convergence Theorem we know that $(x_n)$ converges. We now take limits of $x$ on both sides of the recurrence, yielding,
+	\begin{align*}
+		x &= \frac{1}{2}\pa{x + \frac{2}{x}} \\
+		\frac{1}{2}x - \frac{1}{x} &= 0 \\
+		x^2 - 2 &= 0 \\
+		\lra x &= \sqrt{2}.
+	\end{align*}
+	\item We can modify the sequence to converge to $\sqrt{c}, c\geq 0$ by setting $x_1 = c$, and
+	\begin{equation}
+		x_{n+1} = \frac{1}{c}\pa{(c-1)x_n + \frac{c}{x_n}}
+	\end{equation}
+}
+}
+
+\bx{
+\ea{
+	\item Since we know that $(a_n)$ is bounded, it must also be the case that $\sup (a_n)$ is bounded. Then, $\sup\{a_k\}$ is a decreasing sequence, so by the Monotone Convergence Theorem, we know that $(y_n)$ converges.
+	\item We can define 
+	\begin{align}
+		\lim \inf a_n &= \lim z_n, \text{ where } \\
+		\lim z_n &= \inf\{a_k\,:\,k\geq n\}.
+	\end{align}
+	Since $\inf\{a_k\}$ is a increasing sequence, and $(a_n)$ is bounded, we know it converges.
+	\item ???? x(
+	An example when the inequality is strict is 
+	\begin{equation}
+		a_n = 0
+	\end{equation}
+	
+	\item ($Rightarrow$) Suppose 
+	\begin{equation}
+		\lim \inf a_n = \lim \sup a_n,
+	\end{equation}
+	then 
+}
+}
