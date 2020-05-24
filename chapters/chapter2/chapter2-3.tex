@@ -1,5 +1,6 @@
 %% 2.3 %%
-\setcounter{subsection}{3}
+
+\section{The Algebraic and Order Limit Theorems}
 \setcounter{exercise}{0}
 
 \bx{
@@ -11,19 +12,43 @@ Let $\epsilon > 0$. Consider $n \geq 1$, then
 
 \bx{
 \ea{
-	\item  We are given \((x_n) \rightarrow 0\), so we can make \(|x_n - 0|\) as small as we want. In particular, we choose N such that \(|x_n| < \epsilon|\sqrt{x_n}|\), whenever \(n \geq N\). To see that this N indeed works, observe that for all \(n \geq N\), 
-\begin{equation*}
-    |\sqrt{x_n}| = \frac{|x_n|}{|\sqrt{x_n}|} < \frac{1}{|\sqrt{x_n}|}\epsilon|\sqrt{x_n}| = \epsilon
-\end{equation*}
-so \((\sqrt{x_n}) \rightarrow 0\).
+\item  We are given $(x_n) \rightarrow 0$, so we can make $\abs{x_n - 0}$ as small as we want.
 
-	\item We are given \((x_n) \rightarrow x\), so we can make \(|x_n - x|\) as small as we want. We choose N such that \begin{equation*}
-    |x_n - x| < \epsilon|\sqrt{x_n} + \sqrt{x}| 
+In particular, for some $\epsilon > 0$, we choose $N$ such that $\forall n \geq N$,
+\begin{equation}
+	\abs{x_n} < \epsilon^2 \quad \Rightarrow \quad \abs{\sqrt{x_n}} < \epsilon
+	\label{eq:chap2_sqrt_ineq}
+\end{equation}
+The implication follows since we know $x_n \geq 0, \epsilon > 0$.
+
+To see that this $N$ works, observe that for all $n \geq N$, 
+\begin{equation*}
+    \abs{\sqrt{x_n} - 0} < \epsilon \tag{by (\ref{eq:chap2_sqrt_ineq})}
 \end{equation*}
-whenever \(n \geq N\). To see that this N works, notice that for all \(n \geq N\), \begin{equation*}
-    |\sqrt{x_n} - \sqrt{x}| = \frac{|x_n - x|}{|\sqrt{x_n} + \sqrt{x}|} < \frac{1}{|\sqrt{x_n} + \sqrt{x}|}\epsilon|\sqrt{x_n} + \sqrt{x}| = \epsilon
-\end{equation*} 
-Therefore, \((\sqrt{x_n}) \rightarrow \sqrt{x}\).
+so we conclude \((\sqrt{x_n}) \rightarrow 0\).
+
+\label{chap2:converging_zero}
+
+\item We have two cases. If the sequence converges to 0, then we just have part (\ref{chap2:converging_zero}).
+
+If $x \neq 0$, then notice
+\begin{equation*}
+	\abs{
+		\sqrt{x_n} - \sqrt{x}
+	} = \frac{
+		\abs{x_n - x}
+	}{
+		\abs{\sqrt{x_n} + \sqrt{x}}
+	}
+\end{equation*}
+since we know $x_n \geq 0$ and $x \neq 0$. 
+Now, this expression is hard to bound when the denominator is small, since that 
+would make the overall expression big. Fortunately, we can put a bound on the denominator,
+namely, since we know $x \neq 0 \rightarrow x > 0$, the denominator is $> 0$. Let us call the 
+denominator value $d$. Then the following $N$ will work for the convergence proof,
+\begin{equation}
+	N : \forall n \geq N \quad \abs{x_n - x} < \epsilon \cdot d
+\end{equation}
 }
 }
 
@@ -37,46 +62,51 @@ so $l \leq \lim_{n\to\infty} y_n \leq l \Rightarrow \lim_{n\to\infty} y_n = 1$.
 }
 
 \bx{
-AFSOC $\lim a_n = l_1$ and $l_2$, for $l_1 \neq l_2$. Then we have that $\forall \epsilon > 0$, for sufficiently large $n$, that
+\AFSOC $\lim a_n = l_1$ and $l_2$, for $l_1 \neq l_2$. Then we have that $\forall \epsilon > 0$, for sufficiently large $n$, that
 \begin{align*}
-	\abs{a_n - l_1} < \epsilon \\
+	\abs{a_n - l_1} < \epsilon \\e
 	\abs{a_n - l_2} < \epsilon
 \end{align*}
 But this is a contradiction, since if we let $d = \abs{l_1 - l_2}$, and $\epsilon = \frac{d}{2}$, then 
 \begin{align*}
-	\abs{l_2 - l_1} \leq \abs{a_n - l_1} + \abs{-(a_n - l_2)} < 2 \epsilon \\
+	\abs{l_2 - l_1} \leq \abs{a_n - l_1} + \abs{-(a_n - l_2)} < 2 \epsilon \tag{Triangle Inequality}\\
 	d \leq \abs{a_n - l_1} + \abs{-(a_n - l_2)} < d,
 \end{align*}
 which leads to $d < d$. Thus, we must conclude that $l_1 = l_2$, and limits are unique.
 }
 
 \bx{
-($Rightarrow$) If $(z_n)$ is convergent to some $l$, then $\forall \epsilon >0$, we have that $\exists N \in \mathbb{N}$ such that for $n \geq N$, that 
+($\Rightarrow$) If $(z_n)$ is convergent to some $l$, then $\forall \epsilon >0$, we have that $\exists N \in \mathbb{N}$ such that for $n \geq N$, that 
 \begin{equation}
 	\abs{z_n - l} < \epsilon \lra \abs{x_n - l} < \epsilon,  \abs{y_n - l} < \epsilon,
 \end{equation}
 because $z_n$ appears before or at the same time as $x_n$ and $y_n$ in the sequence.
 
-($\Leftarrow$) If $(x_n), (y_n)$ are both convergent to some limit $l$, then we have for some $n\geq N \in \mathbb{N}$, that 
-\begin{align*}
-	\abs{x_n - l} &< \epsilon \\
-	\abs{y_n - l} &< \epsilon.
-\end{align*}
-Then choose $n' \geq 2N$, then we have two cases, 
-\begin{itemize}
-	\item If $n'$ odd, then $z_{n'} = x_{(n'+1)/2}$. Since $\frac{n'+1}{2} \geq N$, $\abs{x_{(n'+1)/2} - l} < \epsilon$.
-	\item If $n'$ even, then $z_{n'} = y_{n'/2}$. Since $\frac{n'}{2} \geq N$, $\abs{y_{n'/2} - l} < \epsilon$.
-\end{itemize}
-In both cases we have that for every $\epsilon > 0$, we can find $n' \geq N' = 2N \in \mathbb{N}$ such that 
+($\Leftarrow$) If $(x_n), (y_n)$ are both convergent to some limit $l$, then we have for any $\epsilon > 0$, 
+$\exists N_x: n_x\geq N_x$ and $\exists N_y: n_y \geq N_y$, that 
 \begin{equation}
-	\abs{z_{n'} - l} < \epsilon,
+	\begin{aligned}
+		\abs{x_{n_x} - l} &< \epsilon \\
+		\abs{y_{n_y} - l} &< \epsilon,
+	\end{aligned}
+	\label{eq:chap23_xy_converge}
 \end{equation}
+
+respectively.
+
+Choose $N_z > 2\cdot\max(N_x, N_y)$. Then for $n_z \geq N_z$, $z_{n_z}$ is either equal to 
+$x_i$ for $i > N_x$ or $y_j$ for $j > N_y$. Using (\ref{eq:chap23_xy_converge}), we can
+see that
+\begin{equation*}
+	\abs{z_{n_z} - l} < \epsilon
+\end{equation*}
 so $(z_n)$ is also convergent to $l$.
 }
 
 \bx{
 \ea{
-	\item By triangle inequality, we have $\abs{\abs{b_n} - \abs{b}} \leq \abs{b_n - b} < \epsilon$
+	\item By triangle inequality, we have $\abs{\abs{b_n} - \abs{b}} \leq \abs{b_n - b} < \epsilon$,
+	so the $N$ that proves convergence for $(b_n)$ will also work for $(\abs{b_n})$.
 	\item The converse is not true. Consider the sequence $a_n = (-1)^n$.
 }
 }
@@ -91,7 +121,7 @@ so $(z_n)$ is also convergent to $l$.
 \end{align*}
 
 	We cannot use the Algebraic Limit Theorem because we are not given that $(a_n)$ necessarily converges.
- 	\item No. For example, take $a_n = (-1)^n$, $b_n = 3$.
+	\item No. For example, take $a_n = (-1)^n$, $b_n = 3$. This is because we can no longer make $\abs{b_n}$ arbitrarily small.
 	\item When $a=0$, we have 
 	\begin{equation*}
 		\abs{a_nb_n - ab} \leq \abs{b_n}\abs{a_n - a}.
@@ -106,33 +136,92 @@ so $(z_n)$ is also convergent to $l$.
 
 \bx{
 \ea{
-	\item $x_n = (-1)^n, y_n = (-1)^{n-1}$
-	\item Impossible by theorem ???
+	\item $x_n = (-1)^n, y_n = (-1)^{n-1}$. Sum is just $\{0, 0, \dots\}$
+	\item \textbf{Impossible}, since if $x_n + y_n$ converges and $x_n$ also converges, 
+	we can show that $y_n$ must converge, which is a contradiction. 
 	\item $b_n = \frac{1}{n}$
-	\item Impossible by theorem ???
+	\item \textbf{Impossible}, since if $b_n$ converges to some $b$, for any $\epsilon > 0$, 
+	past some $N$, for $n \geq N$, 
+	\begin{equation*}
+		\abs{b_n - b} < \epsilon.
+	\end{equation*}
+	Any $a_n$ that is unbounded will grow in magnitude for larger $n$, so $b_n$ cannot help bound $a_n$.
 	\item $a_n = 0, b_n = n$
 }
 }
 
 \bx{ 
-No. Consider $a_n = \frac{1}{n}, a_n > 0$. $\lim a_n = 0$, but $0 \not> 0$.
+Yes, the strict inequalities will provide an upper and lower bound still.
+Sort of like a $\sup, \inf$ of the sequence.
 }
 
 \bx{
-Since $\abs{a_n}$ gets arbitrarily small, we know for $n \geq N$, 
+Since $\abs{a_n}$ gets arbitrarily small, for any $\epsilon > 0$ 
+we know $\exists N : n \geq N$ such that, 
 \begin{equation}
 \abs{b_n - b} \leq \abs{a_n} < \epsilon.
 \end{equation}
 }
 
 \bx{
-Let $\lim x_n = x$. Then, for some $n_\epsilon \geq N$, we have $\abs{x_n - x} < \epsilon/2$. Now,
+Let $\lim x_n = x$. Then, for any $\epsilon_x > 0$, $\exists N_x : n \geq N_x$, 
+we have $\abs{x_n - x} < \epsilon_x$.
+
+Now, our goal is, given some $\epsilon_y > 0$, to find some $N_y : n \geq N_y$ so we can bound $y_n$.
+The intuition is, since we know $(x_n)$ converges, 
+after some point, $x_i$ will be close to the limit $x$.
+Our goal is to choose some $N_y$ large enough so the $x_i'$ prior to these $x_i$
+are ``averaged out'' enough, so they are essentially gone, and that the weight on the $x_i$
+that are close to $x$ is very high.
 \begin{align*}
-	\abs{y_n - x} &= \frac{1}{n}\pbra{\abs{\sum_{i=1}^{n_\epsilon}(x_i - x)} + \abs{\sum_{i=n_\epsilon}^n (x_i - x)}} \\
-	&= \frac{n_\epsilon}{n}\underset{i\in[1,n_\epsilon]}{\max}(x_i - x) + \frac{n-n_\epsilon}{n}\underset{i\in[n_\epsilon, n]}{\max}(x_i - x) \\
-	&= \frac{n_\epsilon}{n}\underset{i\in[1,n_\epsilon]}{\max}(x_i - x) + \frac{\epsilon}{2}
+	\abs{y_n - x} 
+	&= \abs{
+		\frac{1}{n}
+		\pbra{
+			\sum_{i=1}^{N_x}(x_i - x) +
+			\sum_{i=N_x+1}^{N_y}(x_i - x)
+		}
+	}\\
+	&\leq \abs{
+		\frac{1}{n}
+		\pbra{
+			\sum_{i=1}^{N_x}M +
+			\sum_{i=N_x+1}^{N_y}\epsilon_x
+		}
+	} \tag{Let $M$ bound the difference from $x_i$ to $x$.}\\
+	&\leq \abs{
+		\frac{1}{n}
+		\pbra{
+			N_x M +
+			\pa{N_y - N_x} \epsilon_x
+		}
+	}\\
+	&\leq \abs{
+		\frac{N_x}{n}M +
+		\epsilon_x
+	}  < \epsilon_y
 \end{align*}
-now if we choose $n > \frac{n_\epsilon \underset{i\in[1,n_\epsilon]}{\max}(x_i - x)}{\epsilon/2}$, then we can bound the RHS by $\epsilon$.
+Now, we have quite a few choices for our $N_y$. One such solution, is 
+\begin{itemize}
+	\item Given some $\epsilon > 0$
+	\item First choose $N_x$ such $n \geq N_x \quad \abs{x_n - x} < \epsilon/2$
+	\item Then, choose $N_y > \frac{2N_xM}{\epsilon}$. This means for $n \geq N_y$,
+	\begin{align*}
+		\abs{y_n - x} 
+		&\leq \abs{
+			\frac{N_x}{n}M +
+			\epsilon_x
+		}\\
+		& < 
+		\abs{
+			\frac{
+				N_xM
+			}{\frac{2N_xM}{\epsilon}}
+			+ 
+			\epsilon/2
+		} \leq \epsilon
+	\end{align*}
+\end{itemize}
 
 Consider when $x_n = (-1)^n$. $(x_n)$ does not converge but $(y_n)$ does.
 }
@@ -150,5 +239,7 @@ Consider when $x_n = (-1)^n$. $(x_n)$ does not converge but $(y_n)$ does.
 		\abs{\lim_{m\to\infty} \lim_{n\to\infty} a_{m,n} - l} &< \epsilon.
 	\end{align*}
 	i.e. we approach the same limit no matter what permutation of the index variables we iterate through.
+
+	This definition is motivated by multivariable calculus, but unsure if this makes sense in the context of analysis.
 }
 }
