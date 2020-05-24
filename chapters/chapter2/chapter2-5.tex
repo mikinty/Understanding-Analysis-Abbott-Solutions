@@ -1,9 +1,15 @@
 %% 2.5 %%
-\setcounter{subsection}{5}
+\section{Subsequences and the Bolzano-Weierstrass Theorem}
 \setcounter{exercise}{0}
 
 \bx{
-Suppose we have a convergent sequence. Then given any $\epsilon$, we can always find for $n \geq N \in \mathbb{N}$ that $\abs{a_n - l} < \epsilon$. For any subsequence of $(a_n)$, $a'_m = a_n$ will be such that $m\geq n$, so we can choose $m \geq N$ from earlier and conclude that $\abs{a'_m - l} < \epsilon$.
+Suppose we have a convergent sequence with limit $l$. 
+Then given any $\epsilon > 0$, we can always find $N: n \geq N$ such that 
+$\abs{a_n - l} < \epsilon$. 
+For any subsequence of $(a_n)$, $(a'_m)$, any element of this subsequence,
+call it $a'_k$ will be from some $a_n$ in the original sequence,
+where $n \geq k$. So we can choose $N$ from earlier, and for $m \geq N$ 
+we will have $\abs{a'_m - l} < \epsilon$.
 }
 
 \bx{
@@ -41,14 +47,19 @@ where the series regrouping $a_i$ is divided into groups of $n_1, n_2, \dots$. T
 		\end{cases}
 		\label{eq:convdiv}
 	\end{equation}
-	\item By Bolzano-Weierstrass, since we have a subsequence that is bounded, we know we can find a convergent subsequence within this subsequence that converges.
+	\item By Bolzano-Weierstrass, since we have a subsequence that is bounded,
+	we know we can find a convergent subsequence within this subsequence that converges.
 }
 }
 
 \bx{
-	AFSOC $(a_n)$ converges to $b \neq a$. Then we have that $\abs{a_n - b}$ can be arbitrarily small. But this implies that every subsequence will also converge to $b$, which is a contradiction.
+	\AFSOC $(a_n)$ converges to $b \neq a$. Then we have that $\abs{a_n - b}$ can be arbitrarily small. But this implies that every subsequence will also converge to $b$, which is a contradiction.
 	
-	AFSOC $(a_n)$ does not converge. Then since $(a_n)$ is bounded, and every convergent subsequence converges to ??? i give up :(
+	\AFSOC $(a_n)$ does not converge. Then since $(a_n)$ is bounded, we must have an infinite number of elements in 
+	two different $\epsilon$-neighborhoods. But this would imply we have convergent subsequences to different limits, 
+	which contradicts the original problem statement.
+
+	Therefore, we conclude $(a_n)$ converges to $a$.
 }
 
 \bx{
@@ -62,8 +73,8 @@ We notice that $\abs{b^{2n}}$ is a subsequence that also converges to $L$, and s
 \bx{
 We have $s = \sup S$, which means for any $\epsilon > 0$,
 \begin{align*}
-	&s - \epsilon < x \in S < a'_n \\
-	\lra &\epsilon > \abs{s - a'_n} = \abs{a'_n - s}
+	\exists x : s - \epsilon < x \in S < a'_n \\
+	\epsilon > \abs{s - a'_n} = \abs{a'_n - s}
 \end{align*}
-where $a'_n$ is a subsequence containing part of the infinite $a_n > x \in S$.
+where $a'_n$ is an element of the infinite subsequence of $a_n:a_n > x \in S$.
 }
