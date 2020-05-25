@@ -64,22 +64,28 @@ we have shown we can bound this before by
 \bx{
 I'm not going to write these down super rigorously, but will write down most of the ideas.
 \ea{
-\item The case where we have a finite set of real numbers or a set with a closed upper side, e.g. $(1, 2]$ is trivial, since you can show the largest element is 
-the least upper bound.
+\item Suppose we have some set of real numbers that is bounded above. We want to show that 
+there exists a least upper bound, assuming the Nested Interval Property is true.
 
-We will consider the case where the upper bound is for an open interval $(a, b)$.
-Our claim is that the least upper bound is $b$. 
-Define a set of intervals, where 
-\begin{itemize}
-	\item $I_0 = (a, b)$
-	\item $I_{n+1} = (a_{n+1}, b_{n+1}) \quad a_{n+1} = (a_{n} + b_{n})/2$
-\end{itemize}
-what happens now, is that if we take the infinite intersection of all $I_n$, by NIP we must have an element in this intersection.
-Now, this element is $b$, and we can prove it is the supremum, by showing that 
-\begin{itemize}
-	\item $x \in (a, b)$ will have $x \leq b$, so $b$ is an upper bound
-	\item For any $\epsilon > 0$, $b - \epsilon$ is not an upper bound, because 
-\end{itemize}
+Let $B$ be the set of upper bounds. Define $I_1 = B$, and for each subsequent $I_i$, define it as 
+\begin{equation*}
+	I_{n+1} = \{b \in I_n : b < \ell_{n+1}\},
+\end{equation*}
+where $\ell_{n+1} \in I_n$ is arbitrarily chosen. The idea is that we are creating intervals 
+that have a smaller and smaller maximum value.
+
+Now we have 2 cases,
+\begin{enumerate}[label=\alph*]
+	\item $\exists n \in \mathbb{N} : I_n = \emptyset$. In this case, there must have been 
+	some $\ell_n$ where $\forall b \in I_n, b \neq \ell_n, \ell_n < b$. Since $I_n$ is a subset of
+	the smaller elements of $B$, we also have $\forall b \in B, b \neq \ell_n, \ell_n < b$,
+	which means this $\ell_n$ is the least upper bound.
+	\item None of the $I_n$ are empty. Now, consider $\bigcap_{n=1}^\infty I_n$.
+	By NIP, this intersection is nonempty. By our construction of the $I_n$, we know any element $b$
+	in this intersection must be less than all the elements in the set preceding it.
+	However, we reach a contradiction, because if $b$ is in this infinite intersection, 
+	\TODO this proof doesn't work... probably need to change the interval construction.
+\end{enumerate}
 
 \item Define $i_n$ to be $\inf \pa{\bigcup_{k=n}^\infty I_k}$, and $s_n$ to be $\sup \pa{\bigcup_{k=n}^\infty I_k}$.
 $i_n$ is an increasing sequence, and $s_n$ is a decreasing sequence.
@@ -103,6 +109,29 @@ $L \in I_n$ for $n \geq N$. Since $I_n$ is also contained within all sets before
 is contained in those sets. Therefore, we have shown that $L$ is in every set, so the infinite intersection must 
 contain at least $L$, so therefore it is nonempty.
 
-\item 
+\item We are given a bounded sequence, and want to show that there exists a 
+convergent subsequence. 
+
+We will construct a subsequence, and show that it is convergent.
+
+Since we have a bounded sequence $(x_n)$, we know $\abs{x_n} \leq M$.
+
+Let $I_1 = [-M, M]$. Now construct subsequent $I_n$ from $I_{n-1} = [a, b]$ as 
+\begin{equation*}
+	I_n = [a, (a+b)/2] \text{ or } [(a+b)/2, b],
+\end{equation*}
+depending on which half has an infinite number of elements.
+
+Now, our subsequence is defined as $a_n : a_n \in I_n$. 
+Given $\epsilon > 0$, since we can make the bound of $I_n$ 
+as arbitrarily small as possible, since we are halving the interval size every time, 
+we know $\exists N : n \geq N \rightarrow \abs{I_n} < \epsilon$. 
+Now, since all future elements $a_k$ will be chosen from this interval and its subsets,
+and the interval size is $< \epsilon$, we can conclude for $m, n \geq N$,
+\begin{equation*}
+	\abs{a_n - a_m} < \epsilon.
+\end{equation*}
+This means $(a_n)$ is a Cauchy Sequence, and by the Cauchy Criterion, we can conclude that 
+$(a_n)$ is convergent. 
 }
 }
