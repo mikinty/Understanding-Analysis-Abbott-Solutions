@@ -2,7 +2,7 @@
 \chapter{Extras}
 \section{Useful Tools}
 
-Collection of useful 
+Collection of useful tools and methods to solve problems.
 
 \begin{tip}
   Template for a proof that $(x_n) \rightarrow x$:
@@ -21,3 +21,38 @@ Collection of useful
 \begin{itemize}
   \item In Chapter 2, we learn that addition in infinite sums is not commutative.
 \end{itemize}
+
+\section{Important Theorems}
+\subsection{5 Characterizations of Completeness}
+\begin{theorem}
+  \textbf{\textup{(Axiom of Completeness)}}
+  Every nonempty set of real numbers that is bounded above has a least upper bound. 
+\end{theorem}
+
+\begin{theorem}
+  \textbf{\textup{(Nested Interval Property)}}
+  For each $n\in \mathbb{N}$, assume we are given a closed interval $I_n = \pbra{a_n, b_n} = \{x \in \mathbb{R}:a_n \leq x \leq b_n\}$.
+  Assume also that each $I_n$ contains $I_{n+1}$. Then the resulting nested sequence of closed intervals
+  \begin{equation*}
+    I_1 \supseteq I_2 \supseteq I_3 \cdots
+  \end{equation*}
+  has a nonempty intersection, that is $\bigcap_{n=1}^\infty I_n \neq \emptyset$.
+\end{theorem}
+
+\begin{theorem}
+  \textbf{\textup{(Monotone Convergence)}}
+  If a sequence is monotonic and bounded, then it converges.
+\end{theorem}
+
+\begin{theorem}
+  \textbf{\textup{(Bolzano-Weierstrass)}}
+  Every bounded sequence contains a convergent subsequence.
+\end{theorem}
+
+\begin{theorem}
+  \textbf{\textup{(Cauchy Criterion)}}
+  A sequence converges if and only if it is a Cauchy Sequence.
+  
+  A sequence $(a_n)$ is called a Cauchy sequence if, for every $\epsilon > 0$,
+  $\exists N \in \mathbb{N}$ such that whenever $m, n \geq N$, it follows that $\abs{a_n - a_m} < \epsilon$.
+\end{theorem}
