@@ -1,5 +1,5 @@
 %% 2.6 %%
-\setcounter{subsection}{6}
+\section{The Cauchy Criterion}
 \setcounter{exercise}{0}
 
 \bx{
@@ -14,7 +14,8 @@
 \bx{
 If we have that $(x_n) \rightarrow x$, then we can make $\abs{x_n - x}$ arbitrarily small. Consider
 \begin{align*}
-	\abs{x_n - x_m} = \abs{x_n - x + x - x_m} \\
+	\abs{x_n - x_m} 
+	&= \abs{x_n - x + x - x_m} \\
 	&\leq \abs{x_n - x} + \abs{x_m - x} \tag{Triangle Inequality} \\
 	&< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
 \end{align*}
@@ -23,7 +24,7 @@ If we have that $(x_n) \rightarrow x$, then we can make $\abs{x_n - x}$ arbitrar
 \bx{
 \ea{
 	\item The \textit{pseudo-Cauchy} definition is different because it only looks at consecutive terms
-	\item Consider the harmonic series, where $s_{n+1} - s_{n} = \frac{1}{n}$.
+	\item Consider the harmonic series, where $\abs{s_{n+1} - s_{n}} = \frac{1}{n(n+1)}$.
 }
 }
 
@@ -38,18 +39,70 @@ If we have that $(x_n) \rightarrow x$, then we can make $\abs{x_n - x}$ arbitrar
 
 \bx{
 \ea{
-	\item Let $a_n = x_n + y_n$, then
-	\begin{align*}
-		\abs{a_{n+1} - a_n} &= \abs{x_{n+1} - x_n + y_{n+1} - y_n} \\
-		&\leq \abs{x_{n+1} - x_n} + \abs{y_{n+1} - y_n} \\
-		&< \epsilon
-	\end{align*}
-	\item 
+\item Let $a_n = x_n + y_n$, then
+\begin{align*}
+	\abs{a_{n+1} - a_n} &= \abs{x_{n+1} - x_n + y_{n+1} - y_n} \\
+	&\leq \abs{x_{n+1} - x_n} + \abs{y_{n+1} - y_n} \\
+	&< \epsilon \tag{for proper choice of $N$}
+\end{align*}
+\item Let $a_n = x_ny_n$, then
+\begin{align*}
+	\abs{a_{n+1} - a_n} 
+	&= \abs{x_{n+1}y_{n+1} - x_ny_n} \\
+	&= \abs{x_{n+1}y_{n+1} - x_ny_{n+1} - x_ny_n + x_ny_{n+1}} \\
+	&\leq \abs{y_{n+1}\pa{x_{n+1} - x_n}} + \abs{x_n\pa{y_{n+1} - y_n}}
+\end{align*}
+we have shown we can bound this before by 
+\begin{itemize}
+	\item $(x_n), (y_n)$ are convergent sequences, so they must be bounded. Call this bound $M$
+	\item Now, $\abs{x_{n+1} - x_n}$ can be made arbitrarily small. Given some $\epsilon$, we can make it $< \frac{\epsilon}{2M}$.
+	\item We do the same for $\abs{y_{n+1} - y_n}$, and thus the overall bound is $< \epsilon$.
+\end{itemize}
 }
 }
 
 \bx{
+I'm not going to write these down super rigorously, but will write down most of the ideas.
 \ea{
-	\item 
+\item The case where we have a finite set of real numbers or a set with a closed upper side, e.g. $(1, 2]$ is trivial, since you can show the largest element is 
+the least upper bound.
+
+We will consider the case where the upper bound is for an open interval $(a, b)$.
+Our claim is that the least upper bound is $b$. 
+Define a set of intervals, where 
+\begin{itemize}
+	\item $I_0 = (a, b)$
+	\item $I_{n+1} = (a_{n+1}, b_{n+1}) \quad a_{n+1} = (a_{n} + b_{n})/2$
+\end{itemize}
+what happens now, is that if we take the infinite intersection of all $I_n$, by NIP we must have an element in this intersection.
+Now, this element is $b$, and we can prove it is the supremum, by showing that 
+\begin{itemize}
+	\item $x \in (a, b)$ will have $x \leq b$, so $b$ is an upper bound
+	\item For any $\epsilon > 0$, $b - \epsilon$ is not an upper bound, because 
+\end{itemize}
+
+\item Define $i_n$ to be $\inf \pa{\bigcup_{k=n}^\infty I_k}$, and $s_n$ to be $\sup \pa{\bigcup_{k=n}^\infty I_k}$.
+$i_n$ is an increasing sequence, and $s_n$ is a decreasing sequence.
+Since for any set, $\inf A \leq \sup A$, we know that $\forall n : i_n \leq s_n$.
+This means $\exists x : \lim i_n \leq x \leq \lim s_n$, which exists in every single interval $I_k$,
+so we know their infinite intersection is nonempty.
+
+\item We are using the BW Theorem to prove NIP. 
+Let $x_i$ be an arbitrary element of $I_i$.
+since $I_1$ is bounded, then all $I_k, k\geq 1$ are also bounded, 
+so the sequence $(x_n)$ is also bounded.
+By BW, we know that $\exists (s_n)$, a subsequence of $(x_n)$ that converges.
+Suppose $\lim s_n = L$. We will show that $L$ is in the infinite intersection of all the sets.
+For any $I_k$, the interval is $(a_k, b_k)$. Call $\epsilon = \abs{a_k - b_k}$, the size of the interval.
+Since $(s_n)$ converges to $L$, we know $\exists N : n \geq N$,
+\begin{equation*}
+	\abs{s_n - L} < \epsilon/2.
+\end{equation*} 
+since $s_n \in I_n$ by definition, we see $L$ also falls in this interval. Thus, we know 
+$L \in I_n$ for $n \geq N$. Since $I_n$ is also contained within all sets before as well, $L$ also 
+is contained in those sets. Therefore, we have shown that $L$ is in every set, so the infinite intersection must 
+contain at least $L$, so therefore it is nonempty.
+
+\item 
 }
 }
