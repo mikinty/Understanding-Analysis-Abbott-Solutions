@@ -20,8 +20,8 @@ There are also `TODO` comments if there are more minor parts that need work, e.g
 
 ## Progress
 
-- Chapter 1: :heavy_check_mark:
-- Chapter 2: :heavy_check_mark:
+- Chapter 1: :white_check_mark:
+- Chapter 2: :white_check_mark:
 - Chapter 3: :hourglass: 3.2
 - Chapter 4: :x:
 - Chapter 5: :x:
