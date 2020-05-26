@@ -7,11 +7,13 @@ out solutions.
 
 If you want to contribute, feel free to fork and submit a PR!
 
-## Unfinished Problems
+## TODOs
 
 I use `\TODO` to mark the problems that need work or don't have solutions.
+There are also `TODO` comments if there are more minor parts that need work, e.g. spacing or prettier formatting.
 
 ## Work to be done
 
 1. Consistent formatting
 2. Check work!
+3. Incomplete problems
