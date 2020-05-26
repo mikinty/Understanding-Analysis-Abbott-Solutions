@@ -1,3 +1,293 @@
 %% 2.7 %%
 \section{Properties of Infinite Series}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item For any $\epsilon > 0$, we know since $(a_n) \rightarrow 0$, $\exists N : n \geq N, \abs{a_n} < \epsilon$.
+Now, let $n > m \geq N, n = m+1$, $\abs{s_n - s_m} = \abs{a_n} < \epsilon$, which means $(s_n)$ is a Cauchy sequence.
+\item Construct intervals $I_k$ so that, initially, $I_1 = [-abs{a_1}, \abs{a_1}]$. For $n \geq 1$, if $I_{n} = [b_n, c_n]$,
+\begin{align*}
+  I_{n+1} &= (b_n, s_{n+1}) \text{ if } s_{n+1} > s_n\\
+  I_{n+1} &= (s_{n+1}, c_n) \text{ if } s_{n+1} < s_n
+\end{align*} 
+Now, take any $L \in \bigcap_{k=1}^\infty I_k$, which we know exists by NIP since $I_{n+1} \subseteq I_n$.
+We can show $s_n$ converges to $L$, since the size of any interval $I_n$ is $\abs{s_{n} - s_{n-1}} = \abs{a_n}$,
+so for any $\epsilon > 0$, we can show that $s_n$ past some $N$ will be within an $\epsilon$-neighborhood of $L$.
+
+\item $(s_n)$ is bounded by $\abs{a_1}$, so $(s_{2n}), (s_{2n+1})$ are both bounded. These sequences also happen to
+be monotonic, since one is increasing and the other is decreasing. Therefore, the two subsequences are 
+convergent, and we can add them together to get another convergent sequence, which is $(s_n)$.
+}
+}
+
+\bx{
+\ea{
+\item The hints in the text are already a lot. 
+
+If the $(b_n)$ series converges, then
+for any $\epsilon > 0$, we know $\exists N:n > m \geq N$, such that  
+\begin{equation*}
+  \epsilon > \abs{\sum_{i=m+1}^n b_i} > \abs{\sum_{i=m+1}^n a_i}
+\end{equation*}
+so this $N$ works for $(a_n)$ series too.
+
+If the $(a_n)$ series diverges, then we can \AFSOC $(b_n)$ series converges,
+and use what we proved above to show by contradiction that $(a_n)$ series converges.
+\label{chap2:part_cauchy_alt}
+
+\item $(a_n)$ series is increasing and bounded by $(b_n)$ series, so it must converge.
+For $(a_n)$ series diverging, We can do a similar \AFSOC argument in part (\ref{chap2:part_cauchy_alt}),
+where we can \AFSOC $(b_n)$ converges, which then we can show by contradiction that $(a_n)$ series is converging.    
+}
+}
+
+\bx{
+\ea{
+  \item If $\sum a_n$ diverges, then \AFSOC $\sum p_n$ and $\sum q_n$ converge.
+  Then $\sum p_n + \sum q_n = \sum a_n$ converges, but this is a contradiction.
+  
+  \item If $\sum a_n$ converges conditionally, WLOG \AFSOC $\sum p_n$ converges. 
+  Then $\sum a_n - \sum p_n = \sum q_n$ must converge as well. 
+  $\abs{\sum q_n}$ will also converge, since $\sum q_n$ does, and 
+  this equals $\sum \abs{q_n}$. Then,
+  \begin{equation*}
+    \sum \abs{a_n} = \sum \abs{p_n} + \sum \abs{q_n}
+  \end{equation*}
+  which we know converges since $\sum \abs{p_n} = \sum p_n$ and we just showed $\sum \abs{q_n}$
+  converges. This is a contradiction since we assumed $\sum a_n$ converges conditionally.
+}
+}
+
+\bx{
+Define 
+\begin{equation*}
+  x_n = \begin{cases}
+    0 &\text{if $n$ odd}\\
+    1 &\text{if $n$ even} 
+  \end{cases}
+  \quad
+  y_n = \begin{cases}
+    1 &\text{if $n$ odd}\\
+    0 &\text{if $n$ even} 
+  \end{cases}
+\end{equation*}
+Then $\sum x_n, \sum y_n$ both diverge, but $\sum x_ny_n = 0$.
+}
+
+\bx{
+\ea{
+  \item If $\sum a_n$ converges absolutely, then $\sum \abs{a_n}$ converges to some $L$, so 
+  \begin{align*}
+    L^2 = \pa{\sum \abs{a_n}}^2 &= \sum \abs{a_n}^2 + S\\
+    L^2 &\leq \sum \abs{a_n}^2 = \sum a_n^2
+  \end{align*}
+  Since $\sum_{n=1}^k a_n^2$ is an increasing sequence and is bounded, we conclude $\sum a_n^2 = \sum \abs{a_n^2}$
+  converges.
+
+  This proposition does not hold without absolute convergence. 
+  Take $a_n = (-1)^n\frac{1}{\sqrt{n}}$, which converges by the alternating series test.
+  Then $a_n^2 = \frac{1}{n}$, which is the harmonic series,
+  and we know this does not converge.
+
+  \item No, take $a_n = \frac{1}{n^2}$, which converges. 
+  Then $\sum \sqrt{a_n}$ is the harmonic series, which diverges.
+}
+}
+
+\bx{
+\ea{
+\item Call $M$ the bound of $y_n$.
+If $\sum x_n$ converges absolutely to $L$, then 
+\begin{align*}
+  \sum x_ny_n 
+  &\leq \sum \abs{x_ny_n}\\
+  &\leq \sum \abs{x_n}\abs{y_n}\\
+  &\leq \sum \abs{x_n}M\\
+  &\leq LM
+\end{align*}
+$\sum \abs{x_ny_n}$ converges by the Monotone Convergence Theorem because the partial sums are increasing and it is bounded above.
+Then, by the Absolute Convergence Test we can conclude $\sum x_ny_n$ also converges.
+
+\item Let $x_n = \frac{(-1)^n}{n}$ be the alternating harmonic series, and $y_n = (-1)^n$. Then 
+$\sum x_n$ converges but $\sum x_ny_n$ is the harmonic series, which does not converge. 
+}
+}
+
+\bx{
+We are going to bound our $p$-series with another series, and show that 
+the other series converges.
+\begin{align*}
+  \sum_{n=1}^\infty \frac{1}{n^p}
+  &= 1 + \frac{1}{2^p} + \frac{1}{3^p} + \frac{1}{4^p} + 
+  \frac{1}{5^p} + \frac{1}{6^p} + \frac{1}{7^p} + \cdots\\
+  &\leq 1 + \frac{1}{2^p} + \frac{1}{2^p} + 
+  \frac{1}{4^p} + \frac{1}{4^p} + \frac{1}{4^p} + \frac{1}{4^p} 
+  + \frac{1}{8^p} + \cdots\\
+  &= 1 + \frac{2}{2^p} + \frac{4}{4^p} + \frac{8}{8^p} + \cdots \\
+  &= 1 + \frac{1}{2^{p-1}} + \frac{1}{4^{p-1}} + \frac{1}{8^{p-1}} + \cdots\\
+  &= \frac{1}{1 - \frac{1}{2^{p-1}}} = \frac{2^p}{2^p - 2} \tag{Only if $p > 1$}
+\end{align*}
+By the Monotone Convergence Theorem, since the partial sums of the $p$-series is increasing, and there is an upper bound,
+we conclude that the $p$-series converges.
+
+Notice that the convergence of $p$-series is often proved with calculus, 
+but this is a nice alternative.
+}
+
+\bx{
+Informally, you use the fact that both partial sums $s_n^a, s_n^b$ will converge,
+then use the $N_a, N_b$ and choose $N = \max(N_a, N_b)$, 
+so that both partial sums are $\epsilon/2$ close to $A, B$.
+Then, triangle inequality to bound $s_n^{a+b}$, which will be $< 2\cdot \epsilon/2 = \epsilon$.
+}
+
+\bx{
+\ea{
+\item This $r'$ exists, since $a = \frac{r + 1}{2}, r < a < 1$.
+We know 
+\begin{align*}
+  \abs{
+    \abs{\frac{
+        a_{n+1}
+      }{
+        a_n
+      }
+    } - r
+  } &< \epsilon\\
+  \abs{\frac{a_{n+1}}{a_n}}
+  &< r + \epsilon \tag{Also $> r - \epsilon$, but we don't need it}\\
+  \abs{a_{n+1}} &< \abs{a_n}(r + \epsilon)
+\end{align*}
+We can choose $N$ large enough so that $\epsilon < 1 - r$.
+
+\item Since $\abs{r'} < 1$, we know $\sum{r'}^n$ converges, so $\abs{a_N}$ times that also converges.
+\label{chap2:part_converge_ratio}
+\item We can bound the leading terms up to $n < N$ of $\sum \abs{a_n}$ by some $M$.
+For the tail end, we can bound it from part (\ref{chap2:part_converge_ratio}). Since there exists an upper 
+bound for this series, and its partial sums are increasing, we conclude that the partial sums converge 
+and the overall sum does too.
+}
+}
+
+\bx{
+These are not proved very rigorously, but outline most of the ideas.
+\ea{
+\item If $\lim (na_n) = l$, then for any $\epsilon > 0, \exists N:n \geq N$ such that
+\begin{align*}
+  \abs{na_n - l} 
+  &< \epsilon\\
+  \abs{a_n - l/n}  
+  &< \frac{\epsilon}{n} < \epsilon,
+\end{align*}
+so $\lim a_n = l/n$. Then since $l \neq 0$, $\sum a_n$ converges to a multiple of the harmonic series,
+which diverges, so $\sum a_n$ will too.
+\label{chap2:na_n_diverge}
+
+\item Similar to the proof above in part (\ref{chap2:na_n_diverge}), we can show 
+$\lim a_n = l/n^2$. This converges to a multiple of $1/n^2$, which converges, so $\sum a_n$ also converges.
+}
+}
+
+\bx{
+An easy example,
+\begin{equation*}
+  \begin{aligned}
+    (a_n) &= 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \cdots\\
+    (b_n) &= 2 - \frac{1}{2} + 2 - \frac{1}{4} + 2 - \frac{1}{6} + \cdots
+  \end{aligned}
+\end{equation*}
+Then their $\sum \min\{a_n, b_n\}$ is the alternating harmonic series, and 
+\begin{itemize}
+  \item $(a_n)$ diverges because it is the Harmonic series
+  \item $(b_n)$ diverges because every pair sums to $> 1$, so it sums an infinite number of numbers $> 1$.
+\end{itemize}
+
+For the challenge, an idea is to interweave a convergent and a divergent sequence together, so that 
+$(a_n)$ and $(b_n)$ will both be divergent, since they both contain the divergent sequence, but the $\min$
+only selects elements from the convergent sequence.
+}
+
+\bx{
+% TODO: the align spacing is ugly here.
+Just verifying an identity,
+\begin{align*}
+  s_ny_{n+1} - s_my_{m+1} + \sum_{j=m+1}^n s_j(y_j - y_{j+1})
+  &= s_ny_{n+1} - s_my_{m+1} + (x_1 + \cdots x_{m+1})(y_{m+1}-y_{m+2}) + \\
+  &\quad(x_1 + \cdots x_{m+2})(y_{m+2}-y_{m+3}) + \cdots + (x_1 + \cdots x_{n})(y_{n}-y_{n+1})\\
+  &= s_ny_{n+1} - s_my_{m+1} + (x_1 + \cdots x_{m+1})y_{m+1} - \\
+  &\quad(x_1 + \cdots x_{n})y_{n+1} + \sum_{j={m+2}}^n x_jy_j\\
+  &= s_ny_{n+1} - s_ny_{n+1} - s_my_{m+1} + s_{m+1}y_{m+1} + \sum_{j={m+2}}^n x_jy_j\\
+  &= x_{m+1}y_{m+1} + \sum_{j={m+2}}^n x_jy_j\\
+  &= \sum_{j={m+1}}^n x_jy_j
+\end{align*}
+\label{ex:chap2:summation_by_parts}
+}
+
+\bx{
+\ea{
+\item Using Exercise \ref{ex:chap2:summation_by_parts}, we have 
+\begin{align*}
+  \abs{\sum_{j={m+1}}^n x_jy_j} 
+  &= \abs{s_ny_{n+1} - s_my_{m+1} + \sum_{j=m+1}^n s_j(y_j - y_{j+1})}\\
+  &= \abs{s_ny_{n+1} - s_my_{m+1}} + \abs{\sum_{j=m+1}^n s_j(y_j - y_{j+1})} \tag{$\bigtriangleup$ inequality}\\
+  &= \abs{(s_n - s_m)y_{m+1}} + \abs{\sum_{j=m+1}^n s_j(y_j - y_{j+1})} \tag{$y_{m+1} > y_{n+1}$}\\
+  &\leq M\abs{y_{m+1}} + M \abs{y_{m+1} - y_{n+1}}\\
+  &\leq 2M\abs{y_{m+1}}
+\end{align*}
+\label{chap2:bound_sum_by_parts}
+
+\item For any $\epsilon > 0$, since $(y_n)$ converges,
+make $\abs{y_{m+1}} < \epsilon/(3M)$. Then
+\begin{align*}
+  \abs{\sum_{j={m+1}}^\infty x_jy_j}
+  &\leq \abs{\sum_{j={m+1}}^n x_jy_j} + \abs{\sum_{j={n+1}}^\infty x_jy_j}\\
+  &\leq 2M\abs{y_{m+1}} + \abs{\sum_{j={n+1}}^\infty x_jy_j}\tag{From part (\ref{chap2:bound_sum_by_parts})}\\
+  &\leq 2M\abs{y_{m+1}} + \abs{\sum_{j={n+1}}^\infty x_jy_{m+1}}\tag{Since for $n \geq m+1, y_{m+1} \geq y_{n}$}\\
+  &\leq 2M\abs{y_{m+1}} + \abs{y_{m+1}}\abs{\sum_{j={n+1}}^\infty x_j}\\
+  &\leq 2M\abs{y_{m+1}} + \abs{y_{m+1}}M\tag{Partial sums of $(x_n)$ bounded by $M$}\\
+  &\leq 3M\abs{y_{m+1}}\\
+  &\leq 3M\frac{\epsilon}{3M} = \epsilon
+\end{align*}
+
+\item We have $x_n = (-1)^{n+1}, y_n = a_n$.
+}
+\item \label{chap2:ex:dirichlet_test}
+}
+
+\bx{
+\ea{
+\item Abel's test requires that $\sum x_n$ converges, which is stronger than the 
+boundedness of the partial sums of $(x_n)$. However, it only needs that $(y_n)$ is non-negative 
+and decreasing, which is weaker than Dirichlet, which in addition needs the limit to converge 
+to 0.
+
+\item Using Exercise \ref{chap2:ex:dirichlet_test},
+part (\ref{chap2:bound_sum_by_parts}), we have
+\begin{equation*}
+  \abs{\sum_{j={1}}^n a_jb_j} \leq 2A\abs{b_{1}}
+\end{equation*}
+
+\item We can define $a_n = x_{m+n}, b_n = y_{m+n}$, and bound 
+\begin{equation*}
+  \abs{\sum_{j={m+1}}^n x_jy_j} = \abs{\sum_{j={1}}^n a_jb_j} \leq 2A\abs{b_1}.
+\end{equation*}
+Now, we want to show we can make this bound arbitrarily small, since if we can make the 
+tail end of this series arbitrarily small, then by the Cauchy Criterion for series we can 
+conclude $\sum x_ny_n$ converges.
+
+We know that $\sum x_n$ converges, so by the Cauchy Criterion, for any $\epsilon > 0$, 
+we can find some $N : \forall n' > m' \geq N$ such that 
+\begin{equation*}
+  \abs{
+    \sum_{j=m'}^{n'} x_{j}
+  } < \epsilon
+\end{equation*}
+Now, all we have to do is choose $N$ so that 
+$\abs{
+  \sum_{j=m'}^{n'} x_{j}
+} < \epsilon/(2b_1)$
+then $A < \epsilon/(2b_1)$ and $\abs{\sum_{j={m+1}}^n x_jy_j} < 2\abs{b_1}\cdot \frac{\epsilon}{2\abs{b_1}}$,
+which means we have the Cauchy Criterion for $\sum x_ny_n$, and therefore it converges.
+}
+}

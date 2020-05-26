@@ -56,3 +56,17 @@ Collection of useful tools and methods to solve problems.
   A sequence $(a_n)$ is called a Cauchy sequence if, for every $\epsilon > 0$,
   $\exists N \in \mathbb{N}$ such that whenever $m, n \geq N$, it follows that $\abs{a_n - a_m} < \epsilon$.
 \end{theorem}
+
+\section{Identities}
+\begin{identity}
+  \textbf{\textup{(Geometric Series)}}
+  \begin{equation}
+    \sum_{k=0}^m ar^k = \frac{a(1-r^{m+1})}{(1-r)}
+    \label{eq:geometric_series}
+  \end{equation}
+  and converges to 
+  \begin{equation*}
+    \lim_{m\to\infty} \sum_{k=0}^m ar^k = \frac{a}{1-r}
+  \end{equation*}
+  iff $\abs{r} < 1$.
+\end{identity}
