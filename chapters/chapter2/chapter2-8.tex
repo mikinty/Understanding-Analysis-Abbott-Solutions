@@ -4,10 +4,12 @@
 
 \bx{
 \begin{align*}
-	\lim s_{nn} &= \sum_{i=0}^{\infty} -\pa{\frac{1}{2}}^i \\
+	\lim s_{nn} 
+	&= -1 + -\frac{1}{2} - \frac{1}{4} - \cdots\\
+	&= -\sum_{i=0}^{\infty} \pa{\frac{1}{2}}^i \\
 	&= -2.
 \end{align*}
-The value is equal to summing the columns first.
+The value is equal to summing column-wise.
 }
 
 \bx{
@@ -15,10 +17,18 @@ By the Absolute Convergence test, since we know for fixed $i$ that $\sum_{j=1}^\
 
 Then, since 
 \begin{align*}
-	\sum_{j=1}^\infty \abs{a_{ij}} &\geq \sum_{j=1}^\infty a_{ij} \\
-	\lra b_i \geq c_i,
+	\sum_{j=1}^\infty \abs{a_{ij}} 
+	&\geq \abs{
+		\sum_{j=1}^\infty a_{ij}
+	} \\
+	\Rightarrow b_i 
+	&\geq \abs{c_i}\\
+	\abs{b_i} &\geq \abs{c_i},
 \end{align*}
-and we know that $\sum_{i=1}^\infty b_i$ converges, we conclude that $\sum_{i=1}^\infty c_i$ must converge as well, implying that 
+and we know that $\sum_{i=1}^\infty b_i$ converges, 
+we conclude that $\sum_{i=1}^\infty c_i$ must converge as well by the 
+Absolute Convergence test,
+implying that 
 \begin{equation}
 	\sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}
 \end{equation}
@@ -27,47 +37,187 @@ converges as well.
 
 \bx{
 \ea{
-	\item Since $\sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}$ converges, we know that we can find $m,n \geq N$ such that 
-	\begin{equation*}
-		\abs{t_{mn} - L} < 0.9,
-	\end{equation*}
-	and then choose our upper bound as 
-	\begin{equation}
-	M = \max \{l\} \cup \{a_{mn} \mid m,n < N\}
-	\end{equation}
-	Since $t_{nn}$ is an increasing sequence, and is bounded above, by the Monotone Convergence Theorem, $t_{nn}$ converges.
-	\item Consider 
-	\begin{align*}
-		\abs{s_{n+1, n+1} - s_{nn}} &= \abs{a_{n+1, n+1}} \\
-		&= \abs{t_{n+1, n+1} - t_{nn}} \\
-		&< \epsilon.
-	\end{align*}
-	So $(s_{nn})$ is a Cauchy Sequence and converges.
+\item Since $\sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}$ converges, 
+we have that 
+\begin{equation*}
+	t_{mn} \leq \sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}} = L
+\end{equation*}
+Since $t_{nn}$ is an increasing sequence, and is bounded above, 
+by the Monotone Convergence Theorem, $t_{nn}$ converges.
+
+\item For any $\epsilon > 0$, $\exists N : n > m \geq N$ such that 
+$\abs{t_{nn} - t_{mm}} < \epsilon$. Now, consider
+\begin{align*}
+	\abs{s_{n+1, n+1} - s_{nn}}
+	&\leq \abs{t_{n+1, n+1} - t_{nn}} \\
+	&< \epsilon.
+\end{align*}
+So $(s_{nn})$ is a Cauchy Sequence and converges.
 }
 }
 
 \bx{
 \ea{
-	\item Since $(t_{nn})$ is an increasing sequence and is bounded above, we know there exists a $t_{n_0n_0}$ such that 
+	\item Since we know there exists a $t_{m_0n_0}$ such that 
+	$t_{n_0n_0} > B - \frac{\epsilon}{2}$, and $t_{nn}$ is increasing 
+	and that $B$ is an upper bound, we can conclude that for 
+	$N_1 = \max\{m_0, n_0\} : m, n \geq N_1$,
 	\begin{equation}
-	B - \frac{\epsilon}{2} < t_{n_0n_0} \leq B.
+			B - \frac{\epsilon}{2} < t_{mn} \leq B. 
 	\end{equation}
-	For $N_1 = n_0$, since for $m,n \geq N_1$, $t_{mn} > t_{n_0n_0}$, and $t_{mn} \leq B$ (upper bound $B$), we will have that 
-	\begin{equation}
-	B - \frac{\epsilon}{2} < t_{m,n} \leq B.
-	\end{equation}
-	\item Since $(t_{nn}0$ converges, we can find $n \geq N$ such that
+	\label{chap2:part_tmn_converge}
+
+	\item For any $\epsilon > 0$,
+	since $(t_{mn})$ is bounded above by  $A = \sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}$, 
+	from part (\ref{chap2:part_tmn_converge}) we can choose $N : m, n \geq N$ such that 
 	\begin{align*}
-	\abs{s_{nn} - S} &= \abs{s_{nn} - \sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}} \\
-	&= \abs{\sum_{i=n+1}^\infty \sum_{j=n+1}^\infty a_{ij}} \\
-	&<\abs{\sum_{i=n+1}^\infty \sum_{j=n+1}^\infty \abs{a_{ij}}} \\
-	&= \abs{t_{nn} - \sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}} \\
+		A + \frac{\epsilon}{2} < \,\,&t_{mn} < A + \epsilon\\
+		\Rightarrow \frac{\epsilon}{2} < \,\,&\abs{t_{mn} - A} < \epsilon\\
+		&\abs{t_{mn} - \sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}} < \epsilon.
+	\end{align*}
+	
+	Then, we can see that this $N$ also works to show
+	\begin{align*}
+	\abs{s_{mn} - S} 
+	&= \abs{s_{mn} - \sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}} \\
+	&= \abs{\sum_{i=m+1}^\infty \sum_{j=n+1}^\infty a_{ij}} \\
+	&< \abs{\sum_{i=m+1}^\infty \sum_{j=n+1}^\infty \abs{a_{ij}}} \\
+	&= \abs{t_{mn} - \sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_{ij}}} \\
 	&< \epsilon.
 	\end{align*}
-	So for $m,n \geq N$, 
-	\begin{equation}
-		\abs{s_{mn} - S} \leq 
-	\end{equation}
-	hm?????????/
+}
+}
+
+\bx{
+We know $\lim_{n\to\infty} \sum_{j=1}^n a_{ij} = r_i$, so
+for any $\epsilon > 0$, $\exists N : n \geq N$ such that 
+\begin{equation*}
+	\abs{
+		\sum_{j=1}^n a_{ij} - r_i
+	} < \frac{\epsilon}{m}.
+\end{equation*}
+if we fix $m \geq N$.
+
+Then 
+\begin{align*}
+	\abs{
+		(r_1 + r_2 + \cdots + r_m) - S
+	} 
+	&= \abs{
+		\sum_{i=1}^m \pa{r_i - \sum_{j=1}^n a_{ij}}
+	}\\
+	&\leq \sum_{i=1}^m \abs{r_i - \sum_{j=1}^n a_{ij}}\\
+	&\leq m \cdot \frac{\epsilon}{m} = \epsilon
+\end{align*}
+
+Therefore, we conclude that $\sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}$ converges to $S$.
+
+\TODO not sure where I have to use the Order Limit Theorem...
+\label{chap2:ex_double_sum_converge}
+}
+
+\bx{
+For $\sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij}$, the proof is essentially 
+the same as Exercise \ref{chap2:ex_double_sum_converge}
+to show it converges to $S$, except we fix $n$ this time instead of $m$.
+}
+
+\bx{
+\ea{
+\item Define $t_{nn} = \sum_{i=1}^n \sum_{j=1}^n \abs{a_{ij}}$.
+Also define $u_{n} = \sum_{k=2}^n \abs{d_k}$
+Then we know for $n \geq 2$, 
+\begin{equation*}
+	u_n \leq t_{nn} = L \tag{$t_{nn}$ converges}
+\end{equation*}
+Since $u_n$ is an increasing sequence and is bounded above, we conclude 
+from the Monotone Convergence Theorem that $u_n = \sum_{k=2}^n \abs{d_k}$
+also converges. Then, $ \sum_{k=2}^n d_k$ converges absolutely.
+
+\item We need to bound $\abs{d_k - S}$ somehow. Consider the following diagram
+\begin{figure}[H]
+	\centering
+	\def\pictureWidth{2}
+	\begin{tikzpicture}
+		\filldraw[pattern=north east lines] 
+			(0, \pictureWidth) rectangle (\pictureWidth, 2*\pictureWidth) 
+				node[pos=0.5] {\colorbox{white}{$t_{\frac{k}{2}\frac{k}{2}}$}}
+		;
+		\filldraw[pattern=horizontal lines]
+			(0, 0) -- 
+			(0, \pictureWidth) -- 
+			(\pictureWidth, \pictureWidth) -- cycle
+		;
+		\filldraw[pattern=horizontal lines]
+			(\pictureWidth, \pictureWidth) -- 
+			(\pictureWidth, 2*\pictureWidth) -- 
+			(2*\pictureWidth, 2*\pictureWidth) --  cycle
+		;
+
+		\draw 
+			(2*\pictureWidth, 2*\pictureWidth) -- (3*\pictureWidth, 2*\pictureWidth)
+			(0, 0) -- (0, -\pictureWidth)
+		;
+
+		\draw 
+			(\pictureWidth, 2*\pictureWidth) node[above] {$k/2$}
+			(0, \pictureWidth) node[left] {$k/2$}
+			(\pictureWidth, \pictureWidth) node[below right] {$a_{\frac{k}{2}\frac{k}{2}}$}
+		;
+
+		\node[circle, fill=black, minimum size=1pt] (akk) at (\pictureWidth, \pictureWidth) {};
+	\end{tikzpicture}
+	\caption{Demonstrating how we bound our sum}
+	\label{chap2:fig:bounding_dkk}
+\end{figure}
+We know that for any $\epsilon > 0$,
+we can choose $N : n \geq N$ so that 
+\begin{equation}
+	\abs{t_{nn} - S} < \epsilon
+	\label{chap2:eq:tnn_eps}
+\end{equation}
+Now, choose $N_1 = 2N$.
+We can use Figure \ref{chap2:fig:bounding_dkk} 
+to see that for $k \geq N_1$,
+\begin{align*}
+	\abs{d_{kk} - S} 
+	&\leq \abs{t_{\frac{k}{2}\frac{k}{2}} - S}\\
+	&< \epsilon \tag{From Equation (\ref{chap2:eq:tnn_eps})}
+\end{align*}
+Therefore, we can conclude $\sum_{k=2}^\infty d_k$ converges to $S$.
+}
+}
+
+\bx{
+\ea{
+\item See that 
+\begin{align*}
+	AB 
+	&\geq \pa{\sum_{i=1}^\infty \abs{a_i}} \pa{\sum_{j=1}^\infty \abs{b_j}}\\
+	&= \sum_{i=1}^\infty \pa{\abs{a_i}\sum_{j=1}^\infty \abs{b_j}} \tag{$\sum_{j=1}^\infty \abs{b_j}$ is constant wrt $i$}\\
+	&= \sum_{i=1}^\infty \pa{\sum_{j=1}^\infty \abs{a_i}\abs{b_j}}\\
+	&= \sum_{i=1}^\infty \sum_{j=1}^\infty \abs{a_ib_j}
+\end{align*}
+Since $\sum_{i=1}^m\sum_{j=1}^n \abs{a_ib_j}$ is bounded, and the partial sums 
+$s'_{nn} = \sum_{i=1}^n\sum_{j=1}^n \abs{a_ib_j}$ are increasing, we can conclude 
+$\sum_{i=1}^\infty\sum_{j=1}^\infty \abs{a_ib_j}$ converges by the Monotone Convergence Theorem.
+
+\item Let $s^a_n, s^b_n$ be the partial sums of $(a_n), (b_n)$ respectively.
+Then,
+\begin{align*}
+	\lim_{n\to\infty} s_{nn}
+	&= \lim_{n\to\infty} \sum_{i=1}^n\sum_{j=1}^n a_ib_j\\
+	&= \lim_{n\to\infty} \sum_{i=1}^n \pa{a_i \sum_{j=1}^n b_j}\\
+	&= \lim_{n\to\infty} \pa{\sum_{i=1}^n a_i} \pa{\sum_{j=1}^n b_j}\\
+	&= \lim_{n\to\infty} s^a_n s^b_n\\
+	&= AB
+\end{align*}
+Therefore, by Theorem 2.8.1, we can conclude that 
+\begin{equation*}
+	\sum_{i=1}^\infty\sum_{j=1}^\infty a_ib_j
+	= \sum_{j=1}^\infty\sum_{i=1}^\infty a_ib_j
+	= \sum_{i=2}^\infty d_k
+	= AB
+\end{equation*}
 }
 }
