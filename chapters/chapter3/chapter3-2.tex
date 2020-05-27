@@ -4,5 +4,139 @@
 \section{Open and Closed Sets}
 
 \bx{
+\ea{
+\item We need a finite number of sets when we are choosing the minimum $\epsilon$
+for our $V_\epsilon$. If we had an infinite number of sets, this minimum may not exist.
 
+\item Let 
+\begin{equation*}
+  O_n = \pa{
+    \sum_{i=1}^n \frac{1}{2^i},
+    3 - \sum_{i=1}^n \frac{1}{2^i}
+  }
+\end{equation*} 
+Then $\bigcap_{n=1}^\infty O_n = \pbra{1, 2}$.
+}
+}
+
+\bx{
+\ea{
+\item 1 and $-1$ are the only limit points of $B$. For any fixed element of $B$, 
+the distance between it and its neighbors is $\geq \frac{n}{n+1} - \frac{n+2}{n+3} = \frac{n}{(n+1)(n+3)}$,
+so we can just choose $\epsilon$ smaller than this, and show that any element of $B$ is isolated.
+
+For 1, we can show that for any $\epsilon > 0$, we can choose $\frac{1}{N+1} < \epsilon \Rightarrow N > \frac{1}{\epsilon} - 1$,
+and we know $\frac{n}{n+1}$ for $n \geq N$ for even $n$ is in the $\epsilon$-neighborhood of 1.
+Doing a similar analysis for negative terms and $-1$ yields the same result.
+
+\item $B$ does not contain its limit points, so it is not closed.
+\item $B$ is not an open set, continuous $\epsilon$ neighborhoods are not subsets of $B$.
+\item All of $B$'s elements are isolated
+\item $\overline{B} = B \cup \pbrac{-1, 1}$.
+}
+}
+
+\bx{
+\ea{
+\item $\mathbb{Q}$ is not open, because it doesn't have irrationals that can be in the $\epsilon$-neighborhoods.
+It is not closed, because it contains irrational limit points. Therefore it is \textbf{neither}.
+\item $\mathbb{N}$ does not have any limit points, so it is \textbf{closed}.
+\item $\mathbb{R}^+$ cannot be closed, because 0 is a limit point and not contained. 
+It is \textbf{open} because every element has an $\epsilon$-neighborhood that is a subset.
+\item Not closed, doesn't contain 0, a limit point. Not open, since $1$ has no $\epsilon$-neighborhood subset.
+Therefore, \textbf{neither}.
+\item The sequence converges, but this limit point is not in the set. No $\epsilon$-neighborhoods exist for certain $\epsilon$,
+for certain elements, so not open. \textbf{Neither}.
+}
+}
+
+\bx{
+FOr any $\epsilon > 0$, we know $\exists N : n \geq N$ such that 
+\begin{equation*}
+  \abs{
+    a_n - x
+  } < \epsilon,
+\end{equation*}
+so every $\epsilon$-neighborhood of $x$ has points other than itself.
+}
+
+\bx{
+If there exists exists such an $\epsilon$-neighborhood, then by the definition of a limit point,
+since there are no other elements other than $x$ itself, then this is not a limit point, so it is isolated.
+}
+
+\bx{
+If a set $F \subseteq \mathbb{R}$ is closed, then it contains all its limit points.
+For any Cauchy Sequence in $F$, it is also convergent to some $L$, which we know is a limit 
+point and thus must be in $F$.
+
+If every Cauchy Sequence of an $F$ has its limit as an element of $F$,
+then every limit point, which comes from the limit of some subsequence, which we know is a Cauchy Sequence.
+From our original assumption, this limit must be in $F$, so $F$ contains all its limit points and is closed.
+}
+
+\bx{
+\AFSOC an infinite number of $(x_n)$ terms not in $O$. 
+Then since $(x_n) \rightarrow x$, $\epsilon = \text{distance of } x \text{ from $O$ boundary}$,
+then $\forall N, : n \geq N$
+we have that $\exists x_n : \abs{x_n - x} \geq \epsilon$, since we can choose some $x_n$ not in $O$.
+This means this sequence does not converge. This contradicts our original assumption.
+}
+
+\bx{
+\ea{
+\item We want to show that $L$, which contains all the limit points of of $A$, is closed.
+We can do this by showing all limit points of $L$ are in $L$.
+
+Suppose we have some limit point $\ell$ of $L$, then this means some subsequence of $L$,
+\begin{equation*}
+  (l_n) \rightarrow \ell
+\end{equation*}
+By the definition of convergence, 
+for any $\epsilon > 0$, we can find $N : n \geq N$ such that 
+\begin{equation*}
+  \abs{
+    l_n - \ell
+  } < \frac{\epsilon}{2}
+\end{equation*}
+Now, since $l_n$ are limit points of $A$, we know $\exists a \in A$ such that 
+$a$ is arbitrarily close to $l_n$. Define a subsequence in $A$
+\begin{equation*}
+  \pbrac{
+    a_n \in A, \abs{a_n - l_n} < \frac{\epsilon}{2}
+  }
+\end{equation*}
+Then for $n \geq N$, 
+\begin{equation*}
+  \abs{
+    a_n - \ell
+  } < \abs{
+    l_n - \ell
+  } + \frac{\epsilon}{2}
+  < 2 \cdot \frac{\epsilon}{2} = \epsilon,
+\end{equation*}
+which means $(a_n)$ converges to this $\ell$ as well, so $\ell$ is a limit point of $A$
+and $\ell \in L$.
+
+Therefore, we conclude $L$ contains all of its limit points, and therefore it is closed.
+
+\label{chap3:part_L_closed}
+
+\item For any limit point $\ell$ of $A \cup L$, it must the limit of some convergent subsequence of 
+$A \cup L$. This subsequence will contain elements from $A$ and $L$.
+What we can do is for every element in $L$, use a similar technique we did in part (\ref{chap3:part_L_closed}) to 
+replace all the $x \in L$ subsequence elements with elements in $A$ instead, that are arbitrarily close enough.
+Then, we have constructed a subsequence that entirely lies in $A$, so this limit point must be of $A$.
+Therefore, all limit points of $A \cup L$ are limit points of $A$.
+
+We can then conclude that $\overline{A} = A \cup L$ is a closed set, since all of its limit points are of $A$,
+and those limit points are contained in $L$, which means $\overline{A}$ contains all of its limit points and 
+is closed.
+}
+}
+
+\bx{
+\ea{
+\item 
+}
 }
