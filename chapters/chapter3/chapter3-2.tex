@@ -137,6 +137,163 @@ is closed.
 
 \bx{
 \ea{
-\item 
+\item Suppose $y$ is a limit point of $A \cup B$, then there must exist a subsequence 
+$(x_n), x_n \in A \cup B$ where $(x_n) \rightarrow y$. Now, this subsequence must contain either
+an infinite number of elements from $A$ or $B$ (or both). 
+
+WLOG, $(x_n)$ contains an infinite number of elements from $A$, then we know
+$\exists \text{ subsequence } (x'_n) \rightarrow y$ where $x'_n \in A$. 
+This means $y$ is a limit point of $A$.
+
+Therefore, we conclude if $y$ is a limit point of $A \cup B$, $y$ is either a limit point of $A$ or $B$.
+
+\item Let $L_S$ be the set of limit points for a set $S$.
+\begin{align}
+  \overline{A \cup B} 
+  &= A \cup B \cup L_{A \cup B}\\
+  &= A \cup B \cup \pa{L_A \cup L_B}
+  &= (A \cup L_A) \cup (B \cup L_B)\\
+  &= \overline{A} \cup \overline{B}
+\end{align}
+
+\label{chap3:distr_closure}
+
+\item We notice that in our proof, we were able to find a subsequence that was entirely in one set.
+Therefore, if it is possible to construct a subsequence that doesn't fit entirely in one set, 
+then we can find a limit point that is not necessarily a limit point of an individual set.
+
+With an infinite number of sets, we can take advantage of this property.
+
+Suppose we have some $(a_n) \rightarrow L$, where $\forall n \, a_n \neq L$.
+Then construct sets the following way,
+\begin{equation*}
+  S_n = \pbrac{a_n}
+\end{equation*}
+Now, $S_n$ has no limit points, since it only has a single point which is isolated.
+Therefore, $\bigcup_{n=1}^\infty \overline{S_n} = \bigcup_{n=1}^\infty S_n$,
+but we have $\overline{\bigcup_{n=1}^\infty S_n} = \pa{\bigcup_{n=1}^\infty S_n} \cup \pbrac{L}$,
+and $L \not\in \bigcup_{n=1}^\infty S_n$. So the property in part (\ref{chap3:distr_closure})
+does not apply for infinite sets.
+}
+}
+
+\bx{
+\ea{
+\item A direct proof (double containment is another way to do it)
+\begin{align*}
+  x \in \pa{\bigcup_{\lambda \in \Lambda} E_\lambda}^c 
+  &\Leftrightarrow \forall \lambda, x \not\in E_\lambda\\
+  &\Leftrightarrow \forall \lambda, x \in E_\lambda^c\\
+  &\Leftrightarrow x \in \bigcap_{\lambda \in \Lambda} E_\lambda^c
+\end{align*}
+
+\begin{align*}
+  x \in \pa{\bigcap_{\lambda \in \Lambda} E_\lambda}^c 
+  &\Leftrightarrow \exists \lambda, x \not\in E_\lambda\\
+  &\Leftrightarrow \exists \lambda, x \in E_\lambda^c\\
+  &\Leftrightarrow x \in \bigcup_{\lambda \in \Lambda} E_\lambda^c
+\end{align*}
+
+\item We want to show that 
+\begin{enumerate}[label=(\roman*)]
+  \item \textit{The union of a finite collection of closed sets is closed.}
+  Suppose we have a collection of closed sets $\pbrac{E_\lambda, \lambda \in \Lambda}$,
+  then, if we take the complement of the union of all these sets, by DeMorgan's, 
+  we get the intersection of the complements of all these sets. The complements of all these sets 
+  is open, and we know the intersection of a finite number of open sets is also open.
+  Finally, taking the complement again, we must have a closed set,
+  which is equal to our original union.
+
+  \item \textit{The intersection of an arbitrary collection of closed sets is closed.}
+  Take the intersection of these closed sets, and then take the complement.
+  By DeMorgan's, we know have the union of the complement of these sets, which we know is open.
+  We know that the union of an arbitrary number of open sets is also open.
+  Finally, taking the complement of this entire expression again, we now have a closed set,
+  which is equal to our original intersection.
+\end{enumerate}
+}
+}
+
+\bx{
+If $s = \sup A$ exists, we have 2 cases. Either $s \in A \Rightarrow s \in \overline{A}$ since $A \subseteq \overline{A}$,
+or, $s \not\in A$. In the second case, since we know for any $\epsilon > 0$, $\exists a \in A$ such that 
+$a > s - \epsilon \Rightarrow \epsilon > \abs{s - a}$, we can construct a subsequence in $A$
+that converges to $s$. This means $s$ is a limit point of $A$, and therefore $s \in \overline{A}$.
+\label{chap3:ex_sup_closed}
+}
+
+\bx{
+\ea{
+\item True. $\overline{A}$ is closed, so $\overline{A}^c$ must be open. 
+\item True. There is no $\epsilon$-neighborhood around this point that is contained in $A$.
+\item False. Take the harmonic sequence $\pbrac{1/n}$.
+\item True. See Exercise \ref{chap3:ex_sup_closed}
+\item True. A finite set only contains isolated points, so therefore it has no limit points, and vacuously contains all of its limit points and is closed.
+\item True. We know that around $q \in \mathbb{Q}$, exists some $\epsilon$-neighborhood around it 
+that is contained in the set. Suppose we have an arbitrary $ r \in \mathbb{R}$, then we want to show 
+it is contained in the $\epsilon$-neighborhood of some $q \in \mathbb{Q}$.
+We can show this by contradiction. AFSOC $r$ is not in any of these $\epsilon$-neighborhoods.
+That means $\forall \epsilon > 0, \abs{r - q} > \epsilon$, for all $q$.
+But for any $\epsilon$, we can always find some rational number that is closer than $\epsilon$
+to $r$, which means this statement is false. We have reached a contradiction, and 
+must assume our original hypothesis was true.
+}
+}
+
+\bx{
+We can verify $\mathbb{R}$ is open because any $\epsilon$-neighborhood only contains 
+elements of $\mathbb{R}$, so therefore $\subseteq \mathbb{R}$. In addition, any limit point $\in \mathbb{R}$,
+so $\mathbb{R}$ also contains all of its limit points and is closed.
+
+$\emptyset$ is closed and open by vacuity.
+
+Now, we need to show that there are no other sets with this property.
+We know the complement of an open set is closed and vice versa, so
+\AFSOC $\exists A \neq \mathbb{R}, \emptyset$, then we know 
+$\exists x \in A^c, \not\in A$.
+Now, $x$ cannot be an isolated point, since then it would not have 
+an $\epsilon$-neighborhood around it that is contained in $A^c$.
+Therefore, we conclude $x$ must be in some continuous set $S$, where
+it either 
+\begin{enumerate}[label=(\roman*)]
+  \item Has a $\sup S$. In this case, either $\sup S \in S$, in which case there does not 
+  exist an $\epsilon$-neighborhood around $\sup S$, which means $S$ is not open,
+  or $\sup S \not\in S$, and then $\sup S$ is a limit point, but then $S$ is not closed since 
+  it doesn't contain all of its limit points. This case is not possible.
+  \label{chap3:upper_bound_arg}
+  \item Does not have an upper bound. Then look at the portion less than $x$
+  and apply the argument in part (\ref{chap3:upper_bound_arg}) but with $\inf S$.
+  It must have a lower bound, or else $A = \mathbb{R}$.
+\end{enumerate}
+Therefore, we reach a contradiction in all cases, and therefore we conclude that 
+it is not possible for this $A$ to exist.
+}
+
+\bx{
+\ea{
+\item $\pbra{a, b} = \bigcap_{i=1}^n \pa{a - \frac{1}{n}, b + \frac{1}{n}}$.
+Any $x \in \pbra{a, b}$ will be $< b + \frac{1}{n}$, and $> a - \frac{1}{n}$.
+Now, let us consider some $y < a$. $y \not\in$ the set we created, bc suppose $\abs{y-a} = \epsilon$.
+Then for $n' > \frac{1}{\epsilon}$, $a - \frac{1}{n'} > y$, so $y$ is not in this set.
+The argument for an element larger than $b$ is symmetric. Therefore, we conclude the set we 
+constructed is equivalent to $\pbrac{a, b}$, and is an intersection of a countable number of open sets.
+
+\item We can write 
+\begin{align}
+  (a, b] &= \bigcup_{i=1}^n \pbra{a + \frac{1}{n}, b}\\
+  (a, b] &= \bigcap_{i=1}^n \pa{a, b + \frac{1}{n}}
+\end{align}
+\item We know $\mathbb{Q}$ is countable, so just union all the sets containing only one element of $\mathbb{Q}$ together.
+Since each set has one element which is an isolated point, each set is closed.
+\begin{equation*}
+  \bigcup_{q \in \mathbb{Q}} \pbrac{q}
+\end{equation*}
+We know that $\mathbb{Q}^c = \mathbb{I}$, and by DeMorgan's law, we know 
+\begin{equation*}
+  \pa{\bigcup_{i=1}^\infty S}^c = \bigcap_{i=1}^\infty S^c
+\end{equation*}
+Since $S$ are all closed, $S^c$ are all open. We can use the infinitely countable 
+union of the construction of $\mathbb{Q}$ and then take the complement to get $\mathbb{I}$,
+which by DeMorgan's is constructed as a countably infinite intersection of open sets.
 }
 }
