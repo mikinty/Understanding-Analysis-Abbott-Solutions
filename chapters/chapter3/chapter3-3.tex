@@ -2,3 +2,169 @@
 
 \section{Compact Sets}
 \setcounter{exercise}{0}
+
+\bx{
+Since we know $K$ is compact, it must also be closed and bounded.
+
+Since $K$ is bounded, it must have an upper and lower bound, which means 
+$\sup K$ and $\inf K$ must exist.
+}
+
+\bx{
+Suppose we have some $K \subseteq \mathbb{R}$ that is closed and bounded.
+We want to show that it is compact.
+
+We know that any sequence of $K$
+must be contained in $K$, which is bounded, so therefore 
+by the Bolzano-Weierstrauss Theorem, we know that this sequence 
+must have a convergent subsequence.
+Since $K$ is also closed, this limit must be in $K$ as well.
+
+This shows that $K$ is compact.
+}
+
+\bx{
+We want to show the Cantor set is compact.
+
+We know the Cantor set is $\subseteq [0, 1]$, so it is bounded.
+
+Then, we know the complement of the Cantor set is 
+\begin{equation*}
+  \pa{-\infty, 0} \cup \pa{1, \infty} \cup 
+  \pbra{
+    \pa{\frac{1}{3}, \frac{2}{3}} \cup 
+    \pa{\frac{1}{9}, \frac{2}{9}} \cup 
+    \pa{\frac{1}{9}, \frac{2}{9}} \cup 
+    \cdots
+  }
+\end{equation*}
+which is the union of an arbitrary number of open sets, which we know is open.
+Therefore, the Cantor set is the complement of an open set, which is closed.
+
+Therefore, since the Cantor set is bounded and closed, we conclude it is compact.
+}
+
+\bx{
+We have that $K$ is compact and $F$ is closed.
+Since $K$ is compact, it is also bounded and closed.
+
+If we take $K \cap F$, we know that this must also be bounded, since 
+$x \in K \cap F \Rightarrow x \in K$.
+
+The intersection of two closed sets is also closed, so $K \cap F$ is closed.
+
+Therefore, $K \cap F$ is bounded and closed, and thus is compact.
+}
+
+\bx{
+\ea{
+\item We can find a sequence in $\mathbb{Q}$ that converges to $\sqrt{2}$, 
+but we know that $\sqrt{2} \not\in \mathbb{Q}$, so $\mathbb{Q}$ is not compact.
+\label{chap3:q_not_compact}
+\item Again, similar to part (\ref{chap3:q_not_compact}), we can find a sequence that 
+converges to $\sqrt{2}/2 \not\in [0, 1] \cap \mathbb{Q}$.
+
+\item Take the sequence $a_n = n$. There is no limit, so this sequence does not have a subsequence that converges.
+\item $\mathbb{R} \cap [0, 1] = [0, 1]$ is closed and bounded, so it is compact.
+\item This sequence converges to 0, but does not contain 0, so it is not closed and thus not compact.
+\item Every subsequence of this set converges to 1, which is in the set, so therefore this set is compact.
+}
+}
+
+\bx{
+\ea{
+\item We will prove this by induction.
+\begin{itemize}
+  \item \textbf{Base Case:} $n=1$, $C_1 = \pbra{0, \frac{1}{3}} \cup \pbra{\frac{2}{3}, 1}$
+  We know a combination of two elements in $\pbra{0, \frac{1}{3}}$ and $\pbra{\frac{2}{3}, 1}$ covers $\pbra{0, \frac{4}{3}}$.
+  Then, combination of two elements in the latter set covers $\pbra{\frac{4}{3}, 2}$.
+  Therefore, two elements $x, y \in C_1$ can add up to any element $\in \pbra{0, 2}$.
+
+  \item \textbf{Inductive Hypothesis:} Suppose for $k \geq 1$, any two elements of $C_k$ 
+  can add up to any element $\in \pbra{0, 2}$.
+
+  \item \textbf{Inductive Step} We know $C_{k+1} = C_k/3 + \pbrac{\frac{2}{3} + C_k/3}$,
+  in other words, we are now missing the middle thirds of both the head and tail sets.
+  What we want to show is that for the head set (and the same argument holds for the tail set),
+  that with the middle third removed, we can still cover all of the original set, which means since
+  the original sets are still covered, we can still cover $\pbra{0, 2}$.
+
+  By the IH, any two elements of $C_k/3$ will cover $\pbra{0, \frac{2}{3}}$, 
+  and any two elements of $\pbrac{\frac{2}{3} + C_k/3}$ covers $\pbra{\frac{4}{3}, 2}$.
+  Choosing two elements from one of each set covers $\pbra{\frac{2}{3}, \frac{4}{3}}$.
+  These three intervals cover $\pbra{0, 2}$.
+\end{itemize}
+
+\item The reason $(x_n)$, $(y_n)$ may not converge is they can be picked out of 
+sets, jumping across different subsets of $C$ infinitely many times.
+
+However, by the Bolzano-Weierstrauss Theorem, since $(x_n)$ is contained entirely 
+in the Cantor set, which is bounded, then $(x_n)$ is also bounded. Therefore, it must 
+contain a convergent subsequence. The same applies for $(y_n)$, and we can take their limits
+$l_x, l_y$ such that $l_x + l_y = s$.
+}
+}
+
+\bx{
+\ea{
+\item True. The intersection will be bounded, since we can take any bound of a set, which will bound the intersection,
+and the intersection of an arbitrary number of closed sets is still closed.
+Therefore, this arbitrary intersection of compact sets is closed and bounded, which means it is also compact.
+\item False. Let $A = (0, 1), K = [0, 1]$, then $A \cap K = (0, 1)$, which is not closed so it is not compact.
+\item True. This is the Nested Interval Property.
+\item True. A finite set always closed, since there are no limit points, and bounded.
+\item False. Choose an unbounded countable set like $a_n = n$.
+}
+}
+
+\bx{
+\ea{
+\item If they both have finite subcovers, then we can union those two finite subcovers to get a 
+finite subcover for $K$, so we need at least one of them to not have a finite subcover.
+\item Create $I_{n+1}$ by bisecting $I_n$, and taking a half that has no finite subcover.
+Such a half has to exist, because if both have finite subcovers, then the whole must have a finite subcover.
+The interval will half in size every iteration.
+\item By the Nested Interval Property, $\exists x\in K \forall x \in I_n$.
+\item Since the interval sizes get arbitrarily small, we can find some $n_0$ such that $I_{n_0}$ fits entirely in $O_{\lambda_0}$.
+We have reached a contradiction, because we can finitely cover $I_{n} \cap K$ by taking 
+\begin{equation*}
+  \pa{\bigcup_{i=1}^{n_0-1} I_{i}} \cup O_{\lambda_0}
+\end{equation*}
+}
+}
+
+\bx{
+\ea{
+\item Open cover where you take some $\epsilon > 0$ around all rational numbers,
+and then union them together. No finite subcover exists, since that would bound $\mathbb{Q}$, which is not bounded.
+\item We can construct an open cover like 
+\begin{equation*}
+  \pa{
+    \bigcup_{i=1}^\infty (-0.5, \frac{\sqrt{2}}{2} - \frac{1}{i})
+  }
+  \cup
+  \pa{
+    \bigcup_{i=1}^\infty (\frac{\sqrt{2}}{2} + \frac{1}{i}, 1.1)
+  }
+\end{equation*}
+This will contain all the rational numbers between $[0, 1]$, but needs an infinite 
+number of sets to cover the entire set, because if we stop prematurely, we won't 
+be able to capture the rationals that are very close to $\frac{\sqrt{2}}{2}$.
+\setcounter{enumi}{4}
+\item An open cover for this set is 
+\begin{equation*}
+  \bigcup_{i=1}^\infty \pa{1.1, 1-\frac{i-1}{i}}
+\end{equation*}
+We need all of these open sets, because otherwise if for some $N$ we stop, then 
+we won't have the elements $< \frac{1}{N}$.
+}
+}
+
+%% TODO: Not super sure about this solution...
+\bx{
+For any closed set with an interval $\pbra{a, b}$, we can make intervals $I_n = \pbra{a, b-1/n}$, and then 
+union with $\pbra{b, b+1}$ to cover the set; with open intervals, we don't need the end.
+However, we will need all of the intervals, otherwise 
+we won't include all the elements close to $b$. Therefore, any \textit{clompact}
+subset must be a finite set of isolated points.
+}

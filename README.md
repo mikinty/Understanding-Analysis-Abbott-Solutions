@@ -22,7 +22,7 @@ There are also `TODO` comments if there are more minor parts that need work, e.g
 
 - Chapter 1: :white_check_mark:
 - Chapter 2: :white_check_mark:
-- Chapter 3: :hourglass: 3.2
+- Chapter 3: :hourglass: 3.3
 - Chapter 4: :x:
 - Chapter 5: :x:
 - Chapter 6: :x:
