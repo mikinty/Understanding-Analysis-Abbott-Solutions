@@ -1,4 +1,165 @@
-%% 3.3 %%
+%% 3.4 %%
 
 \section{Perfect Sets and Connected Sets}
 \setcounter{exercise}{0}
+
+\bx{
+A perfect and a compact set are always closed, so their intersection is also closed.
+Since a compact set is bounded, the intersection of it and another set must also be bounded.
+Therefore, $P \cap K$ is a compact set. 
+
+We cannot guarantee that $P \cap K$ does not have isolated points, so for example,
+$\pbra{0, 1} \cap \pbrac{1/2} = \pbrac{1/2}$ which is not perfect.
+}
+
+\bx{
+A perfect set cannot only consist of rationals, because it would be nonempty
+and countable, since $\mathbb{Q}$ is countable, but this is impossible since
+any nonempty perfect set is uncountable.
+}
+
+\bx{
+\ea{
+\item $x_1 \in C_1$ implies that $x_1$ is in a closed interval of size $1/3$, so 
+we can choose any element in this interval such that $x \neq x_1$, and we must have 
+$\abs{x - x_1} \leq 1/3$
+
+\item We can make the argument for any $x_n \in C_n$, since $x_n$ must exist in a closed interval 
+of size $\frac{1}{3}^n$, so we can any other element in this interval $x$, so that $\abs{x - x_n} \leq \frac{1}{3}^n$.
+Now, we can construct a subsequence $(x_n)$ such that $(x_n) \rightarrow x$, and this shows that 
+there are no isolated points in $C$. We know the Cantor set is closed from earlier exercises.
+\label{chap3:cantor_no_isolated}
+}
+}
+
+\bx{
+\ea{
+\item This set is bounded, and is also closed since it is an intersection of an arbitrary collection of closed sets.
+Therefore, this construction is compact. 
+
+This set is also perfect, because we can use 
+the same argument from Exercise \ref{chap3:cantor_no_isolated} to show that there 
+are no isolated points.
+
+\item We can compute the 
+\begin{itemize}
+  \item \textbf{Length}: We will compute the removed interval lengths,
+  \begin{equation*}
+    \frac{1}{4} + 2 \cdot \frac{3}{32} + 4 \cdot \frac{27}{256} + \cdots
+    = \frac{
+      1/4
+    }{
+      1 - \frac{3}{2^2}
+    } 
+    = \boxed{1}
+  \end{equation*}
+  So this Cantor-like set has length 0.
+
+  \item \textbf{Dimension}: We have $3 - 3 \cdot \frac{1}{4} = \frac{9}{4}$, so solving 
+  \begin{equation*}
+    3^x = \frac{9}{4} \Rightarrow \boxed{0.738}
+  \end{equation*}
+  This is ``larger'' in dimension than the ternary Cantor set.
+\end{itemize}
+}
+}
+
+\bx{
+If we have that $A \subseteq U, B \subseteq V$ such that $U, V$ are disjoint open 
+sets, then we know $A \cap B = \emptyset$. Therefore, if we want to show that 
+they are separated, we just need to show that the limit points of $A$ are disjoint from $B$,
+and vice versa.
+
+\AFSOC that a limit point of $A, \ell_A \in B$. Then this $\ell_A$ is also a limit point of $U$, 
+since $A \subseteq U$. Now, this $\ell_A \in V$, since $B \subseteq V$.
+This means $\ell_A$ is $\epsilon$ far away from an element $\in U$, and since $\ell_A$
+is also in the open set $V$, we must have that $\ell_A \in \pbra{v_1, v_2} \subseteq V$, where $v_1 < \ell_A < v_2$.
+Let $\epsilon = \pa{\ell_A - v_1}/2$, then $\ell_A - \epsilon \in V$, and since $\ell_A$ is a limit point of $U$,
+we must also have that $\ell_A - \epsilon \in U$. However, this is a contradiction, because we just 
+showed that $\ell_A - \epsilon \in U$ and $\in V$, which means $U \cap V \neq \emptyset$, and they are 
+not disjoint.
+The same argument applies for the limit points of $B$ not being in $A$.
+Therefore, we can conclude that $\overline{A} \cap B = \overline{B} \cap A = \emptyset$, 
+and that $A, B$ are separated.
+}
+
+\bx{
+($\Rightarrow$)
+Suppose $E \subseteq \mathbb{R}$ is connected. Then consider some sets $A, B$
+such that $A \cup B = E$, and $A, B$ are nonempty and disjoint.
+\AFSOC every convergent sequence $(x_n)\rightarrow x$ with $(x_n)$ contained in $A \text{ or } B$,
+$x \not\in \text{the other set}$. Then this must mean that every limit point of $A \text{ or } B$ is not in the other set, 
+which means 
+$\overline{A} \cap B = \overline{B} \cap A = \emptyset$,
+and $A, B$ are separated. This means $E = A \cup B$ for separated $A, B$, which is a contradiction since 
+we assumed $E$ was connected.
+
+($\Leftarrow$)
+Suppose for all nonempty and disjoint $A, B$ satisfying $E = A \cup B$, there always exists a convergent sequence $(x_n) \rightarrow x$
+with $(x_n)$ contained in one of $A$, or $B$, and $x$ is an element of the other.
+Suppose $(x_n)$ is contained within $A$. Then $x$ must be a limit point of $A$, since $x \in B$, and $A$ is disjoint of $B$ so $x \not\in A$.
+This means $\overline{A} \cap B = x \cup S \neq \emptyset$, which means $A, B$ are not separated.
+Therefore, we cannot find separated sets $A, B$ such that $E = A \cup B$, which means 
+$E$ is not disconnected, and therefore is connected.
+}
+
+\bx{
+\ea{ 
+\item Take $E = \pa{-\infty, 1} \cup \pa{1, \infty}$, then the closure is $\mathbb{R}$, which is closed,
+but this set is disconnected because $\pa{\pa{-\infty, 1} \cup \pbrac{1}} \cap \pa{1, \infty} = \emptyset$
+and 
+$\pa{-\infty, 1} \cap \pa{\pa{1, \infty} \cup \pbrac{1}} = \emptyset$
+so these two sets are disconnected, and their union is equal to $E$.
+
+\item If $A$ is connected, we can show that any limit points must already be in $A$, so $A = \overline{A}$ and $\overline{A}$ is still connected.
+If $A$ is perfect, it is already closed, so it contains all of its limit points, and $\overline{A} = A$, and therefore $\overline{A}$ is still perfect.
+}
+}
+
+\bx{
+\ea{
+\item Given any two rational $x, y$, WLOG $x < y$. Then $\exists r \in (x, y)$
+such that $r \in \mathbb{I}$, i.e. it is not rational. Then we have $\mathbb{Q} = \pa{\mathbb{Q} \cap (-\infty, r)} \cup \pa{\mathbb{Q} \cap (r, \infty)}$,
+and these two sets are disconnected.
+\label{chap3:part_rational_disconnected}
+\item Irrational numbers are also totally disconnected using the same argument in part 
+(\ref{chap3:part_rational_disconnected})
+}
+}
+
+\bx{
+\ea{
+\item We know in $C_n$, it consists of intervals of size $\frac{1}{3}^n$. If the intervals 
+are smaller than $\epsilon$, i.e. $\frac{1}{3}^n < \epsilon$, then $x, y$ must be in different intervals.
+\item If we know $x, y$ are in different intervals, then between their intervals there must exist removed intervals 
+in the construction of $C$. We can take $z$ to be in one of these removed intervals.
+Given any $(a, b), a < b$, we have a few cases. If $a$ or $b$ is not in $C$, then $(a, b)$ is not in $C$.
+If $a, b \in C$, then we can use the argument we just made to find some $z \in (a, b)$, such that $z \not\in C$, which means
+$(a, b) \not\subseteq C$.
+\item For any $x, y \in C$, WLOG $x < y$, we can find $z \not\in C, x < z < y$ such that $C = \pa{C \cap (-\infty, z)} \cup \pa{C \cap (z, \infty)}$.
+Therefore, $C$ is totally disconnected.
+}
+}
+
+\bx{
+\ea{
+\item $O$ contains all the rational numbers (and some irrational numbers), so the complement $O^c$ must only consist of irrational numbers.
+\item $F$ only consists of closed intervals. $F$ is totally disconnected, because for any $x, y \in \mathbb{I}, x < y$,
+we can find a rational number $q$ where $q = r_n, \epsilon_n = 1/2^n < \abs{x-y}/2$, so it fits in between $x, y$.
+Then we can make $F$ with the union of two open sets intersected with $F$ at that boundary.
+\item We know $F$ is closed, since we are taking an arbitrary intersection of closed sets.
+$F$ is not always perfect, since we can create isolated points, for example, by having 
+open sets have end points that converge to some irrational number.
+The issue with our construction was that we would allow the $\epsilon$ neighborhoods to get 
+arbitrarily close to irrational numbers, and sort of ``squeeze'' them into isolated points.
+
+One trivial way to prevent this is to have some sort of minimum neighborhood size, but then 
+$F = \emptyset$.
+
+A less trivial, but vague way of construction, is to just get rid of the isolated irrational points.
+There can only be a countably infinite number of these, and there are uncountably many irrationals,
+so in this case $F \neq \emptyset$.
+
+\TODO Find a better construction for a perfect set of irrationals.
+}
+}
