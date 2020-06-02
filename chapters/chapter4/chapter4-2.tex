@@ -1,0 +1,162 @@
+%% 4.2 %%
+
+\setcounter{section}{1}
+\section{Functional Limits}
+\setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item Let $\epsilon > 0$, then notice 
+\begin{align*}
+  \abs{
+    f(x) - 8
+  } &= \abs{
+    2x+4 - 8
+  }\\
+  &= \abs{
+    2x-4
+  }\\
+  &= 2 \abs{x - 2}
+\end{align*}
+So we can choose $\delta = \epsilon/2$, which will imply 
+$2 \abs{x-2} < 2 \cdot \epsilon/2 = \epsilon$.
+
+\item Choose $\delta = \sqrt[3]{\epsilon}$
+\item We can simplify 
+\begin{align*}
+  \abs{f(x) - 8} 
+  &= \abs{x^3 - 8}\\
+  &= \abs{x-2}\abs{x^2 + 2x + 4}
+\end{align*}
+Now, we can say $\delta = \min\pbrac{1, \epsilon/7}$, which means $\abs{x^2 + 2x + 4} \leq 7$.
+Continuing, we get 
+\begin{equation*}
+  \abs{x-2}\abs{x^2 + 2x + 4} < \frac{\epsilon}{7} \cdot 7 = \epsilon
+\end{equation*}
+
+\item Let $\epsilon > 0$.
+Since $\pi = 3.14\dots$, if we choose $\delta < 0.14$, then $\pbra{\pbra{x}} = 3$, 
+which means
+\begin{equation*}
+  \abs{
+    \pbra{\pbra{x}} - 3
+  } = \abs{3 - 3} = 0 < \epsilon
+\end{equation*}
+}
+}
+
+\bx{
+If we have a $\delta$ that already works for an $\epsilon$-challenge, 
+then a smaller $\delta$ should also work.
+}
+
+\bx{
+Remember that if two sequences converging to the same limit give different 
+functional values, then the limit at that point does not exist.
+\ea{
+\item If we take $x_n^1 = 1/n$, then we get a limit of 1, but if we take 
+$x_n^2 = -1/n$, we get a limit of -1, so therefore the limit does not exist.
+\item If we approach in the rationals space we get 1, but in the irrational space we get 0.
+}
+}
+
+\bx{
+\ea{
+\item We can choose 
+\begin{itemize}
+  \item $x_n = \frac{n-1}{n}$
+  \item $y_n = 1 + \frac{1}{n}$
+  \item $z_n = \sqrt{\frac{n^2+1}{n^2}}$
+\end{itemize}
+
+\item We can compute the limits with Thomae's function
+\begin{itemize}
+  \item $\lim t(x_n) = 0$, since we get larger denominators
+  \item $\lim t(y_n) = 0$, since we get larger denominators
+  \item $\lim t(z_n) = 0$, since once $z_n > 1$, it is impossible for
+  adjacent numbers to both be perfect squares, so this number is always
+  irrational.
+\end{itemize}
+
+\item We can conjecture $\lim_{x\to 1} t(x) = 0$. To prove this, informally,
+if we receive an $\epsilon$-challenge, we can choose a $\delta$-neighborhood 
+small enough so that $x$ is close enough to $1$ so that it is either an irrational number,
+in which case $t(x) = 0$, or $x$ is rational. If $x$ is rational, since it is so close to $1$,
+this small distance must be representable by a rational number, which only happens when 
+the denominator is very large. This means as we get closer to 1, $t(x) \rightarrow \lim_{n\to\infty} \frac{1}{n} = 0$.
+Therefore, we can find such a $\delta$ so that all elements in this neighborhood are such that $\abs{t(x) - 0} < \epsilon$.
+}
+}
+
+\bx{
+\ea{
+\item If we have $f(x_n) \rightarrow L$, then we essentially have a sequence 
+that converges to $L$, which means we can use all the properties of the Algebraic Limit Theorem.
+\label{chap4:alg_limit}
+\item For some $\epsilon > 0$, we can find $\delta_f, \delta_g$ so that
+$\abs{f(x_f) - L} < \epsilon/2, \abs{g(x_g) - M} < \epsilon/2$, 
+and then take $\delta = \min\pbrac{\delta_f, \delta_g}$, so that for 
+$0 < \abs{x - c} < \delta$, we have 
+$\abs{f(x) + g(x) - (L+M)} < \epsilon/2 + \epsilon/2 = \epsilon$.
+}
+
+\item I'm too lazy to do the Algebraic Limit Theorem proof. 
+But it's basically just using the fact that we have a convergent sequence,
+as mentioned in part (\ref{chap4:alg_limit}). 
+
+For the proof without the Algebraic Limit Theorem, in shorthand, we need to do something like,
+\begin{align*}
+  \abs{f(x)g(x) - LM} 
+  &< \abs{f(x)g(x) - g(x)L + g(x)L - LM}\\
+  &< \abs{g(x)\pa{f(x)-L}} + \abs{L\pa{g(x) - M}}
+\end{align*}
+Now, we can bound $g(x)$, since we know $g(x)$ is a sequence that converges to $M$.
+Then, just choose $\delta_f, \delta_g$, and take $\delta = \min\pbrac{\delta_f, \delta_g}$
+to find a $\delta$-neighborhood that satisfies this inequality.
+}
+
+\bx{
+For any $\epsilon > 0$, choose $\epsilon_g < \epsilon/M$,
+then we can find a $\delta_g$, so that 
+\begin{equation}
+  \forall 0 < \abs{x - c} < \delta_g, \abs{g(x)f(x)} = \abs{g(x)}\abs{f(x)} < \frac{\epsilon}{M} \cdot M = \epsilon
+\end{equation}
+}
+
+\bx{
+\ea{
+\item We can say for any $M \in \mathbb{R}, \epsilon > 0$, $\exists \delta > 0$ such that 
+\begin{equation}
+  0 < \abs{x} < \delta, \abs{f(x) - M} > \epsilon
+\end{equation}
+
+\item We say for some $\epsilon > 0$, $\exists N$ such that for $x \geq N$, $\abs{f(x) - L} < \epsilon$.
+We can show for any $\epsilon > 0$, choose $N > \frac{1}{\epsilon}$.
+
+\item For any $M \in \mathbb{R}, \epsilon > 0$, 
+$\exists N$ such that for $x \geq N$, we have $\abs{f(x) - M} > \epsilon$.
+An example would be $f(x) = x$.
+}
+}
+
+\bx{
+If $c$ is a limit point of $A$, then $\lim_{x\to c} f(x) = L, \lim_{x \to c} g(x) = M$.
+Now \AFSOC $M > L$. Let $\epsilon = \abs{M - L}$.
+Then we can show $\exists N, n \geq N, \abs{g(x_n) - M} < \epsilon$,
+and $\exists N', n \geq N', \abs{f(x_n) - L} < \epsilon/2$.
+But since $M > L$, this implies $\exists x'_n, f(x'_n) < g(x'_n)$, which contracts 
+that $\forall x, f(x) \geq g(x)$.
+Therefore, we reject our hypothesis and conclude that $L \geq M$.
+\label{chap4:bounded_limit}
+}
+
+\bx{
+Let the limits of $f, g, h$ be $L_f, L_g, L_h$ respectively. Then using 
+Exercise \ref{chap4:bounded_limit}, we can show that 
+\begin{align*}
+  & L_f \leq L_g \Rightarrow L \leq L_g\\
+  & L_h \geq L_g \Rightarrow L \geq L_g\\
+  \Rightarrow \, & L \leq L_g \leq L \Rightarrow L_g = L,
+\end{align*}
+so we can conclude $\lim_{x \to c} g(x) = L_g = L$.
+}
