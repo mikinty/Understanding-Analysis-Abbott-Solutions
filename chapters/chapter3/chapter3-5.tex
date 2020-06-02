@@ -2,3 +2,108 @@
 
 \section{Baire's Theorem}
 \setcounter{exercise}{0}
+
+\bx{
+We can use DeMorgan's Law to show both directions, so that an countable union
+of closed sets becomes a countable intersection of open sets, and vice versa.
+}
+
+% TODO: Unsure
+\bx{
+\ea{
+\item Countable, can use a similar proof to $\mathbb{N}^2$ countability to show it is still countable.
+\label{chap3:countable_union}
+\item Finite.
+\item Finite.
+\item Countable. 
+}
+}
+
+\bx{
+Already done in Exercise 
+\ref{chap3:ex_f_g_sigma}.
+}
+
+\bx{
+\ea{
+\item Suppose $G_i = \pa{g_i^1, g_i^2}$, then let $M = \abs{g_i^2 - g_i^1}$, 
+and define 
+\begin{equation*}
+  I_i = \pbra{
+    g_i^1 + M/4,
+    g_i^2 - M/4
+  }
+\end{equation*}
+Essentially we are making each $G_i$ interval smaller so it can be closed, and we still have $I_i \subseteq G_i$.
+\item Now, we can use the Nested Interval Property to show that there exists an subsequence converging 
+to some $x \in G_i \forall i$, so therefore this intersection is not empty.
+}
+\label{chap3:dense_open_sets_not_empty}
+}
+
+\bx{
+Suppose we could write $\mathbb{R}$ as a $F_\sigma$ set, then we must have 
+$\mathbb{R}^c = \bigcap_{n=1}^\infty G_n$, where $G_n$ are dense, open sets.
+We just showed in Exercise \ref{chap3:dense_open_sets_not_empty} that 
+this intersection is not empty, which is a contradiction, since $\mathbb{R}^c = \emptyset$.
+\label{chap3:reals_not_f_sigma}
+}
+
+\bx{
+We know $\mathbb{Q}$ is an $F_\sigma$ set, so if $\mathbb{I}$ were also an $F_\sigma$ set,
+then that would imply $\mathbb{R}$ is also an $F_\sigma$ set, which we proved in Exercise 
+\ref{chap3:reals_not_f_sigma} is not.
+
+Therefore, $\mathbb{I}$ is not an $F_\sigma$ set, and its complement, $\mathbb{Q}$, 
+cannot be a $G_\sigma$ set.
+}
+
+\bx{
+Take the construction of the Cantor set, except start with $(0, 1)$ and 
+remove the closed $1/3$ interval in the middle, i.e. $[1/3, 2/3]$ in the start,
+each time.
+
+We can show there are an uncountable number of sets by using a diagonalization argument.
+}
+
+\bx{
+($\Rightarrow$)
+If $E$ is nowhere-dense then $\overline{E}$ contains no nonempty open intervals.
+This means $\overline{E}^c$ consists only of open intervals, and is $\mathbb{R}$ 
+without $\overline{E}$. We also can see that $\overline{\overline{E}^c}$
+will be $\mathbb{R}$, since the limit points of $\overline{{E}^c}$ are 
+just $\overline{E}$. Therefore, $\overline{E}^c$ is dense.
+
+($\Leftarrow$)
+If $\overline{E}^c$ is dense in $\mathbb{R}$, then $\overline{E}^c \cup L = \mathbb{R}$.
+Taking the complement and applying DeMorgan's, we get $\overline{E} \cap L^c = \emptyset$.
+If $\overline{E}$ is non-empty, then it consists of the limit points of $\overline{E}^c$, i.e. $\overline{E} \subseteq L$.
+
+Now, $\overline{E}$ cannot consist of any open intervals, because otherwise, suppose some limit 
+point of $\overline{E}^c$ is in some interval $\pa{a, b}$. Then there is some distance 
+$M$ from the limit point $l$ to $a$ or $b$. There is no sequence in $\overline{E}^c$ that 
+converges to this point, since it is too far away from any point in $\overline{E}^c$; $(a, b)$
+is not in $\overline{E}^c$ at all. 
+
+Therefore, since $\overline{E}$ has no nonempty open intervals, we conclude $E$ is nowhere-dense.
+}
+
+\bx{
+\ea{
+\item In between.
+\item Nowhere-dense.
+\item Dense in $\mathbb{R}$.
+\item In between.
+}
+}
+
+\bx{
+If we can write $\mathbb{R}$ as countable union of nowhere-dense sets,
+these nowhere-dense sets have no nonempty open sets, which means they are 
+closed.
+
+Therefore, we can write $\mathbb{R}$ as a $F_\sigma$ set, which we showed in 
+Exercise
+\ref{chap3:reals_not_f_sigma}
+was not possible.
+}
