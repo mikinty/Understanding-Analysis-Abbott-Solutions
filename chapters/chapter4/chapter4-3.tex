@@ -2,3 +2,309 @@
 
 \section{Combinations of Continuous Functions}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item For some $\epsilon > 0$, choose $\delta = \epsilon^3$, then 
+\begin{equation*}
+  \abs{
+    f(x) - 0
+  } = \abs{\sqrt[3]{\epsilon^3}} < \epsilon
+\end{equation*}
+
+\item If we are given some $\epsilon > 0$, $c \in \mathbb{R}$,
+choose $\delta = \epsilon\sqrt[3]{c^2}$, then
+\begin{align*}
+  \abs{
+    \pa{
+      \sqrt[3]{x} - \sqrt[3]{c}
+    }
+    \pa{
+      \sqrt[3]{x^2} + \sqrt[3]{xc} + \sqrt[3]{c^2}
+    }
+  }
+  &= \abs{x - c}\\
+  \abs{
+    \sqrt[3]{x} - \sqrt[3]{c}
+  } 
+  &= 
+  \frac{
+    \abs{x - c}
+  }{
+    \sqrt[3]{x^2} + \sqrt[3]{xc} + \sqrt[3]{c^2}
+  }\\
+  &<
+  \frac{
+    \abs{x - c}
+  }{
+    \sqrt[3]{c^2}
+  }\\
+  &= \frac{
+    \epsilon\sqrt[3]{c^2}
+  }{
+    \sqrt[3]{c^2}
+  }
+  = \epsilon
+\end{align*}
+}
+}
+
+\bx{
+\ea{
+\item For any $\epsilon > 0$, 
+Since $g$ is continuous at $f(c)$, choose $\delta_g$
+such that if $f(x) \in V_{\delta_g}(f(c))$,
+then 
+\begin{equation*}
+  \abs{g(f(x)) - f(c)} < \epsilon.
+\end{equation*}
+
+Now, since $f(x)$ is continuous at $c$, there is a $\delta_f$ such that 
+if $x \in V_{\delta_f}(c)$, then
+\begin{equation*}
+  \abs{f(x) - f(c)} < \delta_g.
+\end{equation*}
+
+Choose this $\delta_f$, then we will have for any $\epsilon > 0$,
+\begin{equation*}
+  x \in V_{\delta_f}(c) \Rightarrow \abs{g(f(x)) - f(c)} < \epsilon
+\end{equation*}
+
+\item Using sequential characterization, since $f(x)$ is continuous at $c$,
+we know that
+$(x_n) \rightarrow c$ implies $f(x_n) \rightarrow f(c)$.
+
+Now, $g \circ f(x)$ is well-defined on $A$, so if we 
+let $y_n = f(x_n)$,
+we know that since $g(y)$ is continuous at $f(c)$, 
+$y_n \rightarrow f(c)$ means $g(y) \rightarrow g(f(c))$.
+
+Putting these together, we just showed $(x_n) \rightarrow c$ implies $f(x_n) \rightarrow f(c)$,
+which finally implies $g(f(x_n)) \rightarrow g(f(c))$.
+By the sequential characterization, we can conclude that $g \circ f(x)$ is continuous at $x=c$.
+}
+}
+
+\bx{
+For any $\epsilon > 0$, choose $\delta = \frac{\epsilon}{a}$.
+Then 
+\begin{equation*}
+  \abs{f(x) - f(c)} = \abs{a(x - c)} < a \frac{\epsilon}{a} < \epsilon
+\end{equation*}
+}
+
+\bx{
+\ea{
+\item For $\epsilon > 0$, choose $\delta < 1$, then $x, c \in \mathbb{Z}$ and $0 < \abs{x - c} < \delta$
+implies that $x = c$, so $\abs{f(x) - f(c)} = 0 < \epsilon$.
+
+\item For any isolated point, we can choose a $\delta$-neighborhood small enough so that $0 < \abs{x - c} < \delta$ 
+implies $x = c$, since there are no other elements in the domain near $c$ other than $c$ itself. 
+This will make $\abs{f(x) - f(c)} = 0 < \epsilon$.
+}
+}
+
+\bx{
+We can find a $\delta_g$ so that $x \in V_{\delta_g}(c)$ means $\abs{g(x) - g(c)} < \epsilon = \abs{g(c)}$.
+This means $\forall x, g(x) \neq 0$, since it is too far away from 0, so therefore the denominator is always 
+nonzero and $f(x)/g(x)$ is defined in this open interval.
+}
+
+\bx{
+\ea{
+\item Choose some $c \in \mathbb{R}$, we have 2 cases,
+\begin{enumerate}[label=\arabic*.]
+  \item $f(c)$ is rational.
+  We can choose an irrational sequence $(x_n) \rightarrow c$,
+  so that $f(x_n) \rightarrow 0$, since $\forall x_n, f(x_n) = 0$, since $x_n$ is irrational.
+  However, we know that $f(c) = 1$, since $c$ is rational.
+
+  \item $f(c)$ is irrational.
+  We can choose an rational sequence $(x_n) \rightarrow c$,
+  so that $f(x_n) \rightarrow 1$, since $\forall x_n, f(x_n) = 1$, since $x_n$ is rational.
+  However, we know that $f(c) = 0$, since $c$ is irrational.
+\end{enumerate}
+Therefore, we conclude the Dirichlet function is everywhere-discontinuous.
+\label{chap4:dirichlet_discontinuous}
+
+\item Proving Thomae's function is discontinuous at every rational point is 
+the same proof as showing Dirichlet's function is discontinuous at every rational point.
+See part (
+  \ref{chap4:dirichlet_discontinuous}
+).
+
+\item I'm extremely confused about this hint $t(x) \geq \epsilon$. 
+All of these $x$ that satisfy this must be rational numbers, and they must be isolated
+if we force a limit on their denominator, which is what $t(x) \geq \epsilon$ does.
+I think then the argument goes, take the complement of this set, so $\pbrac{x : t(x) < \epsilon}$,
+then we know this is bounded somehow? And then we choose a $\delta$ so that 
+our neighborhood only contains elements from this set? Maybe something about
+an open set existing in this set too, and we can choose that. Overall...unsure.
+\TODO
+
+Using Theorem 4.3.2 (iii), which is the $\epsilon, \delta$-neighborhood argument,
+What you can do is choose a $\delta$ so small so that to represent $\delta$ as a rational,
+you must use a denominator large enough such that $\frac{m}{n}$, $\frac{1}{n} < \epsilon$.
+}
+}
+
+\bx{
+To show $K$ is a closed set, we need to show that $K$ contains all of its limit points.
+Take any $(x_n) \rightarrow l$ from $K$. Since we know $h(x)$ is continuous, any 
+$(x_n) \rightarrow l$ implies $h(x_n) \rightarrow h(l)$.
+Now, since all terms of $h(x_n)$ are 0, we must have $h(l) = 0$, 
+otherwise, if $h(1) = y$, then choose $\epsilon < \abs{y}$, and you cannot prove 
+convergence.
+We conclude that $l \in K$, and 
+therefore $K$ contains all of its limit points and is closed.
+}
+
+\bx{
+\ea{
+\item \AFSOC $\exists c \in \mathbb{R}, f(c) \neq 0$. 
+Then $\exists (x_n) \rightarrow c, x_n \in \mathbb{Q}$.
+Since $f$ is continuous on $\mathbb{R}$, we must have $(x_n) \rightarrow c$
+implies $f(x) \rightarrow f(c)$. But $f(x_n) = 0$, and $f(c) \neq 0$, so
+this means $f$ is not continuous at $c$. But this is a contradiction, since 
+$f$ is continuous on $\mathbb{R}$.
+
+\item There is no claim about continuity, so no. We can have $f(r) = g(r), r \in \mathbb{Q}$,
+but have $f(i) = -1, g(i) = 1, i \in \mathbb{I}$. Then $f$ and $g$ are not the same function.
+}
+}
+
+\bx{
+\ea{
+\item We can do the $\epsilon$-$\delta$ proof, 
+but choose $\delta = \frac{\epsilon}{c}$, so for any $z \in \mathbb{R}$, 
+we can show that for $0 < \abs{x - z} < \delta$, that $\abs{f(x) - f(z)} \leq c\abs{x - z} < c \frac{\epsilon}{c} = \epsilon$.
+
+\item We notice that for every $y_{n+1}$, its distance from $y_n$ is $c$ times the 
+distance of $\abs{y_n - y_{n-1}}$. Since $c \in \pa{0, 1}$, this distance will get smaller every single time.
+Namely, 
+\begin{equation*}
+  \abs{y_{n+1} - y_{n}} = \abs{f(y_n) - f(y_{n-1})} \leq c \abs{y_n - y_{n-1}} \leq c^{n-1}\abs{y_2 - y_1}
+\end{equation*}
+So for any $\epsilon > 0$, we can choose $N$ such that $c^{N-1} < \frac{\epsilon}{\abs{y_2-y_1}}$,
+and then for subsequent $n \geq N$, we have $\abs{y_n - y} < \epsilon$. Since $\lim y_n = y$, this sequence converges to $y$,
+which is equivalent to showing it is a Cauchy sequence.
+\label{chap4:part_y_comp}
+
+\item We can choose the sequence $x_n = y_n$ where $y_n$ was defined in 
+part (
+  \ref{chap4:part_y_comp}
+), and we see that $(x_n) \rightarrow y$, and since $f$ is continuous on $\mathbb{R}$,
+we conclude that $f(x_n) \rightarrow f(y)$. Now, $f(x_n) = x_n+1$, so $f(x_n) \rightarrow y$.
+This means $f(y) = y$. To prove uniqueness, we need to show no other $x$ exists such that $f(x) = x$.
+\AFSOC such an $x$ exists, then we can do the following:
+\begin{itemize}
+  \item We have $\abs{f(x) - f(y)} \leq c \abs{x - y}$.
+  \item If we apply this property again with $f(f(x)), f(f(y))$, we get 
+  \begin{align*}
+    \abs{f(f(x)) - f(f(y))} &\leq c\abs{f(x) - f(y)}\\
+    \abs{f(x) - f(y)} &\leq c^2 \abs{x - y} \tag{Using $f(y) = y, f(x) = x$ property, and the prev result}
+  \end{align*}
+  \item We can continue this indefinitely, and show that $y = f(y) = f(x) = x$, which means $y$ is unique.
+\end{itemize}
+
+\item Let us say $(x_n) \rightarrow L$. Then we can find for any $\epsilon > 0$,
+a $N$ such that for $n \geq N$, $\abs{x_n - L} < \epsilon$.
+
+Now, if we take $\abs{f(x_n) - f(L)}  = \abs{x_n - f(L)} \leq c\abs{x_n - L} < \epsilon$, 
+we see this sequence also converges to $f(L)$, which means $f(L) = L$. In the previous part, we showed 
+$y$ is the unique fixed point, so we conclude $L=y$, and thus sequence also converges to $y$.
+}
+}
+
+\bx{
+\ea{
+\item We have two problems,
+\begin{itemize}
+  \item $f(0 + 0) = f(0) = f(0) + f(0)$. If we have $x = 2x$, $x=0$ is the
+  only solution, so $f(0) = 0$.
+  \item $f(x - x) = f(0) = f(x) + f(-x) \Rightarrow -f(x) = f(-x)$.
+\end{itemize}
+
+\item For any $\epsilon > 0$, since $f(0)$ is continuous, 
+$\exists \delta$ such that $\abs{f(\delta) - f(0)} < \epsilon$.
+Now, if we have $c \in \mathbb{R}$, if we have some 
+$(x_n) \rightarrow c$, we can choose $N$ such that for $n \geq N$,
+$\abs{x_n - c} < \delta$. Then,
+\begin{equation*}
+  \abs{f(x_n) - f(c)} = \abs{f(x_n - c)} = \abs{f(\delta)} < \epsilon
+\end{equation*}
+
+\item Just expand $f(1 + 1 + \cdots + 1)$, so e.g. $f(3) = f(1 + 1 + 1) = f(1) + f(1 + 1) = f(1) + f(1) + f(1) = 3f(1) = 3k$.
+Using $f(-x) = f(x)$, we can show $f(z) = kz, z \in \mathbb{Z}$. 
+For rationals, let's say we have $\frac{m}{n} \in \mathbb{Q}$, where $m, n \in \mathbb{Z}$, then we can write 
+$f(m)$ as $f(n \cdot \frac{m}{n})$, which means $f(m) = nf\pa{\frac{m}{n}}$. Now, since $m \in \mathbb{Z}$,
+we know $f(m) = mk$, so $mk = n f\pa{\frac{m}{n}} \Rightarrow f\pa{\frac{m}{n}} = \frac{m}{n}k$.
+
+\item We only haven't shown the property $f(x) = kx$ is true for irrationals.
+We can do this by constructing a rational sequence $(x_n) \rightarrow c$ for any $c \in \mathbb{R}$.
+Now since $f$ is continuous on $\mathbb{R}$, we conclude that $f(x_n) \rightarrow f(c)$.
+We also know for every $f(x_n) = kx_n$, so $f(c) = kc$. 
+}
+}
+
+\bx{
+\ea{
+\item Let 
+\begin{equation*}
+  f(x) = 
+  \begin{cases}
+    x, &x \not\in \mathbb{Z}\\
+    x+1, &x \in \mathbb{Z}
+  \end{cases}
+\end{equation*}
+
+\item We basically define a function that is ``normal'', except 
+inside $(0, 1)$ we make it behave crazy like the Dirichlet function.
+We make sure that the surrounding area connects to this region smoothly,
+so that $0, 1$ are continuous.
+\begin{equation*}
+  f(x) = 
+  \begin{cases}
+    0, x \in \mathbb{Q} \cap (0, 1)\\
+    1, x \in \mathbb{I} \cap (0, 1)\\
+    x, x \not\in \mathbb{Z}
+  \end{cases}
+\end{equation*}
+\label{chap4:discontinuous_in_0_1}
+
+\item Basically the same as part (
+  \ref{chap4:discontinuous_in_0_1}
+) except we make the surrounding area of the interval disconnected,
+so that $0, 1$ are discontinuous.
+\begin{equation*}
+  f(x) = 
+  \begin{cases}
+    0, x \in \mathbb{Q} \cap [0, 1]\\
+    1, x \in \mathbb{I} \cap [0, 1]\\
+    x+100, x \not\in \mathbb{Z}
+  \end{cases}
+\end{equation*}
+
+\item We have to pay attention to $0$, since there exists a subsequence 
+$\in A$ that converges to 0. Since this subsequence will converge to 0, 
+we just have to make sure that $f(x_n) \rightarrow f(0)$.
+\begin{equation*}
+  f(x) = 
+  \begin{cases}
+    x, &x \in A\\
+    0, &x \not\in A
+  \end{cases}
+\end{equation*}
+}
+}
+
+\bx{
+\ea{
+\item We can construct two subsequences that converge to $c$, one which is 
+always in $C$, and the other that is not. Then $g(x_n)$ will converge to 1 for the first subsequence,
+but 0 for the second. Therefore every $c \in C$ is discontinuous.
+
+\item If $c \not\in C$, then $c$ is part of an open set, which means there exists an $\epsilon$
+neighborhood around it, where all points $x$ are such that $g(x) = 0$.
+}
+}
