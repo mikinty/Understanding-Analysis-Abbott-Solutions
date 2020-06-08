@@ -6,8 +6,16 @@
 \bx{
 Since we know $K$ is compact, it must also be closed and bounded.
 
-Since $K$ is bounded, it must have an upper and lower bound, which means 
-$\sup K$ and $\inf K$ must exist.
+Since $K$ is bounded, it must have a least upper and largest lower bound, by
+the Axiom of Completeness, which means $\sup K$ and $\inf K$ must exist. 
+Now, we can construct subsequences of $K$ that converge to $\sup K, \inf K$,
+since by the property of $\sup K$, for example, we can always find an element
+of $K$ that is some $\epsilon$ close to it. So for example we can construct a
+subsequence where $a_n = k_n, k_n \in K$ such that $\abs{\sup K - k} <
+\frac{1}{2^n}$. The same logic applies to $\inf K$, so they are limit points
+of $K$. Since $K$ is closed, $\sup K, \inf K \in K$.
+
+\label{chap3:compact_sup_inf}
 }
 
 \bx{
@@ -61,7 +69,7 @@ Therefore, $K \cap F$ is bounded and closed, and thus is compact.
 \item We can find a sequence in $\mathbb{Q}$ that converges to $\sqrt{2}$, 
 but we know that $\sqrt{2} \not\in \mathbb{Q}$, so $\mathbb{Q}$ is not compact.
 \label{chap3:q_not_compact}
-\item Again, similar to part (\ref{chap3:q_not_compact}), we can find a sequence that 
+\item Again, similar to part \ref{chap3:q_not_compact}, we can find a sequence that 
 converges to $\sqrt{2}/2 \not\in [0, 1] \cap \mathbb{Q}$.
 
 \item Take the sequence $a_n = n$. There is no limit, so this sequence does not have a subsequence that converges.

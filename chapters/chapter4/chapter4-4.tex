@@ -2,3 +2,325 @@
 
 \section{Continuous Functions on Compact Sets}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item For any $\epsilon > 0, c \in \mathbb{R}$, 
+choose $\delta < \sqrt[3]{\epsilon}$.
+
+\item Take $x = n$, $y_n = n + 1/n$. Choose $\epsilon = 1$,
+then $x_n, y_n \rightarrow n, so \abs{x_n - y_n}\rightarrow 0$, but 
+\begin{equation*}
+  \abs{f(x) - f(y)} = \abs{n - \pa(n^3 + 3n + 3/n + 1/n^3)} 
+  = \abs{3n + 3/n + 1/n^3}
+  > 3 > \epsilon = 1
+\end{equation*}
+
+\item For any bounded subset, let $M$ be the largest absolute value of any
+element in the subset. Then choose $\delta < \frac{\epsilon}{3M^2}$.
+Then we have 
+\begin{equation*}
+  \abs{x^3 - y^3} 
+  = 
+  \abs{\pa{
+    x - y
+  }\pa{
+    x^2 + xy + y^2
+  }}
+  < \frac{\epsilon}{3M^2} \cdot \pa{
+    M^2 + M\cdot M + M^2
+  }
+  = \epsilon
+\end{equation*}
+}
+}
+
+\bx{
+Given any $\epsilon$, choose $\delta < \epsilon/2$.
+Then for $\abs{x - y} < \delta$,
+\begin{align*}
+  \abs{f(x) - f(y)} 
+  &= \abs{\frac{1}{x^2} - \frac{1}{y^2}}\\
+  &= \abs{
+    \frac{
+      y^2-x^2
+    }{
+      x^2y^2
+    }
+  }\\
+&= \abs{
+  \frac{
+    (y-x)(y+x)
+  }{
+    x^2y^2
+  }
+}\\
+&\leq \abs{
+  x-y
+}\abs{
+  \frac{
+    x+y
+  }{x^2y^2}
+}\tag{Since $\frac{1}{x^2y^2} \leq 1$}\\
+&= \abs{
+  x-y
+}\abs{
+  \frac{
+    1
+  }{x^2y}
+  + \frac{1}{y^2x}
+}\\
+&< \frac{\epsilon}{2}\pa{1 + 1}\tag{$\frac{1}{x^2y} \leq 1$, since $x, y \geq 1$}\\
+&= \epsilon
+\end{align*}
+
+Now, for $(0, 1]$, choose $x_n = \frac{1}{n}, y_n = \frac{1}{n+\frac{1}{n}}$.
+Also choose $\epsilon_0 = 1/2$.
+Then $\abs{x_n = y_n} = \abs{\frac{1}{n^3+n}} \rightarrow 0$, but 
+\begin{equation*}
+  \abs{
+    f(x_n) - f(y_n)
+  } = \abs{
+    n^2 - \pa{n+\frac{1}{n}}^2
+  } = 
+  \abs{
+    -2 - \frac{1}{n^2}
+  } \geq 1 > \epsilon_0
+\end{equation*}
+}
+
+\bx{
+Since $K$ is compact, by the preservation of compact sets, since $f$
+is continuous on $K$, $f(K)$ is also compact.
+Now, we already showed in Exercise \ref{chap3:compact_sup_inf}
+that any compact set contains its maximum and minimum values, so therefore
+we can conclude that $f$ will attain its maximum and minimum values 
+of this range.
+}
+
+\bx{
+We know $[a, b]$ is closed and bounded, so therefore it is compact. 
+Thus, $f([a, b])$ is also compact, since $f$ is continuous on this interval.
+Let $M$ be the lower bound of $f([a, b])$, which we know exists since it is
+compact, then we can conclude $1/f$ is bounded by $1/M$ on $[a, b]$.
+}
+
+\bx{
+Choose $\epsilon = \epsilon_0$. Now, we can show 
+\begin{equation*}
+  \exists m,n \in \mathbb{N}, \abs{x_m - y_m} < \delta_n = \frac{1}{n}
+\end{equation*}
+such that $\abs{f(x_m)-f(y_m)} \geq \epsilon_0$.
+Since we can make $\delta_n$ arbitrarily small, any $\delta$ claim can be shown 
+to be faulty, so therefore this function cannot be uniformly continuous.
+}
+
+\bx{
+\ea{
+\item We can take advantage of the fact that $f$ is not necessarily continuous at $0, 1$.
+An example is $f(x) = \frac{1}{x}$, where if we take $x_n = \frac{1}{n}$, then $x_n \rightarrow 0$, 
+but $f(x) = \frac{1}{1/n} = n$ does not converge.
+
+\item Impossible. Since $[0, 1]$ is closed, any $x_n \rightarrow x$ will have $x \in [0, 1]$.
+Since $f$ is continuous over $[0, 1]$, it must also be continuous at $x$, so therefore $\lim f(x_n) = f(x)$,
+and therefore $f(x_n)$ is a Cauchy sequence.
+\label{chap4:cont_cauchy}
+
+\item Impossible. Same reasoning as 
+part \label{chap4:cont_cauchy}, 
+since $[0, \infty)$ is closed, any $x_n \rightarrow x$ will have its limit also in the set.
+
+\item An upside down parabola with a peak in $(0, 1)$ will work. 
+A function like $\frac{1}{x(x-1)}$ is a bit more fun.
+}
+}
+
+\bx{
+Suppose we have some $\epsilon > 0$.
+
+Now if we have two arbitrary $x, y \in (a, c)$, if $x, y$ are both in the
+left set or the right set, then we can just use the fact that $g$ is
+uniformly continuous on those sets to show it. The only other case we have is
+that they are in different sets,
+WLOG $x \in (a, b], y \in [b, c)$,
+\begin{align*}
+  \abs{
+    f(x) - f(y)
+  } = \abs{
+    f(x) - f(b) - (f(b) - f(y))
+  } \leq \abs{f(x) - f(b)} + \abs{f(y) - f(b)}
+\end{align*}
+Now, since $b$ is in both sets,
+We know for $x_a \in (a, b], y \in [b, c)$,
+we can find $\delta_a, \delta_b$ respectively such that 
+$\abs{x - b} < \delta_a \Rightarrow \abs{f(x)-f(b)} < \epsilon/2$ and 
+$\abs{y - b} < \delta_b \Rightarrow \abs{f(y)-f(b)} < \epsilon/2$.
+
+So we can finish up our proof by choosing $\delta < \min(\delta_a,\delta_b)$, so that 
+\begin{equation*}
+  \abs{x - y} < \delta \Rightarrow  \abs{f(x) - f(y)}
+  \leq \abs{f(x) - f(b)} + \abs{f(y) - f(b)}
+  < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{equation*}
+The last part is motivated by that if $x, y$ are in separate sets, we try to make them as close to $b$
+as possible so we can use their uniformly continuous properties around $b$.
+\label{chap4:uniform_cont_separate_sets}
+}
+
+\bx{
+\ea{
+\item We can show $f$ is uniformly continuous on $[0, b]$, since it is a compact set.
+Then, using the same argument as in Exercise
+\ref{chap4:uniform_cont_separate_sets},
+we can show that if $f$ is uniformly continuous on 
+$[0, b], [b, \infty)$, then $f$ is also uniformly continuous on $[0, \infty)$.
+\label{chap4:uniform_cont_separate_sets_closed}
+
+\item We can show $f(x) = \sqrt{x}$ is uniformly continuous on $[1, \infty)$, because 
+on this interval, any $x, y \in [1, \infty)$ means $\sqrt{x} + \sqrt{y} \geq 2$. 
+Then choose $\delta < 2\epsilon$, then 
+\begin{align*}
+  \abs{x - y} < \delta \Rightarrow 
+  \abs{\sqrt{x}-\sqrt{y}} &= \abs{
+    \frac{
+      \pa{\sqrt{x}-\sqrt{y}}\pa{\sqrt{x}+\sqrt{y}}
+    }{
+      \pa{\sqrt{x}+\sqrt{y}}
+    }
+  }\\
+  &= \frac{
+    \abs{x-y}
+  }{
+    \abs{\sqrt{x}+\sqrt{y}}
+  }\\
+  &< 2 \epsilon \cdot \frac{1}{2} = \epsilon
+\end{align*}
+Now, $[0, 1]$ is closed and bounded, so it is compact, and $\sqrt{x}$ is
+continuous on it, so therefore $\sqrt{x}$ is uniformly continuous on $[0, 1]$.
+
+Using what we just proved in part \ref{chap4:uniform_cont_separate_sets_closed}, 
+we can combine these results to show that $\sqrt{x}$ is uniformly continuous
+on $[0, 1] \cup [1, \infty) = [0, \infty)$.
+\label{chap4:sqrt_function_uniform_cont}
+}
+\label{chap4:uniform_cont}
+}
+
+\bx{
+\ea{
+\item Choose $\delta < \frac{\epsilon}{M}$, then if we have $\abs{x - y} < \delta = \frac{\epsilon}{M}$,
+\begin{equation*}
+  \abs{
+    \frac{
+      f(x) - f(y)
+    }{
+      x-y
+    }
+  } \leq M \Rightarrow \abs{f(x)-f(y)} \leq \abs{x-y}M < \frac{\epsilon}{M}M = \epsilon
+\end{equation*}
+
+\item No, take $f(x) = \sqrt{x}$. We showed in Exercise \ref{chap4:uniform_cont}, 
+part \ref{chap4:sqrt_function_uniform_cont}
+that this function is uniformly on $[0, 1]$, but its slope $\frac{1}{2\sqrt{x}}$ tends to $\infty$ 
+as $x \rightarrow 0$. The issue stems from that we will have $M = \frac{\epsilon}{\delta}$,
+but this quantity may not be bounded, since $\epsilon, \delta$ vary.
+}
+}
+
+\bx{
+Yes, uniform continuousness preserves boundedness over a set.
+
+Choose some $\epsilon > 0$, say $\epsilon = \epsilon_0$.
+Now we know since $f$ is uniformly continuous, $\exists \delta \abs{x - y} < \delta \Rightarrow \abs{f(x)-f(y)} < \epsilon_0$.
+Now, since $A$ is a bounded set, we can find a finite open cover for it, let this cover
+be in the form 
+\begin{equation*}
+  A = \bigcup_{i=1}^N
+    V_{\delta}(x_i)
+\end{equation*}
+where $x_i \in A$. Now, take $M_1 = \min_{i=1}^N\pa{f(x_i) - \epsilon_0}, 
+M_2 = \max_{i=1}^N\pa{f(x_i) + \epsilon_0}$, and $M_1$ will be a lower bound for $f(A)$,
+and $M_2$ an upper bound.
+}
+
+\bx{
+($\Rightarrow$)
+Let $O \in \mathbb{R}$ be any open set.
+Consider some $x \in g^{-1}(O)$,
+We know $g(x) = y \in O$.
+Now, since $O$ is an open set, we know $\exists \epsilon$
+such that $V_\epsilon(y) \subseteq O$.
+We also know that $g$ is continuous, which means for any $\epsilon$,
+we know $\exists V_\delta(x)$ such that $x' \in V_\delta(x)$
+means $g(x') \in V_\epsilon(y)$. Since $V_\epsilon(y) \subseteq O$,
+we have $g(x') \in O$ for any of these $x'$, which means by the definition
+of $g^{-1}$, all these $x' \in g^{-1}(O)$, and therefore $V_\delta(x) \subseteq g^{-1}(O)$,
+which means there exists an open neighborhood around any element in $g^{-1}(O)$,
+and therefore $g^{-1}(O)$ is an open set.
+
+($\Leftarrow$)
+If we know $g^{-1}(O)$ is open for any open $O \subseteq \mathbb{R}$,
+suppose we get some 
+$y \in O, \epsilon > 0$. Then consider the set $V_\epsilon(y) \in O$.
+Now, consider $g^{-1}(V_\epsilon(y))$, which we are guaranteed is open.
+Since $x = g^{-1}(y)$ is in $g^{-1}(V_\epsilon(y))$, 
+because $y \in V_\epsilon(y)$,
+we know since $g$ is open, that $\exists \delta > 0$ such that 
+$V_\delta(x) \subseteq g^{-1}(V_\epsilon(y))$.
+Therefore, for any $V_\epsilon(y)$, we have found a corresponding 
+$V_\delta(x)$ such that $x' \in V_\delta(x)$ implies $g(x') \in V_\epsilon(y)$,
+which means we conclude $g$ is continuous.
+}
+
+\bx{
+We want to prove that 
+\begin{equation*}
+  \textit{
+    A function that is continuous on a compact set K 
+    is uniformly continuous on K.
+  }  
+\end{equation*}
+% If we have a compact set $K$, we know $\exists$ a finite subcover over $K$.
+%% TODO: too hard
+\TODO
+}
+
+\bx{
+\ea{
+\item We know for every $\epsilon > 0$, $\exists \delta$ such that
+$x' \in V_\delta(x)$ implies $f(x') \in V_\epsilon(f(x'))$.
+Now, if we have some Cauchy Sequence $x_n$, we know $\exists N$
+such that for $m, n \geq N$,
+\begin{equation*}
+  \abs{x_m - x_n} < \delta,
+\end{equation*}
+which means $\abs{f(x_m) - f(x_n)} < \epsilon$, 
+since $x_m, x_n \in V_\delta(x)$.
+Therefore, we know for this $N$, $m, n \geq N$
+means $\abs{f(x_m) - f(x_n)} < \epsilon$, 
+so therefore $f(x_n)$ is also a Cauchy Sequence.
+
+\item 
+($\Rightarrow$)
+We can come up with a sequence $a_n \rightarrow a, a_n \in (a, b)$.
+Now, since $(a_n)$ is also a Cauchy Sequence, that means $g(a_n)$ is also a Cauchy sequence,
+since $g$ is a uniformly continuous function.
+Therefore, define $g(a)$ as $g(a_n) \rightarrow g(a)$. We know this exists since $g(a_n)$ is Cauchy.
+Notice that any sequence $(a'_n) \rightarrow a$ is Cauchy, and therefore we must 
+have $g(a_n) \rightarrow g(a')$. We want to show that $g(a') = g(a)$ for 
+$g$ to be continuous at $a$.
+
+\AFSOC $g(a') \neq g(a)$, then that means we have two sequences $a'_n, a_n \rightarrow a$, 
+where these sequences are contained inside $(a, b)$,
+but $\abs{g(a') - g(a)} \geq \epsilon_0$, which means $g$ is not uniformly continuous.
+This is a contradiction, so therefore we conclude that $g(a') = g(a)$,
+and therefore any $(a'_n) \rightarrow a$ implies $g(a'_n) \rightarrow g(a)$, which means
+$g$ is continuous at $a$. we conclude that same for $b$, using the same argument, and therefore
+$g$ is continuous over $[a, b]$.
+
+($\Leftarrow$)
+$[a, b]$ is a compact set, and since $g$ is continuous over this set,
+we have that $g$ is also uniformly continuous over $[a, b]$,
+which means we also have that $g$ is uniformly continuous over $(a, b) \subseteq [a, b]$.
+}
+}

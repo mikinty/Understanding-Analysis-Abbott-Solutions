@@ -37,7 +37,7 @@ and use what we proved above to show by contradiction that $(a_n)$ series conver
 \label{chap2:part_cauchy_alt}
 
 \item $(a_n)$ series is increasing and bounded by $(b_n)$ series, so it must converge.
-For $(a_n)$ series diverging, We can do a similar \AFSOC argument in part (\ref{chap2:part_cauchy_alt}),
+For $(a_n)$ series diverging, We can do a similar \AFSOC argument in part \ref{chap2:part_cauchy_alt},
 where we can \AFSOC $(b_n)$ converges, which then we can show by contradiction that $(a_n)$ series is converging.    
 }
 }
@@ -164,7 +164,7 @@ We can choose $N$ large enough so that $\epsilon < 1 - r$.
 \item Since $\abs{r'} < 1$, we know $\sum{r'}^n$ converges, so $\abs{a_N}$ times that also converges.
 \label{chap2:part_converge_ratio}
 \item We can bound the leading terms up to $n < N$ of $\sum \abs{a_n}$ by some $M$.
-For the tail end, we can bound it from part (\ref{chap2:part_converge_ratio}). Since there exists an upper 
+For the tail end, we can bound it from part \ref{chap2:part_converge_ratio}. Since there exists an upper 
 bound for this series, and its partial sums are increasing, we conclude that the partial sums converge 
 and the overall sum does too.
 }
@@ -184,7 +184,7 @@ so $\lim a_n = l/n$. Then since $l \neq 0$, $\sum a_n$ converges to a multiple o
 which diverges, so $\sum a_n$ will too.
 \label{chap2:na_n_diverge}
 
-\item Similar to the proof above in part (\ref{chap2:na_n_diverge}), we can show 
+\item Similar to the proof above in part \ref{chap2:na_n_diverge}, we can show 
 $\lim a_n = l/n^2$. This converges to a multiple of $1/n^2$, which converges, so $\sum a_n$ also converges.
 }
 }
@@ -242,7 +242,7 @@ make $\abs{y_{m+1}} < \epsilon/(3M)$. Then
 \begin{align*}
   \abs{\sum_{j={m+1}}^\infty x_jy_j}
   &\leq \abs{\sum_{j={m+1}}^n x_jy_j} + \abs{\sum_{j={n+1}}^\infty x_jy_j}\\
-  &\leq 2M\abs{y_{m+1}} + \abs{\sum_{j={n+1}}^\infty x_jy_j}\tag{From part (\ref{chap2:bound_sum_by_parts})}\\
+  &\leq 2M\abs{y_{m+1}} + \abs{\sum_{j={n+1}}^\infty x_jy_j}\tag{From part \ref{chap2:bound_sum_by_parts}}\\
   &\leq 2M\abs{y_{m+1}} + \abs{\sum_{j={n+1}}^\infty x_jy_{m+1}}\tag{Since for $n \geq m+1, y_{m+1} \geq y_{n}$}\\
   &\leq 2M\abs{y_{m+1}} + \abs{y_{m+1}}\abs{\sum_{j={n+1}}^\infty x_j}\\
   &\leq 2M\abs{y_{m+1}} + \abs{y_{m+1}}M\tag{Partial sums of $(x_n)$ bounded by $M$}\\
@@ -263,7 +263,7 @@ and decreasing, which is weaker than Dirichlet, which in addition needs the limi
 to 0.
 
 \item Using Exercise \ref{chap2:ex:dirichlet_test},
-part (\ref{chap2:bound_sum_by_parts}), we have
+part \ref{chap2:bound_sum_by_parts}, we have
 \begin{equation*}
   \abs{\sum_{j={1}}^n a_jb_j} \leq 2A\abs{b_{1}}
 \end{equation*}
