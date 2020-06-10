@@ -2,3 +2,148 @@
 
 \section{Sets of Discontinuity}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item 
+\begin{equation*}
+  f(x) = 
+  \begin{cases}
+    1, &x \in \mathbb{Z}\\
+    0, &\text{otherwise}
+  \end{cases}
+\end{equation*}
+\item 
+\begin{equation*}
+  f(x) = 
+  \begin{cases}
+    \text{Dirichlet's Function}, &x \in (0, 1]\\
+    100, &\text{otherwise}
+  \end{cases}
+\end{equation*}
+}
+}
+
+\bx{
+\textbf{(Left-hand Limit)}
+Given a limit point of a set $A$ and a function $f:A \rightarrow \mathbb{R}$,
+we write 
+\begin{equation*}
+  \lim_{x\to c^-} f(x) = L
+\end{equation*}
+if $\forall \epsilon>0$ $\exists \delta > 0$ such that 
+\begin{equation*}
+  \abs{f(x) - L} < \epsilon \text{ whenever } 0 < c - x < \delta
+\end{equation*}
+Equivalently, $\lim_{x\to c^-} f(x) = L$ if $\lim f(x_n) = L$
+for all sequences $(x_n)$ satisfying $x_n < c$ and $\lim(x_n) = c$.
+}
+
+\bx{
+($\Rightarrow$)
+If $\lim_{x\to c} f(x) = L$, then all sequences that converge to $c$
+will have $\lim f(x_n) = L$, so we have 
+$\lim_{x\to c^+} f(x) = L$ and
+$\lim_{x\to c^-} f(x) = L$.
+
+($\Leftarrow$)
+If we have 
+$\lim_{x\to c^+} f(x) = L$ and
+$\lim_{x\to c^-} f(x) = L$,
+we want to be able to show for any sequence $(x_n) \rightarrow c$,
+that we also have $\lim f(x_n) = L$.
+For any $(x_n)$, we know there must be an infinite number of elements 
+greater than $c$ and/or less than $c$ if $(x_n) \to c$, 
+so WLOG take this subsequence that is all greater than $c$, which we know satisfies 
+$\lim f(x_n) = L$.
+}
+
+\bx{
+($x \to c^-$)
+For any $\epsilon > 0$, we can find $f(x') = f(c) - \epsilon$
+by the IVT, and since $f$ is monotone, we know $0 < c - x < \delta = \abs{c - x'}$
+will satisfy the $\epsilon$ challenge, since any $x$ in this range 
+will satisfy $f(x') \leq f(x) \leq f(c)$, since $x' \leq x \leq c$,
+and $\abs{f(x) - f(x')} < \epsilon$.
+Similar logic applies to the other direction.
+
+Since the limit exists at every point, but could potentially be different, a monotone function 
+can only have jump discontinuity.
+}
+
+\bx{
+For any monotone function $f$ with a jump discontinuity at $c$, where 
+$\lim_{x \to c^-} f(x) = L^-, \lim_{x\to c^+} f(x) = L^+$,
+it must be the case that $L^- < L^+$. In addition, because $\mathbb{Q}$ is 
+dense, we know that $\exists r \in \mathbb{Q}$ such that $L^- < r < L^+$.
+Now, there is a slight concern that maybe this $r$ could be repeated at other discontinuities,
+but since we know $f$ is monotone, we know that for $c_1 < c_2$,
+we must have $L_1^- < L_2^-$ so therefore $r_1 < r_2$.
+Therefore, we can map all of $D_f$ to unique $r \in \mathbb{Q}$,
+which means $D_f$ is a subset of $\mathbb{Q}$. Since $\mathbb{Q}$ 
+is countable, we conclude $D_f$ is finite or countable.
+}
+
+\bx{
+\ea{
+\item $\mathbb{R}$ is closed
+\item $\mathbb{R} \setminus \pbrac{0} = \bigcup_{n=1}^\infty \left(-\infty, -\frac{1}{n}\right] \cup \left[\frac{1}{n}, \infty\right)$
+\item $\mathbb{Q} = \bigcup_{r \in \mathbb{Q}} \pbra{r}$, $\mathbb{Q}$ is countable
+\item $\mathbb{Z} = \bigcup_{n \in \mathbb{Z}} \pbra{z}$, $\mathbb{Z}$ is countable
+\item $\left(0, 1\right] = \bigcup_{n=1}^\infty \pbra{\frac{1}{n}, 1}$
+}
+}
+
+\bx{
+The set that $f$ is $\alpha$ continuous is some aribitrary union of 
+open sets $\pa{x - \delta, x + \delta}$, which means $\overline{D_\alpha}$
+is open. Then, we conclude $D_\alpha$ is closed, since it is the complement of 
+an open set.
+}
+
+\bx{
+If we have $\alpha_1 < \alpha_2$, we know that the set of
+$\alpha_1$-continuous points is a subset of the $\alpha_2$-continuous 
+points since if $\exists \delta$ such that $y, z \in \pa{x - \delta, x+\delta}$
+and $\abs{f(y)-f(z)} < \alpha_1 < \alpha_2$.
+Therefore, $\overline{D_{\alpha_1}} \subseteq \overline{D_{\alpha_2}} \Rightarrow D_{\alpha_2} \subseteq D_{\alpha_1}$.
+}
+
+\bx{
+If $f$ is continuous at $x$, we know for any $V_\epsilon(f(c))$, we can find 
+$\exists \delta, x \in V_\delta(c)$ such that $f(x) \in V_\epsilon(f(c))$.
+Choose $\epsilon = \alpha/2$, then we know that we have a delta that satisfies 
+for $y, z \in V_\delta(x)$,
+\begin{align*}
+  \abs{f(y)-f(z)} 
+  &= \abs{f(y) - f(c) - \pbra{f(z) - f(c)}}\\
+  &\leq \abs{f(y) - f(c)} + \abs{f(z) - f(c)}\\
+  &< \alpha/2 + \alpha/2 = \alpha
+\end{align*}
+
+Since $f$ is $\alpha$-continuous at every point it is continuous,
+we conclude that for points where it is not $\alpha$-continuous,
+it must be not in the set of continuities of $f$, which is namely $D_f$.
+Therefore, $D_\alpha \subseteq D_f$.
+}
+
+\bx{
+If $f$ is not continuous at $x$, it must be the case that $f$ is not $\alpha$-continuous
+at $x$ for some $\alpha > 0$, otherwise, we can show that $f$ 
+is continuous at this point by showing that 
+$\exists \delta, \forall y \in V_\delta(x)$, we have $\abs{f(y) - f(x)} < \alpha$.
+
+To show that 
+\begin{equation*}
+  D_f = \bigcup_{n=1}^\infty D_{
+    \frac{1}{n}
+  },
+\end{equation*}
+for any $\alpha > 0$, $\exists m \in \mathbb{N}$ such that $0 < \frac{1}{m} < \alpha$.
+We showed $\frac{1}{m} < \alpha$ implies $D_\alpha \subseteq D_{\frac{1}{m}}$, 
+so we can conclude for any discontinuity of $f$, it will be included in 
+some $D_{\frac{1}{n}}$.
+
+This union of a countable number of closed sets shows that the discontinuities
+of $f$ is a $F_\sigma$ set.
+}

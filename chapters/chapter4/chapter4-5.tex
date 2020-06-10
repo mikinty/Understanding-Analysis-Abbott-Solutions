@@ -2,3 +2,131 @@
 
 \section{The Intermediate Value Theorem}
 \setcounter{exercise}{0}
+
+\bx{
+If we have a continuous function $f$ on $[a, b]$,
+and we know that $[a, b]$ is connected,
+then that means $f([a, b])$ is also connected.
+
+By the property of connected sets, it follows directly that if we have 
+$f(a) < L < f(b)$, we can always find this $L \in f([a, b])$.
+Then, this $L$ must correspond to some $c \in (a, b)$, which proves
+the IVT.
+}
+
+\bx{
+\ea{
+\item No, you can imagine taking $(-1, 1)$ to $[1, 2)$ with $f(x) = x^2+1$.
+The idea for making this was that the bounds don't necessarily have to come
+from the open endpoints.
+\label{chap4:open_to_closed}
+\item Can use the same example from part \ref{chap4:open_to_closed}
+\item Yes. If we have bounded closed interval, then it is compact, so a continuous 
+function will take it to another compact interval, which is bounded and closed.
+This function will also preserve connectedness.
+}
+}
+
+\bx{
+No, since $\mathbb{R}$ is connected, and if $f$ is continuous,
+it will preserve connectedness. $\mathbb{Q}$ is not connected.
+}
+
+\bx{
+Suppose we have some function $f$ with the Intermediate value property 
+and is also increasing. We want to show that $f$ is continuous.
+
+Suppose we have some $\epsilon > 0$ and a point $c \in [a, b]$.
+Let 
+\begin{equation*}
+L_1 = \max(f(a), f(c) - \epsilon), \min(f(b), L_2 = f(c) + \epsilon)
+\end{equation*}
+By the IVT property, we know $\exists x_1, x_2 \in [a, b]$
+where $f(x_1) = L_1, f(x_2) = L_2$.
+
+By the increasing property of $f$, we have that any $x \in [x_1, x_2]$ will satisfy
+\begin{equation*}
+  \abs{f(x) - f(c)} < \epsilon
+\end{equation*}
+since $f(x_1) \leq f(c) \leq f(x_2)$.
+
+Choose $\delta = \min(\abs{c - x_1}, \abs{c - x_2})$, and this will work for any $\epsilon$
+challenge.
+}
+
+\bx{
+To complete the IVT proof with the Axiom of Completeness, we are trying to show 
+$\exists c \in (a, b)$ such that $f(c) = 0$ if $f(a) < 0 < f(b)$, and $f$ is continuous.
+With our definition of $K = \pbrac{x \in [a, b] : f(x) \leq 0}$,
+since we know $K$ is bounded above by $b$, and $a \in K$, $K$ is not empty.
+By the Axiom of Completeness, we know $c = \sup K$ exists.
+
+\begin{itemize}
+  \item We cannot have  $f(c) > 0$ since all elements of $K$ satisfy $f(x) \leq 0$.
+  \item We cannot have $f(c) < 0$, because it is not an upper bound that includes $0$.
+  \item Therefore, we conclude $f(c) = 0$, which means we have found a $c \in (a, b)$ such that $f(a) < f(c) = 0 < f(b)$
+\end{itemize}
+
+To extend it for a general $f(a) < c < f(b)$, just consider the function $f'(x) = f(x) - c$,
+and then we can do the $f(a) < 0 < f(b)$ case, which we have already proved.
+}
+
+\bx{
+With the binary set construction described in the text, once we take the 
+$\bigcap_{n=1}^\infty I_n$, we must have an element in this intersection by NIP.
+Call this element $x$.
+
+Now, our claim is that $f(x) = 0$.
+Notice that $a_n$ and $b_n$ converge to $x$, 
+since $\abs{a_n - b_n} < \frac{\abs{a-b}}{2^n}$.
+Then, since $f$ is continuous, $f(a_n)$ and $f(b_n)$ must converge to the same $L$.
+Since $f(a_n) < 0, f(b_n) \geq 0$, it must be the case that $\lim_{n\to\infty} f(a_n) = \lim_{n\to\infty} f(b_n) = 0$,
+since otherwise, for example if $L > 0$, then $\abs{f(a_n) - L} \geq \epsilon_0$.
+Therefore, we have found $x \in (a, b)$ such that $f(x) = 0$.
+\label{chap4:IVT_NIP}
+}
+
+\bx{
+Construct the folowing sequence of intervals, and let $c_{n-1} = \frac{a_{n-1} + b_{n-1}}{2}$,
+\begin{equation*}
+  I_n = [a_n, b_n] = \begin{cases}
+    [0, 1], &n=0\\
+    [c_{n-1}, b_{n-1}], &\text{if } f(c_{n-1}) > c_{n-1}\\
+    [a_{n-1}, c_{n-1}], &\text{if } f(c_{n-1}) \leq c_{n-1} 
+  \end{cases}
+\end{equation*}
+Take $x \in \bigcap_{n=1}^\infty I_n$. By the NIP this $x$ exists.
+
+Now, our claim is that $f(x) = x$. This is similar to the proof in Exercise \ref{chap4:IVT_NIP},
+where we use the continuity of $f$ and that $(a_n) \rightarrow x, (b_n) \rightarrow x$,
+so that $\lim_{n\to\infty} f(a_n) = a_n$, and therefore we conclude $f(x) = x$.
+
+There is probably a more straightforward proof with IVT.
+% An idea is something like we can \AFSOC that $\forall x, f(x) \neq x$.
+% Then we must have some $x_1, x_2$ where $f(x_1) \leq x_1, f(x_2) \geq x_2$,
+% since otherwise we would have $f(x) < x$ or $f(x) > x$ for all $x$, but
+% that would mean the range is not $[0, 1]$.
+% 
+% We can then say there must be some value $x$
+}
+
+\bx{
+We cannot, since there are times that are ambiguous. 
+
+For example, consider the set of times from 1:00 - 2:00.
+Here, the hour hand goes from $30^\circ - 60^\circ$,
+while the minute hand goes from $0^\circ - 360^\circ$,
+
+We can find a time that is isomorphic to this time range by considering that
+$30^\circ - 60^\circ$ is the 5-10 minute range, and if the minute hand is 
+past some hour enough to the point where it crosses the same point where 
+the hour point would be with a minute in the range of 5-10 minutes,
+then we would have an isomorphic time.
+
+For example, consider when the minute hand goes past 2. The minute hand will 
+go from 2 - 3, but in between there, at some point it can represent some 2-hour time 
+where the minute is between 5-10 minutes.
+
+There's probably a better setup and application of IVT, but this is enough to 
+convince me that there are isomorphic times on the clock.
+}
