@@ -61,7 +61,47 @@ Collection of useful tools and methods to solve problems.
   $\exists N \in \mathbb{N}$ such that whenever $m, n \geq N$, it follows that $\abs{a_n - a_m} < \epsilon$.
 \end{theorem}
 
+\subsection{Sequence Convergence}
+\begin{theorem}
+  \textbf{\textup{(Convergence of a Sequence)}}
+  A sequence $\pbrac{a_n}$ converges to $a \in \mathbb{R}$
+  if for every $\epsilon > 0$, $\exists N \in \mathbb{N}$ such that 
+  whenever $n \geq N$, it follows that $\abs{a_n - a} < \epsilon$.
+\end{theorem}
+
+\begin{theorem}
+  \textbf{\textup{(Cauchy Criterion)}}
+  A sequence converges if and only if it is a Cauchy sequence,
+  which is defined as a sequence $(a_n)$ that for every $\epsilon > 0$,
+  $\exists N \in \mathbb{N}$ such that whenever $m, n \geq N$,
+  it follows that $\abs{a_n - a_m} < \epsilon$.
+\end{theorem}
+
+\subsection{Function Continuity}
+\begin{theorem}
+  \textbf{\textup{(Characterizations of Continuity)}}
+  Let $f : A \to \mathbb{R}$, and let $c \in A$ be a limit point of $A$.
+  The function $f$ is continuous at $c$ if and only if any one of the following 
+  conditions is met:
+  \begin{enumerate}[label=(\roman*)]
+    \item For all $\epsilon > 0$, $\exists \delta > 0$ such that for $x \in A, \abs{x - c} < \delta$
+    implies $\abs{f(x) - f(c)} < \epsilon$
+    \item $\lim_{x \to c} f(x) = f(c)$
+    \item For all $V_\epsilon(f(c))$, there exists a $V_\delta(c)$ with the property that 
+    $x \in A, x \in V_\delta(c)$ implies $f(x) \in V_\epsilon(f(c))$
+    \item If $(x_n) \to c$, with $x_n \in A$, then $f(x_n) \to f(c)$
+  \end{enumerate}
+\end{theorem}
+
 \section{Identities}
+\begin{identity}
+  \textbf{\textup{(Triangle Inequality)}}
+  The triangle inequality states that for $x, y \in \mathbb{R}$,
+  \begin{equation}
+    \abs{x} - \abs{y} \leq \abs{x + y} \leq \abs{x} + \abs{y}
+  \end{equation}
+\end{identity}
+
 \begin{identity}
   \textbf{\textup{(Geometric Series)}}
   \begin{equation}
