@@ -4,4 +4,404 @@
 \section{Derivatives and the Intermediate Value Property}
 \setcounter{exercise}{0}
 
+\bx{
+\begin{enumerate}[label=(\roman*)]
+  \item We can show that 
+  \begin{align*}
+    (f + g)'(c) 
+    &= \lim_{x \to c} \frac{
+      f(x) + g(x) - \pa{f(c) + g(c)}
+    }{
+      x - c
+    }\\
+    &= \lim_{x \to c} \frac{
+      \pbra{f(x) - f(c)} + \pa{g(x) - g(c)}
+    }{
+      x - c
+    }\\
+    &= \lim_{x \to c} \pbra{
+      \frac{
+        f(x) - f(c)
+      }{
+        x - c
+      } +
+      \frac{
+        g(x) - g(c)
+      }{
+        x - c
+      }
+    }\\
+    &= f'(c) + g'(c)
+  \end{align*}
 
+  \item Straightforward factoring
+  \begin{align*}
+    (kf)'(c) 
+    &= \lim_{x \to c} \frac{
+      kf(x) - kf(c)
+    }{
+      x - c
+    }\\
+    &= k \cdot \lim_{x \to c} \frac{
+      f(x) - f(c)
+    }{
+      x - c
+    }\\
+    &= kf'(c)
+  \end{align*}
+\end{enumerate}
+}
+
+\bx{
+\ea{
+\item Computing the derivative of $1/x$
+\begin{align*}
+  \pa{1/x}'_{x = c}
+  &= \lim_{x \to c} \frac{
+    \frac{1}{x} - \frac{1}{c}
+  }{
+    x - c
+  }\\
+  &= \lim_{x \to c} \frac{
+    \frac{c-x}{xc}
+  }{
+    x - c
+  }\\
+  &= \lim_{x \to c} \frac{
+    1
+  }{
+    xc
+  }\\
+  &= -\frac{1}{c^2}
+\end{align*}
+
+\item We can instead prove the quotient rule with the $(1/x)'$ and the chain rule,
+\begin{align*}
+  \pa{\frac{f(x)}{g(x)}}' 
+  &= \frac{f'(x)}{g(x)} + f(x)\frac{-1}{g(x)^2}g'(x)\\
+  &= \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}
+\end{align*}
+
+\item Another proof for the quotient rule
+\begin{align*}
+  \pa{\frac{f(x)}{g(x)}}' 
+  &= \lim_{x \to c} \frac{
+    \frac{f(x)}{g(x)} - \frac{f(c)}{g(c)}
+  }{
+    x - c
+  }\\
+  &= \lim_{x \to c} \frac{
+    \frac{f(x)g(c) - f(c)g(x)}{g(x)g(c)}
+  }{
+    x - c
+  }\\
+  &= \lim_{x \to c} \frac{
+    \frac{f(x)g(c) - f(c)g(c) - \pbra{f(c)g(x) - f(c)g(c)}}{g(x)g(c)}
+  }{
+    x - c
+  }\\
+  &= \lim_{x \to c} \frac{
+    g(c)\pa{
+      f(x) - f(c)
+    }
+  }{
+    g(x)g(c)(x - c)
+  } -
+  \frac{
+    f(c)\pa{
+      g(x) - g(c)
+    }
+  }{
+    g(x)g(c)(x - c)
+  }\\
+  &= \frac{f'(c)g(c) - f(c)g'(c)}{g(c)^2}
+\end{align*}
+}
+}
+
+\bx{
+Choose the function 
+\begin{equation*}
+  f(x) = \begin{cases}
+    x^3, &x \in \mathbb{Q}\\
+    0, &\text{otherwise}
+  \end{cases}
+\end{equation*}
+This function is not continuous for any $x \neq 0$,
+since we can find sequences approaching both $x^3 \neq 0$ and $0$, if 
+we choose sequences in $\mathbb{Q}$ and not in $\mathbb{Q}$ respectively.
+Since any function is continuous at its differentiable points, we know
+these points can't be differentiable.
+
+Now, we want to show that this function is differentiable at $x = 0$.
+In order to do this, we need to show that 
+\begin{equation*}
+  \lim_{x \to 0} \frac{
+    f(x) - f(0)
+  }{
+    x - 0
+  } = 
+  \lim_{x \to 0} \frac{
+    f(x)
+  }{
+    x
+  }
+\end{equation*}
+exists. We can show this by saying that for any $\epsilon > 0$,
+choose $\delta = \sqrt{\epsilon}$.
+Then we have 
+\begin{equation*}
+  \abs{
+    \frac{
+      f(x)
+    }{
+      x
+    }
+  } \leq \max(0/x, x^3/x) \leq x^2 < \pa{\sqrt{\epsilon}}^2 = \epsilon \tag{Since $\abs{x - 0} < \sqrt{\epsilon}$}
+\end{equation*}
+So we conclude this limit exists and is 0.
+
+This $f(x)$ we defined is differentiable only at $x = 0$.
+}
+
+\bx{
+\ea{
+\item $a > 0$, $f(x)$ will be continuous at 0
+\item Differentiable at 0 for $a > 1$, since otherwise, $f'(x) = ax^{a-1}$ will be dividing by 0 if $a < 1$
+\item $f''(x) = a(a-1)x^{a-2}$, so $a > 2$
+}
+}
+
+\bx{
+First, we compute the derivative in general, which is 
+\begin{equation*}
+  g_a'(x) = 
+    ax^{a-1}\sin\pa{\frac{1}{x}} - x^{a-2}\cos\pa{\frac{1}{x}}
+\end{equation*}
+and at $0$, 
+\begin{equation*}
+  g_a'(0) = \lim_{x \to 0}
+  \frac{
+    x^a \sin(1/x) - 0
+  }{
+    x - 0
+  }
+  = \lim_{x \to 0} x^{a - 1}\sin(1/x),
+\end{equation*}
+which is defined for $a > 1$, since that will help bound 
+the oscillations near 0.
+\ea{
+\item Choose $a = 1.5$, then
+the derivative exists everywhere, but $x^{a-2}\cos(1/x)$ could be 
+unbounded, since for $x = 1/(2 \pi n)$, this expression is $(2\pi n)^\alpha$,
+for $\alpha = 0.5$.
+
+\item I just want to note that the wording for this question is confusing, 
+because I originally interpreted it as find $a$ such that $g'_a$ is continuous
+at 0, but $g_a$ is not differentiable at 0. The question is asking for $g'_a$
+is continuous at 0, and $g'_a$ is not differentiable at 0, which is a much easier task.
+
+First, $g'_a(x)$ will be continuous if $g'_a(0) = 0$, which we know is true if $a > 2$.
+
+Next, we should find $g''_a(0)$, to determine when it is differentiable
+\begin{equation*}
+  g''_a(0) = \lim_{x \to 0} \frac{
+    g'_a(x) - 0
+  }{
+    x - 0
+  } = 
+  ax^{a-2}\sin\pa{\frac{1}{x}} - x^{a-3}\cos\pa{\frac{1}{x}}
+\end{equation*}
+This is not differentiable when $a \leq 3$, since the $\cos$ limit will not exist 
+so we can choose something like $a = 2.5 \in (2, 3]$.
+\label{chap5:ga_deriv_continuous}
+
+\item Let us first find $g''_a(x)$,
+\begin{equation*}
+  g''_a(x) = \sin\pa{\frac{1}{x}}\pbra{
+    a(a-1)x^{a-2} - x^{a-4}
+  } - \cos\pa{\frac{1}{x}}\pbra{
+    x^{a-3}(2a-2)
+  }.
+\end{equation*}
+We see that for $a \leq 4$, $\lim_{x \to 0} g''_a(x)$ will not exist, 
+so therefore $g''_a(x)$ will not be continuous at 0 if $a \leq 4$.
+From part
+\ref{chap5:ga_deriv_continuous},
+we saw that $g'_a(x)$ is differentiable when $a > 3$,
+so we can choose something like $a = 3.5 \in (3, 4]$.
+}
+\label{chap5:ex_ga}
+}
+
+\bx{
+\ea{
+\item Since $g'(a) < 0$, if we \AFSOC that there are no $x$ such that 
+$g(x) < g(a), x \in (a, b)$, then if we choose $(x_n) \to a$ where $x_n \in (a, b)$, we get
+$g'(a) = \lim_{x \to a} \frac{g(x) - g(a)}{x - a} > 0$,
+which contradicts that $g'(a) < 0$.
+
+We can similarly apply this logic to $g'(b) > 0$ to show that $\exists y\in (a, b)$
+where $g(y) < g(b)$
+\label{chap5:darboux_part}
+
+\item From part 
+\ref{chap5:darboux_part},
+we can finish up Darboux's Theorem proof by showing that $\exists c \in (a, b)$
+such that $g'(c) = 0$. If the derivative is 0, we know this implies that $g(c)$ is either
+a maximum or minimum, so we'd like to show that the max or min of the interval $[a, b]$ is 
+in $(a, b)$.
+
+Namely, consider the minimum of $[a, b]$. Since we found $g(x) < g(a), g(y) < g(b)$,
+that means the minimum of the interval $[a, b]$ must be in $(a, b)$,
+which means there must exist some $c\in (a, b)$ where $g'(c) = 0$.
+This completes the proof.
+}
+}
+
+\bx{
+\ea{
+\item We can say $f:A \to \mathbb{R}$ is uniformly differentiable on $A$ if 
+for any $\epsilon > 0$, $\exists \delta > 0$ such that
+$\abs{x - c} < \delta$ implies 
+\begin{equation*}
+  \abs{
+    \frac{f(x) - f(c)}{x - c} - f'(c)
+  } < \epsilon
+\end{equation*}
+
+\item Kind of a trivial example, but choose $f(x) = x$, then 
+\begin{equation*}
+  \abs{
+    \frac{f(x) - f(c)}{x - c} - f'(c)
+  } = \abs{
+    \frac{x - c}{x - c} - 1
+  } = 
+  \abs{0} < \epsilon
+\end{equation*}
+
+\item We found earlier in Exercise \ref{chap5:ex_ga} that for $a \in (1, 2]$,
+$g_a(x)$ is differentiable on $[0, 1]$ but $g'_a$ unbounded on $[0, 1]$.
+If $g'_a$ is unbounded on this interval, it will not be uniformly
+differentiable, because if we observe the difference near the unbounded 
+part, we will see that it can get very large.
+
+Consider $x = 0, t_n = \frac{1}{2\pi n}$ and $g_2(x)$.
+Then we have 
+\begin{align*}
+  \abs{
+    \frac{
+      g_2(0) - g_2(t_n)
+    }{
+      0 - t_n
+    } 
+    - g'_2(t_n)
+  }
+  &= \abs{
+    t_n\sin(1/t_n) + \cos(1/t_n) - 2t_n\sin(1/t_n)
+  }
+  &= \abs{
+    0 + 1 - 0
+  } = 1,
+\end{align*}
+which does not satisfy all $\epsilon > 0$ challenges.
+
+So we see that for these $g'_2(t_n)$, we are showing a smaller $\delta = 1/(2\pi n)$
+doesn't work for $x = 0, t_n = 1/(2\pi n)$, which means we cannot possibly 
+find a fixed $\delta$ that makes $g_2$ uniformly continuous.
+
+% Doesn't quite work...
+%
+% On another note, I conjecture that if a function $f$ is continuous, differentiable, and $f'$ is bounded 
+% on the interval, then $f$ is uniformly differentiable. 
+% 
+% The reason is,
+% \begin{align*}
+%   \abs{
+%     \frac{
+%       f(x) - f(c)
+%     }{
+%       x - c
+%     } - f'(c)
+%   } 
+%   &= \abs{
+%     \frac{\epsilon_1}{\delta} - M
+%   }
+% \end{align*}
+% Things don't work out here...bc we can't bound $M$.
+}
+}
+
+\bx{
+\ea{
+\item Even if we have discontinuities in the function, Darboux's Theorem tells us we can always find some 
+$c$ such that $f'(a) < f'(c) < f'(b)$, and since irrationals are dense, the derivative will be irrational for some point.
+
+\item We can do $f(x) = x/2 + x^2\sin(1/x)$, which has a derivative of $1/2$ at 0, and outside, will 
+have a derivative of $f'(x) = 1/2 + 2x\sin(1/x) - \cos(1/x)$, which can be potentially negative 
+for any $\delta$ neighborhood around $0$, since we can consider $x = \frac{1}{2\pi n}$, where $\cos(1/x) = 1$.
+Therefore, such a neighborhood where $f'(x) > 0$ does not always exist.
+
+\item \AFSOC $L \neq f'(0)$, then we know we can find $\epsilon_0$ such that
+$0 < \epsilon_0 < \abs{L - f'(0)}$.
+Now WLOG $f'(0) < L$ (the $f'(0) > L$ case is symmetric)
+Since $\epsilon_0$ is less than the distance between $f'(0)$ and $L$,
+we know $\exists \alpha, f'(0) < \alpha < L - \epsilon_0$, i.e. that it fits between
+$f'(0)$ but is outside $V_{\epsilon_0}(L)$.
+
+Now, we know $\exists \delta$ such that $\exists x_2 \in V_\delta(0)$ 
+and $f'(x_2) \in V_{\epsilon_0}(L)$, since $\lim_{x \to 0} f'(x) = L$.
+We also know that $x_1 = 0$ means $f'(x_1) = f'(0)$.
+Since we have $f'(x_1) = f'(0) < \alpha < L - \epsilon = f'(x_2)$,
+by Darboux's Theorem, we know $\exists c \in (x_1, x_2) \in V_\delta(0)$
+such that $f'(c) = \alpha$.
+
+\begin{figure}[H]
+  \centering
+  \def\tickLength{3}
+  \begin{tikzpicture}
+    \draw[<->] (0, 0) -- (10, 0);
+    \draw 
+      (2, -\tickLength pt) -- (2, \tickLength pt) node[above] {$f'(0)$}
+      (6, -\tickLength pt) -- (6, \tickLength pt) node[above] {$L$}
+      (3, -\tickLength pt) -- (3, \tickLength pt) node[above] {$\alpha$}
+      (4, 0) node {(}
+      (8, 0) node {)}
+      (5, 0) node[above] {$\epsilon_0$}
+      (7, 0) node[above] {$\epsilon_0$}
+    ;
+
+    \draw 
+      (3, -2) node {$x \in V_\delta(0), f'(x)$}
+    ;
+
+    \draw[->, style={decorate, decoration=snake}] 
+      (2.5, -1.5) -- (2, -2*\tickLength pt)
+    ;
+    \draw[->, style={decorate, decoration=snake}] 
+      (3.5, -1.5) -- (6, -2*\tickLength pt)
+    ;
+  \end{tikzpicture}
+  \caption{Diagram indicating the setup for our contradiction proof.}
+  \label{fig:chap5:limit_derivative}
+\end{figure}
+
+However, we reach a contradiction here, since we originally chose 
+$\alpha \not\in V_{\epsilon_0}(L)$, but if $f'(c) = \alpha$ and 
+$c \in V_\delta(0)$, we must have $f'(c) \in V_{\epsilon_0}(L)$.
+Therefore, we conclude that $f'(0) = 0$.
+
+\item \TODO. The official solutions says this is true, 
+but can't you choose 
+\begin{equation*}
+  f(x) = \begin{cases}
+    x, &x \neq 0\\
+    -1, &x = 0
+  \end{cases}
+\end{equation*}
+and then we have $f'(x) = 1$ for $x \neq 0$, and any sequence of $x_n \to 0$
+will have $f'(x_n) \to 1$ since $f'(x_n) = 1$ for any $x_n \neq 0$.
+
+However, we have that $f'(0)$ does not exist.
+}
+}
