@@ -101,13 +101,21 @@ Now, our claim is that $f(x) = x$. This is similar to the proof in Exercise \ref
 where we use the continuity of $f$ and that $(a_n) \rightarrow x, (b_n) \rightarrow x$,
 so that $\lim_{n\to\infty} f(a_n) = a_n$, and therefore we conclude $f(x) = x$.
 
-There is probably a more straightforward proof with IVT.
-% An idea is something like we can \AFSOC that $\forall x, f(x) \neq x$.
-% Then we must have some $x_1, x_2$ where $f(x_1) \leq x_1, f(x_2) \geq x_2$,
-% since otherwise we would have $f(x) < x$ or $f(x) > x$ for all $x$, but
-% that would mean the range is not $[0, 1]$.
-% 
-% We can then say there must be some value $x$
+A more straightforward proof with IVT is to define $g(x) = f(x) - x$.
+Then we have $g(0) = f(0) - 0 = f(0) \in [0, 1] \Rightarrow g(0) \geq 0$, 
+and also $g(1) = f(1) - 1 \Rightarrow f(1) - 1 \in [-1, 0] \Rightarrow g(1) \leq 0$.
+Putting these two together, we have either $g(0) = 0, g(1) = 0$, or neither are equal to 1.
+If either are equal to one, then we have the trivial case where $g(c) = 0 \Rightarrow f(c) = c$
+for $c = 0, 1$. 
+
+Otherwise, if $g(0) \neq 0, g(1) \neq 0$,
+then we have $g(1) < L < g(0)$,
+and then we can use the IVT to say $\exists c$
+such that $g(1) < g(c) < g(0)$ and $c \in (0, 1)$.
+This implies that for this $c$, that $f(c) = c$.
+
+Therefore, we have shown in all cases that we have a fixed point in this range.
+\label{chap4:ex_fixed_point}
 }
 
 \bx{
