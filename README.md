@@ -5,6 +5,11 @@ I started these solutions since I was self-studying real analysis,
 and felt that I might as well give the problems an effort by writing
 out solutions.
 
+While the official solutions may be more accurate, it may be useful to see
+how a student tries to approach problems. I've also provided diagrams for
+certain problems where I found appropriate, which may aid in understanding
+how to solve certain problems.
+
 If you want to contribute, feel free to fork and submit a PR!
 
 ## TODOs
