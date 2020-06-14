@@ -3,3 +3,768 @@
 \setcounter{section}{1}
 \section{Uniform Convergence of a Sequence of Functions}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item We take $\lim{n \to \infty}$,
+\begin{equation*}
+  \lim_{n \to \infty} \frac{
+    nx
+  }{
+    1 + nx^2
+  } = \frac{x}{x^2} = \frac{1}{x}
+\end{equation*}
+
+\item We can see for 
+\begin{equation*}
+  \abs{
+    \frac{nx}{1 + nx^2} -
+    \frac{1}{x}
+  } = \frac{
+    1
+  }{
+    x + nx^3
+  }
+\end{equation*}
+which requires us to choose $N$ as
+\begin{equation*}
+  N > \frac{1 - \epsilon x}{\epsilon x ^3}.
+\end{equation*}
+this quantity grows as $x \rightarrow 0$, 
+so this is not converging uniformly.
+
+\item No, since $x$ can tend towards 0, this will still not converge.
+
+\item Yes, since we can bound $x > 1$, and choose 
+\begin{equation*}
+  N > \max\pa{\frac{1}{\epsilon} - 1, 1} > 
+  \frac{1 - \epsilon x}{\epsilon x ^3}.
+\end{equation*}
+}
+}
+
+\bx{
+Pointwise limit is $x/2$, since $\abs{\sin(nx)} \leq 1$.
+
+It is uniformly convergent on all of $\mathbb{R}$, since 
+\begin{equation*}
+  \abs{
+    \frac{
+      nx + \sin(nx)
+    }{
+      2n
+    } - 
+    \frac{x}{2}
+  } = \abs{
+    \frac{
+      \sin(nx)
+    }{
+      2n
+    }
+  } \leq \frac{1}{2n}
+\end{equation*}
+so we can choose $N > 1/(2\epsilon)$.
+}
+
+\bx{
+\ea{
+\item Pointwise limit should be split into a few cases.
+The idea is that $x^n \to 0$ if $x \in [0, 1)$, but $x^n \to \infty$ if $x \in (1, \infty)$.
+So we have 
+\begin{equation*}
+  \lim_{n\to \infty} 
+  h_n(x) = \begin{cases}
+    x, &x<1\\
+    1/2, &x=1\\
+    0, &x>1
+  \end{cases}
+\end{equation*}
+
+\item The limit is discontinuous, at $x=1$, $x \to 1/2 \to 0$.
+\item We can show that this sequence converges on $(1, 2)$,
+\begin{align*}
+  \abs{
+    \frac{x}{1+x^n} - 0
+  } &< \epsilon\\
+  x &< \epsilon + x^n \epsilon\\
+  x-\epsilon &< x^n\epsilon\\
+  \ln(x-\epsilon) &< n\ln(x) + \ln(\epsilon)\\
+  \ln(\frac{x}{\epsilon} - 1) &< n\ln(x)\\
+  \frac{
+    \ln\pa{\frac{x}{\epsilon} - 1}
+  }{
+    \ln(x)
+  } &\leq \frac{
+    \ln\pa{\frac{2}{\epsilon} - 1}
+  }{
+    \ln(2)
+  } < n
+\end{align*}
+}
+}
+
+\bx{
+$f_n(x)$ achieves optima points at 
+\begin{equation*}
+  f'_n(x) = \frac{
+    1-nx^2
+  }{
+    \pa{1+nx^2}^2
+  } = 0
+\end{equation*}
+so when $x = \pm \sqrt{\frac{1}{n}}$. At these points, $f_n(x) = \pm \frac{1}{2\sqrt{n}}$.
+
+The limit function is 0, since the denominator goes to $\infty$.
+We can then prove convergence by saying $\abs{f_n(x) - 0} \leq \frac{1}{2\sqrt{n}}$,
+and then just choose $n > \frac{1}{4\epsilon^2}$.
+}
+
+\bx{
+\ea{
+\item \begin{equation*}
+  \lim_{n\to\infty} f_n(x) = \begin{cases}
+    1, &\abs{x} \geq 0\\
+    0, &\abs{x} < 0
+  \end{cases}
+\end{equation*}
+This is not uniform convergence since at $x = 0$, we have a discontinuity.
+\label{chap6:disc_fn}
+
+\item The idea is that our function from part 
+\ref{chap6:disc_fn}
+is continuous everywhere, but has freedom to change the convergence
+point at $x = 1/n$. If we change this point to converge to $n$ instead
+of $1$, so make 
+\begin{equation*}
+  f_n(x) = \begin{cases}
+    1/x, &\abs{x} \geq 1/n\\
+    n^2\abs{x}, &\abs{x} < 1/n
+  \end{cases}
+\end{equation*}
+we have that the limit function goes to infinite at $x = 1/n$.
+\begin{figure}[H]
+  \centering
+  \def\tickWidth{2}
+  \begin{tikzpicture}
+    \draw 
+      (-1, 0) -- (3, 0)
+      (0, 0) -- (0, 2)
+      (0.5, \tickWidth pt) -- 
+      (0.5, -\tickWidth pt) node[below]{$\frac{1}{3}$}
+      (1, \tickWidth pt) -- 
+      (1, -\tickWidth pt) node[below]{$\frac{1}{2}$}
+      (2, \tickWidth pt) -- 
+      (2, -\tickWidth pt) node[below]{$\frac{1}{1}$}
+    ;
+
+    \draw plot [smooth, tension=1] 
+      coordinates { 
+        (-1,0)
+        (0.5, 0.5) 
+        (1, 1.5)
+      }
+    ;
+    \draw plot [smooth, tension=1] 
+      coordinates { 
+        (3, 0)
+        (1.5, 0.5) 
+        (1, 1.5)
+      }
+    ;
+
+    \draw plot [smooth, tension=1] 
+      coordinates { 
+        (-1,0)
+        (1.3, 0.5) 
+        (2, 1)
+      }
+    ;
+    \draw plot [smooth, tension=1] 
+      coordinates { 
+        (3, 0)
+        (2.3, 0.3) 
+        (2, 1)
+      }
+    ;
+
+    \draw plot [smooth, tension=1] 
+      coordinates { 
+        (-1,0)
+        (0, 0.5) 
+        (0.5, 2)
+      }
+    ;
+    \draw plot [smooth, tension=1] 
+      coordinates { 
+        (3, 0)
+        (1, 1) 
+        (0.5, 2)
+      }
+    ;
+  \end{tikzpicture}
+  \caption{The convergence at $x = 1/n$ rises}
+  \label{chap6:fig:converge_1_n}
+\end{figure}
+}
+}
+
+\bx{
+($\Rightarrow$)
+If we know $(f_n)$ converges uniformly, choose $N$
+such that $\abs{f_n(x) - f(x)} < \epsilon/2$,
+then we have for this $N$ that if we choose $n, m > N$,
+\begin{equation*}
+  \abs{f_n(x) - f_m(x)} =
+  \abs{
+    f_n(x) - f(x) - (f_m(x) - f(x))
+  } \leq 
+  \abs{f_n(x) - f(x)} + \abs{f_m(x) - f(x)}
+  < \frac{\epsilon}{2} +
+  \frac{\epsilon}{2} = \epsilon
+\end{equation*}
+
+($\Leftarrow$)
+We know for some $N$ that for $m, n \geq N$, that 
+\begin{equation*}
+  \abs{f_n(x) - f_m(x)} < \epsilon \Rightarrow 
+  -\epsilon < f_n(x) - f_m(x) < \epsilon
+\end{equation*}
+Now, we are going to claim that $f(x) = \lim_{n\to \infty} f_n(x)$.
+
+Using the Algebraic Limit Theorem, we can say 
+\begin{align*}
+  \lim_{n\to\infty} -\epsilon &< 
+  \lim_{n\to\infty}\pa{f_n(x) - f_m(x)} < 
+  \lim_{n\to\infty} \epsilon\\
+  -\epsilon &< 
+  f(x) - f_m(x) < 
+  \epsilon
+\end{align*}
+so we can conclude 
+\begin{equation*}
+  \abs{
+    f_m(x) - f(x)
+  } < \epsilon
+\end{equation*}
+for this $N$ we chose in the beginning, and we have shown uniform convergence.
+}
+
+\bx{
+We have that 
+\begin{align*}
+  \abs{
+    f(x) - f(y)
+  }  
+  &= \abs{
+    f(x) - f_n(x) + f_n(x) - f_n(y) - (f(y) - f_n(y))
+  }\\
+  &\leq 
+  \abs{
+    f(x) - f_n(x)
+  } +
+  \abs{
+    f_n(x) - f_n(y) 
+  } + 
+  \abs{
+    f(y) - f_n(y)
+  }\\
+  &<
+  \frac{\epsilon}{3} +
+  \frac{\epsilon}{3} +
+  \frac{\epsilon}{3}\\
+  &= \epsilon
+\end{align*}
+We know from the uniform convergence $f_n \rightarrow f$ that 
+we can find $N_x, N_y$ such that for $n_x \geq N_x, n_y \geq N_y$, that
+\begin{equation*}
+  \abs{f_{n_x}(x) - f(x)} < \epsilon/3,
+  \abs{f_{n_y}(y) - f(y)} < \epsilon/3
+\end{equation*}
+Choose $N = \max\pa{N_x, N_y}$.
+Then, from the uniform convergence of every $f_n$ for fixed $n \geq N$,
+with 
+$\exists \delta, \abs{x - y} < \delta$, that
+\begin{equation*}
+  \abs{
+    f_n(x) - f_n(y)
+  } < \epsilon/3
+\end{equation*}
+
+Choose this $\delta$, after finding $N$, and our proof is complete.
+}
+
+\bx{
+\ea{
+\item We saw that 
+\begin{equation*}
+  f_n(x) = \frac{x^2 + nx}{n}
+\end{equation*}
+converges pointwise on $\mathbb{R}$, a compact set, to $x$, but 
+is not uniformly continuous, since larger $x$ values require 
+larger $N$'s to bound.
+
+\item Yes, we just need to account for the bounded value of $g$.
+\item We could consider $f_n(x) = nx^2$ over the interval $[-1, 1]$.
+Each $\abs{f_n(x)} \leq n$, but as $n \to \infty$, this is no longer 
+bounded. However, this example doesn't work since $nx^2$ does not 
+converge to a limit function.
+
+To show that $f$ is bounded if it converges uniformly,
+since we can pick some fixed $\epsilon > 0$, and find $N$ such that 
+\begin{equation*}
+  \abs{
+    f_N(x) - f(x)
+  } \leq \epsilon
+\end{equation*}
+Now, we know that $f_N(x) \leq M$ for all $x$ if $N$ is fixed, so therefore
+we can conclude that 
+\begin{equation*}
+  \abs{
+    f(x)
+  } \leq \epsilon + M,
+\end{equation*}
+for all $x$, and therefore $f$ is bounded.
+
+\item Yes, we can choose the larger of $N_a, N_b$ to be our $N$, and 
+it will satisfy the uniform convergence criteria.
+
+\item We know that for $y > x$
+\begin{equation*}
+  \forall n, f_n(y) > f_n(x)
+\end{equation*} 
+now, we can use the Order Limit Theorem, to get 
+\begin{align*}
+  \lim_{n \to \infty} f_n(y) &>
+  \lim_{n \to \infty} f_n(x)\\
+  f(y) &>
+  f(x) \tag{Since $f_n \to f$}\\
+\end{align*}
+\label{chap6:increasing_uniform}
+\item Our proof in part 
+\ref{chap6:increasing_uniform}
+did not require uniform convergence, just convergence,
+so we can use the same proof.
+}
+}
+
+\bx{
+Since $K$ is compact, $g$ is bounded over $K$.
+Now, 
+\begin{align*}
+  \abs{
+    \frac{f_n(x)}{g(x)}
+    -\frac{f(x)}{g(x)}
+  } = \abs{
+    1/g(x)
+  }\abs{
+    f_n(x) - f(x)
+  } < \epsilon
+\end{align*}
+If we have $g(x)$ bounded, we can say $1/g(x) \leq M'$
+then we can choose $N$ such that for $n \geq N$,
+\begin{equation*}
+  \abs{
+    f_n(x) - f(x)
+  } < \epsilon/M'
+\end{equation*}
+}
+
+\bx{
+For any $\epsilon > 0$, we know $\exists \delta$ 
+such that for $\abs{x - y} < \delta$, $\abs{f(x) - f(y)} < \epsilon$.
+We can choose $1/n < \delta \Rightarrow n > 1/\delta$, to show that
+\begin{equation*}
+  \abs{
+    f_n(x) - f(x)
+  } = 
+  \abs{
+    f(x + 1/n) - f(x)
+  } < \epsilon,
+\end{equation*}
+since $\abs{\pa{x + \frac{1}{n}} - x} = \abs{\frac{1}{n}} < \delta$.
+
+Now, with just normal continuity,
+we can choose a function like $f(x) = x^2$, which will give us 
+\begin{equation*}
+  \abs{
+    f(x + 1/n) - f(x)
+  } = \abs{
+    2x/n + 1/n^2
+  }
+\end{equation*}
+which grows bigger as $x$ gets bigger.
+}
+
+\bx{
+\ea{
+\item This is a straightforward application of the triangle inequality,
+\begin{equation*}
+  \abs{
+    \pa{
+      f_n(x) + g_n(x)
+    } -
+    \pa{
+      f(x) + g(x)
+    }
+  } \leq 
+  \abs{
+    f_n(x) - f(x)
+  } +
+  \abs{
+    g_n(x) - g(x)
+  } < 
+  \frac{\epsilon}{2} +
+  \frac{\epsilon}{2} = \epsilon
+\end{equation*}
+
+\item Try $f_n(x), g_n(x) = \frac{1}{x} + \frac{1}{n}$,
+then we run into issues with bounding because their limit function 
+is $f(x)g(x) = \frac{1}{x^2}$,
+but we have troubles with 
+\begin{equation*}
+  \abs{
+    \pa{
+      \frac{1}{x^2} + \frac{2}{xn} + \frac{1}{n^2}
+    } - 
+    \frac{1}{x^2}
+  } = \abs{
+    \frac{2}{xn} + \frac{1}{n^2}
+  },
+\end{equation*}
+which grows as $x \to 0$.
+
+\item This is the trick where you add and subtract $f_n(x)g(x)$
+inside the absolute value, take the triangle inequality, and bound.
+The only tricky part is that we need to bound $\abs{g(x)}\abs{f_n(x) - f(x)}$,
+but we can do this because $g_n$ is bounded for all $n$, and 
+we know that $g_n$ is uniformly convergent.
+}
+}
+
+\bx{
+\ea{
+\item Fix some $x \in K$.
+Since $f_n$ is increasing in $n$, $g_n(x) = f(x) - f_n(x)$ is decreasing 
+in $n$.
+We also have that $g_n(x)$ is continuous, since it is the subtraction of 
+two continuous functions, $f, f_n$.
+In addition, we have that $g_n(x) \to 0$, since $f_n \to f$.
+
+\item 
+This means for any $x \in K_j$, since we have $g_j(x) \geq \epsilon$,
+it must be the case that for $i < j, g_i(x) \geq \epsilon$ as well, 
+since $g_i(x) \geq g_j(x)$.
+Therefore, $x \in K_i$.
+
+This shows that 
+\begin{equation}
+  K_i \supseteq K_j \Rightarrow K_1 \supseteq K_2 \supseteq K_3 \supseteqq \cdots
+  \label{chap6:eq:nested_k}
+\end{equation}
+
+We also want to have that every $K_n$ is compact,
+so we can use the Nested Interval Property.
+For any sequence $x_m \to x$,
+since $g$ is continuous, we must have 
+\begin{equation*}
+  \lim_{x_m \to x} g_n(x_m) = g_n(x)
+\end{equation*}
+By the properties of $K_n$, since $g_n(x_m) \geq \epsilon$,
+we know by the Order Limit Theorem that $g_n(x) \geq \epsilon$
+as well. This means that $x \in K_n$, by definition of $K_n$.
+Therefore, since $K_n$ has all of its limit points, it is a closed set.
+Since $K_n \subseteq K_{n-1}$, which is compact (induction...), and therefore bounded,
+we conclude that $K_n$ is closed and bounded, i.e. compact.
+
+Now, from Equation 
+\ref{chap6:eq:nested_k},
+if we \AFSOC that every $K_n \neq \emptyset$,
+we know that from the NIP that $\exists x \in K_n$ for all $n$, 
+which means $g_n(x) \to \epsilon_ 0 \geq \epsilon > 0$.
+But this is a contradiction, since $g_n(x) \to 0$.
+
+So therefore we must have that $\exists K_n = \emptyset$,
+which means 
+\begin{equation*}
+  \exists n, g_n(x) < \epsilon \Rightarrow \abs{f(x) - f_n(x)} < \epsilon
+\end{equation*}
+for all $x$, which means that $f_n \to f$ uniformly.
+}
+}
+
+\clearpage
+\bx{
+\ea{
+\item Sketches
+\begin{figure}[H]
+  \centering
+  \def\coordinateWidth{4}
+  \def\tickWidth{2}
+  \subfloat[$f_0(x)$]{
+    \begin{tikzpicture}
+      \draw
+        (0, 0) -- (0, \coordinateWidth)
+        (0, 0) -- (\coordinateWidth, 0)
+        (0, 0) node[below left] {$0$}
+      ;
+
+      \draw[->]
+        (0, 0) -- (\coordinateWidth, \coordinateWidth)
+      ;
+
+      \draw
+        (\coordinateWidth, \tickWidth pt) --
+        (\coordinateWidth, - \tickWidth pt)
+        node[below] {$1$}
+        (\tickWidth pt, \coordinateWidth) --
+        (-\tickWidth pt, \coordinateWidth)
+        node[left] {$1$}
+      ;
+
+      %% TODO: probably not good style but an easy fix
+      \draw[white]
+        (\coordinateWidth/2  , \tickWidth pt) --  
+        (\coordinateWidth/2  , -\tickWidth pt)
+        node[below] {$1/2$}
+      ;
+    \end{tikzpicture}
+  }
+  \qquad
+  \subfloat[$f_1(x)$]{
+    \begin{tikzpicture}
+      \draw
+        (0, 0) -- (0, \coordinateWidth)
+        (0, 0) -- (\coordinateWidth, 0)
+        (0, 0) node[below left] {$0$}
+      ;
+
+      \draw[->]
+        (0, 0) -- 
+        (\coordinateWidth/3, \coordinateWidth/2) --
+        (\coordinateWidth*2/3, \coordinateWidth/2) --
+        (\coordinateWidth, \coordinateWidth)
+      ;
+
+      \draw
+        (\coordinateWidth/3  , \tickWidth pt) --  
+        (\coordinateWidth/3  , -\tickWidth pt)
+        node[below] {$1/3$}
+        (\coordinateWidth*2/3, \tickWidth pt) --
+        (\coordinateWidth*2/3, - \tickWidth pt)
+        node[below] {$2/3$}
+        (\coordinateWidth, \tickWidth pt) --
+        (\coordinateWidth, - \tickWidth pt)
+        node[below] {$1$}
+        (\tickWidth pt, \coordinateWidth/2) --
+        (-\tickWidth pt, \coordinateWidth/2)
+        node[left] {$1/2$}
+        (\tickWidth pt, \coordinateWidth) --
+        (-\tickWidth pt, \coordinateWidth)
+        node[left] {$1$}
+      ;
+    \end{tikzpicture}
+  }
+  \caption{Sketches for $f_n(x), n=0, 1$}
+  \label{chap6:fig:plot_cantor_fx}
+\end{figure}
+
+\item Sketching $f_2(x)$,
+\begin{figure}[H]
+  \centering
+  \def\coordinateWidth{6}
+  \def\tickWidth{2}
+  \begin{tikzpicture}
+    \draw
+      (0, 0) -- (0, \coordinateWidth)
+      (0, 0) -- (\coordinateWidth, 0)
+      (0, 0) node[below left] {$0$}
+    ;
+
+    \draw[->]
+      (0, 0) -- 
+      (\coordinateWidth/9, \coordinateWidth/4) --
+      (\coordinateWidth*2/9, \coordinateWidth/4) --
+      (\coordinateWidth/3, \coordinateWidth/2) --
+      (\coordinateWidth/3, \coordinateWidth/2) --
+      (\coordinateWidth*2/3, \coordinateWidth/2) --
+      (\coordinateWidth*7/9, \coordinateWidth*3/4) --
+      (\coordinateWidth*8/9, \coordinateWidth*3/4) --
+      (\coordinateWidth, \coordinateWidth)
+    ;
+
+    \draw
+      (\coordinateWidth/3  , \tickWidth pt) --  
+      (\coordinateWidth/3  , -\tickWidth pt)
+      node[below] {$1/3$}
+      (\coordinateWidth*2/3, \tickWidth pt) --
+      (\coordinateWidth*2/3, - \tickWidth pt)
+      node[below] {$2/3$}
+      (\coordinateWidth, \tickWidth pt) --
+      (\coordinateWidth, - \tickWidth pt)
+      node[below] {$1$}
+      (\tickWidth pt, \coordinateWidth/2) --
+      (-\tickWidth pt, \coordinateWidth/2)
+      node[left] {$1/2$}
+      (\tickWidth pt, \coordinateWidth) --
+      (-\tickWidth pt, \coordinateWidth)
+      node[left] {$1$}
+    ;
+  \end{tikzpicture}
+  \caption{Sketch for $f_2(x)$}
+  \label{chap6:fig:plot_cantor_fx_2}
+\end{figure}
+
+\item For any $m < n$, the difference between $f_m(x)$ and $f_n(x)$
+will be at the first time $f_m$ is a upward sloping line, while $f_n$
+potentially has more ``kinks'' in it.
+\begin{figure}[H]
+  \centering
+  \def\coordinateWidth{4}
+  \def\tickWidth{2}
+  \begin{tikzpicture}
+    \draw
+      (0, 0) -- (0, \coordinateWidth)
+      (0, 0) -- (\coordinateWidth, 0)
+      (0, 0) node[left] {$y_0$}
+    ;
+
+    \draw
+      (0, 0) -- 
+      (\coordinateWidth/3, \coordinateWidth/2) --
+      (\coordinateWidth*2/3, \coordinateWidth/2) --
+      (\coordinateWidth, \coordinateWidth)
+    ;
+    \draw
+      (0, 0) -- 
+      (\coordinateWidth, \coordinateWidth)
+    ;
+
+    \draw
+      (\tickWidth pt, \coordinateWidth) --
+      (-\tickWidth pt, \coordinateWidth)
+      node[left] {$y_0 + \frac{1}{2^m}$}
+    ;
+  \end{tikzpicture}
+  \caption{Difference between $f_m, f_n$ at kinks}
+  \label{chap6:fig:kink_diff}
+\end{figure}
+But what we notice is despite the kinks, since they happen between these 
+upward lines of $f_m$, which are at most height $\frac{1}{2^m}$,
+we can say that 
+\begin{eqnarray}
+  \abs{
+    f_m(x) - f_n(x)
+  } \leq \frac{1}{2^m}.
+\end{eqnarray}
+This means for any $\epsilon > 0$, we can find $\frac{1}{2^m} < \epsilon$,
+and show the Cauchy Criterion for Uniform Convergence for function sequences,
+which implies uniform convergence for $f_n$.
+
+\item Every $f_n$ is continuous and increasing, and we showed that
+$f_n \to f$ uniformly, so therefore $f$ is also continuous and increasing.
+
+We have $f'(x) = 0$ $\forall x \in [0, 1] \setminus C$, since 
+these are the portions where the function is flat.
+}
+}
+
+\bx{
+\ea{
+\item $f_n(x_1)$ contains a convergent subsequence because $f_n(x)$ is bounded,
+and this is a direct application of the Bolzano-Weierstrass Theorem.
+
+\item Same reason as above, we stil have a bounded sequence on reals, so 
+we can still apply Bolzano-Weierstrass.
+
+\item We can construct $f_n$ by the following 
+\begin{equation*}
+  f_n(x) = \text{First element of } f_{n, k}
+\end{equation*}
+since every $f_{n, k} \in f_{m, k}$
+for $m < n$, we conclude that for any $x_m \in A$,
+$f_n(x_m) \in f_{m, k}$ after $n > m$, and thus 
+this $f_n(x_m)$ for $n > m$ is a convergent subsequence,
+and therefore $f_n$ converges at every point of $A$.
+}
+}
+
+\bx{
+\ea{
+\item The difference is that we need a single $\delta$ that works for $\abs{x - y} < \delta$,
+whereas if we say for each $f_n$ is uniformly continuous, we can 
+choose a different $\delta$ for each $f_n$.
+This equicontinuous definition is stronger.
+
+\item We saw that as $n \to \infty$, $x_n$ has a jump at $1$, where 
+for $x < 1$, $x \to 0$, and $x = 1$ if $x = 1$.
+This means for any $\epsilon, \delta$, we can always choose a large enough 
+$n$ so that the $\delta$-neighborhood is not small enough.
+
+Each $g_n$ is uniformly continuous, since we can say 
+\begin{align*}
+  \abs{
+    g_n(x) - g_n(y)
+  } &= \abs{
+    x^n - y^n
+  }\\ 
+  &= \abs{
+    (x-y)\pa{
+      \sum_{i=1}^n x^{n-i}y^{i}
+    }
+  }\\
+  &\leq \abs{x-y}n\tag{Since $x, y\in [0, 1], x^ky^k \leq 1$}\\
+  \Rightarrow \delta &< \frac{\epsilon}{n} \tag{Will win the $\epsilon$-challenge}
+\end{align*}
+}
+}
+
+\bx{
+\ea{
+\item $\mathbb{Q}$ is countable, so we can find this 
+$g_k = f_{n_k}$ that converges at every $q\in \mathbb{Q}$ on $[0, 1]$.
+
+\item We know for every $r_i$, $\exists N_i, s, t \geq N_i$ such that 
+\begin{equation*}
+  \abs{
+    g_s(r_i) - g_t(r_i)
+  } < \frac{\epsilon}{3},
+\end{equation*}
+since we know $g_k$ converges so all $r \in \mathbb{Q}$ on $[0, 1]$,
+so we can take $N = \max_{i=1}^m\pa{N_i}$.
+
+We need $\pbrac{r_i}_{i=1}^m$ to be finite since we wanted to take
+the max $N$ from $\pbrac{N_i}_{i=1}^m$, which may not exist if 
+the set is not finite.
+
+\item We can show for any $x \in [0, 1]$, choose $r \in \mathbb{Q}$
+such that $\abs{x - r} < \delta$, 
+then
+\begin{align*}
+  \abs{
+    g_s(x) - g_t(x)
+  } 
+  &= \abs{
+    \pa{
+      g_s(x) - g_s(r)
+    } + 
+    \pa{
+      g_s(r) - g_t(r)
+    } - 
+    \pa{
+      g_t(x) - g_t(r)
+    }
+  }\\
+  &\leq \abs{
+    g_s(x) - g_s(r)
+  } + \abs{
+    g_s(r) - g_t(r)
+  } + \abs{
+    g_t(x) - g_t(r)
+  }\\
+  &< \frac{\epsilon}{3} +
+  \frac{\epsilon}{3} + 
+  \frac{\epsilon}{3}
+  = \epsilon
+\end{align*}
+}
+}
