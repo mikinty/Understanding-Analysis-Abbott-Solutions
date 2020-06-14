@@ -2,3 +2,405 @@
 
 \section{Uniform Convergence and Differentiation}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item \begin{equation*}
+  \abs{
+    \frac{
+      \sin(nx)
+    }{
+      n
+    }
+  } \leq \frac{1}{n} \tag{$\abs{\sin(y)} < 1$}
+\end{equation*}
+We first find
+\begin{equation*}
+  h'_n(x) = \frac{
+    n\cos(nx)
+  }{
+    n
+  } = \cos(nx)
+\end{equation*}
+this sequence has issues converging when $n\to \infty$ for $\cos(nx)$,
+but does converge when $x = 2\pi k$, since $\cos(2\pi k n) = 1$.
+The official solutions says $x = \pi/2 + \pi k$, which works 
+but I think misses on the $x = 2\pi k$ solution.
+We can verify $x = \pi/2$ for example, 
+\begin{equation*}
+  \cos(\pi/2), \cos(3\pi/2), \cos(5\pi/2), \cos(7\pi/2), \dots \Rightarrow 
+  0, 0, 0, 0, \dots
+\end{equation*}
+
+\item Use $h_n(x) = \frac{\sin(n^2x)}{n}$, then 
+\begin{equation*}
+  h'_n(x) = n\cos(n^2x)
+\end{equation*}
+}
+}
+
+\bx{
+\ea{
+\item We see that $\lim g_n = 0$ since $x^n \leq 1$, while the 
+denominator grows with $n$ linearly. Then,
+\begin{equation*}
+  \abs{
+    \frac{
+      x^n
+    }{
+      n
+    } - 0
+  } \leq \frac{1}{n},
+\end{equation*}
+which shows uniform convergence.
+
+$g(x) = 0$, so $g'(x) = 0$.
+
+\item 
+We have 
+\begin{equation*}
+  g'_n(x) = \frac{
+    nx^{n-1} 
+  }{
+    n
+  } = x^{n-1}
+\end{equation*}
+which exists $\forall x \in [0, 1]$.
+
+We can show that $g'_n(x)$ converges to $0$ for $x < 1$, and $1$ if $x = 1$,
+so we 
+run into problems for convergence if $x = 1$.
+
+We have \begin{equation*}
+  h = \lim g'_n = \begin{cases}
+    0, &x \in [0, 1)\\
+    1, &x = 1
+  \end{cases}
+\end{equation*}
+which is $\neq g'(x) = 0$.
+
+This tells us in general, 
+\begin{equation*}
+  \lim g'_n = h \neq g'
+\end{equation*}
+}
+}
+
+\bx{
+We have 
+\begin{equation*}
+  f = \lim f_n = 0
+\end{equation*}
+and
+\begin{equation*}
+  f'_n(x) = \frac{
+    1+nx^2 - x(2nx)
+  }{
+    \pa{1+nx^2}^3
+  } = \frac{
+    1-nx^2
+  }{
+    \pa{1 + nx^2}^2
+  }
+\end{equation*}
+% Using a similar strategy from Exercise
+% \ref{chap6:fnx_optima},
+% we take the derivative of $f'_n(x)$,
+% \begin{align*}
+%   f''_n(x)
+%   &= \frac{
+%     \pa{-2nx}\pa{
+%       1+nx^2
+%     }^2 - 
+%     \pa{
+%       1-nx^2
+%     }\pa{
+%       2\pa{
+%         1+nx^2
+%       }\pa{
+%         2nx
+%       }
+%     }
+%   }{
+%     \pa{1+nx^2}^4
+%   }\\
+%   &= \frac{
+%     \pa{-2nx}\pa{
+%       1+nx^2
+%     }^2 - 
+%     \pa{
+%       4nx
+%     }
+%     \pa{
+%       1-nx^2
+%     }\pa{
+%       1+nx^2
+%     }
+%   }{
+%     \pa{1+nx^2}^4
+%   }\\
+%   \Rightarrow
+%   0 &= \pa{-2nx}\pa{
+%     1+nx^2
+%   }^2 - 
+%   \pa{
+%     4nx
+%   }
+%   \pa{
+%     1-nx^2
+%   }\pa{
+%     1+nx^2
+%   }\tag{Optima when this $=0$}\\
+%   &= x\pbra{
+%     \pa{1+nx^2} + 2\pa{
+%       1-nx^2
+%     }
+%   }\\ 
+%   &= x \pbra{
+%     3 - nx^2
+%   }
+% \end{align*}
+% So we see the optima are at 
+% \begin{equation*}
+%   x = 0, \pm \sqrt{\frac{3}{n}},
+% \end{equation*}
+% and at these values, $f'_n(x) = 1, -\frac{1}{8}$,
+% so we know which one corresponds to the max and min. 
+% We also just have to show that for $x \to \pm \infty$, that this function
+% is bounded to show that we can bound $f'_n(x)$.
+
+We know $f(x) = 0$, so $f'(x) = 0$.
+We see that for $x = 0$, 
+\begin{equation*}
+  f'_n(0) = \frac{
+    1-0
+  }{
+    \pa{1+0}^2
+  } = 1 \neq 0 = f'(x),
+\end{equation*}
+but for all other values of $x$, we end up with 
+\begin{equation*}
+  \frac{\text{stuff}}{
+    \text{less dominant terms} + n^2x^4
+  } \to 0 = f'(x)
+\end{equation*}
+}
+
+\bx{
+\ea{
+\item If we algebraically calculate the limit,
+\begin{equation*}
+  g(x) = \lim_{n\to\infty} \frac{nx+x^2}{2n} = \frac{x}{2}
+\end{equation*}
+Then 
+\begin{equation*}
+  g'(x) = \frac{1}{2}
+\end{equation*}
+
+\item We can find that 
+\begin{equation*}
+  g'_n(x) = \frac{
+    n+2x
+  }{2n} = \frac{1}{2} + \frac{x}{n}
+\end{equation*}
+On any interval $x \in [-M, M]$, we have 
+\begin{equation*}
+  \abs{
+    g'_n(x) - g(x)
+  } = \abs{
+    \frac{1}{2} + \frac{x}{n} - \frac{1}{2}
+  } = \abs{
+    \frac{x}{n}
+  } \leq \frac{M}{n}
+\end{equation*}
+so a choice of $n > \frac{M}{\epsilon}$ will suffice.
+
+To show that $g'(x) = \lim g'_n(x)$, we need 
+\begin{itemize}
+  \item $g_n$ be a sequence of differentiable functions, yes we have this.
+  \item $g'_n$ converge uniformly to $g$, yes.
+  \item $x_0 \in [M, -M]$ such that $g_n(x_0)$ is convergent.
+  We can choose $x = 0$, then $g_n(0) \to 0 = g(0)$.
+\end{itemize}
+
+\item algebraically calculating the limit,
+\begin{equation*}
+  f(x) = \lim_{n\to\infty} \frac{
+    nx^2 + 1
+  }{2n+x} 
+  = \frac{x^2}{2}
+\end{equation*}
+
+So therefore 
+\begin{equation*}
+  f'(x) = 2x/2 = x
+\end{equation*}
+
+Now, 
+\begin{equation*}
+  f'_n(x) = \frac{
+    (2nx)(2n+x) - (nx^2+1)(1)
+  }{
+    \pa{2n+x}^2
+  } = \frac{
+    4n^2x + nx^2 - 1
+  }{
+    4n^2 + 4nx + x^2
+  }
+\end{equation*}
+To show uniform convergence,
+\begin{align*}
+  \abs{
+    \frac{
+      4n^2x + nx^2 - 1
+    }{
+      4n^2 + 4nx + x^2
+    } - x
+  } 
+  &= \abs{
+    \frac{
+      4n^2x + nx^2 - 1
+    }{
+      4n^2 + 4nx + x^2
+    } -
+    \frac{
+      4n^2x + 4nx^2 + x^3
+    }{
+      4n^2 + 4nx + x^2
+    }
+  }\\
+  &= \abs{
+    \frac{
+      -3nx^2 - x^3 - 1
+    }{
+      4n^2 + 4nx + x^2
+    }
+  }\\
+  &\leq \frac{
+    \abs{3nx^2} + \abs{x^3} + \abs{1}
+  }{
+    \abs{
+      4n^2 + 4nx + x^2
+    }
+  }\tag{Triangle Inequality}\\
+  &\leq \frac{
+    \abs{3nx^2} + \abs{x^3} + \abs{1}
+  }{
+    \abs{
+      4n^2 - 4nM
+    }
+  }\tag{Making the denominator smaller}\\
+  &\leq \frac{
+    3nM^2 + M^3 + 1
+  }{
+    \abs{
+      4n^2 - 4nM
+    }
+  }
+\end{align*}
+Since $n \to \infty$ makes this expression $\to 1/n$, 
+we can make this quantity as small as we want, to be 
+smaller than any $\epsilon > 0$.
+
+To summarize, we have 
+\begin{itemize}
+  \item $f_n$ all differentiable
+  \item $f'_n \to x = f'$ uniformly
+  \item $f_n$ is convergent for any $x$.
+\end{itemize}
+}
+}
+
+\bx{
+We want to show for any $x \in [a, b]$ that 
+\begin{equation*}
+  \abs{
+    f_n(x) - f(x)
+  } < \epsilon.
+\end{equation*}
+We can try to prove the Cauchy Criterion instead, so 
+\begin{align*}
+  \abs{f_n(x) - f_m(x)}
+  &= \abs{
+    f_n(x) - f_m - \pa{
+      f_n(x_0) - f_m(x_0)
+    } + \pa{
+      f_n(x_0) - f_m(x_0)
+    } 
+  }\\
+  &= \abs{
+    f_n(x) - f_m - \pa{
+      f_n(x_0) - f_m(x_0)
+    }
+  } + \abs{
+    f_n(x_0) - f_m(x_0)
+  }\\
+  &= \abs{
+    \pa{
+      f_n(x) - f_n(x_0)
+    } - \pa{
+      f_m(x) - f_m(x_0)
+    }
+  } + \abs{
+    f_n(x_0) - f_m(x_0)
+  }\\
+\end{align*}
+Now, we first choose $N_1$ such that for $m, n \geq N_1$,
+\begin{equation*}
+  \abs{
+    f_n(x_0) - f_m(x_0)
+  } < 
+  \frac{
+    \epsilon
+  }{2} 
+\end{equation*}
+Now, we apply MVT to 
+\begin{align*}
+  \abs{
+    \pa{
+      f_n(x) - f_n(x_0)
+    } - \pa{
+      f_m(x) - f_m(x_0)
+    }
+  }
+  &=
+  \abs{x-x_0}
+  \abs{
+    \pa{
+      \frac{f_n(x) - f_n(x_0)}{x-x_0}
+    } - \pa{
+      \frac{f_m(x) - f_m(x_0)}{x-x_0}
+    }
+  }\\
+  &= M
+  \abs{
+    f'_n(c_1) - f'_n(c_2)
+  }\tag{$\abs{x-x_0}$ bounded since $x, x_0 \in [a, b]$}
+\end{align*}
+By MVT, $c_1, c_2 \in [a, b]$.
+Since we know that $f'_n$ converges uniformly on $[a, b]$,
+we know we can find $N_2$ such that 
+\begin{equation*}
+  \abs{
+    f'_n(c_1) - f'_n(c_2)
+  } < \frac{
+    \epsilon
+  }{
+    2M
+  }
+\end{equation*}
+Putting everything together, if we choose $N = \max(N_1, N_2)$,
+we can show that for $m, n \geq N$, that
+\begin{equation*}
+  \abs{f_n(x) - f_m(x)} = 
+  \abs{
+    \pa{
+      f_n(x) - f_n(x_0)
+    } - \pa{
+      f_m(x) - f_m(x_0)
+    }
+  } + \abs{
+    f_n(x_0) - f_m(x_0)
+  } < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+\end{equation*}
+}
