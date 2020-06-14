@@ -2,3 +2,223 @@
 
 \section{Series of Functions}
 \setcounter{exercise}{0}
+
+\bx{
+\AFSOC $g_n \to \epsilon_0 \neq 0$.
+Then we can find some $N$ where $\abs{g_n - \epsilon_0} < \epsilon_0/2$.
+WLOG $\epsilon_0 > 0$, then we will be summing 
+an infinite number of positive numbers, which diverges to $+\infty$.
+}
+
+\bx{
+WLOG $k_1 < k_2$,
+\begin{align*}
+  \abs{
+    s_{k_1} - s_{k_2}
+  } 
+  &\leq 
+  \abs{
+    \sum_{n=k_1+1}^{k_2} f_n(x)
+  }\\
+  &\leq 
+  \sum_{n=k_1+1}^{k_2} \abs{f_n(x)}\\
+  &\leq 
+  \sum_{n=k_1+1}^{k_2} M_n \tag{$\abs{f_n(x)} < M_n$}\\
+  &\leq 
+  \abs{
+    \sum_{n=k_1+1}^{k_2} M_n
+  } < \epsilon
+\end{align*}
+The last part follows, since we know $\sum_{n=1}^\infty M_n$ converges,
+so we can find this $N$ such that for $k_1, k_2 \geq $, we have convergence.
+}
+
+\bx{
+\ea{
+\item WLOG $k_1 < k_2$, then we have 
+\begin{align*}
+  \abs{g_{k_1}(x) - g_{k_2}(x)} 
+  &=
+  \abs{
+    \sum_{n=1}^{k_1} \frac{\cos(2^nx)}{2^n} -
+    \sum_{n=1}^{k_2} \frac{\cos(2^nx)}{2^n}
+  }\\
+  &= \abs{
+    \sum_{n=k_1+2}^{k_2} \frac{\cos(2^nx)}{2^n}
+  }\\
+  &\leq
+  \abs{
+    \sum_{n=k_1+2}^{k_2} \frac{1}{2^n}
+  }\\
+  &\leq
+  \abs{
+    \sum_{n=k_1+2}^\infty \frac{1}{2^n}
+  }\\
+  &\leq \abs{
+    \frac{1}{2^{k_1-1}}
+  }
+\end{align*}
+So we just need to choose $N > \log_2\pa{\frac{2}{\epsilon}}$
+Since $g(x)$ converges uniformly, and each 
+\begin{equation*}
+  f_n = \frac{\cos(2^nx)}{2^n}
+\end{equation*}
+is continuous, since we can find a derivative that is defined everywhere,
+we conclude that $g(x)$ is continuous.A
+
+Ok so apparently I did way more work than you had to,
+you can use 
+\begin{equation*}
+  M_n = \frac{1}{2^n} \geq \abs{\cos(2^nx)/2^n}
+\end{equation*}
+and the Weierstrass M-Test to prove uniform convergence too...
+
+\item Each 
+\begin{equation*}
+  f_n = x^n/n^2 \Rightarrow f'_n = x^{n-1}/n
+\end{equation*}
+has a derivative that exists, so we conclude each $f_n$ is continuous.
+We just need to show that $h(x)$ converges uniformly.
+
+Define 
+\begin{equation*}
+  M_n = \frac{1}{n^2} \geq \abs{
+    \frac{x^n}{n^2}
+  }
+\end{equation*}
+This is true since $\abs{x^n} \leq 1$ since 
+$x \in [-1, 1]$.
+Now, since $\sum_{n=1}^\infty 1/n^2$ converges,
+we can use the Weierstrass M-Test to conclude that $h(x)$ converges uniformly.
+}
+}
+
+\bx{
+We can show that 
+\begin{equation*}
+  M_n = \frac{1}{2^n} \geq \abs{
+    \frac{h(2^nx)}{2^n}
+  }
+\end{equation*}
+We know that $\sum_{n=1}^\infty 1/2^n$ converges. Therefore, $g(x)$ 
+converges uniformly.
+
+Finally, each $h(2^nx)/2^n$ is continuous, so we can conclude 
+that $g(x)$ is therefore continuous as well.
+}
+
+\bx{
+\ea{
+\item We have 
+\begin{equation*}
+  f'_n(x) =
+  \frac{
+    \cos(kx)
+  }{k^2}
+\end{equation*}
+We can show this converges uniformly to 0,
+\begin{equation*}
+  \abs{
+    \frac{
+      \cos(kx)
+    }{k^2}
+  } \leq \frac{1}{k^2}
+\end{equation*}
+
+We can show that $f(x) \to 0$ for $x = 2\pi$, since $\sin(k 2\pi) = 0$.
+Therefore, we can conclude, since $\sum f'_n$ converges uniformly,
+that $f(x)$ is differentiable.
+
+Since each $f'_n$ is continuous, and $\sum f'_n \to f'$ uniformly,
+we can conclude that $f'$ is continuous.
+
+\item No, since we can only do 
+\begin{equation*}
+  \frac{1}{n} \geq \abs{-\sin(nx)/n},
+\end{equation*}
+but we know the Harmonic series does not converge.
+}
+}
+
+\bx{
+For any $x_0 \in (0, 1)$ fixed, choose $y \in (x_0, 1)$.
+Then we can show 
+\begin{align*}
+  1 &\leq y^0\\
+  x &\leq y\\
+  x^2 &\leq y^2 \Rightarrow
+  \frac{x^2}{2} \leq y^2\\
+  x^3 &\leq y^3 \Rightarrow
+  \frac{x^3}{3} \leq y^3
+\end{align*}
+which means for $M_n = y^n$, we can show $\sum M_n \to \frac{1}{1-y}$,
+which exists when $y \in (0, 1)$, and therefore 
+$f(x)$ converges uniformly.
+
+We know each $\pa{\frac{x^n}{n}}^{'} = x^{n-1}$,
+so each $f_n$ is continuous.
+
+Therefore, we conclude $f(x)$ is continuous at $x_0$.
+}
+
+\bx{
+\ea{
+\item We have 
+\begin{equation*}
+  M_n = 1/n^2 \geq h_n(x),
+\end{equation*}
+so $h(x)$ converges uniformly.
+Each 
+\begin{equation*}
+  h'_n(x) = \frac{
+    -2x
+  }{
+    \pa{x^2 + n^2}^2
+  }
+\end{equation*}
+exists for all $x$, so they are all continuous.
+Therefore, we conclude $h$ is continuous on all of $\mathbb{R}$.
+
+\item We can show that for $x \in \pbra{-M, M}$, that 
+\begin{equation*}
+  \abs{
+    \frac{
+      -2x
+    }{
+      \pa{x^2 + n^2}^2
+    }
+  } \leq \frac{
+    2M
+  }{n^4} 
+\end{equation*}
+Since $\sum 2M/n^4$ converges, we can conclude with the Weierstrass M-Test
+that $h'_n$ converges uniformly.
+Therefore, $h$ is differentiable, and also $h'$ is continuous from uniform convergence.
+
+Since we can choose any $M$ for our argument, we conclude that $h$ is 
+differentiable and continuous on all of $\mathbb{R}$.
+}
+}
+
+\bx{
+For $x \not\in \mathbb{Q}$, we can show 
+$u_n(x)$ is continuous, since for $x < r_n$, we can choose
+a small enough $\delta$ such that $u_n(y) = 0$ for $y \in V_\delta(x)$.
+Similar reasoning applies to $x > r_n$.
+We can then show $h(x)$ converges uniformly, by the Weierstrass M-Test
+since 
+\begin{equation*}
+  M_n = \frac{1}{2^n} \geq u_n(x)
+\end{equation*}
+Therefore, since $u_n$ are all continuous, and $h$ converges uniformly,
+we conclude that $h$ is continuous.
+
+$h$ is monotone, since every $u_n(x)$ is increasing, so 
+for $x < y$,
+\begin{align*}
+  \forall n u_n(x) &\leq u_n(y)\\
+  \sum_{n=1}^k u_n(x) &\leq \sum_{n=1}^k u_n(y)\\
+  \lim_k \sum_{n=1}^k u_n(x) &\leq \lim_k \sum_{n=1}^k u_n(y)\\
+  h(x) &\leq h(y) \tag{$h$ converges uniformly}
+\end{align*}
+}
