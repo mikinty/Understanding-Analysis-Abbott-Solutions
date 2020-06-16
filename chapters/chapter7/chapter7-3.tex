@@ -2,3 +2,250 @@
 
 \section{Integrating Functions with Discontinuities}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item Every partition contains some $x \in [x_k, x_{k+1}]$,
+where $x_k < x_{k=1}$.
+
+This means every interval contains some element $y \neq 1$, which 
+will mean $\exists f(y) = 1$ in every interval, and thus 
+\begin{equation*}
+  L(f, P) = 1
+\end{equation*} 
+
+\item Just make a little interval around $x = 1$, so for example 
+\begin{equation*}
+  P = \pbrac{
+    0, 
+    1 - \frac{1}{15},
+    1
+  }
+\end{equation*}
+Then the difference is the interval 
+$
+\pbra{
+  1 - \frac{1}{15},
+  2
+}
+$
+where we have $\Delta x = \frac{1}{15}$
+and thus $U(f, P) = 1 + \frac{1}{15}$.
+
+\item Construct
+\begin{equation*}
+  P_\epsilon = \pbrac{
+    0, 
+    1 - \frac{\epsilon}{2},
+    1
+  }
+\end{equation*}
+Then 
+\begin{equation*}
+  U(f, P_\epsilon) = 1 + \frac{\epsilon}{2}
+\end{equation*}
+}
+}
+
+\bx{
+Fix some enumeration of the rationals.
+Let $S_n = \pbrac{r_1, r_2, \dots, r_n}$, 
+or the first $n$ rationals on this list.
+
+Define 
+\begin{equation*}
+  g_n(x) = \begin{cases}
+    1, &x \in S_n\\
+    0, &x \not\in\mathbb{Q}
+  \end{cases}
+\end{equation*}
+Then $g_n\to g$ since for any $x \in \mathbb{R}$,
+if $x \not\in\mathbb{Q}$, then $g_n(x) = 0 = g(x)$.
+Otherwise, we know $x = r_k$ for some $k$, and we can just 
+choose $n = k$, and then $g_n(x) = 1 = g(x)$.
+}
+
+\bx{
+We can make an $\epsilon$-neighborhood around each discontinuity
+and remove them from $[a, b]$.
+
+The remaining $[a, b]\setminus O$ must be continuous for $f$
+since we just removed all the discontinuities.
+
+Now, $[a, b] \setminus O$ is a compact set, becauase it is still bounded,
+and is the union of a finite number of closed sets.
+Therefore, $f$ is uniformly continuous on $[a, b] \setminus O$.
+
+Since $f$ is uniformly continuous, we have 
+\begin{equation*}
+  \abs{
+    f(x) - f(y)
+  } < \epsilon
+\end{equation*}
+whenever $\abs{x - y} < \delta$.
+
+This means for any $\epsilon$ challenge, 
+we can define a partition such that the subintervals are small
+enough around the discontinuities, and also so that
+$\abs{x-y} < \delta$ is true for the $\delta$ we need.
+
+Then we can bound $U-L$ at the discontinuities and the area 
+that is continuous however we'd like.
+}
+
+\bx{
+\ea{
+\item Let the new value of this point be $M$.
+We can do the putting a small $\epsilon'/2$-neighborhood around 
+the new value We can then show that 
+\begin{equation}
+  U(f) - U(f, P_\epsilon') \leq \abs{M}\epsilon' < \epsilon/3,
+  L(f) - L(f, P_\epsilon') \leq \abs{M}\epsilon' < \epsilon/3
+\end{equation}
+for appropriate values of $\epsilon'$.
+Then, we can bound 
+\begin{equation*}
+  \abs{
+    U(f, P_\epsilon') - 
+    L(f, P_\epsilon')
+  } \leq 
+  \abs{
+    U(f, P_\epsilon') - 
+    U(f)
+  } + 
+  \abs{
+    + U(f)
+    - L(f)
+  } +
+  \abs{
+    L(f, P_\epsilon')
+    - L(f)
+  } < \epsilon
+\end{equation*}
+
+\item For a finite number of $f$ changed, we can choose an even smaller $\epsilon'$
+around each change, so something like if $M$ bounds the changes, and there are $N$ changes,
+then choose 
+\begin{equation*}
+  N \cdot (2 \epsilon') M < \epsilon/3
+\end{equation*}
+
+\item We can just use Dirichlet's function idea, and change 
+the value of $f$ at every rational $x \in [a, b]$.
+}
+}
+
+\bx{
+We can see that any interval $[x, y], x< y$ containing $1/n$
+means $\exists z \neq 1/n$ so therefore 
+the minimum $f(x)$ value on any interval $=0$, so we conclude
+\begin{equation*}
+  L(f) = 0
+\end{equation*}
+
+Define $P$ to be the partition so that for $P_N$,
+we have 
+\begin{equation*}
+  P_N = \pbrac{
+    0, 
+    \frac{1}{N},
+    1
+  } \cup 
+  S_r
+\end{equation*}
+where $S_r$ contains the points to add little intervals of 
+radius $r = \frac{1}{N(N+1)}$ around each $1/k \in [0, 1]$
+for $k < N$.
+
+Then we have 
+
+\begin{equation*}
+  U(f, P_N) - L(f, P_N) = 
+  r + 2r(N-2) + \frac{1}{N}
+  = \frac{1}{N(N+1)} + \frac{2(N-2)}{N(N+1)} + \frac{1}{N}
+\end{equation*}
+which $\to 0$ as $N \to \infty$.
+
+We showed earlier that $L(f) = 0$, so
+\begin{equation*}
+  \int_0^1 f(x) \dd{x} = L(f) = 0
+\end{equation*}
+}
+
+\bx{
+\ea{
+\item 
+Let the bound of $f$ on $[a, b]$ be $M$.
+Choose a content zero set for the discontinuities 
+so that their length of intervals is $< \epsilon/(4M)$
+Also let $P_n$ be some partition
+so that the continuous part of $f$, which is integrable, satisfies
+\begin{equation*}
+  U(f^\text{cont}, P_n) - 
+  L(f^\text{cont}, P_n) < \epsilon/2
+\end{equation*} 
+and define $P_N$ 
+be the union of $P_n$ with points to give us the content zero intervals.
+
+Then we can show 
+\begin{align*}
+  U(f, P_N)  - L(f, P_N) 
+  &< \epsilon/2 + 2M \cdot \frac{\epsilon}{4M}\\
+  &= \epsilon
+\end{align*}
+
+\item For any finite set of $N$ elements, 
+\begin{equation*}
+  S_N = \pbrac{
+    a_1, a_2, \dots, a_N
+  },
+\end{equation*}
+define 
+\begin{equation*}
+  O_i = \pa{
+    a_i - \frac{\epsilon}{2N},
+    a_i + \frac{\epsilon}{2N}
+  }
+\end{equation*}
+Then 
+\begin{equation*}
+  \sum_{k=1}^N \abs{O_k} = 
+  N \cdot 2 \cdot \frac{\epsilon}{2N} = \epsilon
+\end{equation*}
+
+\item We know for any $m < n$, that $C_m \supseteq C_n$,
+since $C_n$ is $C_m$ but with more open intervals removed.
+In addition, we know that $C_m$ consists of $2^m$ closed intervals 
+each with length $\frac{1}{3^m}$, so the total length of $C_m$ is
+$\pa{\frac{2}{3}}^m$.
+
+To get a finite zero set, we need open intervals. We can do this 
+by adding a small $\epsilon'$ radius open set around each 
+endpoint of the $2^m$ sets. Since this means adding length of 
+\begin{equation*}
+  2\epsilon' \cdot 2 \cdot 2^m,
+\end{equation*}
+since each interval is $2\epsilon'$ wide, 
+and there are 2 endpoints per interval.
+Now, choose $m$ such that 
+\begin{equation*}
+  \pa{\frac{2}{3}}^m < \epsilon
+\end{equation*}
+and let $\delta = \epsilon - \pa{\frac{2}{3}}^m$,
+and then we can choose 
+\begin{equation*}
+  2\epsilon' \cdot 2 \cdot 2^m < \delta \Rightarrow \epsilon' < \frac{\delta}{2^{m+2}}
+\end{equation*}
+So the length of these open intervals will be less than $\epsilon$,
+and therefore we can conclude that $C$ is a content zero set.
+
+\item $h(x)$ is discontinuous at the $x \in C$ points, but we showed 
+this has content zero, so we can conclude $h(x)$ is integrable.
+
+We can find $x \not \in C$ for any open interval of $C$, so 
+therefore we can conclude 
+\begin{equation*}
+  \int_0^1 h(x) \dd{x} = 0
+\end{equation*}
+}
+}

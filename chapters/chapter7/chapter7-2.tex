@@ -26,9 +26,338 @@ Therefore, we conclude
   U(f, P) \geq U(f, \text{refinement})
 \end{equation*}
 
-There is also a typo in Lemma 7.2.4 -- the author meant to say 
-if $Q = P_1 \cup P_2$, then $P_1 \subseteq Q, P_2, \subseteq Q$.
+There are some typos in this section:
+\begin{itemize}
+  \item 
+  In Lemma 7.2.4, the author meant to say 
+  if $Q = P_1 \cup P_2$, then $P_1 \subseteq Q, P_2, \subseteq Q$.
+
+  \item 
+  In Definition 7.2.5, where the \textit{Lower Integral} of $f$
+  should be defined as
+  \begin{equation*}
+    L(f) = \sup\pbrac{
+      L(f, P) : P \in \mathcal{P}
+    }
+  \end{equation*}
+\end{itemize}
 
 \bx{
+For any partition $P$, we have $U(f) \geq L(f, P)$
+since over any interval, the estimate for $f$ will be 
+$\sup f(x)$ over this interval, and for $L(f, P)$,
+it must be the $\inf f(x)$ over an interval that contains 
+part of this interval, which must be less than $\sup f(x)$.
 
+Then, $U(f, P) \geq L(f)$ since we chose an arbitrary $P$.
+}
+
+\bx{
+We are considering $f(x) = 2x + 1$ over $x \in [1, 3]$.
+
+\begin{figure}[H]
+  \centering
+  \def\coordinateScale{1.5}
+  \def\padding{1}
+  \def\tickWidth{2}
+
+  \subfloat[$P = \pbrac{1, 3/2, 2, 3}$]{
+    \begin{tikzpicture}
+      \draw
+        (0, 0) -- (3*\coordinateScale + \padding, 0)
+        (0, 0) -- (0, 4*\coordinateScale + \padding)
+        (0, 0) node[below left] {0}
+      ;
+
+      % Curve
+      \draw
+        (0, \coordinateScale) -- (3*\coordinateScale, 4*\coordinateScale)
+      ;
+
+      % Ticks
+      \draw
+        (\coordinateScale, \tickWidth pt) --
+        (\coordinateScale, -\tickWidth pt) node[below] {1}
+        (2*\coordinateScale, \tickWidth pt) --
+        (2*\coordinateScale, -\tickWidth pt) node[below] {2}
+        (3*\coordinateScale, \tickWidth pt) --
+        (3*\coordinateScale, -\tickWidth pt) node[below] {3}
+
+        (\tickWidth pt,    \coordinateScale) --
+        (-\tickWidth pt,   \coordinateScale) node[left] {1}
+        (\tickWidth pt,  2*\coordinateScale) --
+        (-\tickWidth pt, 2*\coordinateScale) node[left] {3}
+        (\tickWidth pt,  3*\coordinateScale) --
+        (-\tickWidth pt, 3*\coordinateScale) node[left] {5}
+        (\tickWidth pt,  4*\coordinateScale) --
+        (-\tickWidth pt, 4*\coordinateScale) node[left] {7}
+      ;
+
+      % Estimates
+      \draw
+        (\coordinateScale, 0) -- (\coordinateScale, 4*\coordinateScale)
+        (1.5*\coordinateScale, 0) -- (1.5*\coordinateScale, 4*\coordinateScale)
+        (2*\coordinateScale, 0) -- (2*\coordinateScale, 4*\coordinateScale)
+        (3*\coordinateScale, 0) -- (3*\coordinateScale, 4*\coordinateScale)
+      ;
+
+      % L estimates
+      \draw[dashed]
+        (\coordinateScale, 2*\coordinateScale) --
+        (1.5*\coordinateScale, 2*\coordinateScale)
+        (1.5*\coordinateScale, 2.5*\coordinateScale) --
+        (2*\coordinateScale, 2.5*\coordinateScale)
+        (2*\coordinateScale, 3*\coordinateScale) --
+        (3*\coordinateScale, 3*\coordinateScale)
+      ;
+
+      % U estimates
+      \draw[line width=1pt]
+        (\coordinateScale, 2.5*\coordinateScale) --
+        (1.5*\coordinateScale, 2.5*\coordinateScale)
+        (1.5*\coordinateScale, 3*\coordinateScale) --
+        (2*\coordinateScale, 3*\coordinateScale)
+        (2*\coordinateScale, 4*\coordinateScale) --
+        (3*\coordinateScale, 4*\coordinateScale)
+      ;
+    \end{tikzpicture}
+  }
+  \qquad
+  \subfloat[$P = \pbrac{1, 3/2, 2, 5/2, 3}$]{
+    \begin{tikzpicture}
+      \draw
+        (0, 0) -- (3*\coordinateScale + \padding, 0)
+        (0, 0) -- (0, 4*\coordinateScale + \padding)
+        (0, 0) node[below left] {0}
+      ;
+
+      % Curve
+      \draw[->]
+        (0, \coordinateScale) -- (3*\coordinateScale, 4*\coordinateScale)
+      ;
+
+      % Ticks
+      \draw
+        (\coordinateScale, \tickWidth pt) --
+        (\coordinateScale, -\tickWidth pt) node[below] {1}
+        (2*\coordinateScale, \tickWidth pt) --
+        (2*\coordinateScale, -\tickWidth pt) node[below] {2}
+        (3*\coordinateScale, \tickWidth pt) --
+        (3*\coordinateScale, -\tickWidth pt) node[below] {3}
+
+        (\tickWidth pt,    \coordinateScale) --
+        (-\tickWidth pt,   \coordinateScale) node[left] {1}
+        (\tickWidth pt,  2*\coordinateScale) --
+        (-\tickWidth pt, 2*\coordinateScale) node[left] {3}
+        (\tickWidth pt,  3*\coordinateScale) --
+        (-\tickWidth pt, 3*\coordinateScale) node[left] {5}
+        (\tickWidth pt,  4*\coordinateScale) --
+        (-\tickWidth pt, 4*\coordinateScale) node[left] {7}
+      ;
+
+      % Estimates
+      \draw
+        (\coordinateScale, 0) -- (\coordinateScale, 4*\coordinateScale)
+        (1.5*\coordinateScale, 0) -- (1.5*\coordinateScale, 4*\coordinateScale)
+        (2*\coordinateScale, 0) -- (2*\coordinateScale, 4*\coordinateScale)
+        (2.5*\coordinateScale, 0) -- (2.5*\coordinateScale, 4*\coordinateScale)
+        (3*\coordinateScale, 0) -- (3*\coordinateScale, 4*\coordinateScale)
+      ;
+
+      % L estimates
+      \draw[dashed]
+        (\coordinateScale, 2*\coordinateScale) --
+        (1.5*\coordinateScale, 2*\coordinateScale)
+        (1.5*\coordinateScale, 2.5*\coordinateScale) --
+        (2*\coordinateScale, 2.5*\coordinateScale)
+        (2*\coordinateScale, 3*\coordinateScale) --
+        (2.5*\coordinateScale, 3*\coordinateScale)
+        (2.5*\coordinateScale, 3.5*\coordinateScale) --
+        (3*\coordinateScale, 3.5*\coordinateScale)
+      ;
+
+      % U estimates
+      \draw[line width=1pt]
+        (\coordinateScale, 2.5*\coordinateScale) --
+        (1.5*\coordinateScale, 2.5*\coordinateScale)
+        (1.5*\coordinateScale, 3*\coordinateScale) --
+        (2*\coordinateScale, 3*\coordinateScale)
+        (2*\coordinateScale, 3.5*\coordinateScale) --
+        (2.5*\coordinateScale, 3.5*\coordinateScale)
+        (2.5*\coordinateScale, 4*\coordinateScale) --
+        (3*\coordinateScale, 4*\coordinateScale)
+      ;
+    \end{tikzpicture}
+  }
+  \caption{
+    Riemann Sum estimates for $f(x) = 2x +1$.
+    Dashed lines indicate $U$, thick lines indicate $L$.
+  }
+  \label{chap7:fig:fx_partition}
+\end{figure}
+
+\ea{
+\item We can compute
+\begin{align*}
+  L(f, P) &= \frac{1}{2}\pa{3 + 4} + 1 \cdot 5 = 8.5\\
+  U(f, P) &= \frac{1}{2}\pa{4 + 5} + 1 \cdot 7 = 11.5\\
+  U(f, P) - L(f, P) &= 3
+\end{align*}
+
+\item With an extra point $5/2$ in the partition,
+\begin{align*}
+  L(f, P) &= \frac{1}{2}\pa{3 + 4 + 5 + 6} = 9\\
+  U(f, P) &= \frac{1}{2}\pa{4 + 5 + 6 + 7} = 11\\
+  U(f, P) - L(f, P) &= 2
+\end{align*}
+So $U-L$ decreases.
+
+\item If we add midpoints between all the current intervals, then we wil have 
+\begin{equation*}
+  U(f, P') - L(f, P') = \frac{7-3}{4} = 1 < 2
+\end{equation*}
+}
+}
+
+\bx{
+The constant function satisfies $U(f) = L(f)$, since the $\sup, \inf$ over 
+any interval is the same.
+
+\begin{equation*}
+  \int_{a}^{b} f(x) \dd{x} = b - a
+\end{equation*}
+}
+
+\bx{
+\ea{
+\item \AFSOC $U(f) \neq L(f)$. Then we must have $U(f) > L(f)$.
+Let $\epsilon = U(f) - L(f)$. We can find $P_n$ such that 
+\begin{equation*}
+  \abs{U(f, P_n) - L(f, P_n)} < \epsilon,
+\end{equation*}
+which means either $U(f, P_n) < U(f)$ or $L(f, P_n) > L(f)$,
+both of which are contradictions, so therefore we conclude $U(f) = L(f)$.
+
+\item We can find 
+\begin{align*}
+  L(f, P_n) &= \frac{1}{n}\pa{
+    0 + \frac{1}{n} + \frac{2}{n} + \cdots + \frac{n-1}{n}
+  } 
+  = \frac{n(n-1)}{2n^2} = \frac{n-1}{2n}\\
+  U(f, P_n) &= \frac{1}{n}\pa{
+    \frac{1}{n} + \frac{2}{n} + \cdots + \frac{n-1}{n} + \frac{n}{n}
+  }
+  = \frac{n(n+1)}{2n^2} = \frac{n+1}{2n}\\
+\end{align*}
+
+\item We take the difference 
+\begin{equation*}
+  U(f, P_n) - L(f, P_n) =
+  \frac{n+1-(n-1)}{2n} = \frac{1}{n}
+\end{equation*}
+so the difference $\to 0$, and therefore $f(x) = x$ is integrable on $[0, 1]$.
+}
+}
+
+\bx{
+Because $f_n \to f$ uniformly, hoose $n_1$ such that 
+\begin{equation*}
+  \abs{f_{n_1}(x) - f(x)} < \frac{\epsilon}{3\cdot(b-a)}
+\end{equation*}
+and since each $f_n$ is integrable, choose $n_2$ such that 
+\begin{equation*}
+  \abs{
+    U(f_{n_1}, P_{n_2}) - L(f_{n_1}, P_{n_2})
+  } < \frac{\epsilon}{3}.
+\end{equation*}
+Now, choose $n = \max(n_1, n_2)$,
+
+Notice that 
+\begin{align*}
+  \abs{
+    U(f, P_{n}) - U(f_n, P_{n})
+  } 
+  &\leq \sum_{x_k} \abs{f(x_k) - f_n(x_k)} \Delta x_k\\
+  &<\sum_{x_k} \frac{\epsilon}{3(b-a)} \Delta x_k\\
+  &=\frac{\epsilon}{3(b-a)} \sum_{x_k} \Delta x_k\\
+  &=\frac{\epsilon}{3(b-a)} (b-a)\\
+  &=\frac{\epsilon}{3}
+\end{align*}
+The key observation here is that over $[x_k, x_{k+1}]$,
+$\abs{\sup f(x) - \sup f_n(x)} \leq \abs{f_{n}(x) - f(x)}$
+since every point of $f_n$ is close to $f$.
+
+A similar results holds for
+\begin{equation*}
+  \abs{
+    L(f, P_{n_2}) - L(f_n, P_{n_2})
+  }  < \frac{\epsilon}{3}
+\end{equation*}
+
+So therefore, we can say 
+\begin{align*}
+  \abs{
+    U(f, P_n) - L(f, P_n)
+  } &\leq 
+  \abs{
+    U(f, P_n) - U(f_n, P_n) + U(f_n, P_n) - L(f_n, P_n) - \pa{
+      L(f, P_n) -
+      L(f_n, P_n)
+    }
+  }\\
+  &\leq 
+  \abs{
+    U(f, P_n) - U(f_n, P_n)
+  } + 
+  \abs{
+    U(f_n, P_n) - L(f_n, P_n)
+  } + 
+  \abs{
+    L(f, P_n) -
+    L(f_n, P_n)
+  }\\
+  &\leq \frac{\epsilon}{3} +
+  \frac{\epsilon}{3} +
+  \frac{\epsilon}{3} = \epsilon
+\end{align*}
+}
+
+\bx{
+The key observation here is that for any interval $\pbra{x_k, x_{k+1}}$,
+the $\sup$ of this set is at $x_{k+1}$, since that is the largest
+element of this interval, and $f$ is increasing.
+Likewise, $\inf f(x) = f(x_k)$.
+
+Take $P_n$ to be a partition with all the subintervals
+equal length $\Delta x = \frac{b-a}{n}$. We can compute
+\begin{align*}
+  U(f) - L(f)
+  &= \sum_{k=0}^{n-1} \pbra{f(x_{k+1}) - f(x_{k})}(x_{k+1} - x_{k})\\
+  &= \sum_{k=0}^{n-1} \pbra{f(x_{k+1}) - f(x_{k})}\Delta x\\
+  &= \Delta x \pbra{
+    \pa{
+      f(x_n) - f(x_{n-1}) 
+    } + 
+    \pa{
+      f(x_{n-1}) - f(x_{n-2})
+    } + \cdots + 
+    \pa{
+      f(x_1) - f(x_0)
+    }
+  }\tag{Telescoping series}\\
+  &= \frac{b-a}{n} \pbra{
+    f(b) - f(a)
+  }
+\end{align*}
+Now, let $M$ be $\abs{f(b)-f(a)}$.
+Then choose 
+\begin{equation*}
+  n > \frac{(b-a)\pbra{f(b)-f(a)}}{\epsilon}
+\end{equation*}
+to satisfy $U(f, P_n) - L(f, P_n) < \epsilon$.
+
+The official solutions for this problem is done wrong...the 
+author got $\Delta x (b-a)$ at the end, but I think he meant 
+$\Delta x \pbra{f(b) - f(a)}$. Of course, the idea is the same, 
+but it's just confusing to see an error like that.
 }
