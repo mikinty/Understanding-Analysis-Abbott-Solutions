@@ -2,3 +2,355 @@
 
 \section{Power Series}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item $g$ is defined on $(-1, 1)$, since we can 
+bound 
+\begin{equation*}
+  \abs{
+    \frac{x^n}{n}
+  } \leq x^n \leq y^n
+\end{equation*}
+for $y$ that is in between $\pm 1$ and $x$.
+
+$g$ converges uniformly on this set, and every $g_n$ is continuous,
+so $g$ is continuous.
+
+$g$ is still defined on $(-1, 1]$, since at $x=1$, 
+we have the alternating harmonic series, which converges.
+
+For $x = -1$, we have 
+\begin{equation*}
+  g(-1) = -1 - 1/2 - 1/3 - 1/4 - \cdots
+\end{equation*}
+which diverges.
+
+For $\abs{x} > 1$, $g$ will diverge, since $x^n/n$ is increasing.
+
+$g(x)$ cannot converge for other $x$, since we know that if $g$ did for $\abs{x} > 1$,
+that would imply $x =-1$ has to converge, which we know is not the case.
+
+\item $g'$ is defined for $x \in (-1, 1)$. 
+\begin{equation*}
+  g'(x) = 1 - x + x^2 - x^3 + x^4 - \cdots = \frac{1}{1+x}
+\end{equation*}
+we can use the geometric series formula since $\abs{x} < 1$.
+}
+}
+
+\bx{
+\ea{
+\item $a_n = 1/n^2$.
+\item $a_0 = 0$, for $n\geq1, a_n = \frac{1}{n}$. 
+This will create the alternating harmonic series for $x = -1$, but
+the harmonic series for $x = 1$.
+\item You can define 
+\begin{equation*}
+  a_n = \begin{cases}
+    0, &n=0, n \text{ odd}\\
+    \frac{-1^{n/2}}{n/2}, &n\geq 2, n \text{ even}
+  \end{cases}
+\end{equation*}
+The idea is that $x=-1$ will alternate between $-1, 1$ for $x^n$,
+but will always be $1$ if $x^{2k}$, so we can easily make a conditionally 
+convergent sequence for the even terms, e.g.
+\begin{align*}
+  x=-1 : \,&a_0(1)+ a_1(-1)+ a_2(1)+ a_3(-1)+ a_4(1)+ \dots\\
+  x=1  : \,&a_0(1)+ a_1(-1)+ a_2(1)+ a_3(-1)+ a_4(1)+ \dots
+\end{align*}
+
+\item No, because if the power series converges absolutely at $x=1$,
+we have 
+\begin{equation*}
+  \abs{a_n(-1)^n} = \abs{a_n(1)^n}
+\end{equation*}
+which means the $x=-1$ series will also converge absolutely.
+}
+\label{chap6:power_series_examples}
+}
+
+\bx{
+\AFSOC we have conditional convergence at 3 points, $x_1, x_2, x_3$.
+Since we have 3 different points, if we look at their absolute values,
+it must be the case that at least one of the points has a different absolute value 
+than the others. Let this point be $x_3$ WLOG.
+
+We have 2 cases,
+\begin{itemize}
+  \item $\abs{x_3} < \abs{x_1}$. Since the series converges at $\abs{x_1}$,
+  it must converge on $S = \pbra{-\abs{x_1}, \abs{x_1}}$, which means since 
+  $x_3 \in S$, that $x_3$ must converge absolutely.
+
+  \item $\abs{x_3} > \abs{x_1}$. Since the series converges at $\abs{x_3}$,
+  it must converge on $S = \pbra{-\abs{x_3}, \abs{x_3}}$, which means since 
+  $x_1 \in S$, that $x_1$ must converge absolutely.
+\end{itemize}
+
+In all cases, we show that some point out of the 3 converges absolutely,
+so therefore at most two points can converge conditionally.
+
+We have shown in Exercise
+\label{chap6:power_series_examples}
+an example where we have conditional convergence at two points $x_1, x_2$.
+}
+
+\bx{
+\ea{
+\item For any $x \in (-R, R)$, choose $c \in (\abs{x}, R)$.
+Then since the power series converges at $c$, it must converge 
+absolutely at $x$, since $\abs{x} < c$, from Theorem 6.5.1.
+Theorem 6.5.2 then tells us that on $[-\abs{x}, \abs{x}]$,
+the power series will converge uniformly.
+From Theorem 6.4.2, if $\sum_{n=1}^\infty f_n$ converges uniformly
+to $f$ on $A$, then $f$ is continuous on $A = \pbra{-\abs{x}, \abs{x}}$,
+and we know $x \in A$.
+
+\item By Theorem 6.5.1, we know that the power series will 
+converge at any $\abs{x} < R$, which is the set $(-R, R)$,
+so our convergence is 
+\begin{equation*}
+  \pa{-R, R} \cup \pbrac{R} = \left(-R, R\right]
+\end{equation*}
+}
+}
+
+\bx{
+If we have absolute convergence at a point $x_0$, 
+then we know $\sum \abs{a_nx_0^n}$ converges.
+
+Then for any $x \in \pbra{-\abs{x_0}, \abs{x_0}}$, we have 
+\begin{equation*}
+  M_n = \abs{a_nx_0^n} \geq \abs{a_nx^n}
+\end{equation*}
+so therefore by the Weierstrass M-Test, we can conclude that 
+this $\sum a_nx^n$ converges.
+}
+
+\bx{
+Take some compact set $K \subseteq A$.
+We know that $K$ must be bounded, since it is compact, so say 
+$K \subseteq \pbra{-M, M} \subseteq A$.
+
+We know the power series converges at $M$, since $M \in A$.
+Now, by Abel's Theorem, we have that since the power series 
+converges at $M$, we conclude the series converges uniformly
+on $[0, M]$. Similarly, it converges at $-M$, so 
+the power series converges uniformly on $[-M, 0]$ as well.
+
+Since the power series converges uniformly on 
+\begin{equation*}
+  \pbra{-M, 0} \cup \pbra{0, M} \supseteq K,
+\end{equation*}
+we conclude the series converges uniformly on $K$ as well.
+\label{chap6:uniform_compact_conv}
+}
+
+\bx{
+\ea{
+\item We have
+\begin{equation*}
+  \lim_n \abs{
+    \frac{
+      (n+1)s^{n}
+    }{
+      ns^{n-1}
+    }
+  } = 
+  \lim_n \abs{
+    \frac{n+1}{n}s
+  } = 
+  \abs{s} < 1
+\end{equation*}
+\label{chap6:ratio_conv}
+
+\item If we have $\sum_{n=0}^\infty a_nx^n$ converging on 
+$x \in (-R, R)$, we can use Theorem 6.5.5 from Exercise 
+\ref{chap6:uniform_compact_conv}
+to show that this series also converges uniformly on compact sets
+contained in $(-R, R)$.
+
+Now for the differentiated series, 
+choose a $t \in (\abs{x}, R)$,
+we can write 
+\begin{equation*}
+  \sum \abs{na_nx^{n-1}} = 
+  \sum \frac{1}{t} \pa{
+    n \abs{\frac{x}{t}}^{n-1}
+  }\abs{a_nt^n}
+\end{equation*}
+Now, since we know $\sum n\abs{x/t}^{n-1} = L$ because it converges, 
+from part
+\ref{chap6:ratio_conv},
+we can now write 
+\begin{equation*}
+  \sum \abs{na_nx^{n-1}} \leq
+  \sum \frac{1}{t} \pa{
+    L
+  }\abs{a_nt^n}
+  = \frac{L}{t} \sum \abs{a_nt^n} = \frac{LL'}{t}
+\end{equation*}
+we know $\sum \abs{a_nt^n}$ converges since we know
+the power series converges at $t' \in (t, R)$.
+
+Therefore, the differentiated series also converges.
+Using Theorem 6.5.5 again, we can conclude the differentiated
+series also converges uniformly on compact sets in $(-R, R)$.
+}
+}
+
+\bx{
+\ea{
+\item We can use the ratio test,
+\begin{equation*}
+  \lim_n \abs{
+    \frac{a_{n+1}x^{n+1}}{a_nx^n}
+  } = 
+  L \abs{x} < 1.
+\end{equation*}
+which shows that the series converges.
+\label{chap6:ratio_test_an}
+
+\item We can use the ratio test as in part
+\ref{chap6:ratio_test_an}.
+
+\item If $L' = \sup\pbrac{\abs{a_{k+1}/a_k}}$, 
+then $L \leq L'$, so for $x \in (-1/L', 1/L')$,
+we apply the ratio test again,
+\begin{equation*}
+  \lim_n \abs{
+    \frac{a_{n+1}x^{n+1}}{a_nx^n}
+  } = 
+  L \abs{x} \leq L' \abs{x} < 1.
+\end{equation*}
+If $L' = 0$, this is not possible since that would imply $a_k = 0$
+for all $k$, but we know $a_k \neq 0$.
+
+\item When $x = 0$, this series $=0$, so it converges trivially.
+When $x \neq 0$, this proof is more involved.
+If we have $\abs{x} \geq 1$, this proof is not too hard.
+We can show $\abs{\sum a_nx^n}$ does not converge, 
+because we can choose some $M > 1$, and then 
+we can find $n$ such that $\abs{a_{n+1}/a_n} \geq M$.
+This means 
+\begin{equation*}
+  \abs{
+    a_{n+1}x^{n+1} - a_nx^n
+  } \geq \abs{
+    a_{n+1}x^{n+1}
+  } - \abs{
+    a_nx^n
+  } = 
+  (M-1)\abs{a_{n-1}}
+  \pa{
+    \abs{x}-1
+  }
+  \abs{
+    x^{n-1}
+  } > \epsilon_1\abs{a_{n-1}}\delta_1 \cdot 1 > 0
+\end{equation*}
+which means after this $n$, the sum keeps on oscillating with 
+an amplitude that is always greater than 0, which means it 
+cannot possibly converge.
+
+For $x \in (-1, 1)$, what we need to show is somehow that $\abs{a_{n+1}/a_n}$
+``grows faster'' than $x^n$ decreases.
+Otherwise, it is possible that $x^n$ can diminish the unboundedness of the
+coefficients.
+The author probably did not intend for this proof, 
+so I will not prove it. It might be not too hard to show, 
+but I don't feel like doing it...
+
+The solution says that the condition should be $\abs{a_{k+1}/a_k} \geq 1$
+after some $k \geq N$, but I don't think this is necessarily true, because if you take 
+some $\abs{x} < 1$, and $a_n = 1$, then the series will still converge.
+}
+}
+
+\bx{
+We can show that 
+\begin{equation*}
+  \sum_{n=0}^\infty a_nx^n -
+  \sum_{n=0}^\infty b_nx^n
+  = 
+  a_0 - b_0
+  =
+  0
+\end{equation*}
+so therefore $a_0 = b_0$.
+We can inductively continue by considering
+for $x \neq 0$,
+\begin{equation*}
+  \frac{1}{x}
+  \pa{
+    \sum_{n=1}^\infty a_nx^n -
+    \sum_{n=1}^\infty b_nx^n
+  }
+  = 
+  a_1 - b_1
+  =
+  0 \Rightarrow a_1 = b_1
+\end{equation*}
+So therefore $\forall a_n = b_n$, and we conclude the power series 
+is unique.
+}
+
+\bx{
+We are given that 
+\begin{equation*}
+  \sum a_n, \sum b_n, \sum d_n
+\end{equation*}
+all converge. 
+Notice that 
+\begin{equation*}
+  f(1) = \sum a_n 1^n = \sum a_n,
+\end{equation*}
+and that similar observations can be made about $g, h$.
+
+Then, the assumptions mean that $f(1), g(1), h(1)$
+all converge, and by Abel's Theorem, this means that 
+$f, g, h$ converge uniformly on $[0, 1]$, and thus are also 
+continuous on this set.
+
+Now, we also know that since $f, g, h$ converge at 1, that 
+they converge absolutely for any $x \in [0, 1)$, 
+which means in this range, we have that 
+\begin{equation*}
+  h(x) = f(x)g(x)
+\end{equation*}
+Therefore, since $f, g, h$ are continuous on $[0, 1)$,
+and they also converge at $1$, we can conclude that at 
+$x=1$, we also have 
+\begin{equation*}
+  h(1) = f(1)g(1) \Rightarrow \sum d_n = \pa{\sum a_n}\pa{\sum b_n} = AB
+\end{equation*}
+}
+
+\bx{
+\ea{
+\item Any series $\sum a_n = L$ means that 
+\begin{equation*}
+  f(x=1) = \sum a_n1^n = L
+\end{equation*}
+so $f(x)$ converges uniformly on $[0, 1]$ by Abel's Theorem.
+Since all $a_nx^n$ are continuous on $[0, 1]$, $f(x)$ 
+is also continuous over this set, so we can conclude
+$\lim_{x \to 1^-} f(x) = f(1) = L$.
+
+\item This is just the geometric series with $b_0 = 1$, $r = -1 \cdot x$,
+so we have 
+\begin{equation*}
+  \sum_{n=0}^\infty a_nx^n = \frac{1}{1-(-x)} = \frac{1}{1+x}
+\end{equation*}
+If we take this $\lim_{x\to 1^-}$, we get a limit of $L = 1/2$.
+}
+}
+
+\bx{
+The key observation here is that $G(0) = d_1$, 
+and $G$ is strictly increasing.
+
+This means that $d_{r+1} = G(d_r) \leq G(d_0)$, 
+so by the Order Limit Theorem, we conclude $G(d_r) \to G(d_0) = d_0$.
+So $\lim d_r = d_0$.
+}

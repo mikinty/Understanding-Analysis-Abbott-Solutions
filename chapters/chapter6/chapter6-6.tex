@@ -2,3 +2,331 @@
 
 \section{Taylor Series}
 \setcounter{exercise}{0}
+
+\bx{
+If we know that $\arctan(x)$ is continuous,
+we just need to show the series is also continuous over the interval $\pbra{-1, 1}$.
+We know that the series converges at 1, which by Abel's Theorem gives us 
+uniform convergence over $\pbra{-1, 1}$. Every $a_nx^n$ is also continuous,
+which means that the series is continuous over this interval as well.
+Since the series and $\arctan(x)$ have the same value over $[0, 1)$,
+we can conclude they must have the same value at $1$ as well.
+
+We get the property that 
+\begin{equation*}
+  \arctan (1) = \frac{\pi}{4} = 
+  1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots
+  = \sum_{n=1}^\infty (-1)^{n+1}\frac{1}{2n-1}
+\end{equation*}
+}
+
+\bx{
+We know 
+\begin{equation*}
+  \dv{x} \ln(1+x) = \frac{1}{1+x} = 1 -x + x^2 - x^3 + \cdots
+\end{equation*}
+So if we take the integral,
+\begin{align*}
+  \ln(1+x) 
+  &= \int_{0}^x \pa{1 -x + x^2 - x^3 + \cdots } \dd{x}\\
+  &= 
+  x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots\\
+  &=
+  \sum_{n=1}^\infty (-1)^{n+1}\frac{x^n}{n}
+\end{align*}
+This is value for $\abs{x} < 1$, if we want to use the geometric series identity,
+and also converges for $x=1$ since it is the alternating harmonic series, so 
+converges over $x \in (-1, 1]$.
+}
+
+\bx{
+\ea{
+\item Taking derivatives
+\begin{equation*}
+  f'(x) = a_1 + 2a_2x + 3a_3x^2 + 4a_4x^3 + \cdots
+\end{equation*}
+so we see $f'(x) = a_1$.
+
+\item We can show that after $f^{(n)}(x)$,
+the coefficient of $x^n$ is 
+\begin{equation*}
+  \dv[n]{x} (a_nx^n) = n! \cdot a_n,
+\end{equation*}
+by the power rule of differentiation.
+
+Then we have 
+\begin{equation*}
+  f^{(n)}(x) = n! \cdot a_n + x\pa{\text{stuff}} \Rightarrow f^n(0) = n! \cdot a_n
+\end{equation*}
+so therefore \begin{equation*}
+  a_n = \frac{f^{(n)}(0)}{n!}
+\end{equation*}
+We can use Theorem 6.3.3 to justify our actions,
+since we know all the terms in the series are differentiable, 
+since they are in the form $a_nx^n$, and also we know the point $x_0 = 0$
+has a convergent point, so therefore $\pa{f^{(n)}}' = \sum (b_n)'$ where $b_n$
+are the terms of $f^{(n)}$.
+}
+}
+
+\bx{
+We can try a few terms,
+\begin{align*}
+  a_0 &= \sin(0) = 0\\
+  a_1 &= \frac{\cos(0)}{1!} = 1\\
+  a_2 &= \frac{-\sin(0)}{2!} = 0\\
+  a_3 &= \frac{-\cos(0)}{3!} = -\frac{1}{3!}\\
+  a_4 &= \frac{\sin(0)}{4!} = 0\\
+  a_5 &= \frac{\cos(0)}{5!} = \frac{1}{5!}\\
+  &\cdots
+\end{align*}
+and we can verify the pattern for the Taylor series for $\sin(x)$.
+}
+
+\bx{
+We know by Lagrange's remainder theorem that $\exists c$ such that
+\begin{equation*}
+  E_N(x) = \sin(x) - S_N(x) \leq \abs{
+    \frac{
+      \cos(c)
+    }{
+      (N+1)!
+    }
+  }2^{N+1} \leq 
+  \frac{2^{N+1}}{(N+1)!}
+\end{equation*}
+and this quantity $\to 0$ as $N \to \infty$ since factorial
+grows faster than exponential. Therefore, $E_N(x) \to 0$, uniformly.
+Our argument works for any interval $[-R, R]$.
+}
+
+\bx{
+\ea{
+\item We can find 
+\begin{align*}
+  a_0 &= e^0 = 1                      \\
+  a_1 &= \frac{e^0}{1!} = 1           \\
+  a_2 &= \frac{e^0}{2!} = \frac{1}{2!}\\
+  a_3 &= \frac{e^0}{3!} = \frac{1}{3!}\\
+  a_4 &= \frac{e^0}{4!} = \frac{1}{4!}\\
+  a_5 &= \frac{e^0}{5!} = \frac{1}{5!}\\
+  &\cdots
+\end{align*}
+So therefore 
+\begin{equation*}
+  e^x = \sum_{n=0}^\infty \frac{x^n}{n!}.
+\end{equation*}
+On any interval $[-R, R]$, we can bound $e^c \leq M$ for $c \in [-R, R]$.
+Now, 
+
+\begin{equation*}
+  \abs{E_N(x)} 
+  = 
+  \abs{
+    \frac{e^c}{(N+1)!}x^{N+1}
+  } \leq \frac{M\cdot R^{N+1}}{(N+1)!}
+\end{equation*}
+this shows $\abs{E_N(x)} \to 0$, so it converges uniformly to 0.
+
+\item We can verify that 
+\begin{align*}
+  (e^x)'
+  &= (1)' + \sum_{n=1}^\infty \frac{nx^{n-1}}{n!}\\
+  &= 0 + \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!}\\
+  &= \sum_{n'=0}^\infty \frac{x^{n'}}{(n')!}\tag{$n' = n-1$}
+\end{align*}
+
+\item We can make 
+\begin{equation*}
+  e^{-x} = \sum_{n=0}^\infty (-1)^n\frac{x^n}{n!}.
+\end{equation*}
+and find that 
+\begin{align*}
+  e^x \cdot e^{-x}
+  &= 1 + 
+  x\pa{
+    1 - 1
+  } + x^2\pa{
+    2\frac{1}{2!} - \pa{\frac{1}{1!}}^2
+  } + x^3\pa{
+    \frac{1}{3!}(1-1) + \frac{1}{2!}(1-1)
+  } + x^4\pa{
+    \frac{2}{4!} - \frac{2}{3!} + \pa{\frac{1}{2!}}^2
+  } + \cdots \\
+  &= 1 + 0 + 0 + \cdots\\ 
+  &= 1,
+\end{align*}
+which is expected since $e^xe^{-x} = e^0 = 1$.
+
+For a more rigorous justification, it is not hard to show for 
+$x^k$ $k$ odd, all the terms will cancel each other out.
+For even powers, the task is more difficult.
+
+The easiest way to show they cancel out is to notice that
+the coefficients of $x^n$ after the multiplication is just 
+\begin{equation*}
+  \frac{1}{n!} (-1 + 1)^n = 0
+\end{equation*}
+}
+}
+
+\bx{
+Not sure if this problem has a typo...but I think the author meant 
+\begin{equation*}
+  E_N(x) = f(x) - S_N(x)
+\end{equation*}
+and not $f_N(x)$...whatever that is supposed to mean.
+\begin{align*}
+  E^{(n)}_N(0) 
+  &= f^{(n)}(0) - S^{(n)}_N(0)\\
+  &= f^{(n)}(0) - a_N \cdot N!\\
+  &= f^{(n)}(0) - \frac{f^{(n)}(0)}{N!} \cdot N!\\
+  &= 0
+\end{align*}
+}
+
+\bx{
+We have 
+\begin{align*}
+  E_N(x) &= \frac{x^{N+1}}{N+1} \frac{E'_N(x_1)}{x^N_1}\\
+  &= \frac{x^{N+1}}{N+1} \cdot \frac{1}{N}\cdot\frac{E^{(2)}_N(x_2)}{x^{N-1}_2}\\
+  &= \frac{x^{N+1}}{N+1} \cdot \frac{1}{N}\cdot\frac{1}{N-1}\cdot
+  \frac{E^{(3)}_N(x_3)}{x^{N-2}_3}\\
+  &= \frac{x^{N+1}}{(N+1)!}E^{(N+1)}(x_{N+1})\\
+  &= \frac{x^{N+1}}{(N+1)!}\pbra{
+    f^{(N+1)}(x_{N+1}) - S^{(N+1)}_N(x_{N+1})
+  }\\
+  &= \frac{
+    f^{(N+1)}(x_{N+1})
+  }{
+    (N+1)!
+  }x^{N+1} 
+\end{align*}
+For the last step, $S_N$ highest degree term is $x^N$,
+so after $N+1$ derivatives, $S^{(N+1)}_N(x) = 0$.
+We see the overall strategy is just repeatedly apply the 
+GMVT between $x=x_k, 0$, and we can find 
+\begin{equation*}
+  x_2 \in (0, x_1), x_3 \in (0, x_2), \dots, x_k \in (0, x_{k-1}),
+\end{equation*}
+So we set $c = x_{N+1}$ to be used in the theorem.
+
+The negative direction is basically the same proof, just we choose 
+$x_k \in (x_{k-1}, 0)$.
+}
+
+\bx{
+Computing
+\begin{align*}
+  g'(0) 
+  &= \lim_{x \to 0} \frac{
+    e^{-1/x^2} - 0
+  }{
+    x
+  }\\
+  &= \lim_{x \to 0} \frac{
+    x^{-1}
+  }{
+    e^{1/x^2} 
+  }\\
+  &= \lim_{x \to 0} \frac{
+    -x^{-2}
+  }{
+    e^{-1/x^2}(2x^{-3})
+  } \tag{L'Hopital's}\\
+  &= \lim_{x\to 0} \frac{
+    x
+  }{
+    2e^{1/x^2}
+  }\\
+  &= 0
+\end{align*}
+}
+
+\bx{
+For $x \neq 0$,
+\begin{align*}
+  g'(x) &= 
+    \frac{2x^{-3}}{e^{1/x^2}}\\
+  g''(x) &= 
+    \frac{4x^{-6} - 6x^{-4}}{e^{1/x^2}}\\
+  g'''(x) &= 
+    \frac{8x^{-9} - 36x^{-7} + 24x^{-5}}{e^{1/x^2}}
+\end{align*}
+We can use the quotient rule to show that for 
+\begin{equation*}
+  \dv{x} \frac{f_k}{e^{1/x^2}} = 
+  \frac{
+    f'_k e^{1/x^2} - e^{1/x^2}(-2x^{-3})f_k
+  }{
+    \pa{e^{1/x^2}}^2
+  } = 
+  \frac{
+    f'_k + 2x^{-3}f_k
+  }{e^{1/x^2}}
+\end{equation*}
+So we can make a sequence-like definition for $g'(x)$.
+}
+
+\bx{
+Computing
+\begin{align*}
+  \lim_{x\to 0} \frac{
+    \frac{2x^{-3}}{e^{1/x^2}} - 0
+  }{
+    x - 0
+  }
+  &=
+  \lim_{x\to 0} \frac{
+    2x^{-4}
+  }{
+    e^{-1/x^2}
+  }\\
+  &=
+  \lim_{x\to 0} \frac{
+    -8x^{-5}
+  }{
+    e^{1/x^2}(-2x^{-3})
+  }\\
+  &=
+  \lim_{x\to 0} \frac{
+    4x^{-2}
+  }{
+    e^{1/x^2}
+  }\\
+  &=
+  \lim_{x\to 0} \frac{
+    -8x^{-3}
+  }{
+    e^{1/x^2}(-2x^{-3})
+  }\\
+  &=
+  \lim_{x\to 0} \frac{
+    4
+  }{
+    e^{1/x^2}
+  }\\
+  &= 0
+\end{align*}
+We can see in general, the L'Hopital's will produce enough $-2x^{-3}$
+to cancel out any factors in the numerator, until the numerator 
+has a non-negative degree polynomial in $x$, which means 
+\begin{equation*}
+  \lim_{x\to 0} \frac{
+    f(x)
+  }{
+    e^{1/x^2}   
+  }
+  = 0/\infty = 0 = g^{(n)}(0)
+\end{equation*}
+}
+
+\bx{
+$g$ is infinitely differentiable, since we found a general formula for its
+$n^\text{th}$ derivative.
+
+We found that $g^{(k)}(0) = 0$, which means the Taylor Series will be 
+$a_n = 0$. Of course, since this is $f(x) = 0$, this converges everywhere.
+However, we clearly see that $g(x) \neq 0$, so the Taylor series does not work
+for this example.
+}
