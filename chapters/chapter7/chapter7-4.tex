@@ -2,3 +2,292 @@
 
 \section{Properties of the Integral}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item 
+If both $\sup, \inf$ are negative or both nonnegative (i.e. same sign),
+then 
+\begin{equation*}
+  M - m = M'-m'
+\end{equation*}
+If $\sup$ is positive and $\inf$ is negative, then $M' = M$, but
+$m' = \inf \abs{f(x)} > \inf f(x) = m$, so 
+\begin{equation*}
+  M' - m' < M - m
+\end{equation*}
+\label{chap7:bound_u_l}
+
+\item Using our work from part 
+\ref{chap7:bound_u_l},
+we can see that we can choose a partition $P$ so that 
+\begin{equation*}
+  \epsilon > 
+    U(f, P) - L(f, P)
+  \geq 
+    U(\abs{f}, P) - L(\abs{f}, P)
+\end{equation*}
+
+\item It is always the case that $U(\abs{f}) \geq U(f)$,
+so we can conclude that 
+\begin{align*}
+  U(\abs{f}) &\geq U(f)\\
+  \int_a^b \abs{f} &\geq \int_a^b f\\
+  \Rightarrow \abs{\int_a^b \abs{f}} 
+  &\geq \abs{\int_a^b f}\\
+  \int_a^b \abs{f}
+  &\geq \abs{\int_a^b f} \tag{$\abs{f} \geq 0$}
+\end{align*}
+}
+}
+
+\bx{
+For $c \leq a \leq b$, we can use the property
+\begin{align*}
+  \int_c^b f &= 
+  \int_c^a f + \int_a^b f\\
+  \int_c^b f -
+  \int_c^a f &= \int_a^b f\\
+  \int_c^b f +
+  \int_a^c f &= \int_a^b f
+\end{align*}
+}
+
+\bx{
+From Exercise
+\ref{chap7:f_n_integrable},
+we saw that $f$ was integrable if we had $f_n \to f$ uniformly,
+and each $f_n$ was integrable.
+
+We need to still show that 
+\begin{equation*}
+  \lim_{n\to \infty} \int_a^b f_n = \int_a^b f
+\end{equation*}
+We can do this by first using the uniform convergence of $f_n$,
+which gives us 
+\begin{align*}
+  \abs{f_n - f} &< \epsilon\\
+  \Rightarrow 
+  f - \epsilon &< f_n < f + \epsilon\\
+  \int_a^b \pa{f - \epsilon} 
+  &< 
+  \int_a^b f_n
+  <
+  \int_a^b \pa{f + \epsilon}\\
+  \Rightarrow 
+  \abs{
+    \int_a^b f_n -
+    \int_a^b f 
+  } &< \epsilon(b-a)
+\end{align*}
+so we can make their difference arbitrarily small.
+}
+
+\bx{
+\ea{
+\item False. Use Dirichlet's function, except define -1 for irrationals,
+\begin{equation*}
+  g(x) = \begin{cases}
+    1, &x \in \mathbb{Q}\\
+    -1, &\text{otherwise}
+  \end{cases}
+\end{equation*}
+Then we have $\abs{g(x)} = 1$, which is integrable,
+but we have $U(g) = 1, L(g) = -1$, which is not integrable.
+
+\item False, consider $f(x) = 1, x = 1/n, 0$ otherwise we saw in Exercise 
+\ref{chap7:one_over_n_integrable}, where the integral is still 0.
+
+\item True. By the continuity of $g$, we can find a $\delta$ neighborhood
+such that $x \in V_\delta(x_0) \Rightarrow \abs{g(x) - g(x_0)} < g(x_0)$,
+which means $g(x) > 0$ on this interval.
+Choose a partition that is entirely contained in this interval, then we have 
+$L(g, P) > 0$, since that interval will yield a positive contribution
+and the others are $\geq 0$ since $g \geq $.
+Therefore, 
+\begin{equation*}
+  \int_a^b g = L(g) \geq L(g, P) > 0
+\end{equation*}
+
+\item We know $L(f) = \int_a^b f > 0$, 
+which means there must have been some closed interval $[c, d]$
+where $\inf f(x) > 0$. So we can choose this $\delta \in (\inf f(x), 0)$.
+
+}
+}
+
+\bx{
+\ea{
+\item At any point $x \in [y_k, y_{k+1}]$, we have
+\begin{equation*}
+  (f+g)(x) \leq \sup f(x) + \sup g(x)
+  \Rightarrow
+  \sup (f+g)(x) \leq \sup f(x) + \sup g(x)
+\end{equation*}
+so we can conclude
+\begin{equation*}
+  U(f+g, P) = \sum_{x \in [y_k, y_{k+1}]} \sup (f+g)(x)
+  \leq \sum_{x \in [y_k, y_{k+1}]} \sup f(x) + g(x)
+  = U(f, P) + U(g, P)
+\end{equation*}
+
+We have equality when the supremums are at the same $x$ in $f, g$.
+So a trivial example is $f(x) = x, g(x) = x$.
+
+The lower sums will abide by
+\begin{equation*}
+  L(f+g, P) 
+  \geq
+  L(f, P) + L(g, P)
+\end{equation*}
+\label{chap7:sum_f_g_bound}
+
+\item First, from our results in part 
+\ref{chap7:sum_f_g_bound}, we have
+\begin{align*}
+  U(f+g, P) &\leq U(f, P) + U(g, P)\\
+  L(f+g, P) &\geq L(f, P) + L(g, P)
+\end{align*}
+We can show $f+g$ is integrable by showing that 
+\begin{align*}
+  U(f+g, P_m) - L(f+g, P_m)
+  &\leq \pbra{
+    U(f, P_m) - L(f, P_m)
+  } + \pbra{
+    U(g, P_m) - L(g, P_m)
+  }\\
+  &< 
+  \frac{\epsilon}{2} +
+  \frac{\epsilon}{2} = \epsilon
+\end{align*}
+with the appropriate $P_m$ that bounds $f, g$.
+
+Now, we can also conclude 
+\begin{align*}
+  U(f+g) &\leq U(f) + U(g)\\
+  L(f+g) &\geq L(f) + L(g)
+\end{align*}
+which helps us show that
+\begin{align*}
+  \int_a^b f + \int_a^b g 
+  &= L(f) + L(g)\\
+  &\leq L(f+g) \\
+  &\leq U(f+g)\\
+  &\leq U(f) + U(g)\\
+  &= \int_a^b f + \int_a^b g 
+\end{align*}
+so we can conclude 
+\begin{equation*}
+  \int_a^b f+g = U(f+g) =
+  \int_a^b f + \int_a^b g 
+\end{equation*}
+}
+}
+
+\bx{
+\ea{
+\item We can define 
+\begin{equation*}
+  f_n(x) = \begin{cases}
+    n^2, &x \in (0, 1/n)\\
+    0, &\text{otherwise}
+  \end{cases}
+\end{equation*}
+We see $f_n \to 0$, since we can always find 
+$1/n < x$, which means $f_n(x) = 0$ for that particular $n$.
+Then $\int_0^1 f_n(x) = n$, so the limit does not exist.
+\label{chap7:part_int_unbounded}
+
+\item We can use the same example in part
+\ref{chap7:part_int_unbounded}, 
+since the integral gives the sequence $i_n = n$.
+
+\item We can modify our example in part
+\ref{chap7:part_int_unbounded}
+so that instead of a jump from $0$ to $n^2$, we define a line 
+from $(1/2n, n^2) \to (1/n, 0)$.
+
+Then this function will be continuous, but have 
+$\int_0^1 f = \frac{3}{4}n$.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw 
+      (0, 0) -- (2, 0) 
+      (0, 0) -- (0, 2) node[left] {$n^2$}
+    ;
+
+    \draw 
+      (0, 1.5) -- (0.75, 1.5) -- (1.5, 0)
+      node[below] {$\frac{1}{n}$}
+    ;
+  \end{tikzpicture}
+  \caption{The modified continuous $f_n(x)$}
+  \label{chap7:continuous_fn}
+\end{figure}
+
+\item No, since if $f_n$ is bounded, we can just bound the integral by $M$.
+}
+}
+
+\bx{
+Let the bound of $g, g_n$ be $M$.
+
+We want to bound
+\begin{align*}
+  \abs{
+    \int_0^1 g_n 
+    - \int_0^1 g
+  } 
+  &=
+  \abs{
+    \int_0^1 (g_n  - g)
+  }\tag{$g, g_n$ integrable}\\
+  &\leq 
+  \int_0^1 \abs{
+    g_n - g
+  }\\
+  &\leq 
+  \int_0^\delta \abs{
+    g_n - g
+  } + 
+  \int_\delta^1 \abs{
+    g_n - g
+  }
+\end{align*}
+We know $\abs{g_n - g} \leq 2M$, from their bounded property.
+\begin{equation*}
+  \int_0^\delta \abs{
+    g_n - g
+  } + 
+  \int_\delta^1 \abs{
+    g_n - g
+  }
+  \leq 
+  \int_0^\delta 2M 
+  + 
+  \int_\delta^1 \abs{
+    g_n - g
+  }
+\end{equation*}
+and we can choose $\delta$ first, and then an $n$ such that 
+\begin{equation*}
+  \delta < \frac{\epsilon}{2M}, 
+  \abs{g_n - g} < \frac{\epsilon}{2(1-\delta)}
+\end{equation*}
+and we can conclude
+\begin{align*}
+  \int_0^\delta 2M 
+  + 
+  \int_\delta^1 \abs{
+    g_n - g
+  } 
+  &<
+  \int_0^\delta 2M 
+  + 
+  \int_\delta^1 \frac{\epsilon}{2(1-\delta)}\\
+  &= \frac{\epsilon}{2M} \cdot 2M + (1-\delta)\frac{\epsilon}{2(1-\delta)}\\
+  &= \epsilon
+\end{align*}
+}
