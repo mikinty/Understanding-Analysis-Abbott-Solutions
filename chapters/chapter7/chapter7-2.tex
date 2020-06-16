@@ -3,3 +3,32 @@
 \setcounter{section}{1}
 \section{The Definition of the Riemann Integral}
 \setcounter{exercise}{0}
+
+The partition theorems may be a little confusing at first to understand.
+The basic idea is that if we have a refinement of some partition $P$,
+then we have all the original points of $P$, with additional points 
+in between.
+
+Now, if we consider the $L(f, P)$, we see that adding more points 
+in some interval $[x_k, x_{k+1}]$ 
+will only yield estimates $m_k$ that are larger than the $\inf(f(x), x \in [x_k, x_{k+1}])$,
+since in this interval, any $f(x)$ will be larger than the $\inf$.
+Therefore, we can conclude 
+\begin{equation*}
+  L(f, P) \leq L(f, \text{refinement})
+\end{equation*}
+On the other hand, if we look at $U(f, P)$, we get the opposite relation.
+The refinement produces a $U$ estimate that is less than the original, 
+since if you have some maximum over some interval, adding more points 
+gives you chance to take estimates that are less than the maximum.
+Therefore, we conclude 
+\begin{equation*}
+  U(f, P) \geq U(f, \text{refinement})
+\end{equation*}
+
+There is also a typo in Lemma 7.2.4 -- the author meant to say 
+if $Q = P_1 \cup P_2$, then $P_1 \subseteq Q, P_2, \subseteq Q$.
+
+\bx{
+
+}
