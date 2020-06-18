@@ -2,3 +2,640 @@
 
 \section{Lebesgue's Criterion for Riemann Integrability}
 \setcounter{exercise}{0}
+
+\bx{
+\ea{
+\item $L(t, P) = 0$ since every interval will have 
+an irrational number, so the $\inf = 0$ in all intervals.
+
+\item The set of points $\geq \epsilon/2$ are 
+\begin{align*}
+  x &= 0\\
+  x &= \frac{1}{1}\\
+  x &= \frac{1}{2}\\
+  x &= \frac{1}{3}\\
+  &\cdots\\
+  x &= \frac{1}{\floor*{2/\epsilon}}
+\end{align*}
+So we have 
+\begin{equation*}
+  \floor*{
+    \frac{2}{\epsilon}
+  } + 1
+\end{equation*}
+numbers on this list.
+
+\item Choose a partition that is
+\begin{equation*}
+  \pbrac{
+    0, \frac{
+      1
+    }{\floor{2/\epsilon}}
+  } \cup \pbrac{
+    V_{
+      \epsilon^2/9
+    }(x)
+  }
+\end{equation*}
+Then we have 
+\begin{align*}
+  U(t, P_\epsilon) 
+  &= \frac{\epsilon}{2} \cdot 1
+  + \pbra{
+    \pa{\floor*{\frac{2}{\epsilon}} + 1}
+    \cdot \frac{\epsilon^2}{9}
+  }\\
+  &= \frac{\epsilon}{2} + \frac{
+    \epsilon^2
+  }{
+    3
+  }\\
+  &\leq \frac{\epsilon}{2} +
+  \frac{\epsilon}{3} \tag{for $\epsilon < 1$}\\
+  &< \epsilon
+\end{align*}
+Note that $\epsilon \geq 1$ is trivial, since $\sup U(t, P) = 1$,
+so any partition will work for $\epsilon \geq 1$.
+}
+}
+
+\bx{
+We can compute that $L(g) = 0$, 
+since every interval must contain some $x \not\in C$,
+so the $\inf = 0$ for any interval.
+
+We know $C_n$ has closed sets with length $(2/3)^n$,
+so we can define 
+\begin{equation*}
+  P_n = \text{finite union of closed intervals that make up } C_n
+  \cup \text{the rest}
+\end{equation*}
+The only worry is that we can still include the endpoints 
+of the closed intervals in ``the rest''. So what we do 
+is we make the finite union of closed intervals slightly wider,
+so that the length is still small. We can add $L$ length 
+extensions at the endpoints, where 
+\begin{equation*}
+  2 \cdot 2^m \cdot L < \epsilon/2 
+\end{equation*}
+
+Then if we choose $\pa{\frac{2}{3}}^m < \epsilon/2$,
+and then choose $L$ as indicated above,
+\begin{align*}
+  U(g, P_m) 
+  &= 2^m\pa{
+    \frac{1}{3^m} +
+    2 L
+  } + 0\\
+  &= \pa{
+    \frac{2}{3}
+  }^m + 2 \cdot 2^m \cdot L \\
+  &<  
+  \epsilon/2 + \epsilon/2 = \epsilon
+\end{align*}
+\label{chap7:ex:cantor_integral}
+}
+
+\bx{
+For any countable set, we have 
+some enumeration, call it 
+\begin{equation*}
+  S = \pbrac{
+    a_1, a_2, a_3, \dots
+  }
+\end{equation*}
+We can then construct the interval 
+\begin{equation*}
+  O_n = \pa{
+    a_n - \frac{\epsilon}{2^{n+1}},
+    a_n + \frac{\epsilon}{2^{n+1}}
+  }
+\end{equation*}
+Then 
+\begin{align*}
+  \sum_{n=1}^\infty \abs{O_n} 
+  &=
+  \sum_{n=1}^\infty 2 \cdot \frac{\epsilon}{2^{n+1}}\\
+  &=
+  \epsilon \sum_{n=1}^\infty \frac{1}{2^{n}}\\
+  &=
+  \epsilon
+\end{align*}
+}
+
+\bx{
+We can do the same strategy we did in Exericse
+\ref{chap7:ex:cantor_integral},
+where we choose a $C_n$ with really small intervals,
+and in order to include everything in open intervals,
+we extend each closed interval by a small amount.
+Then, 
+\begin{align}
+  \sum \abs{O_n}
+  &=
+  2^n\pa{
+    \frac{1}{3^n} +
+    2 L
+  }\\
+  &< \epsilon \tag{See Exercise 
+    \ref{chap7:ex:cantor_integral}
+  }
+\end{align}
+}
+
+\bx{
+If $A$ and $B$ are measure zero, then we can find 
+open covers $O^1_n, O^2_n$ such that 
+\begin{align*}
+  \sum \abs{O^1_n} &< \frac{\epsilon}{2}\\
+  \sum \abs{O^2_n} &< \frac{\epsilon}{2}
+\end{align*}
+So then 
+$A \cup B \subseteq \bigcup_n O^1_n \cup O^2_n$,
+and
+\begin{equation*}
+  \sum \abs{O^1_n \cup O^2_n} 
+  \leq
+  \sum \abs{O^1_n} +
+  \sum \abs{O^2_n} 
+  <
+  \frac{\epsilon}{2} +
+  \frac{\epsilon}{2}
+  - \epsilon
+\end{equation*}
+
+For a countable union, I feel like we can assign 
+\begin{equation*}
+  \sum_n \abs{O^k_n} < \frac{
+    \epsilon
+  }{2^k}
+\end{equation*}
+for each set $A_k$.
+
+Then if we sum these together we get $< \epsilon$.
+
+The official solutions seems to need some reordering of a 
+summation...I'm not sure why we need that, since we can 
+say the open cover is
+\begin{equation*}
+  \mathcal{O} = \bigcup_k \bigcup_n O^k_n
+\end{equation*}
+So if we want to figure out 
+\begin{equation*}
+  \sum \abs{\mathcal{O}} = 
+  \sum_k \sum_n \abs{O^k_n} =
+  \sum_k \epsilon/2^k = \epsilon
+\end{equation*}
+I think the more rigorous proof also shows the other
+sum also equals $< \epsilon$.
+}
+
+Apparently the next exercises were already done 
+in Section 4.6, but I'm going to do them again
+for review.
+
+\bx{
+Let $x \in D_{\alpha_2}$,
+then $\forall \delta$,
+\begin{equation*}
+  \abs{
+    f(y) - f(z)
+  } \geq \alpha_2 > \alpha_1
+\end{equation*}
+So therefore $f$ is also not $\alpha_1$-continuous,
+and therefore $x \in D_{\alpha_1}$.
+}
+
+\bx{
+\ea{
+\item If we know that $f$ is continuous at $x$,
+then we can always find a $\delta$ such that 
+for $y, z \in V_\delta(x)$, that 
+\begin{equation}
+  \abs{
+    f(y) - f(z)
+  } < \epsilon < \alpha
+\end{equation}
+as long as we choose $\epsilon < \alpha$.
+
+If $f$ is not $\alpha$-continuous at $x$, then
+$f$ is discontinuous at that point, which means 
+\begin{equation*}
+  D_\alpha \subseteq D
+\end{equation*}
+
+\item This follows directly from the definition of 
+continuity, since if we take the negation of 
+the definition of continuity, we get that 
+$\exists \epsilon_0 > 0$ such that $\abs{f(y) - f(z)} \geq \epsilon_0$
+for any $y, z \in V_\delta(x)$.
+
+We can write 
+\begin{equation*}
+  D = \bigcup_{n=1}^\infty D_{1/n}
+\end{equation*}
+since for any discontinuity at $x$,
+we can find this $\epsilon_0$, which because of 
+$\exists n, 1/n < \epsilon_0$,
+which shows that $x \in D_{1/n}$.
+}
+}
+
+\bx{
+Consider some limit point of $D_\alpha$.
+$\exists (x_n) \to x, x_n \in D_\alpha$.
+
+Now \AFSOC $f$ is $\alpha$-continuous at $x$.
+Then we know $\exists \delta, y, z \in V_\delta(x)$
+implies $\abs{f(y) - f(z)} < \alpha$.
+
+We know since $(x_n) \to x$, we can find $x_k, x_j$
+such that $\abs{x_k - x}, \abs{x_j - x} < \delta$.
+In this case, we have 
+\begin{equation*}
+  \abs{f(x_k) - f(x_j)} < \alpha
+\end{equation*}
+But this is a contradiction, since $x_k, x_j \in D_\alpha$,
+which means for any $\delta$, we should be able to show that 
+$\abs{f(y)-f(z)} \geq \alpha$. But with our assumption,
+no matter what $\delta$ we choose, we can always produce some 
+$x_k$ close enough to an element of $D_\alpha$ such that 
+$\abs{f(x_k) - f(x)}$ is $< \alpha$.
+
+Therefore, we must conclude that $f$ is $\alpha$-discontinuous 
+at $x$, and therefore $x \in D_\alpha$.
+
+Since $D_\alpha$ contains all of its limit points,
+it must be closed.
+}
+
+\bx{
+\AFSOC $f$ is not uniformly $\alpha$-continuous on $K$,
+then we know 
+\begin{equation*}
+  \exists x_n, y_n, \lim \abs{x_n - y_n} = 0
+  \text{ while }
+  \abs{
+    f(x_n) - f(y_n)
+  } \geq \alpha
+\end{equation*}
+Since $K$ is compact, we know $x_n, y_n$ both have convergent
+subsequences $(x_{n_k}), (y_{n_k})$ 
+with limit $L_x = \lim x_{n_k}, L_y = \lim y_{n_k}$.
+By the Algebraic Limit Theorem, we have 
+\begin{equation*}
+  \lim y_{n_k} = \lim \pa{
+    \pa{
+      y_{n_k} - x_{n_k}
+    }
+    + x_{n_k}
+  }
+  = 0 + L_x
+\end{equation*}
+Therefore, we have $L_y = L_x$, so the two subsequences converge 
+to the same limit.
+
+Now, since $f$ is $\alpha$-continuous at every point $x$, 
+there $\exists \delta$ such that $y, z \in V_\delta(x)$
+implies $\abs{f(y) - f(z)} < \alpha$.
+Since $(x_{n_k}), (y_{n_k}) \to L$, we can find elements in both sequences 
+that are $\delta/2$ away from $L$, call them $x', y'$,
+which means $\abs{x' - y'} < \delta$,
+and therefore 
+\begin{equation*}
+  \abs{
+    f(x') - f(y')
+  } < \alpha
+\end{equation*}
+
+But this is a contradiction, since we assumed this quantity $\geq \alpha$.
+
+Therefore, we conclude that no such sequence exists, and therefore 
+$\abs{x - y} < \delta$ implies $\abs{f(x) - f(y)} < \alpha$.
+\label{chap7:ex:alpha_continuous}
+}
+
+\bx{
+\ea{
+\item Since we are assuming none of $I_n = \emptyset$,
+we can use the NIP to show that there must be an $x$ 
+in an infinite intersection of nonempty closed sets.
+
+\item Since $x \in K$, $\exists G_{\alpha_0}$ that contains $x$.
+Let $S = (x - \epsilon, x + \epsilon) \subseteq G_{\alpha_0}$.
+We know such an $\epsilon$ exists since $G_{\alpha_0}$
+is open.
+
+We also know $\lim_n \abs{I_n} = 0$,
+and since $K$ is compact and therefore bounded,
+this means we can choose $n$ such that
+\begin{equation*}
+  \abs{
+    K \cap I_n
+  } < \epsilon
+\end{equation*}
+
+Now, we must have 
+\begin{equation*}
+  K \cap I_n \subseteq (x - \epsilon, x + \epsilon) \subseteq G_{\alpha_0}
+\end{equation*}
+But this is a contradiction since we assumed $K \cap I_n$
+had no finite subcover.
+}
+
+\label{chap7:ex:finite_subcover}
+}
+
+\bx{
+From the definition of measure zero, we know there exists 
+some set of open intervals $G_k$ such that $D_\alpha$ is contained 
+within it, and that 
+\begin{equation*}
+  \sum \abs{G_k} < \epsilon
+\end{equation*} 
+
+Now, since $D_\alpha$ is bounded by $[a, b]$,
+and is closed, we know that $D_\alpha$ is compact, which means 
+it has a finite subcover from $G_k$.
+
+The last thing we have to do is make these open sets disjoint,
+which we can do by merging any $G_k$ together 
+that have any overlap, and we know their union is still an open set.
+
+Finally, the measure of these open sets is still arbitrarily small, 
+since first, we took a subset of the already measure zero set,
+then we took unions of sets, which satisfy
+\begin{equation*}
+  \abs{G_1 \cup G_2} \leq \abs{G_1} + \abs{G_2}
+\end{equation*}
+}
+
+\bx{
+We know $f$ is $\alpha$-continuous on $K$, since $D_\alpha$
+is removed. After removing a finite set of disjoint open intervals 
+on $[a, b]$, we must have $K$ equal a union of a finite number of closed 
+sets, which is still closed. Since $K$ is bounded, we conclude $K$ is compact.
+We showed in Exercise
+\ref{chap7:ex:alpha_continuous}
+that if $f$ is $\alpha$-continuous over a compact set,
+it must also be uniformly $\alpha$-continuous over it as well.
+}
+
+\bx{
+We can choose the parition so that, for $\delta$ that makes $f$
+uniformly $\alpha$-continuous on $[a, b]$,
+\begin{equation*}
+  P_\epsilon = \pbrac{
+    \text{Even intervals of width }<\delta
+  } \cup 
+  \pa{
+    \text{endpoints of }G_i
+  }
+\end{equation*}
+Now, if we calculate 
+\begin{align*}
+  U(f, P_\epsilon) - L(f, P_\epsilon)
+  &\leq \frac{\epsilon}{4M} \cdot 2M + (b-a) \frac{\epsilon}{2(b-a)}\\
+  &\leq \frac{\epsilon}{2} +
+  \frac{\epsilon}{2} = \epsilon
+\end{align*}
+For some explaining here, when we're inside the $G_i$ regions,
+the maximum difference of $U-L$ is $2M$, since $M$ is the bound of $f$,
+and we could potentially have $M - (-M) = 2M$.
+The length of these intervals is conveniently $\epsilon/(4M)$
+that we chose from earlier.
+
+For the intervals outside of the $G_i$, they are at most width $\delta$,
+so by $\alpha$-continuity, any $x, y$ in this interval will satisfy
+\begin{equation*}
+  \abs{
+    f(x) - f(y)
+  } < \alpha
+\end{equation*}
+As an upper bound, we can say $< \alpha$, and then 
+say the sum of the length of these intervals is $(b-a)$.
+
+Therefore, in this direction, we can conclude that $f$ is integrable.
+
+\label{chap7:ex:p_epsilon_intervals}
+}
+
+\bx{
+\ea{
+\item 
+If we have $U(f, P_\epsilon) - L(f, P_\epsilon) < \alpha\epsilon$,
+then let $G_k$ be the intervals that contain $D_\alpha$.
+Notice that because it is $\alpha$-discontinuous on these intervals,
+any difference of $\abs{f(x) - f(y)} \geq \alpha$, so
+
+If we now compute 
+\begin{align*}
+  \sum_k \alpha\abs{G_k} 
+  &\leq \sum_k (M_k - m_k)\abs{G_k}\\
+  &\leq \sum_j (M_j - m_j)\Delta x_j\\
+  &= U(f, P_\epsilon) - L(f, P_\epsilon)\\
+  &< \alpha\epsilon
+\end{align*}
+So we have 
+\begin{equation*}
+  \sum_k \alpha \abs{G_k} < \alpha\epsilon \Rightarrow
+  \abs{D_\alpha} \leq \sum_k \abs{G_k} < \epsilon
+\end{equation*}
+
+\item Since we know each $D_\alpha$ as measure zero, we can define 
+\begin{equation*}
+  D = \bigcup_{n=1}^\infty D_{1/n}
+\end{equation*}
+Now, this has measure zero since every $\abs{D_{1/n}}$
+can be bounded by $\epsilon/2^{n}$,
+and thus $\abs{D} < \epsilon$.
+}
+}
+
+\bx{
+\ea{
+\item 
+\begin{align*}
+  g'(0) &=
+  \lim_{x \to 0} 
+  \frac{
+    g(x) - 0
+  }{
+    x - 0
+  }\\
+  &= 
+  \lim_{x \to 0} 
+  \frac{
+    x^2 \sin (1/x)
+  }{
+    x
+  }\\
+  &=
+  \lim_{x \to 0} 
+  x\sin(1/x)\\
+  &= 0
+\end{align*}
+
+\item We can compute 
+\begin{equation*}
+  g'(x) = 2x\sin(1/x) - \cos(1/x)
+\end{equation*}
+
+\item 
+For any $\frac{1}{2\pi n}, \frac{1}{\pi + 2\pi n} \in (-\delta, \delta)$,
+\begin{align*}
+  g'\pa{
+    \frac{1}{2\pi n}
+  } &= 
+  -1\\
+  g'\pa{
+    \frac{1}{\pi + 2\pi n}
+  } &= 
+  1
+\end{align*}
+Since $g'(x)$ is continuous between 
+\begin{equation*}
+  x \in \pbra{\frac{1}{\pi + 2\pi n}, \frac{1}{2\pi n}},
+\end{equation*}
+we see that $g'(x)$ attains every value between $-1, 1$ over $V_\delta(0)$.
+
+We can conclude $g'$ is not continuous at $x=0$, because no matter
+how small of a $V_\delta(0)$, we choose, we can always fine 
+\begin{equation*}
+  \abs{
+    g'(x) - g'(0)
+  } = 1
+\end{equation*}
+}
+}
+
+\bx{
+\ea{
+\item Eventually $f_n(c) = 0$, since $x \in C_n$ for some $n$.
+So $\lim_{n\to \infty} f_n(c) = 0$.
+
+\item If $x \not\in C$, then it will be part of some fragment of 
+$g(x)$, which is constant after it is created. This fragment is 
+also continuous.
+}
+}
+
+\bx{
+\ea{
+\item $f'(x)$ is the differentiable $g(x)$ fragment we showed 
+earlier was differentiable.
+
+\item We can imagine $\abs{f(x)}$ as a sine wave that 
+oscillates under the parabola $x^2$ centered around some endpoint $\in C$.
+
+Then, $(x-c)^2$ is a parabola centered one of these endpoints,
+which means it is the upper envelope for one of these sine waves.
+See Figure 
+\ref{chap7:fig:sine_parabola}
+for how this envelope bounds the sine-parabola.
+
+Now, this property implies that 
+\begin{equation*}
+  \abs{f(c+\delta)} \leq (c+\delta-c)^2 = \delta^2
+\end{equation*}
+so we can find
+\begin{equation*}
+  f'(c) = \frac{
+    f(c+\delta) - f(c)
+  }{
+    c+\delta - c
+  } = \frac{
+    \delta^2
+  }{
+    \delta
+  } = \delta
+\end{equation*}
+which we can make arbitrarily small,
+so $f'(c) = 0$.
+
+\begin{figure}[H]
+  \centering
+  \def\domainSize{0.2}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis y line = middle,
+      axis x line = bottom,
+      scaled y ticks=false,
+      xticklabels={,,,$c$,},
+      yticklabels={,,}
+    ]
+
+    \addplot[
+      domain=-\domainSize:\domainSize,
+      samples=100
+    ]{
+      x^2
+    };
+
+    \addplot[
+        domain=-\domainSize:\domainSize,
+        samples=1000
+    ]{
+      abs(
+        x^2*sin(180/(pi*x))
+      )
+    };
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Showing how $\abs{f(x)} \leq (x-c)^2$}
+  \label{chap7:fig:sine_parabola}
+\end{figure}
+
+\item We have $f'(c) = 0$ for every $c \in C$.
+Now, in any $\delta$-neighborhood of $c$, we can always find 
+some $c' \not\in C$, which because is on an open set of a 
+fragment of $g$, $\exists c''$ where $f'(c'') \neq 0$.
+
+This means for any $\delta$,
+$\exists c'' \in V_\delta(c)$ such that 
+\begin{equation*}
+  \abs{
+    f'(c'') - f'(c)
+  } = \abs{f'(c'')} \neq 0
+\end{equation*}
+So therefore, $f'(x)$ is not continuous.
+}
+}
+
+\bx{
+By Lebesgue's Theorem, we know that $f'$ is bounded ($\leq 1$), and $f'$
+is not continuous at every $x \in C$, and we know $C$ is a measure zero set,
+so therefore $f$ is Riemann-integrable.
+}
+
+\bx{
+Now, the sum of the lengths of $C$ are the complement of 
+the sum of the segments which we remove, which is 
+\begin{equation*}
+  \frac{1}{9} + 2 \cdot \frac{1}{27} + \cdots =
+  \frac{
+    1/9
+  }{
+    1 - 2/3
+  } = \frac{1}{3}
+\end{equation*}
+So we can conclude $\lim_{n \to \infty} \abs{C_n} = \frac{2}{3}$.
+
+I also wanted to do this directly...but it is more difficult.
+The sequence for $\abs{C_k}$ looks like
+\begin{equation*}
+  \abs{C_0} = 1, \abs{C_k} = \abs{C_{k-1}} - \frac{2^{k-1}}{3^{k+1}}.
+\end{equation*}
+Now, I couldn't find a smart way to figure out this convergence, other
+than noticing that 
+\begin{equation*}
+  \abs{C_k} = \abs{C_0} - \pa{
+    \frac{1}{9} + 
+    \frac{2}{27} + \cdots
+    +
+    \frac{2^{k-1}}{3^{k+1}}
+  },
+\end{equation*}
+which just leads to the result we found earlier.
+}
