@@ -35,5 +35,5 @@ There are also `TODO` comments if there are more minor parts that need work, e.g
 - Chapter 4: :white_check_mark:
 - Chapter 5: :white_check_mark:
 - Chapter 6: :white_check_mark:
-- Chapter 7: :hourglass: 7.5
-- Chapter 8: :x:
+- Chapter 7: :white_check_mark:
+- Chapter 8: :hourglass: 8.1
