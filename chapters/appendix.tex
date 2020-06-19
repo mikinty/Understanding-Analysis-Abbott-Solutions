@@ -5,7 +5,9 @@
 Collection of useful tools and methods to solve problems.
 
 \begin{tip}
-  Template for a proof that $(x_n) \rightarrow x$:
+  \textbf{
+    (Template for a proof that $(x_n) \rightarrow x$)
+  }
   \begin{itemize}
     \item Let $\epsilon > 0$ be arbitrary 
     \item Demonstrate a choice for $N \in \mathbb{N}$. 
@@ -112,6 +114,20 @@ Collection of useful tools and methods to solve problems.
   defined on $A$ if, for every $\epsilon > 0$, $\exists N \in \mathbb{N}$
   such that $\abs{f_n(x) - f(x)} < \epsilon$ whenever $n \geq N$ and $x \in A$.
 \end{definition}
+
+\begin{theorem}
+  \textbf{\textup{(Cauchy Criterion for Uniform Convergence)}}
+  A sequence of functions $(f_n)$ deﬁned on a set $A \subseteq \mathbb{R}$
+  converges uniformly on $A$ if and only if for every 
+  $\epsilon>0$ there exists an $N \in \mathbb{N}$
+  such that 
+  \begin{equation*}
+    \abs{
+      f_n(x) - f_m(x)
+    } < \epsilon
+  \end{equation*}
+  for all $m,n \geq N$ and all $x \in A$.
+\end{theorem}
 
 \section{Identities}
 \begin{identity}
