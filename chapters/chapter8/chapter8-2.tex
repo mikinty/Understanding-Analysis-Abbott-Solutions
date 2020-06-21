@@ -610,11 +610,21 @@ to always be $> n$.
       xmax = 6,
       ymin = 0,
       ymax = 6,
-      legend style={at={(axis cs:6.5,5.75)},anchor=north east}
+      legend style={at={(axis cs:6.5,5.75)},anchor=north east},
+      every axis plot/.append style={line width=1pt}
     ]
+      \addplot [smooth, tension=1] 
+        coordinates { 
+          (1,1)
+          (2.5,4)
+          (4.5,4.5)
+        }
+      ;
+      \addlegendentry{$f(x)$}
+
       \addplot[
         mark=none,
-        color=blue
+        color={rgb,255:red,87;green,160;blue,88}
       ] coordinates {
         (1, 1)
         (4.5, 4.5)
@@ -623,7 +633,7 @@ to always be $> n$.
 
       \addplot[
         mark=none,
-        color=red
+        color={rgb,255:red,232;green,202;blue,53}
       ] coordinates {
         (1, 1)
         (1.5, 2)
@@ -647,15 +657,6 @@ to always be $> n$.
         (axis cs:4.5, 0) -- (axis cs:4.5, 5)
       ;
 
-      \draw plot [smooth, tension=1] 
-        coordinates { 
-          (axis cs:1,1)
-          (axis cs:2.5,4)
-          (axis cs:4.5,5)
-        }
-      ;
-      \addlegendentry{$f(x)$}
-
       \draw[<->]
         (axis cs: 1, -0.5) -- (axis cs:4.5, -0.5)
         node[midway, below] {$\delta$}
@@ -674,8 +675,8 @@ to always be $> n$.
     \end{axis}
   \end{tikzpicture}
   \caption{
-    Demonstrating adding zigzags to $p(x)$ to make its slope always big but
-    also maintaining continuity.
+    Demonstrating adding zigzags to $p(x)$ to make its slope always big,
+    but also maintaining continuity.
   }
   \label{chap8:fig:zigzags_px}
 \end{figure}
