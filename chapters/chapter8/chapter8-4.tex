@@ -2,3 +2,372 @@
 
 \section{A Construction of $\mathbb{R}$ From $\mathbb{Q}$}
 \setcounter{exercise}{0}
+
+This chapter has some confusing ordering for the exercises, 
+where you prove seemingly out of place properties.
+I think this chapter could have the exercises ordered better 
+so that you prove all the properties you can before introducing 
+new properties.
+
+\bx{
+\ea{
+\item We just need to verify the properties,
+\begin{enumerate}[label=(c\arabic*)]
+  \item we know $r/2 < r \Rightarrow r/2 \in C_r$, so $C_r \neq \emptyset$. In addition, $C_r$ only contains 
+  rational numbers less than $r$, so $r \not\in C_r \Rightarrow C_r \neq \mathbb{Q}$
+
+  \item If $x \in C_r$, then all $y \in \mathbb{Q}, y < x < r$ so therefore $y \in C_r$ as well.
+  
+  \item $\forall x \in C_r, s=\frac{x + r}{2} \in C_r$, since $s < r$. But we see $s > x$ so 
+  $C_r$ has no maximum.
+\end{enumerate}
+
+\item $2$ is a maximum, so this is not a valid cut.
+\item This is a cut.
+\item This is also a cut.
+}
+}
+
+\bx{
+We have 2 cases,
+\begin{itemize}
+  \item $s \in \mathbb{Q}$, so since $A$ is a cut, we must have $r \leq s$, since otherwise 
+  $r > s$ would be a contradiction since $A$ contains all rationals $< r$.
+  Then, since $s \not\in A$ but $r \in A$, $r \neq s$, so we have $r < s$.
+\end{itemize}
+}
+
+\bx{
+We examine:
+\begin{itemize}
+  \item $\mathbb{N}$:
+  \begin{enumerate}[label=(f\arabic*)]
+    \item Commutativity holds
+    \item Associativity holds
+    \item there is no additive identity $0 \not\in\mathbb{N}$, but a mult. identity ($1$) exists
+    \item Inverses do not exist in general for multiplication and addition
+    \item Distributive property holds
+  \end{enumerate}
+
+  \item $\mathbb{Z}$:
+  \begin{enumerate}[label=(f\arabic*)]
+    \item Commutativity holds
+    \item Associativity holds
+    \item There is an additive identity $0$ and a mult. identity ($1$) 
+    \item Inverses do not exist in general for multiplication, but addition does, $x, -x \in \mathbb{Z}$
+    \item Distributive property holds
+  \end{enumerate}
+
+  \item $\mathbb{Q}$:
+  \begin{enumerate}[label=(f\arabic*)]
+    \item Commutativity holds
+    \item Associativity holds
+    \item There is an additive identity $0$ and a mult. identity ($1$) 
+    \item Inverses exist in multiplication $r, 1/r \in \mathbb{Q}$ and addition, $x, -x \in \mathbb{Q}$
+    \item Distributive property holds
+  \end{enumerate}
+\end{itemize}
+So we see that $\mathbb{Q}$ is the only field out of these three sets.
+
+The text has an error where for $(f3)$, the additive identity is written as $x+0 = 0$, instead of 
+\begin{equation*}
+  x+0 = x.
+\end{equation*}
+I checked the official solutions manual and the author acknowledges this.
+}
+
+\bx{
+Verifying the ordering properties,
+\begin{enumerate}[label=(o\arabic*)]
+  \item For $A, B$ one must be a subset of the other, since they are either equal,
+  or they are not, in which case WLOG $\exists s \in A, s \not\in B$,
+  then it must be the case that $s > b, \forall b \in B$, and therefore $b \in A$.
+  We will then conclude $B \subseteq A \Rightarrow B \leq A$.
+
+  \item If we have $A \subseteq B, B \subseteq A$, by double containment, $A = B$.
+  
+  \item If we have $A \subseteq B$ and $B \subseteq C$, then for any element $a \in A$,
+  we know $a \in B$ by $A \subseteq B$, and since $B \subseteq C$, this means $a \in C$.
+  THerefore, we conclude $A \subseteq C \Rightarrow A \leq C$.
+\end{enumerate}
+\label{chap8:ex:ordering_prop}
+}
+
+\bx{
+\ea{
+  \item \begin{enumerate}[label=(c\arabic*)]
+    \item Since $A, B \neq \emptyset$, we know $\exists a+b \in A+B$ where $a \in A, b \in B$, so $A+B \neq \emptyset$.
+    $A+B \neq \mathbb{Q}$, because WLOG $A \subseteq B$, 
+    then choose an arbitrary $s \in \mathbb{Q}, s < a+b, s \in A+B$, which we know 
+    exists since $A+B$ has no maximum. 
+    Since $s -a < b, s-a \in B$.
+    Now, $a \in B$ since $A \subseteq B$, so we 
+    can conclude that $(s-a) + a = s \in B$. However, $s$ was arbitrary from $\mathbb{Q}$,
+    so we conclude that $B = \mathbb{Q}$, which is a contradiction. Therefore, 
+    we must conclude that $A+B \neq \mathbb{Q}$.
+    \setcounter{enumii}{2}
+    \item We know $\exists r_a > a$ for $A$, and $\exists r_b > b$ for $B$,
+    which means for any $a+b \in A+B$, we know that $\exists r_a + r_b > a+b$, where $r_a+r_b \in A+B$ 
+    since $r_a \in A, r_b \in B$.
+  \end{enumerate}
+  We can therefore conclude that $A+B$ is a cut.
+
+  \item $A+B = B+A$ since $a+b = b+a$ over $\mathbb{Q}$. We also have $(A+B)+C = A+(B+C)$,
+  since this is equivalent to asking if $(a+b)+c = a+(b+c)$ for $a, b, c \in \mathbb{Q}$,
+  which we know is true since $\mathbb{Q}$ has associativity.
+
+  \item Take any $A$. We want to show that $A+O = A$.\footnote{
+    Once again, this is an error in the text where the author says to show $A+O = O$.
+    This is a pretty big error and repeated multiple times...
+  }
+  $A \subseteq A+O$, since given $r \in A$, we can always find $p \in A$ such that $p > r$.
+  Then let $q = r-p < 0$. We know $q \in O$, so we have $p + q = p+(r-p) = r \in A+O$.
+
+  $A+O \subseteq A$, since given any $s = a+o \in A+O$, $s < a \in A$, 
+  and $A$ must contain all rationals less than $a \in A$, so therefore $s \in A$.
+}
+}
+
+\bx{
+\ea{
+\item Verifying the cut properties, 
+\begin{enumerate}[label=(c\arabic*)]
+  \item We know $A \neq \emptyset$, so $\exists t \not\in A$.
+  Now, $-r \in \mathbb{Q}$, and we can always find some rational 
+  less than $-r$, for example $-r/2$ if $-r$ is positive, $-r-1$
+  if $-r \leq 0$. Therefore $-A \neq\emptyset$.
+
+  The complement of $-A$ is 
+  \begin{equation*}
+    \pbrac{
+      r \in \mathbb{Q}: \forall t \in A, t \geq -r
+    }
+  \end{equation*}
+  this set is not empty because if we assume it is, then 
+  there is no $-r > t, t \in A$, which means $A$ must contain every rational,
+  since if $\exists q \not\in A$, then $q > t, t \in A$.
+  But this is a contradiction, since $A \neq \mathbb{Q}$,
+  therefore we conclude this set is not empty.
+  Hence $-A$ is a complement of a nonempty set, so it cannot be 
+  $\mathbb{Q}$.
+
+  \item Take some $r \in -A$. If we consider some $q < r \Rightarrow -q > -r$,
+  we have 
+  \begin{equation*}
+    t < -r < -q
+  \end{equation*}
+  so therefore $q \in -A$ as well.
+
+  \item Take some $r \in -A$. We know $\exists t < -r$.
+  Take $r' = (t-r)/2$, then $r' < -r \Rightarrow -r' \in -A$,
+  but we also have $-r' > r$.
+\end{enumerate}
+
+\item If $A = (-\infty, 2)$, then $-A = (-\infty, -2]$,
+which has a maximum.
+
+\item We need to show $a+r < 0$. \AFSOC $a+r \geq 0$,
+then we have $a \geq -r$, but we know that $\exists t \not\in A, t < -r$,
+so $a \geq -r > t$. But we know if $t \not \in A$, that $t > a$, 
+so this is a contradiction. We conclude $a+r < 0$, and $A+(-A) \subseteq O$.
+
+We know want to show $O \subseteq A+(-A)$.
+Given any element $o \in O$, we know that $o < 0$.
+The strategy here is that $-A$ is essentially
+``shifting'' $A$ to be $O$, so if $A$ 
+is bounded by some $N$ that is $< 0$, 
+then $-A$ will shift $A$ towards the positive,
+and if $N > 0$, then $-A$ will shift $A$
+towards the negative.
+
+Now, what this means, is the ``upper boundary''\footnote{
+  There is no $\sup$ definition, so we just have to use some intuition here.
+} of $-A$
+added with the ``upper boundary'' of $A$ should be $< 0$ 
+and close to it. Everywhere else, any element of $A$
+can just be added with the ``upper boundary'' of $-A$
+to be $< 0$.
+Therefore, we need to focus our efforts on this ``upper boundary''.
+
+Let $\epsilon = -\abs{o}/2$, then
+we can find a $t \not\in A$ such that $t - \epsilon \in A$,
+because otherwise, $A$ is empty, because we can keep on proving that 
+$t - N\epsilon \not\in A$,
+or $A = \mathbb{Q}$ since no such $t$ exists in the first place. 
+Therefore, from the definition of $-A$, we know that $t + \epsilon > t$,
+so $t + \epsilon \in -A$.
+
+Now, if we conclude $(t-\epsilon) + (t+\epsilon) = 2\epsilon < 0$,
+we see we can make negative numbers arbitrarily close to $0$,
+which means we can find $o < r < 0$, and since $o < r$, and $r \in A+(-A)$,
+we conclude $o \in A+(-A)$.
+
+\item Suppose we have $A \subseteq B, B \subseteq C$,
+then $x \in A \Rightarrow x \in C$, so $A \subseteq C \Rightarrow A \leq C$
+as desired. 
+
+Notice we have already proved this in Exercise
+\ref{chap8:ex:ordering_prop}.
+}
+}
+
+\bx{
+\ea{
+\item We have to show
+\begin{enumerate}[label=(c\arabic*)]
+  \item We have $O \neq \emptyset$, so $AB \neq \emptyset$.
+  $\exists a, b \not\in A, B$ respectively, so 
+  $a > a' \in A, b > b' \in B$, so $ab > a'b' \in AB$,
+  and therefore $ab \not\in AB$ and $AB \neq \mathbb{Q}$.
+
+  \item Consider $x \in AB$, and $q < x$.
+  Then we know $q < x = ab, a \in A, b \in B$, so $q/a < b$,
+  which means $q/a \in B$.
+  Then $a \cdot q/a = q \in AB$.
+  
+  \item For any $x \in AB$, we know $x = ab, where a \in A, b \in B$.
+  Take the $a < a'$, $b < b'$, where $a' \in A, b' \in B$,
+  then $ab < a'b'$ where $ab, a'b' \in AB$.
+\end{enumerate}
+
+\item Suppose $A \leq B \Rightarrow A \subseteq B$. Then we want to show that 
+\begin{equation*}
+  C + A \leq C + B \Rightarrow C + A \subseteq C + B.
+\end{equation*}
+Consider any $x \in C+A$, then we know $x = c + a$.
+Since $A \subseteq B, a \in B$ as well so $x$ is the sum of an element 
+from $C$ and $B$, hence $x \in C+B$.
+
+\item Try the candidate $I = \pbrac{r \in \mathbb{Q}:r <1}$.
+Then we can show that 
+\begin{itemize}
+  \item $AI \subseteq A$. For any $ai \in AI, a \in A, x \in I$, we have 
+  $ax < a$, so therefore $ax \in A$.
+
+  \item $A \subseteq AI$. For any $a \in A$, choose $r_1 = a+\epsilon \in A$,
+  and $r_2 = 1-\epsilon/N \in I$.
+  Then we have 
+  \begin{equation*}
+    (a+\epsilon)(1-\frac{\epsilon}{N}) = 
+    a + \epsilon - \frac{
+      a\epsilon + \epsilon^2
+    }{
+      N
+    }
+  \end{equation*}
+  Since we can make $N$ arbitrarily large, this expression will be $> a$,
+  and also $\in AI$, so hence $a \in AI$.
+\end{itemize}
+
+\item $AO$ is defined as
+\begin{equation*}
+  \pbrac{
+    ao: a \in A, o \in O, a, o \geq 0 
+  } \cup O
+  = \emptyset \cup O = O
+\end{equation*}
+since $\not\exists o \geq 0$.
+}
+}
+
+\bx{
+\ea{
+\item Proving cut properies for $S$,
+\begin{enumerate}[label=(c\arabic*)]
+  \item If $\mathcal{A}$ is nonempty, then it must contain at least 
+  one nonempty sets, so $S$, the union of these nonempty sets,
+  must be nonempty.
+
+  Since $\exists B \geq A, A \in \mathcal{A}$, we know 
+  $\exists b \in B, b \not\in A$, so therefore $b \not\in S$,
+  and $S \neq \mathbb{Q}$.
+
+  \item For any $r \in S$, take any $q < r$. Since $r \in A \subseteq \mathcal{A}$,
+  we know $q \in A$, so therefore $q \in S$.
+
+  \item For any $r \in S$, since $r \in A \subseteq \mathcal{A}$,
+  we know $\exists q > r, q \in A$, so therefore $q \in S$ 
+  and $S$ has no maximum.
+\end{enumerate}
+
+\item Proving $S$ is the least upper bound for $\mathcal{A}$,
+\begin{enumerate}[label=(\roman*)]
+  \item 
+  Since $S$ is the union of all the way, for any $A \in \mathcal{A}$,
+  we have $A \subseteq S \Rightarrow A \leq S$.
+
+  \item \AFSOC we have some $B$ upper bound such that $S \not\leq B$,
+  meaning $S \not\subseteq B$. Then $\exists s \in S, s \not\in B$.
+
+  Since this $s$ belongs to some $A \in \mathcal{A}$, we know that 
+  this $A \not\subseteq B \Rightarrow A \not\leq B$, and therefore 
+  $B$ is not an upper bound, which is a contradiction.
+\end{enumerate}
+}
+}
+
+\bx{
+\ea{
+\item We need to show 
+\begin{itemize}
+  \item $C_r + C_s \subseteq C_{r+s}$.
+  We have 
+  \begin{align*}
+    r' \in C_r, r' &< r\\
+    s' \in C_s, s' &< s\\
+    \Rightarrow r'+s' &< r+s
+  \end{align*}
+  so we conclude $r'+s' \in C_{r+s}$.
+
+  \item $C_{r+s} \subseteq C_r + C_s$. WLOG $C_r \subseteq C_s$.
+  Take any $x \in C_{r+s}$, then we know $x < r+s \Rightarrow x -r < s$.
+  Then $x -r-\epsilon \in C_s$. This means that 
+  \begin{equation*}
+    (x-r-\epsilon) + (r-\epsilon) = x \in C_r + C_s
+  \end{equation*}
+\end{itemize}
+
+For multiplication,
+\begin{itemize}
+  \item $C_rC_s \subseteq C_{rs}$.
+  We have 
+  \begin{align*}
+    r' \in C_r, r' &< r\\
+    s' \in C_s, s' &< s\\
+    \Rightarrow r's' &< rs
+  \end{align*}
+  so we conclude $r's' \in C_{r+s}$.
+  
+  \item $C_{rs} \subseteq C_{r}C_s$. WLOG $C_r \subseteq C_s$.
+  Take any $x \in C_{rs}$, then $x < rs \Rightarrow x/r < s$,
+  so $x/r \in C_s$. 
+  Let $y \in C_s$ where $y > x/r$. Call $\epsilon = y-x/r$,
+  then we have $y = x/r+\epsilon$.
+  Now, we also know that $r - \epsilon/N \in C_r$, for sufficiently 
+  large $N$.
+  Therefore, we can say
+  \begin{equation*}
+    \pa{
+      \frac{x}{r} + \epsilon
+    }
+    \pa{
+      r - \frac{\epsilon}{N}
+    } = x + \epsilon r - \frac{1}{N}\pa{
+      \frac{x}{r} + \epsilon
+    } > x \tag{Sufficiently large $N$}
+  \end{equation*}
+  so therefore this product $\in C_rC_s$ and therefore $x \in C_rC_s$
+  as well since $x$ is less than this product.
+\end{itemize}
+
+\item ($\Rightarrow$)
+Suppose $C_r \leq C_s$. \AFSOC $r > s$.
+Then we can find $r > q > s$, for $q \in C_r$. Since $q > s$,
+$q \not\in C_s$, but this means $C_r \not\subseteq C_s$
+which is a contradiction.
+
+($\Leftarrow$) Suppose $r \leq s$.
+Take any element $x \in C_r$. We know that $x < r \leq s$
+so therefore $x \in C_s$, and we have $C_r \subseteq C_s \Rightarrow C_r \leq C_s$.
+}
+}
