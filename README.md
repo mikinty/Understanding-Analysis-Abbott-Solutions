@@ -5,6 +5,9 @@ I started these solutions since I was self-studying real analysis,
 and felt that I might as well give the problems an effort by writing
 out solutions.
 
+The PDF is located in the [`build/`](https://github.com/mikinty/Understanding-Analysis-Abbott-Solutions/blob/master/build/main.pdf)
+folder of the repo.
+
 If you want to contribute, feel free to fork and submit a PR!
 
 ## Why should I read this?
