@@ -4,7 +4,7 @@
 
 \bx{
 \ea{
-	\item We compute the additive inverse for each element in $\mathbb{Z}_5$. 
+	\item We compute the additive inverse for each element in $\mathbb{Z}_5$.
 	\begin{align*}
 		0 + 0 &\equiv 0 \\
 		1 + 4 &\equiv 0 \\
@@ -12,7 +12,7 @@
 		3 + 2 &\equiv 0 \\
 		4 + 1 &\equiv 0
 	\end{align*}
-	\item We compute the multiplicative inverse for each element in $\mathbb{Z}_5$. 
+	\item We compute the multiplicative inverse for each element in $\mathbb{Z}_5$.
 	\begin{align*}
 		1 \times 1 &\equiv 1 \\
 		2 \times 3 &\equiv 1 \\
@@ -29,7 +29,7 @@
 \bx{
 We are writing a formal definition for the \textit{infimum} of a set.
 \ea{
-	\item  $s = \inf A$ means 
+	\item  $s = \inf A$ means
 	\begin{enumerate}[label=\roman*)]
 		\item $s$ is a lower bound for $A$
 		\item if $b$ is any lower bound for $A$, then $b \leq s$
@@ -40,12 +40,12 @@ We are writing a formal definition for the \textit{infimum} of a set.
 		If $s=\inf A$, then $s$ is the greatest lower bound for $A$,
 		meaning any $s+ \epsilon$ for $\epsilon > 0$ will be greater than some element of $A$,
 		otherwise $s+ \epsilon$ is a greater lower bound and leads to a contradiction that$s \neq \inf A$.
-		
-		($\Leftarrow$) 
+
+		($\Leftarrow$)
 		If $\forall \epsilon > 0, \exists a \in A$ such that $s+\epsilon > a$,
 		then since $s$ is a lower bound, $\forall b > s$, $b$ will not be a lower bound for $A$
-		since if, $b > s$, then we can choose $\epsilon = b-s > 0$, and we know that 
-		$\exists a \in A$ where $a < s + \epsilon < b$, which means $b$ is not a lower bound. 
+		since if, $b > s$, then we can choose $\epsilon = b-s > 0$, and we know that
+		$\exists a \in A$ where $a < s + \epsilon < b$, which means $b$ is not a lower bound.
 		Thus, all lower bounds $b$ must be such that $b \leq s$,
 		and we conclude $s = \inf A$.
 	\end{proof}
@@ -55,21 +55,21 @@ We are writing a formal definition for the \textit{infimum} of a set.
 \bx{
 \ea{
 	\item Since $\inf A$ is a lower bound for $A$, we know $\inf A \in B$.
-	Now, we need to show $\inf A$ is the supremum of $B$. 
+	Now, we need to show $\inf A$ is the supremum of $B$.
 	$\inf A$ is the least upper bound for $B$, since if $\exists b \in B, b > \inf A$,
 	then we know that this $b$ is not a lower bound for $A$, so no such $b$ exists.
-	\item There might be a typo in this question. I think the question was meant to read 
-	``explain why there is no need to assert that the greatest \textit{lower bound} in the Axiom of Completeness.'' 
+	\item There might be a typo in this question. I think the question was meant to read
+	``explain why there is no need to assert that the greatest \textit{lower bound} in the Axiom of Completeness.''
 	In this case, the answer would be that the Axiom of Completeness already implies the greatest lower bound property,
 	so there is no need to explicitly state it.
-	\item We can take the negative of all elements in $A$, find $\sup A$, and then negate again to get $\inf A$.	
+	\item We can take the negative of all elements in $A$, find $\sup A$, and then negate again to get $\inf A$.
 }
 }
 
 \bx{
-If $B \subseteq A$, then 
+If $B \subseteq A$, then
 \begin{align*}
-	\sup A = 
+	\sup A =
 	s &\geq a, \forall a \in A \\
 	s &\geq b, \forall b \in B \tag{since $B\subseteq A$} \\
 	\Rightarrow\, s &\geq \sup B \tag{since $s$ is an upper bound for $B$}.
@@ -93,7 +93,8 @@ If $B \subseteq A$, then
 		&\Rightarrow\, \frac{s}{c} = \sup A \\
 		&s = c \sup A
 	\end{align*}
-  \item If $c < 0$, 
+
+  \item If $c < 0$,
     \begin{align*}
       \sup (cA) =\; &s \geq ca \;\forall ca \in (cA) \\
                     &\frac{s}{c} \leq a\; \forall a \in A \\
@@ -125,7 +126,7 @@ so $a$ is the least upper bound for $A$, and $a = \sup A$.
 Let \begin{equation}
 	\epsilon = \sup B - \sup A > 0.
 \end{equation}
-since $s_b = \sup B$, $\exists b \in B \mid b > s_b - \epsilon / 2$. Since $s_b - \frac{\epsilon}{2} > \sup A$, then $b \geq \sup A$, so this $b \in B$ is an upper bound for $A$.	
+since $s_b = \sup B$, $\exists b \in B \mid b > s_b - \epsilon / 2$. Since $s_b - \frac{\epsilon}{2} > \sup A$, then $b \geq \sup A$, so this $b \in B$ is an upper bound for $A$.
 }
 
 \bx{
