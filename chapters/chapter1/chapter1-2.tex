@@ -3,9 +3,9 @@
 
 \bx{
 \ea{
-	\item 
+	\item
 	\begin{proof}
-		AFSOC $\sqrt{3}$ is rational, so $\exists m, n \in \mathbb{Z}$ such that 
+		AFSOC $\sqrt{3}$ is rational, so $\exists m, n \in \mathbb{Z}$ such that
 		\begin{equation*}
 			\sqrt{3} = \frac{m}{n},
 		\end{equation*}
@@ -20,8 +20,8 @@
 	\end{proof}
 	The same proof for $\sqrt{3}$ works for $\sqrt{6}$ as well.
 
-	\item We cannot conclude that $\sqrt{4} = \frac{m}{n}$ implies that 
-	$m$ is a multiple of $4$, since we have 
+	\item We cannot conclude that $\sqrt{4} = \frac{m}{n}$ implies that
+	$m$ is a multiple of $4$, since we have
 	\begin{equation*}
 		4n^2 = m^2 \quad \Rightarrow \quad 2n = m,
 	\end{equation*}
@@ -32,16 +32,16 @@
 
 \bx{
 \ea{
-	\item False. Consider 
+	\item False. Consider
 	\begin{equation*}
 		A_n = \left[0, \frac{1}{n}\right).
 	\end{equation*}
-	Then 
+	Then
 	\begin{equation*}
 		\bigcap_{n=1}^\infty A_n = \{0\}.
 	\end{equation*}
 	\item True. Since $\forall i, A_i \subseteq A_1$, $\exists x$ such that $\forall i, x \in A_i$.
-	Therefore, the intersection cannot be empty. Then, every set is finite, and the intersection of 
+	Therefore, the intersection cannot be empty. Then, every set is finite, and the intersection of
 	any number of finite sets will be finite.
 	\item False. Consider $A = \{1, 2\}, B = \{1\}, C = \{2, 3\}$.
 	\begin{equation*}
@@ -56,25 +56,25 @@
 	\item True. Intersection is associative.
 	\item True. Intersection is distributive over union.
 	\begin{proof}
-		We will prove 
+		We will prove
 		\begin{equation}
 			A \cap \pa{B \cup C} = \pa{A \cap B} \cup \pa{A \cap C}
 			\label{eq:set_distributive}
 		\end{equation}
-		by set inclusion. 
+		by set inclusion.
 
 		\begin{itemize}
 			\item Suppose $x \in A \cap \pa{B \cup C}$. By the definition of intersection,
 			we know $x \in A$ and $x \in B \cup C$, the latter which means $x \in B$ or $x \in C$.
-			
+
 			We can consider 2 cases for $x$,
 
 			\begin{enumerate}[label=\arabic*.]
-				\item $x \in B$. Then we know  $x \in A$ and $x \in B$, so $x \in A \cap B$ and therefore $x \in \pa{A \cap B} \cup \pa{A \cap C}$ 
+				\item $x \in B$. Then we know  $x \in A$ and $x \in B$, so $x \in A \cap B$ and therefore $x \in \pa{A \cap B} \cup \pa{A \cap C}$
 				\item $x \in C$. Symmetric to the case above.
 			\end{enumerate}
 
-			in all cases, we see $x \in A \cap \pa{B \cup C}$ implies $x \in \pa{A \cap B} \cup \pa{A \cap C}$, so 
+			in all cases, we see $x \in A \cap \pa{B \cup C}$ implies $x \in \pa{A \cap B} \cup \pa{A \cap C}$, so
 			\begin{equation*}
 				A \cap \pa{B \cup C} \subseteq \pa{A \cap B} \cup \pa{A \cap C}
 			\end{equation*}
@@ -86,9 +86,9 @@
 				Putting these facts together, we see $x \in A \cap \pa{B \cup C}$.
 				\item $x \in A \cap C$. Symmetric to the case above.
 			\end{enumerate}
-			in all cases, we see $x \in \pa{A \cap B} \cup \pa{A \cap C}$ implies $x \in A \cap \pa{B \cup C}$, so 
+			in all cases, we see $x \in \pa{A \cap B} \cup \pa{A \cap C}$ implies $x \in A \cap \pa{B \cup C}$, so
 			\begin{equation*}
-				\pa{A \cap B} \cup \pa{A \cap C} \subseteq A \cap \pa{B \cup C} 
+				\pa{A \cap B} \cup \pa{A \cap C} \subseteq A \cap \pa{B \cup C}
 			\end{equation*}
 		\end{itemize}
 	\end{proof}
@@ -103,10 +103,10 @@
 		\item $x \in A$. Symmetric to above.
 		\item $x \not\in A$ and $x \not\in B$. Then $x \in A^c$ so $x \in A^c \cup B^c$.
 	\end{itemize}
-	
+
 	\item If $x \in A^c \cup B^c$, then we have cases
 	\begin{itemize}
-		\item $x \in A^c$. Then $x \not\in A$ so $x$ cannot be in the intersection of $A$ and $B$, so 
+		\item $x \in A^c$. Then $x \not\in A$ so $x$ cannot be in the intersection of $A$ and $B$, so
 		$x \in \pa{A \cap B}^c$.
 		\item $x \in B^c$. Symmetric to above.
 	\end{itemize}
@@ -117,7 +117,7 @@
 \bx{
 We are verifying the triangle inequality with $a, b$.
 \ea{
-	\item If $a, b$ have the same sign, then 
+	\item If $a, b$ have the same sign, then
 	\begin{align*}
 		\abs{a + b} &= a+b\\
 		\abs{a} + \abs{b} &= a + b\\
@@ -127,25 +127,40 @@ We are verifying the triangle inequality with $a, b$.
 
 	\label{ex_triangle_ineq_same_sign}
 
-	\item 
-	\begin{itemize}
-		\item $a \geq 0, b < 0$.
+	\item  If we have $a \geq 0, b < 0, a + b \geq 0$, then
 		\begin{align*}
-			\abs{a + b} 
-			&\leq \abs{a}\\
+			a + b
+			&\leq a\\
+			\Rightarrow\, \abs{a+b} &\leq \abs{a} \tag{Since they are both $\geq 0$}\\
 			&\leq \abs{a} + \abs{b}
 		\end{align*}
 
-		\item $a + b \geq 0$.
-		At most one of $a, b$ is negative. If they are both positive, then 
-		we have already shown this in part \ref{ex_triangle_ineq_same_sign}.
-		Otherwise, WLOG $a$ is negative. Then 
-		\begin{align*}
-			\abs{a + b} 
-			&\leq \abs{b}\\
-			&\leq \abs{a} + \abs{b}
-		\end{align*}
-	\end{itemize}
+		Looks like I misinterpreted the question and saw $a + b \geq 0$ as a separate case.
+		Since the triangle inequality works in all cases for $a, b$, we can still prove this separate condition.
+
+		Otherwise, at most one of $a, b$ is negative.
+
+		If they are non-negative, we have already shown this in part \ref{ex_triangle_ineq_same_sign}.
+		Otherwise, WLOG $a$ is negative. Then we have two cases,
+
+		\begin{enumerate}
+			\item $\abs{a} \leq \abs{b}$.
+			\begin{align*}
+				a + b
+				&\leq b\\
+				\Rightarrow\,\abs{a + b}
+				&\leq \abs{b} \tag{Since $a + b \geq 0, b \geq 0$}\\
+				&\leq \abs{a} + \abs{b}
+			\end{align*}
+			\item $\abs{a} > \abs{b}$.
+			\begin{align*}
+				a + b
+				&\geq a\\
+				\Rightarrow\,\abs{a + b}
+				&\leq \abs{a} \tag{Since $a + b \leq 0, a \leq 0$}\\
+				&\leq \abs{a} + \abs{b}
+			\end{align*}
+		\end{enumerate}
 }
 }
 
@@ -153,11 +168,11 @@ We are verifying the triangle inequality with $a, b$.
 \ea{
 	\item Substitute in $b' = -b$ into the triangle inequality.
 	\item Easy to prove directly without using triangle inequality. \TODO.
-	
+
 	A direct proof will look something like:
 	\begin{itemize}
-		\item If $a, b$ are the same sign, then equality holds 
-		\item If $a, b$ are different signs, then if $b$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, 
+		\item If $a, b$ are the same sign, then equality holds
+		\item If $a, b$ are different signs, then if $b$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$,
 		and if $a$ is negative, then $\abs{a-b} = \abs{a} + \abs{b}$, both of which bound $\abs{\abs{a} - \abs{b}}$.
 	\end{itemize}
 }
@@ -198,7 +213,7 @@ Negating statements. Took some liberties. Also notice that these statements are 
 }
 
 \bx{
-We are given the sequence 
+We are given the sequence
 \begin{equation}
 	x_1 = 1, x_{n+1} = \frac{1}{2}x_{n} + 1
 \end{equation}
@@ -229,8 +244,8 @@ An alternative that the book probably wants to see is using \textbf{induction}.
 }
 
 \bx{
-	A combinatorial argument is that in order to construct a set, we have 2 choices for every element, 
-	to include it or not to. Therefore, we have 
+	A combinatorial argument is that in order to construct a set, we have 2 choices for every element,
+	to include it or not to. Therefore, we have
 	\begin{equation*}
 		\prod_{i=1}^n 2 = 2^n
 	\end{equation*}
@@ -238,7 +253,7 @@ An alternative that the book probably wants to see is using \textbf{induction}.
 
 \bx{
 \ea{
-	\item We know that $\pa{A_1 \cup A_2}^c = A_1^c \cap A_2^c$. So if we are trying to show 
+	\item We know that $\pa{A_1 \cup A_2}^c = A_1^c \cap A_2^c$. So if we are trying to show
 	$\pa{A_1 \cup A_2 \cup A_3}^c = \pa{A_1 \cup A_2}^c \cap A_3^c = A_1^c \cap A_2^c \cap A_3^c$.
 	Induction lets us apply the property on smaller parts of our expression.
 	\item Induction only proves the property for some $n \in \mathbb{N}$, i.e. some finite $n$. It is not shown for an infinite $n$.
