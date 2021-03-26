@@ -1,21 +1,15 @@
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amssymb}
-\usepackage{amstext} % for \text macro
-\usepackage{array}   % for new column macro
-\usepackage{commath}
+\usepackage{geometry}
+\usepackage{babel}
+\usepackage{microtype}
+\usepackage{mathtools, amssymb}
 \usepackage{enumitem}
-\usepackage{fancyhdr} %for the top header
 \usepackage{forest}
 \usepackage{float}
-\usepackage{fancyhdr}
 \usepackage{graphicx}
-\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
-\usepackage{lastpage} %literally just for last page
-\usepackage{mathtools}
 \usepackage[standard]{ntheorem}
 \usepackage[super]{nth}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16}
+\pgfplotsset{compat=newest}
 \usepackage{physics}
 \usepackage{siunitx}
 \usepackage{subfig}
@@ -26,7 +20,9 @@
 \usepackage{titling}
 \usepackage{verbatim}
 \usepackage{xspace}
-
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref} % allow for URL wrapping
+\usepackage{cleveref}
 %custom math shortcuts
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\sign}{sign}
@@ -38,26 +34,14 @@
 \newcommand{\pa}[1]{\paren*{#1}}
 \newcommand{\pbra}[1]{\bracken*{#1}}
 \newcommand{\pbrac}[1]{\bracen*{#1}}
+% theorem-like env setup
 
-%custom symbols
-\def\checkmark{{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}\hspace{0.1in}} 
-
-\title{Understanding Analysis Solutions}
-\author{Michael You}
-\date{}
-
-% Exercise theorem env
 \theoremstyle{break}
 \theorembodyfont{\upshape} % No italics in body font
-\newtheorem{exercise}{Exercise}[section]
+\newtheorem{exercise}{Exercise}[section]  % Exercise theorem env
 \newtheorem{tip}{Tip}[section]
 \newtheorem{identity}{Identity}[section]
 
-% Shortcuts for ^, ~, and programming font
-\newcommand{\tat}{{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}} %tilde
-\newcommand{\tac}{\textasciicircum} %XOR
-\newcommand{\te}[1]{\texttt{#1}} %for programming font
-\newcommand{\lra}{\Longrightarrow} % ==>
 
 % Environment Shortcuts
 \newcommand{\bx}[1]{\begin{exercise} #1 \end{exercise}}
@@ -71,3 +55,11 @@
 
 % Pathing
 \newcommand{\subDir}[1]{chapters/chapter\currChapter/chapter\currChapter-#1}
+
+% Margins & layout
+\setlrmarginsandblock{1in}{*}{1}
+\setulmarginsandblock{1in}{*}{1}
+\checkandfixthelayout[nearest]
+\renewcommand*{\cftdotsep}{1} % adjustment for the ToC
+\setpnumwidth{2em}
+\setrmarg{4em}
