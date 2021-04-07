@@ -13,16 +13,16 @@ If $a<0$, then we have two cases,
 
 \bx{
 \ea{
-\item If $a, b \in \mathbb{Q}$, then 
+\item If $a, b \in \mathbb{Q}$, then
 \begin{align*}
 	a &= \frac{a_1}{a_2} \\
 	b &= \frac{b_1}{b_2} \\
-	\lra a + b &= \frac{a_1b_2 + a_2b_1}{a_2b_2} \in \mathbb{Q}
+	\implies a + b &= \frac{a_1b_2 + a_2b_1}{a_2b_2} \in \mathbb{Q}
 \end{align*}
-\item We can use contradiction, 
+\item We can use contradiction,
 \begin{itemize}
 	\item \AFSOC $a + t \in \mathbb{Q}$. Let $a+t = \frac{m}{n}$.
-	We know $a = \frac{a_1}{a_2}$ since $a \in \mathbb{Q}$, so 
+	We know $a = \frac{a_1}{a_2}$ since $a \in \mathbb{Q}$, so
 	\begin{align*}
 		a + t &= \frac{m}{n}\\
 		t &= \frac{m}{n} - \frac{a_1}{a_2} \in \mathbb{Q},
@@ -30,9 +30,9 @@ If $a<0$, then we have two cases,
 	which is a contradiction since we are given $t \in \mathbb{Q}$.
 	Therefore, we conclude $a + t \in \mathbb{I}$.
 
-	\item \AFSOC $at \in \mathbb{Q}$. 
+	\item \AFSOC $at \in \mathbb{Q}$.
 	Let $at = \frac{m}{n}$.
-	We know $a = \frac{a_1}{a_2}$ since $a \in \mathbb{Q}$, so 
+	We know $a = \frac{a_1}{a_2}$ since $a \in \mathbb{Q}$, so
 	\begin{align*}
 		at &= \frac{m}{n}\\
 		t &= \frac{m}{n}\cdot\frac{a_2}{a_1} \in \mathbb{Q},
@@ -51,7 +51,7 @@ If $a<0$, then we have two cases,
 
 \bx{
 	We can apply Theorem 1.4.3, to find $a < q < b, q \in \mathbb{Q}$,
-	and then subtract an irrational number such as $\sqrt{2}$ to end up at 
+	and then subtract an irrational number such as $\sqrt{2}$ to end up at
 	\begin{equation}
 		a - \sqrt{2} < q - \sqrt{2} < b - \sqrt{2},
 	\end{equation}
@@ -59,7 +59,7 @@ If $a<0$, then we have two cases,
 }
 
 \bx{
-Suppose $\exists b$ lower bound such that $b > 0$. 
+Suppose $\exists b$ lower bound such that $b > 0$.
 Then by Archimedean Property of $\mathbb{R}$, $\exists n \in \mathbb{N}$
 such that $\frac{1}{n} < b$, which means $b$ is not a valid lower bound.
 Thus $b \leq 0$, and 0 is a valid lower bound so the $\inf$ is 0.
@@ -70,13 +70,13 @@ Thus $b \leq 0$, and 0 is a valid lower bound so the $\inf$ is 0.
 Then $\alpha >0$, but by Archimedean property of reals,
 we have that $\exists n \in \mathbb{N} \mid \frac{1}{n} < \alpha$.
 Since $\alpha \not\in \pa{0, \frac{1}{n}}$ leads to
-$\alpha \not\in \bigcap_{n=1}^\infty (0, \frac{1}{n})$, 
+$\alpha \not\in \bigcap_{n=1}^\infty (0, \frac{1}{n})$,
 a contradiction, we conclude the set is empty.
 }
 
 \bx{
 \ea{
-\item If $\alpha^2 > 2$, then 
+\item If $\alpha^2 > 2$, then
 \begin{align*}
 	\pa{a - \frac{1}{n}}^2 &= \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} \\
 	&> \alpha^2 - \frac{2\alpha}{n}
@@ -120,7 +120,7 @@ The set of all finite subsets of $\mathbb{N}$ can be ordered in increasing order
 \bx{
 \ea{
 	\item $f(x) = (x, 0.5) \in S$
-	\item Interweave the decimal expansion of $x, y$, e.g. 
+	\item Interweave the decimal expansion of $x, y$, e.g.
 	\begin{equation}
 		f(x, y) = 0.x_1y_1x_2y_2x_3y_3\dots
 	\end{equation}
@@ -135,12 +135,12 @@ The set of all finite subsets of $\mathbb{N}$ can be ordered in increasing order
 \end{align*}
 $\sqrt{3} + \sqrt{2}$ is not as trivial, so we will do it out in more steps.
 
-There are two approaches to finding the integer coefficient polynomial. One is to take advantage of symmetry, and derive that 
+There are two approaches to finding the integer coefficient polynomial. One is to take advantage of symmetry, and derive that
 \begin{equation}
 \prod (x - (\pm \sqrt{3} \pm \sqrt{2})
 \label{eq:chap1_sym}
 \end{equation}
-will work (using loose notation of course). A more general technique is to notice that 
+will work (using loose notation of course). A more general technique is to notice that
 \begin{align*}
 	x &= \sqrt{3} + \sqrt{2} \\
 	x^2 &= 5 + 2\sqrt{6} \\
@@ -148,7 +148,7 @@ will work (using loose notation of course). A more general technique is to notic
 	x^4 - 10x^2 + 1 &= 0.
 \end{align*}
 Notice that this is actually the exact same answer we get in (\ref{eq:chap1_sym}) if you work it out.
-\item Each element of $A_n$ is a root of a $n$ degree polynomial, which we can represent 
+\item Each element of $A_n$ is a root of a $n$ degree polynomial, which we can represent
 as an $(n+1)$-tuple of coefficients $\in \mathbb{Z}$. Therefore, $\abs{A_n} = k\abs{\mathbb{N}^{n+1}} = \abs{\mathbb{N}^{n+1}}$,
 which we know is countable.
 \item We proved earlier in Theorem 1.4.13 that a countably infinite union of countable sets is countable. Since there are a countable number of algebraic numbers, and reals are uncountable, we conclude that transcendentals are also uncountable.
@@ -156,12 +156,12 @@ which we know is countable.
 }
 
 \bx{
-We are proving the \textbf{Schro\"{o}der-Bernstein Theorem}, which states if 
-there exist 1-to-1 functions $f:X\rightarrow Y$ and $g: Y \rightarrow X$, then 
+We are proving the \textbf{Schro\"{o}der-Bernstein Theorem}, which states if
+there exist 1-to-1 functions $f:X\rightarrow Y$ and $g: Y \rightarrow X$, then
 there exists a 1-to-1, onto function $h: X \rightarrow Y$, which implies $X \sim Y$.
 \ea{
 \item By the definition of 1-to-1, there must be a unique $x \in X$ such that $f(x) = y$.
-A 1-to-1 function maps distinct elements from the domain to distinct elements of the range, so if we 
+A 1-to-1 function maps distinct elements from the domain to distinct elements of the range, so if we
 take the inverse $f^{-1}$, it will still be 1-to-1, this time from $Y\rightarrow X$.
 \label{problem_1_4_13:parta}
 
@@ -174,38 +174,38 @@ take the inverse $f^{-1}$, it will still be 1-to-1, this time from $Y\rightarrow
 \end{itemize}
 \label{problem_1_4_13:partb}
 
-\item We have 2 cases 
+\item We have 2 cases
 \begin{itemize}
 	\item The chains are disjoint. Nothing to prove here.
 	\item The chains are not disjoint, i.e. they have one common element. Let us call this element $x$.
 	We know to the right of $x$, all the elements in the two chains will be equal.
-	From the left of $x$, the elements must be equal as well. 
+	From the left of $x$, the elements must be equal as well.
 	This is because the inverse chain must be unique starting from $x$, see part \ref{problem_1_4_13:parta}.
 	Since all the elements are the same, the chains must be the same as well.
 \end{itemize}
 
 \item Since we know this chain started with $x\in X$, this $y$ could not have been created from the RHS,
-otherwise this $y$ would be in the range of $f$. 
+otherwise this $y$ would be in the range of $f$.
 Therefore, this chain either has infinite or a finite of elements to the right.
 \begin{itemize}
 	\item Finite: the chain must start with an element $y \not\in Y$ but not in $f$'s range.
 	This is because if we start with $x \in X$, then as mentioned before, all elements $y' \in Y$ will
 	be in $f$'s range.
 	Therefore, if we start with $y\in Y$, it will match the form indicated.
-	\item  Infinite: The chain could not have an infinite elements to the left, because then 
+	\item  Infinite: The chain could not have an infinite elements to the left, because then
 	every $y$ must have come from an $f(x')$ for some $x' \in X$.
 \end{itemize}
-Therefore, these chains only can have a finite number of elements to the left, and it matches the 
+Therefore, these chains only can have a finite number of elements to the left, and it matches the
 form indicated.
 
-\item By the definition of $C_x$, all the elements of $y \in C_x$ that are $\in Y$ 
-are mapped by $f$ from $x \in X_1$. This means $f$ maps $X_1$ onto $Y_1$. Similar logic can 
+\item By the definition of $C_x$, all the elements of $y \in C_x$ that are $\in Y$
+are mapped by $f$ from $x \in X_1$. This means $f$ maps $X_1$ onto $Y_1$. Similar logic can
 be used for $g$ mapping $Y_2$ onto $X_2$.
 
 Since we know $f$ is a 1-to-1 function from $X$ to $Y$, and we just showed it maps $X_1$ to $Y_1$.
 We can conclude that $X_1 \sim Y_1$, since $f$ is a bijection between $X_1$ and $Y_1$.
 We can similarly conclude $X_2 \sim Y_2$ with $g$.
-Since $X_1, X_2$ are a partition of $X$, since all the chains are disjoint, and similarly for $Y_1, Y_2$ of $Y$, and there exists a bijection 
+Since $X_1, X_2$ are a partition of $X$, since all the chains are disjoint, and similarly for $Y_1, Y_2$ of $Y$, and there exists a bijection
 $f, g$ for $X_1 \sim Y_1$ and $X_2 \sim Y_2$ respectively, we conclude there must be a bijection between $X$ and $Y$.
 Therefore, we conclude $X \sim Y$.
 
@@ -220,14 +220,14 @@ Therefore, we conclude $X \sim Y$.
 		\draw (\ellipseX+2, \ellipseY) node[above] {$Y$};
 		\draw (-\ellipseX, 0) -- (\ellipseX, 0);
 		\draw (2, 0) -- (2*\ellipseX+2, 0);
-		\draw[<->] 
-			(0, \ellipseY/2) node[below] {$X_1$} -- 
-			(\ellipseX+2, \ellipseY/2) node[below] {$Y_1$} 
+		\draw[<->]
+			(0, \ellipseY/2) node[below] {$X_1$} --
+			(\ellipseX+2, \ellipseY/2) node[below] {$Y_1$}
 			node[midway, above] {$f$}
 		;
-		\draw[<->] 
-			(0, -\ellipseY/2) node[above] {$X_2$} -- 
-			(\ellipseX+2, -\ellipseY/2) node[above] {$Y_2$} 
+		\draw[<->]
+			(0, -\ellipseY/2) node[above] {$X_2$} --
+			(\ellipseX+2, -\ellipseY/2) node[above] {$Y_2$}
 			node[midway, above] {$g$}
 		;
 	\end{tikzpicture}
