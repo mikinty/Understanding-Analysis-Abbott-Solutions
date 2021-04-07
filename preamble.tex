@@ -5,7 +5,6 @@
 \usepackage{float}
 \usepackage{graphicx}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} % allow for URL wrapping
-\usepackage{lastpage} %literally just for last page
 \usepackage{mathtools}
 \usepackage[standard]{ntheorem}
 \usepackage[super]{nth}
@@ -22,7 +21,11 @@
 \usepackage{verbatim}
 \usepackage{xspace}
 
-%custom math shortcuts
+\title{Understanding Analysis Solutions}
+\author{Michael You}
+\date{}
+
+% Custom math shortcuts
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\sign}{sign}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
@@ -34,24 +37,12 @@
 \newcommand{\pbra}[1]{\bracken*{#1}}
 \newcommand{\pbrac}[1]{\bracen*{#1}}
 
-%custom symbols
-\def\checkmark{{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}\hspace{0.1in}}
-
-\title{Understanding Analysis Solutions}
-\author{Michael You}
-\date{}
-
 % Exercise theorem env
 \theoremstyle{break}
 \theorembodyfont{\upshape} % No italics in body font
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem{tip}{Tip}[section]
 \newtheorem{identity}{Identity}[section]
-
-% Shortcuts for ^, ~, and programming font
-\newcommand{\tat}{{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}} %tilde
-\newcommand{\tac}{\textasciicircum} %XOR
-\newcommand{\te}[1]{\texttt{#1}} %for programming font
 
 % Environment Shortcuts
 \newcommand{\bx}[1]{\begin{exercise} #1 \end{exercise}}
