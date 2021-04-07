@@ -3,18 +3,18 @@
 \setcounter{exercise}{0}
 
 \bx{
-Suppose we have a convergent sequence with limit $l$. 
-Then given any $\epsilon > 0$, we can always find $N: n \geq N$ such that 
-$\abs{a_n - l} < \epsilon$. 
+Suppose we have a convergent sequence with limit $l$.
+Then given any $\epsilon > 0$, we can always find $N: n \geq N$ such that
+$\abs{a_n - l} < \epsilon$.
 For any subsequence of $(a_n)$, $(a'_m)$, any element of this subsequence,
 call it $a'_k$ will be from some $a_n$ in the original sequence,
-where $n \geq k$. So we can choose $N$ from earlier, and for $m \geq N$ 
+where $n \geq k$. So we can choose $N$ from earlier, and for $m \geq N$
 we will have $\abs{a'_m - l} < \epsilon$.
 }
 
 \bx{
 \ea{
-	\item Define 
+	\item Define
 \begin{align}
 	s_i &= \sum_{j=1}^{i} a_j  \\
 	b_i &= \sum_{k=1}^{i} a_{n_k},
@@ -54,9 +54,9 @@ where the series regrouping $a_i$ is divided into groups of $n_1, n_2, \dots$. T
 
 \bx{
 	\AFSOC $(a_n)$ converges to $b \neq a$. Then we have that $\abs{a_n - b}$ can be arbitrarily small. But this implies that every subsequence will also converge to $b$, which is a contradiction.
-	
-	\AFSOC $(a_n)$ does not converge. Then since $(a_n)$ is bounded, we must have an infinite number of elements in 
-	two different $\epsilon$-neighborhoods. But this would imply we have convergent subsequences to different limits, 
+
+	\AFSOC $(a_n)$ does not converge. Then since $(a_n)$ is bounded, we must have an infinite number of elements in
+	two different $\epsilon$-neighborhoods. But this would imply we have convergent subsequences to different limits,
 	which contradicts the original problem statement.
 
 	Therefore, we conclude $(a_n)$ converges to $a$.
@@ -67,7 +67,7 @@ Consider $\abs{b^n}$. Since $\abs{b}<1$, we have that $\abs{b^n}$ is a decreasin
 \begin{equation*}
 	\abs{b} > l \geq 0.
 \end{equation*}
-We notice that $\abs{b^{2n}}$ is a subsequence that also converges to $L$, and since $\abs{b^{2n}} = \abs{b}^2$, by the Algebraic Limit Theorem, we have that $\abs{b^{2n}} \rightarrow l^2 = l \lra l = 0$. Since $\abs{b^n} \rightarrow 0$, we conclude $b^n \rightarrow 0$.
+We notice that $\abs{b^{2n}}$ is a subsequence that also converges to $L$, and since $\abs{b^{2n}} = \abs{b}^2$, by the Algebraic Limit Theorem, we have that $\abs{b^{2n}} \rightarrow l^2 = l \implies l = 0$. Since $\abs{b^n} \rightarrow 0$, we conclude $b^n \rightarrow 0$.
 }
 
 \bx{
