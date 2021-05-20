@@ -10,6 +10,8 @@ folder of the repo.
 
 If you want to contribute, feel free to fork and submit a PR!
 
+Lastly, if you found this guide helpful, consider [buying me a coffee](https://www.buymeacoffee.com/mikinty)!
+
 ## Why should I read this?
 
 While the official solutions may be more accurate, they may be dense and hard
