@@ -1,11 +1,21 @@
 # Contributing 
 
+In order to contribute this repo, you have to
+
+1. Fork this repo into your own
+2. Contribute to the forked repo
+3. Make a pull request to this repo
+4. If approved, I'll merge in your changes to this repo
+
+## General Advice
+
 Try to make your solutions as explanatory as possible. Since Abbott wrote this
 textbook to be very easy to read, it would also be nice for the solutions to be
 an easy read as well.
 
 Some guidelines:
  
- - Try to use good LaTeX coding practices
+ - Please use good LaTeX coding practices
+ - Please use good coding guidelines, e.g. proper use of brackets, indentation, coding style etc.
  - Use `definitions`, `lemmas`, `theorems` where appropriate
  - If you need to label equations, try to use names that will not likely be used again
