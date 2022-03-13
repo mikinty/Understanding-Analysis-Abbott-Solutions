@@ -12,13 +12,16 @@ Let $\epsilon > 0$. Consider $n \geq 1$, then
 
 \bx{
 \ea{
-\item  We are given $(x_n) \rightarrow 0$, so we can make $\abs{x_n - 0}$ as small as we want.
+\item  We are given $(x_n) \rightarrow 0$, so we can make $\abs{x_n - 0}$ as small as we want with sufficiently large $N$.
 
 In particular, for some $\epsilon > 0$, we choose $N$ such that $\forall n \geq N$,
-\begin{equation}
-	\abs{x_n} < \epsilon^2 \quad \Rightarrow \quad \abs{\sqrt{x_n}} < \epsilon
-	\label{eq:chap2_sqrt_ineq}
-\end{equation}
+\begin{align*}
+	\abs{x_n - 0} < \epsilon^2
+		&\implies x_n < \epsilon^2\\
+		&\implies \sqrt{x_n} < \sqrt{\epsilon^2}\\
+		&\implies \abs{\sqrt{x_n}} < \epsilon \tag{$\sqrt{x_n} > 0$}
+\label{eq:chap2_sqrt_ineq}
+\end{align*}
 The implication follows since we know $x_n \geq 0, \epsilon > 0$.
 
 To see that this $N$ works, observe that for all $n \geq N$,
@@ -31,7 +34,7 @@ so we conclude \((\sqrt{x_n}) \rightarrow 0\).
 
 \item We have two cases. If the sequence converges to 0, then we just have part \ref{chap2:converging_zero}.
 
-If $x \neq 0$, then notice
+If $x \neq 0$, then we must have $x > 0$ since $x_n \geq 0$. Now, notice
 \begin{equation*}
 	\abs{
 		\sqrt{x_n} - \sqrt{x}
