@@ -2,7 +2,7 @@
 
 These are unofficial solutions for _Understanding Analysis_ by Abbott.
 From #3, I think we've agreed that these are for the 1st Edition. 
-For the second edition solutions, please look for forks by other contributors.
+For the second edition solutions, please look for forks by other contributors; https://github.com/ulissemini/understanding-analysis-solutions mentioned in #3 might be your best bet.
 I started these solutions since I was self-studying real analysis,
 and felt that I might as well give the problems an effort by writing
 out solutions.
