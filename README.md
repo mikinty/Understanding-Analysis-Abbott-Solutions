@@ -33,7 +33,7 @@ current students taking Real Analysis.
 
 After this intro Analysis course, "Baby Rudin" aka [Principles of Mathematical Analysis](https://amzn.to/38XdOsD) is probably your best bet. I'm currently working on [solutions to that text](https://github.com/mikinty/Baby-Rudin-Solutions).
 
-Studying Topology is also a good way to continue the education past analysis, and [Topology by Munkres](https://amzn.to/3Gt1zAu) is a classic text in thie regard. I'm working on those [solutions here](https://github.com/mikinty/Topology-Munkres-Solutions) (but beware I'm prioritizing work on Baby Rudin first).
+Studying Topology is also a good way to continue the education past analysis, and [Topology by Munkres](https://amzn.to/3Gt1zAu) is a classic text in this regard. I'm working on those [solutions here](https://github.com/mikinty/Topology-Munkres-Solutions) (but beware I'm prioritizing work on Baby Rudin first).
 
 ## TODOs
 
