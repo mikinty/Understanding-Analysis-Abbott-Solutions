@@ -1,6 +1,6 @@
 # Understanding Analysis Solutions
 
-These are unofficial solutions for [_Understanding Analysis_ by Abbott](https://amzn.to/3wXODiO).
+These are unofficial solutions for [_Understanding Analysis_ by Abbott](https://amzn.to/3O6SccG).
 From [#3](https://github.com/mikinty/Understanding-Analysis-Abbott-Solutions/issues/3), I think we've agreed that these are for the 1st Edition. 
 For the second edition solutions, please look for forks by other contributors; [solutions by `ulissemini`](https://github.com/ulissemini/understanding-analysis-solutions) mentioned in [#3](https://github.com/mikinty/Understanding-Analysis-Abbott-Solutions/issues/3) might be your best bet.
 I started these solutions since I was self-studying real analysis,
@@ -31,9 +31,9 @@ current students taking Real Analysis.
 
 ## Beyond
 
-After this intro Analysis course, "Baby Rudin" aka [Principles of Mathematical Analysis](https://amzn.to/38XdOsD) is probably your best bet. I'm currently working on [solutions to that text](https://github.com/mikinty/Baby-Rudin-Solutions).
+After this intro Analysis course, "Baby Rudin" aka [Principles of Mathematical Analysis](https://amzn.to/3OqxhkB) is probably your best bet. I'm currently working on [solutions to that text](https://github.com/mikinty/Baby-Rudin-Solutions).
 
-Studying Topology is also a good way to continue the education past analysis, and [Topology by Munkres](https://amzn.to/3Gt1zAu) is a classic text in this regard. I'm working on those [solutions here](https://github.com/mikinty/Topology-Munkres-Solutions) (but beware I'm prioritizing work on Baby Rudin first).
+Studying Topology is also a good way to continue the education past analysis, and [Topology by Munkres](https://amzn.to/3HFIdsj) is a classic text in this regard. I'm working on those [solutions here](https://github.com/mikinty/Topology-Munkres-Solutions) (but beware I'm prioritizing work on Baby Rudin first).
 
 ## TODOs
 
