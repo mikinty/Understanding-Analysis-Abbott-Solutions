@@ -35,6 +35,8 @@ After this intro Analysis course, "Baby Rudin" aka [Principles of Mathematical A
 
 Studying Topology is also a good way to continue the education past analysis, and [Topology by Munkres](https://amzn.to/3HFIdsj) is a classic text in this regard. I'm working on those [solutions here](https://github.com/mikinty/Topology-Munkres-Solutions) (but beware I'm prioritizing work on Baby Rudin first).
 
+I also [wrote solutions](https://github.com/mikinty/Axler-Linear-Algebra-Solutions) to [Linear Algebra Done Right by Axler](https://amzn.to/3xYTNdP).
+
 ## TODOs
 
 I use `\TODO` to mark the problems that need work or don't have solutions.
